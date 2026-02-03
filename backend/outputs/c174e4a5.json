@@ -30,27 +30,6 @@
   "top_districts": [
     {
       "name": "Ixelles",
-      "micro_anchors": [
-        "Flagey Square",
-        "Place Fernand Cocq"
-      ],
-      "microhoods": [
-        {
-          "name": "Bailli",
-          "why": "Bailli offers trendy cafes and brunch spots along with lively restaurants.",
-          "watch_out": "Watch out for parking scarcity and noise during weekends."
-        },
-        {
-          "name": "Place Flagey",
-          "why": "Place Flagey features green spaces and excellent transport connections for families.",
-          "watch_out": "Be cautious of higher property prices amid demand."
-        },
-        {
-          "name": "Châtelain",
-          "why": "Châtelain is known for its local markets and vibrant community atmosphere.",
-          "watch_out": "Expect noise during market days and events."
-        }
-      ],
       "why": [
         "Ixelles has diverse dining options and a lively cultural scene anchored by Flagey Square.",
         "The area is family-friendly with parks such as Place Flagey for recreation."
@@ -69,27 +48,6 @@
     },
     {
       "name": "Etterbeek",
-      "micro_anchors": [
-        "Parc du Cinquantenaire",
-        "Place Jourdan"
-      ],
-      "microhoods": [
-        {
-          "name": "Arsenal",
-          "why": "Arsenal offers family-friendly parks and is close to restaurants and shops.",
-          "watch_out": "Be aware of mixed property conditions in some parts."
-        },
-        {
-          "name": "Place Jourdan",
-          "why": "Place Jourdan is famous for its international dining options and vibrant life.",
-          "watch_out": "Expect weekends to be busy due to events and crowds."
-        },
-        {
-          "name": "Cinquantenaire",
-          "why": "Cinquantenaire provides beautiful green spaces ideal for family activities.",
-          "watch_out": "Potential noise from nearby events in the park."
-        }
-      ],
       "why": [
         "Etterbeek offers great access to parks like Parc du Cinquantenaire for family outings.",
         "The area features many quiet streets with cafes and restaurants for relaxed living."
@@ -105,6 +63,27 @@
         "BudgetFit": 4,
         "Overall": 4
       }
+    },
+    {
+      "name": "—",
+      "why": [
+        "Fits your stated priorities.",
+        "Reasonable trade-off vs commute/budget."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
     }
-  ]
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [],
+  "clarifying_questions": [],
+  "real_estate_sites": [],
+  "agencies": []
 }

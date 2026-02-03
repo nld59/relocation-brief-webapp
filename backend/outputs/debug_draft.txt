@@ -1,138 +1,144 @@
 {
-  "client_profile": "A couple looking to buy an apartment in Brussels with a budget of 490,000–895,000 EUR. Priorities include cafes, expat community, value for money, and a residential, quiet environment.",
+  "client_profile": "A couple looking to buy a 1+ room apartment in Brussels, budget 490000–895000 EUR. Priorities include cafes, restaurants, family-friendly areas, and a residential, quiet environment.",
   "must_have": [
-    "2+ rooms in an apartment",
-    "Proximity to cafes and brunch spots",
-    "Access to expat community resources",
+    "1+ room apartment",
     "Quiet residential area",
-    "Value for money in housing"
+    "Access to cafes and brunch spots",
+    "Proximity to family-friendly amenities",
+    "Restaurants nearby"
   ],
   "nice_to_have": [
-    "Near parks or green spaces",
-    "Public transport accessibility",
-    "Easy access to supermarkets",
-    "Local restaurants and shops",
-    "Community events or gatherings"
+    "Balcony or terrace",
+    "Parking space",
+    "Good public transport access",
+    "Green spaces nearby",
+    "Modern kitchen amenities"
   ],
   "red_flags": [
-    "High noise levels in certain areas",
-    "Potential for budget limits to stretch",
-    "Long commutes due to location",
-    "Limited parking options",
-    "Extreme property price fluctuations"
+    "High noise levels in some areas",
+    "Potential budget stretch in premium districts",
+    "Limited availability of larger apartments",
+    "Property condition can vary significantly",
+    "Long commuting times in outer districts"
   ],
   "contradictions": [
-    "Quiet living may limit cafe options",
-    "Desirable expat areas can be expensive",
-    "Residential zones might have fewer brunch spots",
-    "Value for money may compromise space"
+    "Desire for quiet but also needs locations with vibrant cafes",
+    "Family-friendly needs may limit proximity to lively restaurants",
+    "Budget constraints might limit desirable residential areas",
+    "Urban lifestyle may collide with preference for spaciousness"
   ],
   "top_districts": [
     {
-      "name": "Schaerbeek",
-      "micro_anchors": ["Josaphat Park", "Parc de la Berlaymont", "Brussels North Station"],
+      "name": "Ixelles",
+      "micro_anchors": ["Flagey Square", "Place Fernand Cocq"],
       "microhoods": [
         {
-          "name": "Montgomery",
-          "why": "Montgomery is known for its quiet residential streets and easy access to cafes.",
-          "watch_out": "Consider potential commute times for expats working in central Brussels."
+          "name": "Bailli",
+          "why": "Bailli offers trendy cafes and brunch spots along with lively restaurants.",
+          "watch_out": "Watch out for parking scarcity and noise during weekends."
         },
         {
-          "name": "Meiser",
-          "why": "Meiser offers many public transport connections and a variety of brunch options.",
-          "watch_out": "Noise from nearby roads can be a concern during weekends."
+          "name": "Place Flagey",
+          "why": "Place Flagey features green spaces and excellent transport connections for families.",
+          "watch_out": "Be cautious of higher property prices amid demand."
         },
         {
-          "name": "Horta",
-          "why": "Horta is a tranquil area perfect for families and young couples seeking community.",
-          "watch_out": "Prices may be higher due to its desirable location and amenities."
+          "name": "Châtelain",
+          "why": "Châtelain is known for its local markets and vibrant community atmosphere.",
+          "watch_out": "Expect noise during market days and events."
         }
       ],
       "why": [
-        "Schaerbeek features lovely parks like Josaphat Park that promote outdoor living.",
-        "The neighborhood is well-connected for those commuting within Brussels."
+        "Ixelles has diverse dining options and a lively cultural scene anchored by Flagey Square.",
+        "The area is family-friendly with parks such as Place Flagey for recreation."
       ],
-      "watch_out": ["Expect higher demand which may elevate prices unexpectedly."],
+      "watch_out": [
+        "High property prices in trendy areas may exceed budget expectations."
+      ],
       "scores": {
-        "Safety": 4,
-        "Family": 5,
+        "Safety": 3,
+        "Family": 4,
         "Commute": 4,
-        "Lifestyle": 4,
+        "Lifestyle": 5,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Ixelles",
-      "micro_anchors": ["Place Flagey", "Parc Tenbosch", "Meersesteeg"],
-      "microhoods": [
-        {
-          "name": "Flagey",
-          "why": "Flagey is vibrant, offering numerous cafes and a youthful expat vibe.",
-          "watch_out": "The area can be lively at night, impacting tranquility."
-        },
-        {
-          "name": "L'Etang",
-          "why": "L'Etang is known for its lush parks and excellent brunch spots.",
-          "watch_out": "Parking difficulties may arise in popular areas."
-        },
-        {
-          "name": "Lesbroussart",
-          "why": "Lesbroussart combines residential charm with diverse dining and shopping options.",
-          "watch_out": "Property prices can be steep due to demand."
-        }
-      ],
-      "why": [
-        "Ixelles boasts a vibrant mix of cultures, ideal for an international community.",
-        "Easy access to parks and urban amenities creates a balanced lifestyle."
-      ],
-      "watch_out": ["Watch for rising prices, especially in trendy sections."],
-      "scores": {
-        "Safety": 3,
-        "Family": 4,
-        "Commute": 5,
-        "Lifestyle": 5,
-        "BudgetFit": 2,
-        "Overall": 4
-      }
-    },
-    {
       "name": "Etterbeek",
-      "micro_anchors": ["Parc du Cinquantenaire", "Place Jean Robie", "Square de la Pêche"],
+      "micro_anchors": ["Parc du Cinquantenaire", "Place Jourdan"],
       "microhoods": [
         {
-          "name": "Cinquantenario",
-          "why": "Cinquantenario is close to beautiful greenery and family-friendly activities.",
-          "watch_out": "Main roads can create noise disturbances during peak hours."
+          "name": "Arsenal",
+          "why": "Arsenal offers family-friendly parks and is close to restaurants and shops.",
+          "watch_out": "Be aware of mixed property conditions in some parts."
         },
         {
-          "name": "Avenue des Nerviens",
-          "why": "Avenue des Nerviens features cafes with a local charm and community vibe.",
-          "watch_out": "Limited public transport options may affect long commutes."
+          "name": "Place Jourdan",
+          "why": "Place Jourdan is famous for its international dining options and vibrant life.",
+          "watch_out": "Expect weekends to be busy due to events and crowds."
         },
         {
-          "name": "Tsofting",
-          "why": "Tsofting is residential and tranquil, making it suitable for families.",
-          "watch_out": "Prices may be slightly above your expected budget range."
+          "name": "Cinquantenaire",
+          "why": "Cinquantenaire provides beautiful green spaces ideal for family activities.",
+          "watch_out": "Potential noise from nearby events in the park."
         }
       ],
       "why": [
-        "Etterbeek is well-known for nearby parks, enhancing family-friendly living.",
-        "Strong community ties make it appealing for expats and newcomers."
+        "Etterbeek offers great access to parks like Parc du Cinquantenaire for family outings.",
+        "The area features many quiet streets with cafes and restaurants for relaxed living."
       ],
-      "watch_out": ["Traffic congestion during rush hours can be significant."],
+      "watch_out": [
+        "Parking can be limited, especially near popular dining areas."
+      ],
       "scores": {
         "Safety": 4,
         "Family": 5,
         "Commute": 4,
-        "Lifestyle": 3,
+        "Lifestyle": 4,
         "BudgetFit": 4,
-        "Overall": 4
+        "Overall": 5
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": ["Parc Georges Henri", "Woluwe Shopping Center"],
+      "microhoods": [
+        {
+          "name": "Lambermont",
+          "why": "Lambermont features quiet streets and family-friendly parks suitable for children.",
+          "watch_out": "Budget constraints may limit options in more desirable areas."
+        },
+        {
+          "name": "Woluwe Shopping Center",
+          "why": "This area offers convenient access to shops and dining, enhancing lifestyle quality.",
+          "watch_out": "Traffic can be heavy during shopping hours."
+        },
+        {
+          "name": "Parc de Woluwe",
+          "why": "Parc de Woluwe is great for outdoor activities and family picnics.",
+          "watch_out": "Seasonal events can bring extra visitors and noise."
+        }
+      ],
+      "why": [
+        "Woluwe-Saint-Lambert is known for its green spaces, making it ideal for families.",
+        "The area blends residential life with convenient amenities found at Woluwe Shopping Center."
+      ],
+      "watch_out": [
+        "Ensure budget aligns with property price trends in the district."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 5
       }
     }
   ],
   "real_estate_sites": [
     {
-      "name": "Immo Web",
-      "url": "https://www.immo-web.be",
-      "note": "Comprehensive listings for property purchases in
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Leading property portal in Belgium

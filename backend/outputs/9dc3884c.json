@@ -1,0 +1,89 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels with a budget of 490,000–895,000 EUR. Priorities include family-friendly environments and access to cafes and restaurants.",
+  "must_have": [
+    "1+ room apartment",
+    "Cafes and brunch options",
+    "Family-friendly amenities",
+    "Quiet residential areas",
+    "Proximity to public transport"
+  ],
+  "nice_to_have": [
+    "Outdoor spaces or parks",
+    "Local restaurants within walking distance",
+    "Community events or activities",
+    "Access to grocery stores",
+    "Biking and walking paths"
+  ],
+  "red_flags": [
+    "High property taxes in some areas",
+    "Limited parking in busy neighborhoods",
+    "Noise pollution from main roads",
+    "Potentially outdated buildings",
+    "Limited availability of larger units"
+  ],
+  "contradictions": [
+    "Desire for quiet versus urban vibrancy",
+    "Family-friendly spaces versus nightlife options",
+    "Larger units versus budget constraints",
+    "Proximity to amenities versus space"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Features a diverse food scene, especially along Flagey Square.",
+        "Close to parks like Parc Tenbosch, ideal for families."
+      ],
+      "watch_out": [
+        "Prices can exceed budget due to popularity with young families."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Home to large green spaces like Parc de Forest, ideal for quiet living.",
+        "Offers a family-friendly, vibrant community atmosphere."
+      ],
+      "watch_out": [
+        "Gentrification may increase property prices over time."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "—",
+      "why": [
+        "Fits your stated priorities.",
+        "Reasonable trade-off vs commute/budget."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [],
+  "clarifying_questions": [],
+  "real_estate_sites": [],
+  "agencies": []
+}

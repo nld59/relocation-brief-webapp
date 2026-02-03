@@ -1,0 +1,87 @@
+{
+  "client_profile": "A couple looking to buy an apartment in Brussels. Budget ranges from 490,000 to 895,000 EUR. Priorities include cafes, restaurants, and parks in a quiet residential area.",
+  "must_have": [
+    "1+ bedroom apartment",
+    "Proximity to cafes and restaurants",
+    "Access to parks and green areas",
+    "Quiet residential environment",
+    "Public transport accessibility"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space",
+    "Modern kitchen appliances",
+    "Pet-friendly policies",
+    "Proximity to grocery stores",
+    "Community amenities"
+  ],
+  "red_flags": [
+    "High noise levels in some districts",
+    "Limited parking options may exist",
+    "Potential budget overruns during purchase",
+    "Long commutes in certain areas",
+    "Insufficient green spaces nearby"
+  ],
+  "contradictions": [
+    "Desire for quiet areas may limit cafe options",
+    "Budget constraints may restrict location choice",
+    "Preference for modern amenities versus older buildings",
+    "Outdoor space versus urban density"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Irradiates a lively atmosphere with diverse eateries and coffee options around.",
+        "Parc Tenbosch provides ample space for leisurely strolls and relaxation."
+      ],
+      "watch_out": [
+        "Hustle and bustle can lead to noise disturbances in popular spots."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Uccle provides lush parks and quiet streets, ideal for families.",
+        "Parc Brugmann offers serene walking paths, perfect for outdoor leisure."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "—",
+      "why": [
+        "Fits your stated priorities.",
+        "Reasonable trade-off vs commute/budget."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [],
+  "clarifying_questions": [],
+  "real_estate_sites": [],
+  "agencies": []
+}
