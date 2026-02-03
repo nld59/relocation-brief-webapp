@@ -1,0 +1,142 @@
+{
+  "client_profile": "Family seeking to buy in Brussels, budget 825000–1050000 EUR. Priorities include residential quietness, family-friendly areas, and access to cafes.",
+  "must_have": [
+    "Minimum 3 bedrooms for family living.",
+    "Proximity to schools within a 20 min walk.",
+    "Green parks and recreational areas nearby.",
+    "Residential neighborhoods with low noise levels.",
+    "Access to expat community and international services."
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots within walking distance.",
+    "Public transportation options for easy commuting.",
+    "Family-friendly recreational facilities and play areas.",
+    "Outdoor markets and local shops nearby."
+  ],
+  "red_flags": [
+    "High noise levels in central areas may disrupt family life.",
+    "Potential budget stretch for desired large properties.",
+    "Long commute durations could affect daily family activities.",
+    "Limited availability of family-oriented housing options.",
+    "High competition for homes can lead to bidding wars."
+  ],
+  "contradictions": [
+    "Property size versus budget may limit options.",
+    "Desired quiet areas may lack urban amenities.",
+    "Family-friendly neighborhoods may not have vibrant cafes.",
+    "Proximity to schools versus liveliness of the area."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Features beautiful parks like Parc Tenbosch, perfect for families.",
+        "Has a vibrant cafe scene along Avenue Louise for brunch outings."
+      ],
+      "watch_out": [
+        "Residential streets can become noisy during peak dining hours."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Offers ample green spaces, including Parc de Woluwe for children's play.",
+        "Known for its family-friendly environment and community vibe."
+      ],
+      "watch_out": [
+        "Higher property prices due to demand in quiet residential areas."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "why": [
+        "Contains playgrounds and parks ideal for young families.",
+        "Great mix of residential calm and essential amenities nearby."
+      ],
+      "watch_out": [
+        "Commute to central Brussels may require longer travel times."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings for buying property in Belgium."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "User-friendly site for property searches in Brussels."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Detailed property listings with filters for family needs."
+    },
+    {
+      "name": "Realo",
+      "url": "https://www.realo.be",
+      "note": "Offers insights on property values and trends."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Century 21",
+      "url": "https://www.century21.be",
+      "note": "Global agency with local expertise in Brussels."
+    },
+    {
+      "name": "Dynamic Realty",
+      "url": "https://www.dynamic-realty.be",
+      "note": "Specializes in expat relocations and family needs."
+    },
+    {
+      "name": "JLL Belgium",
+      "url": "https://www.jll.be",
+      "note": "Provides comprehensive market analysis and advice."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total cost including all fees and taxes?",
+    "Are there any ongoing building charges or planned works?",
+    "How is the property maintained and what is its condition?",
+    "What are the specific lease terms and termination policies?",
+    "How will rent increases be managed during the lease?"
+  ],
+  "next_steps": [
+    "Schedule viewings for selected properties.",
+    "Gather necessary documents for mortgage pre-approval.",
+    "Research local schools and their ratings.",
+    "Connect with relocation agencies for additional support."
+  ],
+  "clarifying_questions": [
+    "What specific features are you willing to compromise?",
+    "Is there a preferred school in the area?",
+    "How important is public transport access?"
+  ]
+}

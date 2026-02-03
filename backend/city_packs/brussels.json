@@ -1,0 +1,2606 @@
+{
+  "city": "Brussels",
+  "level": "commune",
+  "tags_vocab": [
+    {
+      "id": "cafes_brunch",
+      "title": "Cafes & brunch",
+      "sub": "Local vibe, coffee, brunch spots"
+    },
+    {
+      "id": "restaurants",
+      "title": "Restaurants",
+      "sub": "Dining variety, quality options"
+    },
+    {
+      "id": "nightlife",
+      "title": "Nightlife",
+      "sub": "Bars, late evenings, energy"
+    },
+    {
+      "id": "culture_museums",
+      "title": "Culture & museums",
+      "sub": "Museums, theatres, landmarks"
+    },
+    {
+      "id": "art_design",
+      "title": "Art & design",
+      "sub": "Galleries, creative scene"
+    },
+    {
+      "id": "shopping",
+      "title": "Shopping",
+      "sub": "Retail streets, boutiques, malls"
+    },
+    {
+      "id": "local_market_vibe",
+      "title": "Markets & local feel",
+      "sub": "Markets, neighborhood life"
+    },
+    {
+      "id": "touristy",
+      "title": "Touristy",
+      "sub": "Central sights, visitors, buzz"
+    },
+    {
+      "id": "families",
+      "title": "Families",
+      "sub": "Kid-friendly, services, calmer vibe"
+    },
+    {
+      "id": "expats_international",
+      "title": "Expats & international",
+      "sub": "International community"
+    },
+    {
+      "id": "students",
+      "title": "Students",
+      "sub": "Campus life, student energy"
+    },
+    {
+      "id": "young_professionals",
+      "title": "Young professionals",
+      "sub": "Work-life balance, commute"
+    },
+    {
+      "id": "older_quiet",
+      "title": "Quiet & mature",
+      "sub": "Calm streets, slower pace"
+    },
+    {
+      "id": "green_parks",
+      "title": "Green & parks",
+      "sub": "Parks, nature, walks"
+    },
+    {
+      "id": "residential_quiet",
+      "title": "Residential & quiet",
+      "sub": "Calmer streets, less noise"
+    },
+    {
+      "id": "urban_dense",
+      "title": "Urban & dense",
+      "sub": "City feel, density"
+    },
+    {
+      "id": "houses_more",
+      "title": "More houses",
+      "sub": "More houses than apartments"
+    },
+    {
+      "id": "apartments_more",
+      "title": "More apartments",
+      "sub": "Apartment living, blocks"
+    },
+    {
+      "id": "premium_feel",
+      "title": "Premium feel",
+      "sub": "More upscale, polished"
+    },
+    {
+      "id": "value_for_money",
+      "title": "Value for money",
+      "sub": "Better budget fit"
+    },
+    {
+      "id": "mixed_vibes",
+      "title": "Mixed vibe",
+      "sub": "Varied streets and pockets"
+    },
+    {
+      "id": "central_access",
+      "title": "Central access",
+      "sub": "Easy access to city center"
+    },
+    {
+      "id": "eu_quarter_access",
+      "title": "EU quarter access",
+      "sub": "Easy to EU institutions area"
+    },
+    {
+      "id": "train_hubs_access",
+      "title": "Train hubs access",
+      "sub": "Easy access to main stations"
+    },
+    {
+      "id": "airport_access",
+      "title": "Airport access",
+      "sub": "Convenient to airport"
+    },
+    {
+      "id": "metro_strong",
+      "title": "Strong metro",
+      "sub": "Metro coverage and speed"
+    },
+    {
+      "id": "tram_strong",
+      "title": "Strong tram",
+      "sub": "Good tram connections"
+    },
+    {
+      "id": "bike_friendly",
+      "title": "Bike friendly",
+      "sub": "Cycling routes, flatter links"
+    },
+    {
+      "id": "car_friendly",
+      "title": "Car friendly",
+      "sub": "Parking and road access"
+    },
+    {
+      "id": "night_caution",
+      "title": "Night caution",
+      "sub": "Extra care late evenings"
+    },
+    {
+      "id": "busy_traffic_noise",
+      "title": "Traffic/noise",
+      "sub": "Busier roads, more noise"
+    },
+    {
+      "id": "schools_strong",
+      "title": "Schools access",
+      "sub": "Higher density of schools nearby"
+    },
+    {
+      "id": "childcare_strong",
+      "title": "Childcare access",
+      "sub": "Higher density of childcare & preschools"
+    }
+  ],
+  "default_shortlist": [
+    "Ixelles",
+    "Etterbeek",
+    "Uccle",
+    "Woluwe-Saint-Lambert",
+    "Woluwe-Saint-Pierre",
+    "Saint-Gilles",
+    "City of Brussels"
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Logic-immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Listings + agencies, French-first."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Alternative portal with strong coverage."
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Portal + agency listings."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Premium rentals/sales, international clientele."
+    },
+    {
+      "name": "Engel & Völkers",
+      "url": "https://www.engelvoelkers.com",
+      "note": "International brand (search Brussels)."
+    },
+    {
+      "name": "Victoire Properties",
+      "url": "https://www.victoire.be",
+      "note": "Well-known Brussels residential agency."
+    }
+  ],
+  "communes": [
+    {
+      "id": "brussels_city",
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "tags": [
+        "apartments_more",
+        "busy_traffic_noise",
+        "central_access",
+        "culture_museums",
+        "shopping",
+        "touristy",
+        "urban_dense",
+        "cafes_brunch",
+        "nightlife",
+        "restaurants",
+        "green_parks",
+        "metro_strong"
+      ],
+      "watch_out_hint": "Touristy pockets and traffic can feel noisy on weekends.",
+      "metrics": {
+        "area_km2": 33.07066047188798,
+        "cafes_count": 222.0,
+        "restaurants_count": 697.0,
+        "bars_count": 148.0,
+        "schools_count": 128.0,
+        "childcare_count": 44.0,
+        "metro_stops": 141.0,
+        "tram_stops": 141.0,
+        "train_stations": 27.0,
+        "parks_area_km2": 10.57243058210135,
+        "cafes_density": 6.712898890807249,
+        "restaurants_density": 21.07608345447141,
+        "bars_density": 4.475265927204833,
+        "schools_density": 3.870500261366342,
+        "childcare_density": 1.33048446484468,
+        "metro_density": 4.263597944161361,
+        "tram_density": 4.263597944161361,
+        "train_density": 0.8164336488819628,
+        "parks_share": 0.31969215102578735
+      },
+      "tag_confidence": {
+        "cafes_brunch": "medium",
+        "nightlife": "medium",
+        "restaurants": "medium",
+        "green_parks": "medium",
+        "metro_strong": "medium"
+      },
+      "osm_query": "Bruxelles-Ville, Belgium",
+      "microhoods": [
+        {
+          "id": 900,
+          "monitoring_id": 900,
+          "name": "Domaine Royal Laeken"
+        },
+        {
+          "id": 907,
+          "monitoring_id": 907,
+          "name": "Bois de la Cambre"
+        },
+        {
+          "id": 78,
+          "monitoring_id": 78,
+          "name": "Haren"
+        },
+        {
+          "id": 9,
+          "monitoring_id": 9,
+          "name": "Stalingrad"
+        },
+        {
+          "id": 29,
+          "monitoring_id": 29,
+          "name": "Squares"
+        },
+        {
+          "id": 77,
+          "monitoring_id": 77,
+          "name": "Heembeek"
+        },
+        {
+          "id": 21,
+          "monitoring_id": 21,
+          "name": "Quartier Nord"
+        },
+        {
+          "id": 19,
+          "monitoring_id": 19,
+          "name": "Vieux Laeken Ouest"
+        },
+        {
+          "id": 6,
+          "monitoring_id": 6,
+          "name": "Quartier Royal"
+        },
+        {
+          "id": 3,
+          "monitoring_id": 3,
+          "name": "Beguinage - Dixmude"
+        },
+        {
+          "id": 76,
+          "monitoring_id": 76,
+          "name": "Mutsaard"
+        },
+        {
+          "id": 20,
+          "monitoring_id": 20,
+          "name": "Vieux Laeken Est"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 1,
+          "monitoring_id": 1,
+          "name": "Grand Place"
+        },
+        {
+          "id": 2,
+          "monitoring_id": 2,
+          "name": "Dansaert"
+        },
+        {
+          "id": 3,
+          "monitoring_id": 3,
+          "name": "Beguinage - Dixmude"
+        },
+        {
+          "id": 4,
+          "monitoring_id": 4,
+          "name": "Martyrs"
+        },
+        {
+          "id": 5,
+          "monitoring_id": 5,
+          "name": "Notre - Dame aux Neiges"
+        },
+        {
+          "id": 6,
+          "monitoring_id": 6,
+          "name": "Quartier Royal"
+        },
+        {
+          "id": 7,
+          "monitoring_id": 7,
+          "name": "Sablon"
+        },
+        {
+          "id": 8,
+          "monitoring_id": 8,
+          "name": "Marolles"
+        },
+        {
+          "id": 9,
+          "monitoring_id": 9,
+          "name": "Stalingrad"
+        },
+        {
+          "id": 10,
+          "monitoring_id": 10,
+          "name": "Anneessens"
+        },
+        {
+          "id": 19,
+          "monitoring_id": 19,
+          "name": "Vieux Laeken Ouest"
+        },
+        {
+          "id": 20,
+          "monitoring_id": 20,
+          "name": "Vieux Laeken Est"
+        },
+        {
+          "id": 21,
+          "monitoring_id": 21,
+          "name": "Quartier Nord"
+        },
+        {
+          "id": 29,
+          "monitoring_id": 29,
+          "name": "Squares"
+        },
+        {
+          "id": 76,
+          "monitoring_id": 76,
+          "name": "Mutsaard"
+        },
+        {
+          "id": 77,
+          "monitoring_id": 77,
+          "name": "Heembeek"
+        },
+        {
+          "id": 78,
+          "monitoring_id": 78,
+          "name": "Haren"
+        },
+        {
+          "id": 900,
+          "monitoring_id": 900,
+          "name": "Domaine Royal Laeken"
+        },
+        {
+          "id": 904,
+          "monitoring_id": 904,
+          "name": "Parc Leopold"
+        },
+        {
+          "id": 907,
+          "monitoring_id": 907,
+          "name": "Bois de la Cambre"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "ixelles",
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "tags": [
+        "apartments_more",
+        "art_design",
+        "busy_traffic_noise",
+        "central_access",
+        "expats_international",
+        "students",
+        "urban_dense",
+        "young_professionals",
+        "cafes_brunch",
+        "nightlife",
+        "restaurants",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Popular streets get noisy on weekends; parking is often tight.",
+      "metrics": {
+        "area_km2": 6.408051861643289,
+        "cafes_count": 61.0,
+        "restaurants_count": 330.0,
+        "bars_count": 56.0,
+        "schools_count": 33.0,
+        "childcare_count": 13.0,
+        "metro_stops": 4.0,
+        "tram_stops": 36.0,
+        "train_stations": 2.0,
+        "parks_area_km2": 0.6821650778633951,
+        "cafes_density": 9.519273769478684,
+        "restaurants_density": 51.497710556196154,
+        "bars_density": 8.739005427718135,
+        "schools_density": 5.149771055619615,
+        "childcare_density": 2.028697688577424,
+        "metro_density": 0.6242146734084382,
+        "tram_density": 5.617932060675944,
+        "train_density": 0.3121073367042191,
+        "parks_share": 0.10645436282228525
+      },
+      "tag_confidence": {
+        "cafes_brunch": "high",
+        "nightlife": "high",
+        "restaurants": "high",
+        "childcare_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 34,
+          "monitoring_id": 34,
+          "name": "Jourdan"
+        },
+        {
+          "id": 35,
+          "monitoring_id": 35,
+          "name": "Quartier Europeen"
+        },
+        {
+          "id": 36,
+          "monitoring_id": 36,
+          "name": "Matonge"
+        },
+        {
+          "id": 37,
+          "monitoring_id": 37,
+          "name": "Flagey - Malibran"
+        },
+        {
+          "id": 38,
+          "monitoring_id": 38,
+          "name": "Hopital Etterbeek - Ixelles"
+        },
+        {
+          "id": 39,
+          "monitoring_id": 39,
+          "name": "Etangs D’ixelles"
+        },
+        {
+          "id": 40,
+          "monitoring_id": 40,
+          "name": "Louise - Longue Haie"
+        },
+        {
+          "id": 43,
+          "monitoring_id": 43,
+          "name": "Brugmann - Lepoutre"
+        },
+        {
+          "id": 105,
+          "monitoring_id": 105,
+          "name": "Dries"
+        },
+        {
+          "id": 106,
+          "monitoring_id": 106,
+          "name": "Boondael"
+        },
+        {
+          "id": 107,
+          "monitoring_id": 107,
+          "name": "Universite"
+        },
+        {
+          "id": 701,
+          "monitoring_id": 701,
+          "name": "Cimetiere D’ixelles"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 34,
+          "monitoring_id": 34,
+          "name": "Jourdan"
+        },
+        {
+          "id": 35,
+          "monitoring_id": 35,
+          "name": "Quartier Europeen"
+        },
+        {
+          "id": 36,
+          "monitoring_id": 36,
+          "name": "Matonge"
+        },
+        {
+          "id": 37,
+          "monitoring_id": 37,
+          "name": "Flagey - Malibran"
+        },
+        {
+          "id": 38,
+          "monitoring_id": 38,
+          "name": "Hopital Etterbeek - Ixelles"
+        },
+        {
+          "id": 39,
+          "monitoring_id": 39,
+          "name": "Etangs D’ixelles"
+        },
+        {
+          "id": 40,
+          "monitoring_id": 40,
+          "name": "Louise - Longue Haie"
+        },
+        {
+          "id": 43,
+          "monitoring_id": 43,
+          "name": "Brugmann - Lepoutre"
+        },
+        {
+          "id": 105,
+          "monitoring_id": 105,
+          "name": "Dries"
+        },
+        {
+          "id": 106,
+          "monitoring_id": 106,
+          "name": "Boondael"
+        },
+        {
+          "id": 107,
+          "monitoring_id": 107,
+          "name": "Universite"
+        },
+        {
+          "id": 701,
+          "monitoring_id": 701,
+          "name": "Cimetiere D’ixelles"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "uccle",
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "tags": [
+        "car_friendly",
+        "families",
+        "houses_more",
+        "older_quiet",
+        "premium_feel",
+        "residential_quiet"
+      ],
+      "watch_out_hint": "Commute can be slower without a car; some pockets stretch budgets.",
+      "metrics": {
+        "area_km2": 22.86427146599152,
+        "cafes_count": 9.0,
+        "restaurants_count": 80.0,
+        "bars_count": 9.0,
+        "schools_count": 50.0,
+        "childcare_count": 5.0,
+        "metro_stops": 0.0,
+        "tram_stops": 85.0,
+        "train_stations": 0.0,
+        "parks_area_km2": 4.330404406934556,
+        "cafes_density": 0.39362723686108536,
+        "restaurants_density": 3.4989087720985363,
+        "bars_density": 0.39362723686108536,
+        "schools_density": 2.1868179825615854,
+        "childcare_density": 0.21868179825615852,
+        "metro_density": 0.0,
+        "tram_density": 3.717590570354695,
+        "train_density": 0.0,
+        "parks_share": 0.18939612457696847
+      },
+      "tag_confidence": {},
+      "microhoods": [
+        {
+          "id": 906,
+          "monitoring_id": 906,
+          "name": "Foret de Soignes"
+        },
+        {
+          "id": 115,
+          "monitoring_id": 115,
+          "name": "Kalevoet - Moensberg"
+        },
+        {
+          "id": 111,
+          "monitoring_id": 111,
+          "name": "Vivier D’oie"
+        },
+        {
+          "id": 44,
+          "monitoring_id": 44,
+          "name": "Churchill"
+        },
+        {
+          "id": 112,
+          "monitoring_id": 112,
+          "name": "Kriekenput - Homborch -"
+        },
+        {
+          "id": 46,
+          "monitoring_id": 46,
+          "name": "Altitude 100"
+        },
+        {
+          "id": 908,
+          "monitoring_id": 908,
+          "name": "Parc Wolvendael"
+        },
+        {
+          "id": 113,
+          "monitoring_id": 113,
+          "name": "Saint - Job Kauwberg"
+        },
+        {
+          "id": 110,
+          "monitoring_id": 110,
+          "name": "Fort Jaco"
+        },
+        {
+          "id": 117,
+          "monitoring_id": 117,
+          "name": "Vossegat - Roosendaal"
+        },
+        {
+          "id": 109,
+          "monitoring_id": 109,
+          "name": "Observatoire"
+        },
+        {
+          "id": 702,
+          "monitoring_id": 702,
+          "name": "Cimetiere Saint - Gilles"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 44,
+          "monitoring_id": 44,
+          "name": "Churchill"
+        },
+        {
+          "id": 45,
+          "monitoring_id": 45,
+          "name": "Moliere - Longchamp"
+        },
+        {
+          "id": 46,
+          "monitoring_id": 46,
+          "name": "Altitude 100"
+        },
+        {
+          "id": 108,
+          "monitoring_id": 108,
+          "name": "Montjoie - Langeveld"
+        },
+        {
+          "id": 109,
+          "monitoring_id": 109,
+          "name": "Observatoire"
+        },
+        {
+          "id": 110,
+          "monitoring_id": 110,
+          "name": "Fort Jaco"
+        },
+        {
+          "id": 111,
+          "monitoring_id": 111,
+          "name": "Vivier D’oie"
+        },
+        {
+          "id": 112,
+          "monitoring_id": 112,
+          "name": "Kriekenput - Homborch -"
+        },
+        {
+          "id": 113,
+          "monitoring_id": 113,
+          "name": "Saint - Job Kauwberg"
+        },
+        {
+          "id": 114,
+          "monitoring_id": 114,
+          "name": "Dieweg"
+        },
+        {
+          "id": 115,
+          "monitoring_id": 115,
+          "name": "Kalevoet - Moensberg"
+        },
+        {
+          "id": 116,
+          "monitoring_id": 116,
+          "name": "Globe"
+        },
+        {
+          "id": 117,
+          "monitoring_id": 117,
+          "name": "Vossegat - Roosendaal"
+        },
+        {
+          "id": 702,
+          "monitoring_id": 702,
+          "name": "Cimetiere Saint - Gilles"
+        },
+        {
+          "id": 906,
+          "monitoring_id": 906,
+          "name": "Foret de Soignes"
+        },
+        {
+          "id": 908,
+          "monitoring_id": 908,
+          "name": "Parc Wolvendael"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "etterbeek",
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "tags": [
+        "apartments_more",
+        "central_access",
+        "eu_quarter_access",
+        "expats_international",
+        "urban_dense",
+        "young_professionals",
+        "cafes_brunch",
+        "restaurants",
+        "green_parks",
+        "metro_strong",
+        "schools_strong",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Rents near EU quarter can be higher; traffic around main axes.",
+      "metrics": {
+        "area_km2": 3.172741589327596,
+        "cafes_count": 16.0,
+        "restaurants_count": 90.0,
+        "bars_count": 9.0,
+        "schools_count": 38.0,
+        "childcare_count": 10.0,
+        "metro_stops": 21.0,
+        "tram_stops": 19.0,
+        "train_stations": 4.0,
+        "parks_area_km2": 1.0621890417632316,
+        "cafes_density": 5.042957186876006,
+        "restaurants_density": 28.36663417617753,
+        "bars_density": 2.836663417617753,
+        "schools_density": 11.977023318830513,
+        "childcare_density": 3.1518482417975036,
+        "metro_density": 6.618881307774758,
+        "tram_density": 5.9885116594152565,
+        "train_density": 1.2607392967190014,
+        "parks_share": 0.33478586637380164
+      },
+      "tag_confidence": {
+        "cafes_brunch": "medium",
+        "restaurants": "medium",
+        "green_parks": "medium",
+        "metro_strong": "high",
+        "schools_strong": "high",
+        "childcare_strong": "high"
+      },
+      "microhoods": [
+        {
+          "id": 31,
+          "monitoring_id": 31,
+          "name": "Saint - Michel"
+        },
+        {
+          "id": 32,
+          "monitoring_id": 32,
+          "name": "Saint - Pierre"
+        },
+        {
+          "id": 33,
+          "monitoring_id": 33,
+          "name": "Chasse"
+        },
+        {
+          "id": 100,
+          "monitoring_id": 100,
+          "name": "Chaussee de Wavre - Saint - Julien"
+        },
+        {
+          "id": 903,
+          "monitoring_id": 903,
+          "name": "Cinquantenaire"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 31,
+          "monitoring_id": 31,
+          "name": "Saint - Michel"
+        },
+        {
+          "id": 32,
+          "monitoring_id": 32,
+          "name": "Saint - Pierre"
+        },
+        {
+          "id": 33,
+          "monitoring_id": 33,
+          "name": "Chasse"
+        },
+        {
+          "id": 100,
+          "monitoring_id": 100,
+          "name": "Chaussee de Wavre - Saint - Julien"
+        },
+        {
+          "id": 903,
+          "monitoring_id": 903,
+          "name": "Cinquantenaire"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "woluwe_saint_lambert",
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "tags": [
+        "apartments_more",
+        "car_friendly",
+        "families",
+        "older_quiet",
+        "premium_feel",
+        "residential_quiet",
+        "metro_strong"
+      ],
+      "watch_out_hint": "Popular family areas book fast; prices can be above average.",
+      "metrics": {
+        "area_km2": 7.289760216504217,
+        "cafes_count": 10.0,
+        "restaurants_count": 77.0,
+        "bars_count": 7.0,
+        "schools_count": 32.0,
+        "childcare_count": 10.0,
+        "metro_stops": 41.0,
+        "tram_stops": 11.0,
+        "train_stations": 8.0,
+        "parks_area_km2": 1.505249461051951,
+        "cafes_density": 1.3717872334620453,
+        "restaurants_density": 10.562761697657749,
+        "bars_density": 0.9602510634234317,
+        "schools_density": 4.389719147078545,
+        "childcare_density": 1.3717872334620453,
+        "metro_density": 5.624327657194386,
+        "tram_density": 1.5089659568082499,
+        "train_density": 1.0974297867696363,
+        "parks_share": 0.20648819938466906
+      },
+      "tag_confidence": {
+        "metro_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 30,
+          "monitoring_id": 30,
+          "name": "Porte Tervueren"
+        },
+        {
+          "id": 88,
+          "monitoring_id": 88,
+          "name": "Georges Henri"
+        },
+        {
+          "id": 89,
+          "monitoring_id": 89,
+          "name": "Gribaumont"
+        },
+        {
+          "id": 90,
+          "monitoring_id": 90,
+          "name": "Roodebeek - Constellations"
+        },
+        {
+          "id": 91,
+          "monitoring_id": 91,
+          "name": "Val D’or"
+        },
+        {
+          "id": 92,
+          "monitoring_id": 92,
+          "name": "Kapelleveld"
+        },
+        {
+          "id": 93,
+          "monitoring_id": 93,
+          "name": "Boulevard de la Woluwe"
+        },
+        {
+          "id": 94,
+          "monitoring_id": 94,
+          "name": "Stockel"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 30,
+          "monitoring_id": 30,
+          "name": "Porte Tervueren"
+        },
+        {
+          "id": 88,
+          "monitoring_id": 88,
+          "name": "Georges Henri"
+        },
+        {
+          "id": 89,
+          "monitoring_id": 89,
+          "name": "Gribaumont"
+        },
+        {
+          "id": 90,
+          "monitoring_id": 90,
+          "name": "Roodebeek - Constellations"
+        },
+        {
+          "id": 91,
+          "monitoring_id": 91,
+          "name": "Val D’or"
+        },
+        {
+          "id": 92,
+          "monitoring_id": 92,
+          "name": "Kapelleveld"
+        },
+        {
+          "id": 93,
+          "monitoring_id": 93,
+          "name": "Boulevard de la Woluwe"
+        },
+        {
+          "id": 94,
+          "monitoring_id": 94,
+          "name": "Stockel"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "woluwe_saint_pierre",
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "tags": [
+        "car_friendly",
+        "families",
+        "houses_more",
+        "older_quiet",
+        "premium_feel",
+        "residential_quiet",
+        "green_parks"
+      ],
+      "watch_out_hint": "House-focused pockets are pricey; fewer nightlife options nearby.",
+      "metrics": {
+        "area_km2": 8.940784634500087,
+        "cafes_count": 16.0,
+        "restaurants_count": 45.0,
+        "bars_count": 3.0,
+        "schools_count": 25.0,
+        "childcare_count": 7.0,
+        "metro_stops": 9.0,
+        "tram_stops": 39.0,
+        "train_stations": 2.0,
+        "parks_area_km2": 2.886462756703721,
+        "cafes_density": 1.7895521091359585,
+        "restaurants_density": 5.033115306944883,
+        "bars_density": 0.3355410204629922,
+        "schools_density": 2.796175170524935,
+        "childcare_density": 0.7829290477469818,
+        "metro_density": 1.0066230613889766,
+        "tram_density": 4.362033266018899,
+        "train_density": 0.22369401364199482,
+        "parks_share": 0.322842219637596
+      },
+      "tag_confidence": {
+        "green_parks": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 95,
+          "monitoring_id": 95,
+          "name": "Sainte - Alix - Joli Bois"
+        },
+        {
+          "id": 96,
+          "monitoring_id": 96,
+          "name": "Saint - Paul"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 95,
+          "monitoring_id": 95,
+          "name": "Sainte - Alix - Joli Bois"
+        },
+        {
+          "id": 96,
+          "monitoring_id": 96,
+          "name": "Saint - Paul"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "auderghem",
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
+      "tags": [
+        "bike_friendly",
+        "car_friendly",
+        "families",
+        "houses_more",
+        "older_quiet",
+        "residential_quiet",
+        "green_parks"
+      ],
+      "watch_out_hint": "Some areas feel suburban; check commute times to your daily anchors.",
+      "metrics": {
+        "area_km2": 8.960780973270964,
+        "cafes_count": 5.0,
+        "restaurants_count": 49.0,
+        "bars_count": 5.0,
+        "schools_count": 19.0,
+        "childcare_count": 5.0,
+        "metro_stops": 23.0,
+        "tram_stops": 12.0,
+        "train_stations": 5.0,
+        "parks_area_km2": 3.5049916738456073,
+        "cafes_density": 0.5579870789069007,
+        "restaurants_density": 5.468273373287627,
+        "bars_density": 0.5579870789069007,
+        "schools_density": 2.1203508998462226,
+        "childcare_density": 0.5579870789069007,
+        "metro_density": 2.5667405629717432,
+        "tram_density": 1.3391689893765617,
+        "train_density": 0.5579870789069007,
+        "parks_share": 0.3911480131364238
+      },
+      "tag_confidence": {
+        "green_parks": "high"
+      },
+      "microhoods": [
+        {
+          "id": 97,
+          "monitoring_id": 97,
+          "name": "Putdaal"
+        },
+        {
+          "id": 98,
+          "monitoring_id": 98,
+          "name": "Auderghem Centre"
+        },
+        {
+          "id": 99,
+          "monitoring_id": 99,
+          "name": "Chant D’oiseau"
+        },
+        {
+          "id": 102,
+          "monitoring_id": 102,
+          "name": "Transvaal"
+        },
+        {
+          "id": 802,
+          "monitoring_id": 802,
+          "name": "Delta"
+        },
+        {
+          "id": 905,
+          "monitoring_id": 905,
+          "name": "Parc de la Woluwe"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 97,
+          "monitoring_id": 97,
+          "name": "Putdaal"
+        },
+        {
+          "id": 98,
+          "monitoring_id": 98,
+          "name": "Auderghem Centre"
+        },
+        {
+          "id": 99,
+          "monitoring_id": 99,
+          "name": "Chant D’oiseau"
+        },
+        {
+          "id": 102,
+          "monitoring_id": 102,
+          "name": "Transvaal"
+        },
+        {
+          "id": 802,
+          "monitoring_id": 802,
+          "name": "Delta"
+        },
+        {
+          "id": 905,
+          "monitoring_id": 905,
+          "name": "Parc de la Woluwe"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "watermael_boitsfort",
+      "name": "Watermael-Boitsfort",
+      "micro_anchors": [
+        "Place Wiener",
+        "Logis-Floréal",
+        "Sonian Forest edge"
+      ],
+      "tags": [
+        "bike_friendly",
+        "car_friendly",
+        "families",
+        "houses_more",
+        "older_quiet",
+        "residential_quiet"
+      ],
+      "watch_out_hint": "Limited nightlife; public transport varies by pocket, plan routes.",
+      "metrics": {
+        "area_km2": 12.9626128984605,
+        "cafes_count": 6.0,
+        "restaurants_count": 30.0,
+        "bars_count": 1.0,
+        "schools_count": 15.0,
+        "childcare_count": 6.0,
+        "metro_stops": 0.0,
+        "tram_stops": 12.0,
+        "train_stations": 1.0,
+        "parks_area_km2": 1.6001083196306032,
+        "cafes_density": 0.4628696426406892,
+        "restaurants_density": 2.314348213203446,
+        "bars_density": 0.07714494044011486,
+        "schools_density": 1.157174106601723,
+        "childcare_density": 0.4628696426406892,
+        "metro_density": 0.0,
+        "tram_density": 0.9257392852813784,
+        "train_density": 0.07714494044011486,
+        "parks_share": 0.12344026101563516
+      },
+      "tag_confidence": {},
+      "microhoods": [
+        {
+          "id": 101,
+          "monitoring_id": 101,
+          "name": "Trois Tilleuls"
+        },
+        {
+          "id": 103,
+          "monitoring_id": 103,
+          "name": "Boitsfort Centre"
+        },
+        {
+          "id": 104,
+          "monitoring_id": 104,
+          "name": "Watermael Centre"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 101,
+          "monitoring_id": 101,
+          "name": "Trois Tilleuls"
+        },
+        {
+          "id": 103,
+          "monitoring_id": 103,
+          "name": "Boitsfort Centre"
+        },
+        {
+          "id": 104,
+          "monitoring_id": 104,
+          "name": "Watermael Centre"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "saint_gilles",
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "tags": [
+        "apartments_more",
+        "art_design",
+        "busy_traffic_noise",
+        "central_access",
+        "night_caution",
+        "urban_dense",
+        "young_professionals",
+        "cafes_brunch",
+        "nightlife",
+        "restaurants",
+        "metro_strong",
+        "tram_strong",
+        "schools_strong",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Some streets are lively and noisy late; choose quieter side streets.",
+      "metrics": {
+        "area_km2": 2.532640834933768,
+        "cafes_count": 69.0,
+        "restaurants_count": 143.0,
+        "bars_count": 31.0,
+        "schools_count": 22.0,
+        "childcare_count": 10.0,
+        "metro_stops": 21.0,
+        "tram_stops": 43.0,
+        "train_stations": 5.0,
+        "parks_area_km2": 0.49259807964830293,
+        "cafes_density": 27.244289457965895,
+        "restaurants_density": 56.462802789697434,
+        "bars_density": 12.240188017346997,
+        "schools_density": 8.686585044568837,
+        "childcare_density": 3.948447747531289,
+        "metro_density": 8.291740269815707,
+        "tram_density": 16.97832531438454,
+        "train_density": 1.9742238737656446,
+        "parks_share": 0.19449977780255803
+      },
+      "tag_confidence": {
+        "cafes_brunch": "high",
+        "nightlife": "high",
+        "restaurants": "high",
+        "metro_strong": "high",
+        "tram_strong": "high",
+        "schools_strong": "high",
+        "childcare_strong": "high"
+      },
+      "microhoods": [
+        {
+          "id": 11,
+          "monitoring_id": 11,
+          "name": "Cureghem Bara"
+        },
+        {
+          "id": 41,
+          "monitoring_id": 41,
+          "name": "Berckmans - Hotel des Monnaies"
+        },
+        {
+          "id": 42,
+          "monitoring_id": 42,
+          "name": "Chatelain"
+        },
+        {
+          "id": 47,
+          "monitoring_id": 47,
+          "name": "Haut Saint - Gilles"
+        },
+        {
+          "id": 48,
+          "monitoring_id": 48,
+          "name": "Porte de Hal"
+        },
+        {
+          "id": 49,
+          "monitoring_id": 49,
+          "name": "Bosnie"
+        },
+        {
+          "id": 50,
+          "monitoring_id": 50,
+          "name": "Bas Forest"
+        },
+        {
+          "id": 804,
+          "monitoring_id": 804,
+          "name": "Gare du Midi"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 11,
+          "monitoring_id": 11,
+          "name": "Cureghem Bara"
+        },
+        {
+          "id": 41,
+          "monitoring_id": 41,
+          "name": "Berckmans - Hotel des Monnaies"
+        },
+        {
+          "id": 42,
+          "monitoring_id": 42,
+          "name": "Chatelain"
+        },
+        {
+          "id": 47,
+          "monitoring_id": 47,
+          "name": "Haut Saint - Gilles"
+        },
+        {
+          "id": 48,
+          "monitoring_id": 48,
+          "name": "Porte de Hal"
+        },
+        {
+          "id": 49,
+          "monitoring_id": 49,
+          "name": "Bosnie"
+        },
+        {
+          "id": 50,
+          "monitoring_id": 50,
+          "name": "Bas Forest"
+        },
+        {
+          "id": 804,
+          "monitoring_id": 804,
+          "name": "Gare du Midi"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "micro_anchors": [
+        "Altitude 100",
+        "Parc de Forest",
+        "Wiels area"
+      ],
+      "tags": [
+        "apartments_more",
+        "mixed_vibes",
+        "night_caution",
+        "urban_dense",
+        "value_for_money"
+      ],
+      "watch_out_hint": "Quality varies by micro-area; visit at night before committing.",
+      "metrics": {
+        "area_km2": 6.289138699766675,
+        "cafes_count": 20.0,
+        "restaurants_count": 30.0,
+        "bars_count": 4.0,
+        "schools_count": 29.0,
+        "childcare_count": 3.0,
+        "metro_stops": 5.0,
+        "tram_stops": 38.0,
+        "train_stations": 3.0,
+        "parks_area_km2": 1.5817198530234,
+        "cafes_density": 3.1800856929331185,
+        "restaurants_density": 4.770128539399678,
+        "bars_density": 0.6360171385866237,
+        "schools_density": 4.6111242547530225,
+        "childcare_density": 0.4770128539399678,
+        "metro_density": 0.7950214232332796,
+        "tram_density": 6.042162816572925,
+        "train_density": 0.4770128539399678,
+        "parks_share": 0.25150023374139946
+      },
+      "tag_confidence": {},
+      "microhoods": [
+        {
+          "id": 51,
+          "monitoring_id": 51,
+          "name": "Van Volxem - Van Haelen"
+        },
+        {
+          "id": 118,
+          "monitoring_id": 118,
+          "name": "Saint - Denis - Neerstalle"
+        },
+        {
+          "id": 909,
+          "monitoring_id": 909,
+          "name": "Parc Duden - Parc de Forest"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 51,
+          "monitoring_id": 51,
+          "name": "Van Volxem - Van Haelen"
+        },
+        {
+          "id": 118,
+          "monitoring_id": 118,
+          "name": "Saint - Denis - Neerstalle"
+        },
+        {
+          "id": 909,
+          "monitoring_id": 909,
+          "name": "Parc Duden - Parc de Forest"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "schaerbeek",
+      "name": "Schaerbeek",
+      "micro_anchors": [
+        "Plasky",
+        "Parc Josaphat",
+        "Helmet"
+      ],
+      "tags": [
+        "apartments_more",
+        "local_market_vibe",
+        "mixed_vibes",
+        "night_caution",
+        "train_hubs_access",
+        "urban_dense",
+        "value_for_money",
+        "cafes_brunch",
+        "restaurants",
+        "tram_strong",
+        "schools_strong",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Very street-by-street; check safety/quietness around your exact block.",
+      "metrics": {
+        "area_km2": 7.897798565708861,
+        "cafes_count": 54.0,
+        "restaurants_count": 96.0,
+        "bars_count": 34.0,
+        "schools_count": 58.0,
+        "childcare_count": 15.0,
+        "metro_stops": 6.0,
+        "tram_stops": 78.0,
+        "train_stations": 3.0,
+        "parks_area_km2": 1.2292855569580472,
+        "cafes_density": 6.8373483510279005,
+        "restaurants_density": 12.155285957382935,
+        "bars_density": 4.304997109906456,
+        "schools_density": 7.34381859925219,
+        "childcare_density": 1.8992634308410836,
+        "metro_density": 0.7597053723364334,
+        "tram_density": 9.876169840373635,
+        "train_density": 0.3798526861682167,
+        "parks_share": 0.15564914029276886
+      },
+      "tag_confidence": {
+        "cafes_brunch": "medium",
+        "restaurants": "medium",
+        "tram_strong": "medium",
+        "schools_strong": "medium",
+        "childcare_strong": "medium"
+      },
+      "osm_query": "Schaerbeek, Belgium",
+      "microhoods": [
+        {
+          "id": 23,
+          "monitoring_id": 23,
+          "name": "Collignon"
+        },
+        {
+          "id": 26,
+          "monitoring_id": 26,
+          "name": "Dailly"
+        },
+        {
+          "id": 27,
+          "monitoring_id": 27,
+          "name": "Josaphat"
+        },
+        {
+          "id": 28,
+          "monitoring_id": 28,
+          "name": "Plasky"
+        },
+        {
+          "id": 80,
+          "monitoring_id": 80,
+          "name": "Helmet"
+        },
+        {
+          "id": 81,
+          "monitoring_id": 81,
+          "name": "Gare de Schaerbeek"
+        },
+        {
+          "id": 82,
+          "monitoring_id": 82,
+          "name": "Terdelt"
+        },
+        {
+          "id": 85,
+          "monitoring_id": 85,
+          "name": "Gare Josaphat"
+        },
+        {
+          "id": 87,
+          "monitoring_id": 87,
+          "name": "Reyers"
+        },
+        {
+          "id": 901,
+          "monitoring_id": 901,
+          "name": "Parc Josaphat"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 23,
+          "monitoring_id": 23,
+          "name": "Collignon"
+        },
+        {
+          "id": 26,
+          "monitoring_id": 26,
+          "name": "Dailly"
+        },
+        {
+          "id": 27,
+          "monitoring_id": 27,
+          "name": "Josaphat"
+        },
+        {
+          "id": 28,
+          "monitoring_id": 28,
+          "name": "Plasky"
+        },
+        {
+          "id": 80,
+          "monitoring_id": 80,
+          "name": "Helmet"
+        },
+        {
+          "id": 81,
+          "monitoring_id": 81,
+          "name": "Gare de Schaerbeek"
+        },
+        {
+          "id": 82,
+          "monitoring_id": 82,
+          "name": "Terdelt"
+        },
+        {
+          "id": 85,
+          "monitoring_id": 85,
+          "name": "Gare Josaphat"
+        },
+        {
+          "id": 87,
+          "monitoring_id": 87,
+          "name": "Reyers"
+        },
+        {
+          "id": 901,
+          "monitoring_id": 901,
+          "name": "Parc Josaphat"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "saint_josse",
+      "name": "Saint-Josse-ten-Noode",
+      "micro_anchors": [
+        "Madou",
+        "Botanique edge",
+        "Saint-Josse center"
+      ],
+      "tags": [
+        "apartments_more",
+        "busy_traffic_noise",
+        "central_access",
+        "eu_quarter_access",
+        "night_caution",
+        "urban_dense",
+        "value_for_money",
+        "cafes_brunch",
+        "nightlife",
+        "restaurants",
+        "metro_strong",
+        "tram_strong",
+        "schools_strong"
+      ],
+      "watch_out_hint": "Dense and busy; pick well-connected streets and avoid noisy intersections.",
+      "metrics": {
+        "area_km2": 1.1599877727864514,
+        "cafes_count": 10.0,
+        "restaurants_count": 42.0,
+        "bars_count": 13.0,
+        "schools_count": 12.0,
+        "childcare_count": 1.0,
+        "metro_stops": 15.0,
+        "tram_stops": 14.0,
+        "train_stations": 3.0,
+        "parks_area_km2": 0.20757289887909022,
+        "cafes_density": 8.620780524245195,
+        "restaurants_density": 36.207278201829816,
+        "bars_density": 11.207014681518753,
+        "schools_density": 10.344936629094233,
+        "childcare_density": 0.8620780524245195,
+        "metro_density": 12.931170786367792,
+        "tram_density": 12.069092733943272,
+        "train_density": 2.5862341572735583,
+        "parks_share": 0.17894404040179782
+      },
+      "tag_confidence": {
+        "cafes_brunch": "high",
+        "nightlife": "high",
+        "restaurants": "high",
+        "metro_strong": "high",
+        "tram_strong": "high",
+        "schools_strong": "high"
+      },
+      "microhoods": [
+        {
+          "id": 22,
+          "monitoring_id": 22,
+          "name": "Quartier Brabant"
+        },
+        {
+          "id": 24,
+          "monitoring_id": 24,
+          "name": "Chaussee de Haecht"
+        },
+        {
+          "id": 25,
+          "monitoring_id": 25,
+          "name": "Saint - Josse Centre"
+        },
+        {
+          "id": 902,
+          "monitoring_id": 902,
+          "name": "Botanique"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 22,
+          "monitoring_id": 22,
+          "name": "Quartier Brabant"
+        },
+        {
+          "id": 24,
+          "monitoring_id": 24,
+          "name": "Chaussee de Haecht"
+        },
+        {
+          "id": 25,
+          "monitoring_id": 25,
+          "name": "Saint - Josse Centre"
+        },
+        {
+          "id": 902,
+          "monitoring_id": 902,
+          "name": "Botanique"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "molenbeek",
+      "name": "Molenbeek-Saint-Jean",
+      "micro_anchors": [
+        "Karreveld",
+        "Canal side",
+        "Belgica / Ribaucourt"
+      ],
+      "tags": [
+        "apartments_more",
+        "busy_traffic_noise",
+        "local_market_vibe",
+        "mixed_vibes",
+        "night_caution",
+        "urban_dense",
+        "value_for_money",
+        "schools_strong"
+      ],
+      "watch_out_hint": "Mixed pockets; choose established streets near metro and good lighting.",
+      "metrics": {
+        "area_km2": 6.012665330280151,
+        "cafes_count": 19.0,
+        "restaurants_count": 30.0,
+        "bars_count": 9.0,
+        "schools_count": 43.0,
+        "childcare_count": 5.0,
+        "metro_stops": 22.0,
+        "tram_stops": 27.0,
+        "train_stations": 6.0,
+        "parks_area_km2": 1.0408141170130625,
+        "cafes_density": 3.1599962672651736,
+        "restaurants_density": 4.989467790418695,
+        "bars_density": 1.4968403371256087,
+        "schools_density": 7.15157049960013,
+        "childcare_density": 0.8315779650697825,
+        "metro_density": 3.6589430463070434,
+        "tram_density": 4.490521011376826,
+        "train_density": 0.997893558083739,
+        "parks_share": 0.173103617088325
+      },
+      "tag_confidence": {
+        "schools_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 13,
+          "monitoring_id": 13,
+          "name": "Cureghem Rosee"
+        },
+        {
+          "id": 14,
+          "monitoring_id": 14,
+          "name": "Duchesse"
+        },
+        {
+          "id": 15,
+          "monitoring_id": 15,
+          "name": "Gare de L’ouest"
+        },
+        {
+          "id": 16,
+          "monitoring_id": 16,
+          "name": "Molenbeek Historique"
+        },
+        {
+          "id": 18,
+          "monitoring_id": 18,
+          "name": "Quartier Maritime"
+        },
+        {
+          "id": 61,
+          "monitoring_id": 61,
+          "name": "Moortebeek - Peterbos"
+        },
+        {
+          "id": 62,
+          "monitoring_id": 62,
+          "name": "Machtens"
+        },
+        {
+          "id": 63,
+          "monitoring_id": 63,
+          "name": "Karreveld"
+        },
+        {
+          "id": 65,
+          "monitoring_id": 65,
+          "name": "Korenbeek"
+        },
+        {
+          "id": 913,
+          "monitoring_id": 913,
+          "name": "Parc Marie - Jose"
+        },
+        {
+          "id": 914,
+          "monitoring_id": 914,
+          "name": "Scheutbos"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 13,
+          "monitoring_id": 13,
+          "name": "Cureghem Rosee"
+        },
+        {
+          "id": 14,
+          "monitoring_id": 14,
+          "name": "Duchesse"
+        },
+        {
+          "id": 15,
+          "monitoring_id": 15,
+          "name": "Gare de L’ouest"
+        },
+        {
+          "id": 16,
+          "monitoring_id": 16,
+          "name": "Molenbeek Historique"
+        },
+        {
+          "id": 18,
+          "monitoring_id": 18,
+          "name": "Quartier Maritime"
+        },
+        {
+          "id": 61,
+          "monitoring_id": 61,
+          "name": "Moortebeek - Peterbos"
+        },
+        {
+          "id": 62,
+          "monitoring_id": 62,
+          "name": "Machtens"
+        },
+        {
+          "id": 63,
+          "monitoring_id": 63,
+          "name": "Karreveld"
+        },
+        {
+          "id": 65,
+          "monitoring_id": 65,
+          "name": "Korenbeek"
+        },
+        {
+          "id": 913,
+          "monitoring_id": 913,
+          "name": "Parc Marie - Jose"
+        },
+        {
+          "id": 914,
+          "monitoring_id": 914,
+          "name": "Scheutbos"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "anderlecht",
+      "name": "Anderlecht",
+      "micro_anchors": [
+        "Erasme",
+        "Saint-Guidon",
+        "Parc Astrid edge"
+      ],
+      "tags": [
+        "apartments_more",
+        "car_friendly",
+        "mixed_vibes",
+        "night_caution",
+        "urban_dense",
+        "value_for_money"
+      ],
+      "watch_out_hint": "Commune is large and varied; shortlist micro-areas before viewing.",
+      "metrics": {
+        "area_km2": 17.90584848208815,
+        "cafes_count": 25.0,
+        "restaurants_count": 52.0,
+        "bars_count": 8.0,
+        "schools_count": 81.0,
+        "childcare_count": 8.0,
+        "metro_stops": 39.0,
+        "tram_stops": 25.0,
+        "train_stations": 11.0,
+        "parks_area_km2": 2.6036917808852427,
+        "cafes_density": 1.396191865747573,
+        "restaurants_density": 2.9040790807549515,
+        "bars_density": 0.4467813970392233,
+        "schools_density": 4.523661645022136,
+        "childcare_density": 0.4467813970392233,
+        "metro_density": 2.178059310566214,
+        "tram_density": 1.396191865747573,
+        "train_density": 0.6143244209289321,
+        "parks_share": 0.14541013141543152
+      },
+      "tag_confidence": {},
+      "microhoods": [
+        {
+          "id": 55,
+          "monitoring_id": 55,
+          "name": "Neerpede"
+        },
+        {
+          "id": 12,
+          "monitoring_id": 12,
+          "name": "Cureghem Veterinaire"
+        },
+        {
+          "id": 53,
+          "monitoring_id": 53,
+          "name": "Bizet - Roue - Ceria"
+        },
+        {
+          "id": 803,
+          "monitoring_id": 803,
+          "name": "Industrie Sud"
+        },
+        {
+          "id": 60,
+          "monitoring_id": 60,
+          "name": "Buffon"
+        },
+        {
+          "id": 54,
+          "monitoring_id": 54,
+          "name": "Vogelenzang - Erasme"
+        },
+        {
+          "id": 56,
+          "monitoring_id": 56,
+          "name": "Bon Air"
+        },
+        {
+          "id": 52,
+          "monitoring_id": 52,
+          "name": "Veeweyde - Aurore"
+        },
+        {
+          "id": 57,
+          "monitoring_id": 57,
+          "name": "Scherdemael"
+        },
+        {
+          "id": 59,
+          "monitoring_id": 59,
+          "name": "Scheut"
+        },
+        {
+          "id": 805,
+          "monitoring_id": 805,
+          "name": "Industrie Birmingham"
+        },
+        {
+          "id": 911,
+          "monitoring_id": 911,
+          "name": "Parc Astrid"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 12,
+          "monitoring_id": 12,
+          "name": "Cureghem Veterinaire"
+        },
+        {
+          "id": 52,
+          "monitoring_id": 52,
+          "name": "Veeweyde - Aurore"
+        },
+        {
+          "id": 53,
+          "monitoring_id": 53,
+          "name": "Bizet - Roue - Ceria"
+        },
+        {
+          "id": 54,
+          "monitoring_id": 54,
+          "name": "Vogelenzang - Erasme"
+        },
+        {
+          "id": 55,
+          "monitoring_id": 55,
+          "name": "Neerpede"
+        },
+        {
+          "id": 56,
+          "monitoring_id": 56,
+          "name": "Bon Air"
+        },
+        {
+          "id": 57,
+          "monitoring_id": 57,
+          "name": "Scherdemael"
+        },
+        {
+          "id": 58,
+          "monitoring_id": 58,
+          "name": "Anderlecht Centre - Wayez"
+        },
+        {
+          "id": 59,
+          "monitoring_id": 59,
+          "name": "Scheut"
+        },
+        {
+          "id": 60,
+          "monitoring_id": 60,
+          "name": "Buffon"
+        },
+        {
+          "id": 803,
+          "monitoring_id": 803,
+          "name": "Industrie Sud"
+        },
+        {
+          "id": 805,
+          "monitoring_id": 805,
+          "name": "Industrie Birmingham"
+        },
+        {
+          "id": 910,
+          "monitoring_id": 910,
+          "name": "Parc des Etangs"
+        },
+        {
+          "id": 911,
+          "monitoring_id": 911,
+          "name": "Parc Astrid"
+        },
+        {
+          "id": 912,
+          "monitoring_id": 912,
+          "name": "Parc Forestier"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "evere",
+      "name": "Evere",
+      "micro_anchors": [
+        "NATO vicinity",
+        "Evere center",
+        "Bordet area"
+      ],
+      "tags": [
+        "airport_access",
+        "apartments_more",
+        "car_friendly",
+        "mixed_vibes",
+        "train_hubs_access",
+        "urban_dense",
+        "value_for_money",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Can feel more practical than charming; validate local cafes and parks.",
+      "metrics": {
+        "area_km2": 5.122190068362722,
+        "cafes_count": 18.0,
+        "restaurants_count": 25.0,
+        "bars_count": 1.0,
+        "schools_count": 16.0,
+        "childcare_count": 8.0,
+        "metro_stops": 0.0,
+        "tram_stops": 15.0,
+        "train_stations": 1.0,
+        "parks_area_km2": 0.5831233915211834,
+        "cafes_density": 3.5141218423691942,
+        "restaurants_density": 4.880724781068325,
+        "bars_density": 0.19522899124273302,
+        "schools_density": 3.1236638598837283,
+        "childcare_density": 1.5618319299418641,
+        "metro_density": 0.0,
+        "tram_density": 2.9284348686409953,
+        "train_density": 0.19522899124273302,
+        "parks_share": 0.11384259149672189
+      },
+      "tag_confidence": {
+        "childcare_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 79,
+          "monitoring_id": 79,
+          "name": "Paix"
+        },
+        {
+          "id": 83,
+          "monitoring_id": 83,
+          "name": "Conscience"
+        },
+        {
+          "id": 84,
+          "monitoring_id": 84,
+          "name": "Avenue Leopold Iii"
+        },
+        {
+          "id": 86,
+          "monitoring_id": 86,
+          "name": "Paduwa"
+        },
+        {
+          "id": 700,
+          "monitoring_id": 700,
+          "name": "Cimetiere de Bruxelles"
+        },
+        {
+          "id": 800,
+          "monitoring_id": 800,
+          "name": "Industrie Nord"
+        },
+        {
+          "id": 801,
+          "monitoring_id": 801,
+          "name": "Industrie Otan"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 79,
+          "monitoring_id": 79,
+          "name": "Paix"
+        },
+        {
+          "id": 83,
+          "monitoring_id": 83,
+          "name": "Conscience"
+        },
+        {
+          "id": 84,
+          "monitoring_id": 84,
+          "name": "Avenue Leopold Iii"
+        },
+        {
+          "id": 86,
+          "monitoring_id": 86,
+          "name": "Paduwa"
+        },
+        {
+          "id": 700,
+          "monitoring_id": 700,
+          "name": "Cimetiere de Bruxelles"
+        },
+        {
+          "id": 800,
+          "monitoring_id": 800,
+          "name": "Industrie Nord"
+        },
+        {
+          "id": 801,
+          "monitoring_id": 801,
+          "name": "Industrie Otan"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "jette",
+      "name": "Jette",
+      "micro_anchors": [
+        "Place Reine Astrid (Miroir)",
+        "Dieleghem",
+        "Jette center"
+      ],
+      "tags": [
+        "families",
+        "mixed_vibes",
+        "residential_quiet",
+        "value_for_money",
+        "tram_strong",
+        "childcare_strong"
+      ],
+      "watch_out_hint": "Transit is good but depends on pocket; check last-mile walkability.",
+      "metrics": {
+        "area_km2": 5.187179387563766,
+        "cafes_count": 10.0,
+        "restaurants_count": 54.0,
+        "bars_count": 2.0,
+        "schools_count": 29.0,
+        "childcare_count": 18.0,
+        "metro_stops": 3.0,
+        "tram_stops": 37.0,
+        "train_stations": 2.0,
+        "parks_area_km2": 1.3959353895925084,
+        "cafes_density": 1.927829992534082,
+        "restaurants_density": 10.410281959684044,
+        "bars_density": 0.3855659985068164,
+        "schools_density": 5.590706978348838,
+        "childcare_density": 3.4700939865613476,
+        "metro_density": 0.5783489977602246,
+        "tram_density": 7.1329709723761034,
+        "train_density": 0.3855659985068164,
+        "parks_share": 0.26911261116961865
+      },
+      "tag_confidence": {
+        "tram_strong": "medium",
+        "childcare_strong": "high"
+      },
+      "microhoods": [
+        {
+          "id": 71,
+          "monitoring_id": 71,
+          "name": "Woeste"
+        },
+        {
+          "id": 73,
+          "monitoring_id": 73,
+          "name": "Heymbosch - Az - Jette"
+        },
+        {
+          "id": 74,
+          "monitoring_id": 74,
+          "name": "Heysel"
+        },
+        {
+          "id": 75,
+          "monitoring_id": 75,
+          "name": "Houba"
+        },
+        {
+          "id": 917,
+          "monitoring_id": 917,
+          "name": "Parc Baudouin - Dielegembos"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 71,
+          "monitoring_id": 71,
+          "name": "Woeste"
+        },
+        {
+          "id": 73,
+          "monitoring_id": 73,
+          "name": "Heymbosch - Az - Jette"
+        },
+        {
+          "id": 74,
+          "monitoring_id": 74,
+          "name": "Heysel"
+        },
+        {
+          "id": 75,
+          "monitoring_id": 75,
+          "name": "Houba"
+        },
+        {
+          "id": 917,
+          "monitoring_id": 917,
+          "name": "Parc Baudouin - Dielegembos"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "koekelberg",
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
+      ],
+      "tags": [
+        "apartments_more",
+        "families",
+        "mixed_vibes",
+        "urban_dense",
+        "value_for_money",
+        "green_parks",
+        "metro_strong",
+        "tram_strong",
+        "schools_strong"
+      ],
+      "watch_out_hint": "Busy nodes around Simonis; pick calmer streets for day-to-day comfort.",
+      "metrics": {
+        "area_km2": 1.1813288194678602,
+        "cafes_count": 4.0,
+        "restaurants_count": 3.0,
+        "bars_count": 0.0,
+        "schools_count": 10.0,
+        "childcare_count": 0.0,
+        "metro_stops": 6.0,
+        "tram_stops": 14.0,
+        "train_stations": 2.0,
+        "parks_area_km2": 0.534806888242848,
+        "cafes_density": 3.3860174526190217,
+        "restaurants_density": 2.539513089464266,
+        "bars_density": 0.0,
+        "schools_density": 8.465043631547553,
+        "childcare_density": 0.0,
+        "metro_density": 5.079026178928532,
+        "tram_density": 11.851061084166576,
+        "train_density": 1.6930087263095108,
+        "parks_share": 0.45271636434278856
+      },
+      "tag_confidence": {
+        "green_parks": "high",
+        "metro_strong": "medium",
+        "tram_strong": "high",
+        "schools_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 17,
+          "monitoring_id": 17,
+          "name": "Koekelberg"
+        },
+        {
+          "id": 64,
+          "monitoring_id": 64,
+          "name": "Hopital Francais"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 17,
+          "monitoring_id": 17,
+          "name": "Koekelberg"
+        },
+        {
+          "id": 64,
+          "monitoring_id": 64,
+          "name": "Hopital Francais"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "ganshoren",
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
+      "tags": [
+        "car_friendly",
+        "families",
+        "residential_quiet",
+        "value_for_money",
+        "green_parks"
+      ],
+      "watch_out_hint": "Smaller commune; fewer nightlife options, but good for quiet routines.",
+      "metrics": {
+        "area_km2": 2.4362900577099396,
+        "cafes_count": 1.0,
+        "restaurants_count": 5.0,
+        "bars_count": 1.0,
+        "schools_count": 13.0,
+        "childcare_count": 1.0,
+        "metro_stops": 0.0,
+        "tram_stops": 4.0,
+        "train_stations": 0.0,
+        "parks_area_km2": 0.828270314905119,
+        "cafes_density": 0.41046015717027495,
+        "restaurants_density": 2.052300785851375,
+        "bars_density": 0.41046015717027495,
+        "schools_density": 5.3359820432135745,
+        "childcare_density": 0.41046015717027495,
+        "metro_density": 0.0,
+        "tram_density": 1.6418406286810998,
+        "train_density": 0.0,
+        "parks_share": 0.3399719636354283
+      },
+      "tag_confidence": {
+        "green_parks": "high"
+      },
+      "microhoods": [
+        {
+          "id": 68,
+          "monitoring_id": 68,
+          "name": "Villas de Ganshoren"
+        },
+        {
+          "id": 69,
+          "monitoring_id": 69,
+          "name": "Ganshoren Centre"
+        },
+        {
+          "id": 70,
+          "monitoring_id": 70,
+          "name": "Basilique"
+        },
+        {
+          "id": 72,
+          "monitoring_id": 72,
+          "name": "Jette Centre"
+        },
+        {
+          "id": 915,
+          "monitoring_id": 915,
+          "name": "Parc Elisabeth"
+        },
+        {
+          "id": 916,
+          "monitoring_id": 916,
+          "name": "Bois du Laarbeek - Poelbos"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 68,
+          "monitoring_id": 68,
+          "name": "Villas de Ganshoren"
+        },
+        {
+          "id": 69,
+          "monitoring_id": 69,
+          "name": "Ganshoren Centre"
+        },
+        {
+          "id": 70,
+          "monitoring_id": 70,
+          "name": "Basilique"
+        },
+        {
+          "id": 72,
+          "monitoring_id": 72,
+          "name": "Jette Centre"
+        },
+        {
+          "id": 915,
+          "monitoring_id": 915,
+          "name": "Parc Elisabeth"
+        },
+        {
+          "id": 916,
+          "monitoring_id": 916,
+          "name": "Bois du Laarbeek - Poelbos"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    },
+    {
+      "id": "berchem_sainte_agathe",
+      "name": "Berchem-Sainte-Agathe",
+      "micro_anchors": [
+        "Cite Moderne",
+        "Berchem center",
+        "West edge"
+      ],
+      "tags": [
+        "car_friendly",
+        "families",
+        "residential_quiet",
+        "value_for_money",
+        "tram_strong"
+      ],
+      "watch_out_hint": "More suburban feel; confirm commute and local amenities fit your needs.",
+      "metrics": {
+        "area_km2": 2.948706244227103,
+        "cafes_count": 6.0,
+        "restaurants_count": 6.0,
+        "bars_count": 0.0,
+        "schools_count": 9.0,
+        "childcare_count": 2.0,
+        "metro_stops": 0.0,
+        "tram_stops": 23.0,
+        "train_stations": 0.0,
+        "parks_area_km2": 0.13811221577266913,
+        "cafes_density": 2.034790685490166,
+        "restaurants_density": 2.034790685490166,
+        "bars_density": 0.0,
+        "schools_density": 3.052186028235249,
+        "childcare_density": 0.6782635618300553,
+        "metro_density": 0.0,
+        "tram_density": 7.800030961045636,
+        "train_density": 0.0,
+        "parks_share": 0.04683824170110586
+      },
+      "tag_confidence": {
+        "tram_strong": "medium"
+      },
+      "microhoods": [
+        {
+          "id": 66,
+          "monitoring_id": 66,
+          "name": "Potaarde"
+        },
+        {
+          "id": 67,
+          "monitoring_id": 67,
+          "name": "Berchem Sainte - Agathe Centre"
+        }
+      ],
+      "microhoods_all": [
+        {
+          "id": 66,
+          "monitoring_id": 66,
+          "name": "Potaarde"
+        },
+        {
+          "id": 67,
+          "monitoring_id": 67,
+          "name": "Berchem Sainte - Agathe Centre"
+        }
+      ],
+      "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
+    }
+  ],
+  "computed": {
+    "metrics": {
+      "computed_at_utc": "2026-01-29T12:43:29.367461Z",
+      "city": "Brussels",
+      "country": "Belgium",
+      "source": "OpenStreetMap via OSMnx (Overpass + Nominatim)",
+      "notes": {
+        "parks_share": "leisure=park polygons only",
+        "green_share": "parks + forest + wood polygons (heuristic)"
+      }
+    },
+    "tagging_pipeline": {
+      "data_driven_tags": [
+        "cafes_brunch",
+        "nightlife",
+        "restaurants",
+        "green_parks",
+        "metro_strong",
+        "tram_strong"
+      ],
+      "confidence": {
+        "high_top_pct": 15,
+        "medium_top_pct": 30
+      },
+      "thresholds_top_pct": {
+        "cafes_brunch": 30,
+        "nightlife": 20,
+        "restaurants": 30,
+        "green_parks": 30,
+        "metro_strong": 30,
+        "tram_strong": 30
+      },
+      "warning": "Soft tags are not computed automatically."
+    }
+  },
+  "country": "Belgium",
+  "_metrics_meta": {
+    "city": "Brussels",
+    "country": null,
+    "generated_at": "2026-02-02 11:23:32"
+  },
+  "microhoods_source": {
+    "provider": "IBSA / perspective.brussels",
+    "dataset": "quartiers-du-monitoring-des-quartiers-ibsa-perspective-rbc",
+    "note": "Official Monitoring des Quartiers quarters. Populated by compute_metrics_and_tags.py --include-microhoods."
+  }
+}

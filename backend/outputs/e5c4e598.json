@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family seeking to buy in Brussels, budget 770,000–1,155,000 EUR. Priorities include premium feel, childcare access, and quiet residential areas.",
+  "must_have": [
+    "3+ rooms suitable for family living",
+    "Access to quality childcare options",
+    "Proximity to parks and green areas",
+    "Quiet residential environment",
+    "Cafes and brunch establishments nearby"
+  ],
+  "nice_to_have": [
+    "Good public transport connections",
+    "Family-oriented community",
+    "Nearby recreational facilities",
+    "Proximity to schools and educational facilities",
+    "Modern amenities"
+  ],
+  "red_flags": [
+    "High competition in desirable districts may affect availability",
+    "Unexpected costs associated with property maintenance",
+    "Potential noise from nearby locations",
+    "Limited parking options in certain areas",
+    "Rising property prices may exceed budget"
+  ],
+  "contradictions": [
+    "Desire for quiet areas may limit access to lively cafes",
+    "Premium properties may come with higher maintenance costs",
+    "Preference for walkability may reduce options for large homes",
+    "Childcare proximity could clash with budget constraints"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Features Flagey square, known for its cafes and cultural vibe.",
+        "Offers access to Parc Tenbosch, a green oasis for families."
+      ],
+      "watch_out": [
+        "Parking can be challenging due to local events and cafes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Situated near beautiful parks, ideal for children's playtime.",
+        "Housing options include family-friendly homes near schools."
+      ],
+      "watch_out": [
+        "High demand may push property prices beyond budget."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Adjacent to Parc du Cinquantenaire, great for outdoor activities.",
+        "Offers convenient access to local markets and brunch spots."
+      ],
+      "watch_out": [
+        "Commuting may take longer during peak traffic times."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive property listings for Belgium."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Wide selection of properties available for purchase."
+    },
+    {
+      "name": "Vlan Immo",
+      "url": "https://www.vlanimmo.be",
+      "note": "Local property listings and resources."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly site for real estate in Belgium."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "AgentHome",
+      "url": "https://www.agenthome.be",
+      "note": "Specializes in family housing in Brussels."
+    },
+    {
+      "name": "Brussels Realty",
+      "url": "https://www.brussels-realty.com",
+      "note": "Offers comprehensive services for buyers."
+    },
+    {
+      "name": "Immobilier Bruxelles",
+      "url": "https://www.immobilier-bruxelles.com",
+      "note": "Focuses on residential properties in Brussels."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs including taxes and fees?",
+    "Are there any specific legal restrictions for the property?",
+    "What are the building charges and recent maintenance works?",
+    "What is the condition of the property and any necessary inspections?",
+    "What is the expected timeline for negotiations and finalizing purchase?"
+  ],
+  "next_steps": [
+    "Research neighborhood specifics and amenities.",
+    "Visit potential properties in shortlisted districts.",
+    "Engage with local real estate agencies for more options.",
+    "Review financial and legal documentation requirements."
+  ],
+  "clarifying_questions": [
+    "What specific school requirements should be considered?",
+    "Are there preferences for new vs. older properties?",
+    "What is the expected move-in timeline?"
+  ]
+}

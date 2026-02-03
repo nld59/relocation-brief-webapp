@@ -1,0 +1,640 @@
+{
+  "city": "Brussels",
+  "level": "commune",
+  "tags_vocab": [
+    {
+      "id": "cafes_brunch",
+      "title": "Cafes & brunch",
+      "sub": "Local vibe, coffee, brunch spots"
+    },
+    {
+      "id": "restaurants",
+      "title": "Restaurants",
+      "sub": "Dining variety, quality options"
+    },
+    {
+      "id": "nightlife",
+      "title": "Nightlife",
+      "sub": "Bars, late evenings, energy"
+    },
+    {
+      "id": "culture_museums",
+      "title": "Culture & museums",
+      "sub": "Museums, theatres, landmarks"
+    },
+    {
+      "id": "art_design",
+      "title": "Art & design",
+      "sub": "Galleries, creative scene"
+    },
+    {
+      "id": "shopping",
+      "title": "Shopping",
+      "sub": "Retail streets, boutiques, malls"
+    },
+    {
+      "id": "local_market_vibe",
+      "title": "Markets & local feel",
+      "sub": "Markets, neighborhood life"
+    },
+    {
+      "id": "touristy",
+      "title": "Touristy",
+      "sub": "Central sights, visitors, buzz"
+    },
+    {
+      "id": "families",
+      "title": "Families",
+      "sub": "Kid-friendly, services, calmer vibe"
+    },
+    {
+      "id": "expats_international",
+      "title": "Expats & international",
+      "sub": "International community"
+    },
+    {
+      "id": "students",
+      "title": "Students",
+      "sub": "Campus life, student energy"
+    },
+    {
+      "id": "young_professionals",
+      "title": "Young professionals",
+      "sub": "Work-life balance, commute"
+    },
+    {
+      "id": "older_quiet",
+      "title": "Quiet & mature",
+      "sub": "Calm streets, slower pace"
+    },
+    {
+      "id": "green_parks",
+      "title": "Green & parks",
+      "sub": "Parks, nature, walks"
+    },
+    {
+      "id": "residential_quiet",
+      "title": "Residential & quiet",
+      "sub": "Calmer streets, less noise"
+    },
+    {
+      "id": "urban_dense",
+      "title": "Urban & dense",
+      "sub": "City feel, density"
+    },
+    {
+      "id": "houses_more",
+      "title": "More houses",
+      "sub": "More houses than apartments"
+    },
+    {
+      "id": "apartments_more",
+      "title": "More apartments",
+      "sub": "Apartment living, blocks"
+    },
+    {
+      "id": "premium_feel",
+      "title": "Premium feel",
+      "sub": "More upscale, polished"
+    },
+    {
+      "id": "value_for_money",
+      "title": "Value for money",
+      "sub": "Better budget fit"
+    },
+    {
+      "id": "mixed_vibes",
+      "title": "Mixed vibe",
+      "sub": "Varied streets and pockets"
+    },
+    {
+      "id": "central_access",
+      "title": "Central access",
+      "sub": "Easy access to city center"
+    },
+    {
+      "id": "eu_quarter_access",
+      "title": "EU quarter access",
+      "sub": "Easy to EU institutions area"
+    },
+    {
+      "id": "train_hubs_access",
+      "title": "Train hubs access",
+      "sub": "Easy access to main stations"
+    },
+    {
+      "id": "airport_access",
+      "title": "Airport access",
+      "sub": "Convenient to airport"
+    },
+    {
+      "id": "metro_strong",
+      "title": "Strong metro",
+      "sub": "Metro coverage and speed"
+    },
+    {
+      "id": "tram_strong",
+      "title": "Strong tram",
+      "sub": "Good tram connections"
+    },
+    {
+      "id": "bike_friendly",
+      "title": "Bike friendly",
+      "sub": "Cycling routes, flatter links"
+    },
+    {
+      "id": "car_friendly",
+      "title": "Car friendly",
+      "sub": "Parking and road access"
+    },
+    {
+      "id": "night_caution",
+      "title": "Night caution",
+      "sub": "Extra care late evenings"
+    },
+    {
+      "id": "busy_traffic_noise",
+      "title": "Traffic/noise",
+      "sub": "Busier roads, more noise"
+    }
+  ],
+  "default_shortlist": [
+    "Ixelles",
+    "Etterbeek",
+    "Uccle",
+    "Woluwe-Saint-Lambert",
+    "Woluwe-Saint-Pierre",
+    "Saint-Gilles",
+    "City of Brussels"
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Logic-immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Listings + agencies, French-first."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Alternative portal with strong coverage."
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Portal + agency listings."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Premium rentals/sales, international clientele."
+    },
+    {
+      "name": "Engel & Völkers",
+      "url": "https://www.engelvoelkers.com",
+      "note": "International brand (search Brussels)."
+    },
+    {
+      "name": "Victoire Properties",
+      "url": "https://www.victoire.be",
+      "note": "Well-known Brussels residential agency."
+    }
+  ],
+  "communes": [
+    {
+      "id": "brussels_city",
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "tags": [
+        "central_access",
+        "culture_museums",
+        "restaurants",
+        "shopping",
+        "touristy",
+        "urban_dense",
+        "apartments_more",
+        "tram_strong",
+        "metro_strong",
+        "busy_traffic_noise"
+      ],
+      "watch_out_hint": "Touristy pockets and traffic can feel noisy on weekends.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "ixelles",
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "tags": [
+        "cafes_brunch",
+        "restaurants",
+        "nightlife",
+        "art_design",
+        "expats_international",
+        "students",
+        "young_professionals",
+        "central_access",
+        "tram_strong",
+        "urban_dense",
+        "apartments_more",
+        "busy_traffic_noise"
+      ],
+      "watch_out_hint": "Popular streets get noisy on weekends; parking is often tight.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "uccle",
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "tags": [
+        "families",
+        "green_parks",
+        "residential_quiet",
+        "houses_more",
+        "premium_feel",
+        "car_friendly",
+        "older_quiet",
+        "tram_strong"
+      ],
+      "watch_out_hint": "Commute can be slower without a car; some pockets stretch budgets.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "etterbeek",
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "tags": [
+        "eu_quarter_access",
+        "central_access",
+        "cafes_brunch",
+        "restaurants",
+        "young_professionals",
+        "expats_international",
+        "tram_strong",
+        "metro_strong",
+        "urban_dense",
+        "apartments_more"
+      ],
+      "watch_out_hint": "Rents near EU quarter can be higher; traffic around main axes.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "woluwe_saint_lambert",
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "tags": [
+        "families",
+        "green_parks",
+        "residential_quiet",
+        "apartments_more",
+        "premium_feel",
+        "metro_strong",
+        "tram_strong",
+        "car_friendly",
+        "older_quiet"
+      ],
+      "watch_out_hint": "Popular family areas book fast; prices can be above average.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "woluwe_saint_pierre",
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "tags": [
+        "families",
+        "green_parks",
+        "residential_quiet",
+        "houses_more",
+        "premium_feel",
+        "metro_strong",
+        "car_friendly",
+        "older_quiet"
+      ],
+      "watch_out_hint": "House-focused pockets are pricey; fewer nightlife options nearby.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "auderghem",
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
+      "tags": [
+        "families",
+        "green_parks",
+        "residential_quiet",
+        "houses_more",
+        "car_friendly",
+        "bike_friendly",
+        "older_quiet",
+        "metro_strong"
+      ],
+      "watch_out_hint": "Some areas feel suburban; check commute times to your daily anchors.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "watermael_boitsfort",
+      "name": "Watermael-Boitsfort",
+      "micro_anchors": [
+        "Place Wiener",
+        "Logis-Floréal",
+        "Sonian Forest edge"
+      ],
+      "tags": [
+        "green_parks",
+        "bike_friendly",
+        "families",
+        "residential_quiet",
+        "houses_more",
+        "older_quiet",
+        "car_friendly"
+      ],
+      "watch_out_hint": "Limited nightlife; public transport varies by pocket, plan routes.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "saint_gilles",
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "tags": [
+        "cafes_brunch",
+        "restaurants",
+        "nightlife",
+        "art_design",
+        "young_professionals",
+        "central_access",
+        "urban_dense",
+        "tram_strong",
+        "apartments_more",
+        "night_caution",
+        "busy_traffic_noise"
+      ],
+      "watch_out_hint": "Some streets are lively and noisy late; choose quieter side streets.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "micro_anchors": [
+        "Altitude 100",
+        "Parc de Forest",
+        "Wiels area"
+      ],
+      "tags": [
+        "green_parks",
+        "mixed_vibes",
+        "value_for_money",
+        "cafes_brunch",
+        "tram_strong",
+        "urban_dense",
+        "apartments_more",
+        "night_caution"
+      ],
+      "watch_out_hint": "Quality varies by micro-area; visit at night before committing.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "schaerbeek",
+      "name": "Schaerbeek",
+      "micro_anchors": [
+        "Plasky",
+        "Parc Josaphat",
+        "Helmet"
+      ],
+      "tags": [
+        "mixed_vibes",
+        "value_for_money",
+        "urban_dense",
+        "tram_strong",
+        "train_hubs_access",
+        "cafes_brunch",
+        "local_market_vibe",
+        "apartments_more",
+        "night_caution"
+      ],
+      "watch_out_hint": "Very street-by-street; check safety/quietness around your exact block.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "saint_josse",
+      "name": "Saint-Josse-ten-Noode",
+      "micro_anchors": [
+        "Madou",
+        "Botanique edge",
+        "Saint-Josse center"
+      ],
+      "tags": [
+        "central_access",
+        "eu_quarter_access",
+        "urban_dense",
+        "value_for_money",
+        "metro_strong",
+        "tram_strong",
+        "apartments_more",
+        "busy_traffic_noise",
+        "night_caution"
+      ],
+      "watch_out_hint": "Dense and busy; pick well-connected streets and avoid noisy intersections.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "molenbeek",
+      "name": "Molenbeek-Saint-Jean",
+      "micro_anchors": [
+        "Karreveld",
+        "Canal side",
+        "Belgica / Ribaucourt"
+      ],
+      "tags": [
+        "value_for_money",
+        "urban_dense",
+        "metro_strong",
+        "tram_strong",
+        "mixed_vibes",
+        "apartments_more",
+        "night_caution",
+        "busy_traffic_noise",
+        "local_market_vibe"
+      ],
+      "watch_out_hint": "Mixed pockets; choose established streets near metro and good lighting.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "anderlecht",
+      "name": "Anderlecht",
+      "micro_anchors": [
+        "Erasme",
+        "Saint-Guidon",
+        "Parc Astrid edge"
+      ],
+      "tags": [
+        "value_for_money",
+        "mixed_vibes",
+        "urban_dense",
+        "metro_strong",
+        "tram_strong",
+        "apartments_more",
+        "car_friendly",
+        "night_caution"
+      ],
+      "watch_out_hint": "Commune is large and varied; shortlist micro-areas before viewing.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "evere",
+      "name": "Evere",
+      "micro_anchors": [
+        "NATO vicinity",
+        "Evere center",
+        "Bordet area"
+      ],
+      "tags": [
+        "value_for_money",
+        "mixed_vibes",
+        "train_hubs_access",
+        "airport_access",
+        "urban_dense",
+        "apartments_more",
+        "car_friendly"
+      ],
+      "watch_out_hint": "Can feel more practical than charming; validate local cafes and parks.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "jette",
+      "name": "Jette",
+      "micro_anchors": [
+        "Place Reine Astrid (Miroir)",
+        "Dieleghem",
+        "Jette center"
+      ],
+      "tags": [
+        "families",
+        "green_parks",
+        "residential_quiet",
+        "value_for_money",
+        "tram_strong",
+        "metro_strong",
+        "mixed_vibes"
+      ],
+      "watch_out_hint": "Transit is good but depends on pocket; check last-mile walkability.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "koekelberg",
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
+      ],
+      "tags": [
+        "families",
+        "value_for_money",
+        "metro_strong",
+        "tram_strong",
+        "mixed_vibes",
+        "urban_dense",
+        "apartments_more"
+      ],
+      "watch_out_hint": "Busy nodes around Simonis; pick calmer streets for day-to-day comfort.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "ganshoren",
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
+      "tags": [
+        "families",
+        "residential_quiet",
+        "value_for_money",
+        "green_parks",
+        "tram_strong",
+        "car_friendly"
+      ],
+      "watch_out_hint": "Smaller commune; fewer nightlife options, but good for quiet routines.",
+      "metrics": {},
+      "tag_confidence": {}
+    },
+    {
+      "id": "berchem_sainte_agathe",
+      "name": "Berchem-Sainte-Agathe",
+      "micro_anchors": [
+        "Cite Moderne",
+        "Berchem center",
+        "West edge"
+      ],
+      "tags": [
+        "families",
+        "residential_quiet",
+        "value_for_money",
+        "green_parks",
+        "car_friendly",
+        "tram_strong"
+      ],
+      "watch_out_hint": "More suburban feel; confirm commute and local amenities fit your needs.",
+      "metrics": {},
+      "tag_confidence": {}
+    }
+  ],
+  "computed": {
+    "metrics": {},
+    "tagging_pipeline": {}
+  }
+}

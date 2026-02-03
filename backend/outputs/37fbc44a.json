@@ -1,0 +1,149 @@
+{
+  "client_profile": "A couple looking to buy an apartment in Brussels, with a budget of 490,000–895,000 EUR. Priorities include cafes & brunch, family-friendly amenities, and expat community.",
+  "must_have": [
+    "1+ room apartment in safe areas",
+    "Access to quality schools within 15 min",
+    "Nearby parks for family activities",
+    "Public transport access for ease of commute",
+    "Strong expat community in the district"
+  ],
+  "nice_to_have": [
+    "Local cafes and brunch spots nearby",
+    "Proximity to cultural amenities",
+    "Quiet streets with less traffic",
+    "Walkable neighborhoods for daily errands",
+    "Outdoor spaces for children to play"
+  ],
+  "red_flags": [
+    "High living costs could complicate budgets",
+    "Limited availability of family-friendly apartments",
+    "Noise levels in certain districts may be concerning",
+    "Commute times could be longer in busy areas",
+    "Future developments might alter neighborhood dynamics"
+  ],
+  "contradictions": [
+    "Desire for quiet areas vs. cafe accessibility",
+    "Family-friendly requirements vs. urban vibrancy",
+    "Preference for expat community vs. local integration",
+    "Budget limitations vs. desired neighborhood quality"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Cafes around Flagey Square attract a vibrant community and offer diverse dining options.",
+        "Schools like St. Boniface provide excellent education, making Ixelles family-friendly."
+      ],
+      "watch_out": [
+        "High demand may lead to competitive pricing and quick sales in preferred areas."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Parc du Cinquantenaire offers green spaces, ideal for families and outdoor activities.",
+        "Good international schools cater to expat families, fostering community connections."
+      ],
+      "watch_out": [
+        "Potential noise from nearby traffic may impact peaceful living experiences."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Cafes and brunch spots in the area create a lively atmosphere for socializing.",
+        "The presence of diverse schools appeals to families and expats alike."
+      ],
+      "watch_out": [
+        "Rental prices are rising, making properties less affordable for families."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Leading real estate site in Belgium."
+    },
+    {
+      "name": "Zimmert.com",
+      "url": "https://www.google.com/search?q=Zimmert.com+Brussels%2C+Belgium",
+      "note": "Platforms specializing in residential listings."
+    },
+    {
+      "name": "Vlan",
+      "url": "https://www.google.com/search?q=Vlan+Brussels%2C+Belgium",
+      "note": "Local classified ads for buying properties."
+    },
+    {
+      "name": "Bordeaux Immobilier",
+      "url": "https://www.google.com/search?q=Bordeaux+Immobilier+Brussels%2C+Belgium",
+      "note": "Offers comprehensive listings for Brussels."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Property",
+      "url": "https://www.google.com/search?q=Brussels+Property+Brussels%2C+Belgium",
+      "note": "Specializes in expat relocations."
+    },
+    {
+      "name": "Immo Apart",
+      "url": "https://www.google.com/search?q=Immo+Apart+Brussels%2C+Belgium",
+      "note": "Focused on residential properties for families."
+    },
+    {
+      "name": "MDI Brussels",
+      "url": "https://www.google.com/search?q=MDI+Brussels+Brussels%2C+Belgium",
+      "note": "Local agency with varied listings."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs including hidden fees?",
+    "Are there any service charges for the building?",
+    "What is the timeline for moving in?",
+    "Is the property compliant with local regulations?",
+    "Can you provide a recent inspection report?"
+  ],
+  "next_steps": [
+    "Review listings from suggested real estate sites.",
+    "Select preferred districts for schedule appointments.",
+    "Inquire about viewings for shortlisted properties.",
+    "Discuss budget considerations and financing options."
+  ],
+  "clarifying_questions": [
+    "What is your timeline for purchasing?",
+    "Do you have preferred amenities beyond cafes?",
+    "Are you open to renovating if necessary?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

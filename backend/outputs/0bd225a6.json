@@ -1,0 +1,150 @@
+{
+  "client_profile": "Family looking to buy a home in Brussels. Budget is 715000–975000 EUR. Priorities include residential areas, family-friendliness, and local cafes.",
+  "must_have": [
+    "Minimum of 2 bedrooms for family needs.",
+    "Access to high-quality schools within a 20 min walk.",
+    "Quiet neighborhoods for a peaceful living environment.",
+    "Proximity to family-friendly parks and recreational areas.",
+    "Availability of expat-friendly amenities and cafes."
+  ],
+  "nice_to_have": [
+    "Public transportation options for easy commuting.",
+    "Local community events for family engagement.",
+    "Tree-lined streets for better air quality.",
+    "Pet-friendly areas for family pets.",
+    "Cultural venues offering family programming."
+  ],
+  "red_flags": [
+    "High traffic areas can disrupt the peaceful environment.",
+    "Limited parking options may complicate daily activities.",
+    "School performance variability in some neighborhoods.",
+    "Higher renovation costs in older buildings.",
+    "Limited access to childcare services in certain areas."
+  ],
+  "contradictions": [
+    "Family-friendly areas may have higher living costs.",
+    "Quiet neighborhoods might be farther from city amenities.",
+    "Desirable cafes could lead to noise and traffic.",
+    "Expats' needs may drive up local housing prices."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Known for its diverse expat community and lush parks like Flagey.",
+        "Offers vibrant brunch spots and family-friendly activities nearby."
+      ],
+      "watch_out": [
+        "Popular areas can experience high rental demand and competition."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Features spacious parks like Parc du Wolvendael ideal for children.",
+        "Offers high-quality schools within a short walking distance."
+      ],
+      "watch_out": [
+        "Certain neighborhoods may stretch your budget significantly."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Schaerbeek",
+      "why": [
+        "Attracts families with its quiet streets and local playgrounds.",
+        "Good access to Brussels' public transport network for commuting."
+      ],
+      "watch_out": [
+        "Some areas are undergoing construction which may affect noise levels."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings and tools for buyers."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.google.com/search?q=Zimmo+Brussels%2C+Belgium",
+      "note": "User-friendly site for property searches."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.google.com/search?q=Logic-Immo+Brussels%2C+Belgium",
+      "note": "Clear layout with family-focused listings."
+    },
+    {
+      "name": "Century 21",
+      "url": "https://www.century21.be",
+      "note": "Offers expert guidance in Brussels real estate."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Real Estate",
+      "url": "https://brusselsrealestate.com",
+      "note": "Specializes in family-friendly neighborhoods."
+    },
+    {
+      "name": "Café Properties",
+      "url": "https://cafproperties.com",
+      "note": "Focuses on expat needs."
+    },
+    {
+      "name": "Immopro",
+      "url": "https://immopro.com",
+      "note": "Local experts in property transactions."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the required deposit and are there any additional fees?",
+    "Are utilities included in the rental price?",
+    "What is the lease term and termination policy?",
+    "Are there any noise rules or regulations in the neighborhood?",
+    "How is rent indexed or registered annually?"
+  ],
+  "next_steps": [
+    "Schedule viewings for top-rated listings.",
+    "Research neighborhood schools and their performance.",
+    "Contact real estate agents for recommendations.",
+    "Determine financing options for the purchase."
+  ],
+  "clarifying_questions": [
+    "What type of housing is preferred: apartment or house?",
+    "Is a garden or outdoor space important?",
+    "What are your preferences regarding renovations?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Shortlist 2–3 schools/childcare options and confirm admissions/availability for your timing.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

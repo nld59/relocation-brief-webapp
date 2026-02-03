@@ -1,0 +1,149 @@
+{
+  "client_profile": "A couple looking to buy a property in Brussels with a budget of 490,000–895,000 EUR. Priorities include cafes & brunch, restaurants, and central access for an expat-friendly lifestyle.",
+  "must_have": [
+    "2+ rooms for living space",
+    "Proximity to cafes and restaurants",
+    "Access to public transport",
+    "Family-friendly neighborhoods",
+    "Good safety ratings"
+  ],
+  "nice_to_have": [
+    "Green spaces nearby",
+    "Modern amenities in the building",
+    "Community events and activities",
+    "Walkability within the district",
+    "International school access"
+  ],
+  "red_flags": [
+    "High final purchase costs exceeding budget",
+    "Limited property availability in preferred areas",
+    "Noise from busy streets or nightlife",
+    "Potential for renovation needs",
+    "Long commute times from certain districts"
+  ],
+  "contradictions": [
+    "Choosing central access may limit budget options",
+    "Desiring cafes may conflict with family-friendly areas",
+    "Preference for modern amenities versus historic charm",
+    "Expats may find fewer options in upscale districts"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Has vibrant cafes around Flagey Square, ideal for brunch gatherings.",
+        "Excellent public transport options via multiple tram and bus stops."
+      ],
+      "watch_out": [
+        "Beware of higher prices in trendy micro-areas and noise at night."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Offers diverse dining options, especially around Parvis de Saint-Gilles.",
+        "Strong expat community provides a welcoming environment for newcomers."
+      ],
+      "watch_out": [
+        "The district can have high rental demand, impacting property availability."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Known for its beautiful parks like Parc du Wolvendael for family outings.",
+        "Highly rated schools and green spaces suitable for families."
+      ],
+      "watch_out": [
+        "Longer commutes to central business areas may be a concern."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings for buying properties."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.google.com/search?q=Zimmo+Brussels%2C+Belgium",
+      "note": "User-friendly site for property searches."
+    },
+    {
+      "name": "Habitat",
+      "url": "https://www.google.com/search?q=Habitat+Brussels%2C+Belgium",
+      "note": "Focus on residential real estate options."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.google.com/search?q=Logic-Immo+Brussels%2C+Belgium",
+      "note": "Features various properties in Brussels."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Real Estate",
+      "url": "https://www.google.com/search?q=Brussels+Real+Estate+Brussels%2C+Belgium",
+      "note": "Specializes in Brussels property market."
+    },
+    {
+      "name": "Viva Properties",
+      "url": "https://www.google.com/search?q=Viva+Properties+Brussels%2C+Belgium",
+      "note": "Focuses on family-friendly homes."
+    },
+    {
+      "name": "Immo Nestor",
+      "url": "https://www.google.com/search?q=Immo+Nestor+Brussels%2C+Belgium",
+      "note": "Local expert in expat housing."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total upfront costs including fees and deposits?",
+    "Are utilities included in the lease agreement?",
+    "What are the lease termination terms and conditions?",
+    "How are noise regulations enforced in the building?",
+    "Is there an escalation clause for rent increases?"
+  ],
+  "next_steps": [
+    "Schedule visits for shortlisted properties",
+    "Review neighborhood amenities and services",
+    "Check local market trends and pricing",
+    "Prepare financial documents for purchase"
+  ],
+  "clarifying_questions": [
+    "What specific areas are you most interested in?",
+    "Are there any deal-breakers for the housing type?",
+    "Do you have a timeline for moving?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

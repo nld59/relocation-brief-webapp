@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family looking to buy in Brussels. Budget is EUR 865,000–1,040,000. Priorities include premium feel, safety, and access to parks and cafes.",
+  "must_have": [
+    "Minimum 2 bedrooms for family comfort.",
+    "Safe neighborhood with low crime rates.",
+    "Proximity to parks for outdoor activities.",
+    "Access to cafes for social engagements.",
+    "Walkable distance to childcare or schools."
+  ],
+  "nice_to_have": [
+    "Nearby brunch spots for weekend outings.",
+    "Quiet street with limited traffic noise.",
+    "Community events or family-oriented activities.",
+    "Public transport access within 15 min.",
+    "Grocery stores within walking distance."
+  ],
+  "red_flags": [
+    "High property taxes in desired areas.",
+    "Overcrowded neighborhoods affecting quality of life.",
+    "Limited transport options may hinder commute.",
+    "Properties might need significant renovations.",
+    "Noise from nearby streets could be disruptive."
+  ],
+  "contradictions": [
+    "Luxury amenities may lead to budget constraints.",
+    "Quiet areas might be far from lively cafes.",
+    "Buying in residential zones could limit growth.",
+    "Desire for parks may conflict with residential density."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Offers parks like Flagey Square; vibrant community with family activities.",
+        "Easy access to cafes and brunch options along avenue Louise."
+      ],
+      "watch_out": [
+        "Property prices can be higher due to demand and amenities."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Known for spacious green parks like Parc de Wolvendael; excellent for children.",
+        "Quiet residential areas provide a premium feel and safety for families."
+      ],
+      "watch_out": [
+        "Longer commute times may occur depending on job location."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Home to Parc du Cinquantenaire; great for family outings and picnics.",
+        "Good access to cafes and restaurants for brunch lovers."
+      ],
+      "watch_out": [
+        "Potential for noise due to nearby events in parks."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings for Belgian properties."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Offers detailed property search options."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly interface for property listings."
+    },
+    {
+      "name": "Realo",
+      "url": "https://www.realo.be",
+      "note": "Information on property values and neighborhood insights."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Belgium",
+      "url": "https://www.barnes-international.com/en/",
+      "note": "Specializes in premium real estate."
+    },
+    {
+      "name": "Trevi",
+      "url": "https://www.trevi.be",
+      "note": "Established agency with a wide range of offerings."
+    },
+    {
+      "name": "L&P Immobiliere",
+      "url": "https://www.lpimmobiliere.be",
+      "note": "Local focus with expertise in family homes."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total cost including fees and taxes?",
+    "Are there any ongoing building works or charges?",
+    "What is the condition of the property?",
+    "What is the timeline for closing the deal?",
+    "What negotiation flexibility is there on the price?"
+  ],
+  "next_steps": [
+    "Research the top districts for personal visits.",
+    "Schedule viewings for shortlisted properties.",
+    "Consult financial advisor for mortgage options.",
+    "Contact local agencies for assistance."
+  ],
+  "clarifying_questions": [
+    "Are there preferred amenities for child care?",
+    "What type of outdoor spaces are most important?",
+    "Is a specific architectural style favored?"
+  ]
+}

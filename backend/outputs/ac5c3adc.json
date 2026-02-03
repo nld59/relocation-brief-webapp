@@ -1,0 +1,135 @@
+{
+  "client_profile": "Family seeking to buy in Brussels, budget 825000–1050000 EUR. Priorities include residential areas, family-friendly amenities, and nearby parks.",
+  "must_have": [
+    "Minimum of 3 rooms for family needs.",
+    "Proximity to parks and green areas.",
+    "Access to family-friendly cafes and brunch spots."
+  ],
+  "nice_to_have": [
+    "Close to international schools.",
+    "Community with expat presence.",
+    "Quiet neighborhoods with low traffic."
+  ],
+  "red_flags": [
+    "High traffic areas may reduce quietness.",
+    "Limited public transport options could affect commuting.",
+    "Some neighborhoods may be pricier than budget allows."
+  ],
+  "contradictions": [
+    "Family-friendly areas may not have extensive nightlife options.",
+    "Quiet neighborhoods may lack immediate amenities.",
+    "Residential zones might have longer commutes."
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "why": [
+        "Features beautiful parks like Parc de Woluwe, perfect for family outings.",
+        "Highly rated international schools ensure quality education for children."
+      ],
+      "watch_out": [
+        "High property prices may stretch the budget significantly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "why": [
+        "Known for family-friendly cafes and vibrant community for expats.",
+        "Easy access to Parc du Cinquantenaire offers ample green space."
+      ],
+      "watch_out": [
+        "Busy streets can lead to noise and congestion issues."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "why": [
+        "Quiet residential areas with plenty of parks suitable for families.",
+        "Offers excellent selection of international schools nearby."
+      ],
+      "watch_out": [
+        "Limited restaurant options may hinder dining variety."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings throughout Belgium."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Popular site for real estate in Brussels."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly interface for browsing properties."
+    },
+    {
+      "name": "Realo",
+      "url": "https://www.realo.be",
+      "note": "Includes neighborhood insights and price history."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "BSA Real Estate",
+      "url": "https://www.bsa-re.com",
+      "note": "Specializes in family homes in Brussels."
+    },
+    {
+      "name": "Vander Kindere",
+      "url": "https://www.vanderkindere.be",
+      "note": "Known for high-quality listings and service."
+    },
+    {
+      "name": "L&P Real Estate",
+      "url": "https://www.lp-realestate.be",
+      "note": "Expert in expat relocation and family housing."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs involved in the purchase?",
+    "Are there any building charges or pending works?",
+    "How is the property's condition and have inspections been done?",
+    "What legal compliance issues should I be aware of?",
+    "What is the typical timeline for negotiations?"
+  ],
+  "next_steps": [
+    "Schedule viewings for prospective properties.",
+    "Research schools and amenities in shortlisted areas.",
+    "Set a budget for additional costs post-purchase."
+  ],
+  "clarifying_questions": [
+    "Do you have specific neighborhoods in mind?",
+    "What features are essential in your new home?",
+    "Are you flexible with your budget?"
+  ]
+}

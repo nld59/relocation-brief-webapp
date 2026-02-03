@@ -1,0 +1,149 @@
+{
+  "client_profile": "Couple buying in Brussels with EUR 490,000-895,000 budget. Priorities: cafes and brunch, parks, and a quiet residential feel. Prefer 15-minute lifestyle with outdoor space and solid energy performance.",
+  "must_have": [
+    "Minimum 1 bedroom with 60+ sqm usable space.",
+    "Private balcony or terrace for morning coffee.",
+    "Within a 15-minute walk to a sizable park.",
+    "Quiet street or rear-facing unit away from bar clusters.",
+    "EPC rating C or better with double glazing."
+  ],
+  "nice_to_have": [
+    "South or west-facing outdoor space with good light.",
+    "Elevator access if above the 3rd floor.",
+    "Secure bike storage in the building.",
+    "Parking option or easy street parking permit availability.",
+    "Recent kitchen and bathroom updates with modern appliances."
+  ],
+  "red_flags": [
+    "EPC rating E or worse indicating costly heating.",
+    "Unapproved alterations lacking urban planning compliance documents.",
+    "Persistent bar or tram noise audible inside with windows closed.",
+    "High co-ownership arrears or legal disputes in the association.",
+    "Announced roof, facade, or elevator works without a funded reserve."
+  ],
+  "contradictions": [
+    "Quiet street preference versus living next to vibrant brunch spots.",
+    "Historic charm versus better insulation from newer builds.",
+    "Top-floor light and views versus reliance on an elevator.",
+    "Large terrace desire versus tighter EPC and higher heating demand."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles (Elsene)",
+      "why": [
+        "Brunch and bars around Place Flagey with Ixelles Ponds and Tenbosch Park nearby.",
+        "Fast trams at Flagey and Bailli, plus buses to EU quarter and city center."
+      ],
+      "watch_out": [
+        "Nighttime noise and weekend crowds around Place Flagey can disturb lower-floor apartments."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles (Sint-Gillis)",
+      "why": [
+        "Cafes by Parvis de Saint-Gilles with greenery at Parc de Forest within walking distance.",
+        "Tram 81 and Horta metro offer quick links to Louise and Gare du Midi."
+      ],
+      "watch_out": [
+        "Steeper streets and older buildings may challenge accessibility and add stair-only walk-up constraints."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert (Sint-Lambrechts-Woluwe)",
+      "why": [
+        "Quiet residential streets near Parc de Roodebeek and Woluwe Shopping with calm cafe options.",
+        "Tomberg and Roodebeek metro stations give swift access to Schuman and city center."
+      ],
+      "watch_out": [
+        "Some buildings include older heating systems that increase energy costs despite favorable EPC labels."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest listings in Belgium"
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Good filters and alerts"
+    },
+    {
+      "name": "Biddit",
+      "url": "https://www.biddit.be",
+      "note": "Notary auctions and sales"
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.google.com/search?q=Logic-Immo+Brussels%2C+Belgium",
+      "note": "Broker listings and new builds"
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Engel & Volkers Brussels",
+      "url": "https://www.engelvoelkers.com/en-be/brussels/",
+      "note": "Prime neighborhoods coverage"
+    },
+    {
+      "name": "Trevi",
+      "url": "https://www.trevi.be",
+      "note": "Strong Brussels portfolio"
+    },
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Upper mid to prime stock"
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total purchase costs, taxes, and expected annual property charges?",
+    "Is the title and urban planning status fully compliant, including permits and cadastral data?",
+    "What are monthly co-ownership fees, reserve fund level, and planned works with budgets?",
+    "What is the condition of roof, facade, plumbing, and electrical, and when were inspections done?",
+    "What timeline, contingencies, and negotiation flexibility does the seller prefer for closing?"
+  ],
+  "next_steps": [
+    "Confirm mortgage pre-approval and total purchasing costs with your bank.",
+    "Shortlist 6 to 8 streets per district and set viewing priorities.",
+    "Book back-to-back viewings and collect EPC, PEB, and co-ownership documents.",
+    "Engage a notary for SPA review and timeline coordination."
+  ],
+  "clarifying_questions": [
+    "How many bedrooms and minimum interior size do you need?",
+    "Do you require parking or an elevator for daily use?",
+    "Which areas should be within a 15-minute walk for daily routines?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

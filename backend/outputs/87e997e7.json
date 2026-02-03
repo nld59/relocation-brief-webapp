@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family of three looking to buy a house in Brussels, budget of 770,000–1,080,000 EUR. Priorities include cafes, parks, and access to the EU quarter.",
+  "must_have": [
+    "Minimum 2 bedrooms and a garden",
+    "Proximity to international schools",
+    "Quiet residential neighborhoods",
+    "Easy access to public transport",
+    "Nearby cafes and green spaces"
+  ],
+  "nice_to_have": [
+    "Modern kitchen and facilities",
+    "Community with expat families",
+    "Access to farmers markets",
+    "Safety features in the neighborhood",
+    "Nearby recreational areas"
+  ],
+  "red_flags": [
+    "High noise levels in certain areas",
+    "Limited parking availability in the vicinity",
+    "Potential for budget increases in housing market",
+    "Proximity to busy roads could reduce comfort",
+    "Older properties may require extensive renovations"
+  ],
+  "contradictions": [
+    "Quiet neighborhoods may limit access to city center",
+    "Proximity to parks may reduce housing options",
+    "New developments might lack residential charm",
+    "Expats areas could be more expensive"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Vibrant cafes along Place Flagey foster a bustling community atmosphere.",
+        "Parks like Parc Tenbosch offer green spaces for relaxation and children's activities."
+      ],
+      "watch_out": [
+        "Noise from nightlife can disrupt evening peace in certain pockets."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Access to EU quarter enhances convenience for expatriates living and working.",
+        "Parc du Prince provides ample space for family activities and relaxation."
+      ],
+      "watch_out": [
+        "Fast traffic in some streets poses a safety concern for young children."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Cultural diversity enhances the community experience with numerous dining options.",
+        "Close proximity to parks allows for family outings and outdoor activities."
+      ],
+      "watch_out": [
+        "Certain historic buildings may require extensive maintenance."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings and market insights."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly with a variety of options."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Focus on both renting and buying properties."
+    },
+    {
+      "name": "Realo",
+      "url": "https://www.realo.be",
+      "note": "Transparent pricing and property information."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "B Property",
+      "url": "https://www.bproperty.com",
+      "note": "Specializes in expat relocations."
+    },
+    {
+      "name": "JLL Belgium",
+      "url": "https://www.jll.be",
+      "note": "Offers residential and commercial real estate services."
+    },
+    {
+      "name": "Vastgoed",
+      "url": "https://www.vastgoed.be",
+      "note": "Local expertise in Brussels properties."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total cost of the property?",
+    "Are there any additional costs or fees?",
+    "What is the condition and age of the property?",
+    "Are there any ongoing or planned works in the building?",
+    "What is the timeline for the purchase process?"
+  ],
+  "next_steps": [
+    "Schedule viewings for shortlisted properties.",
+    "Discuss financing options with a mortgage advisor.",
+    "Research local schools and amenities.",
+    "Gather necessary documentation for purchase."
+  ],
+  "clarifying_questions": [
+    "What are the specific school needs?",
+    "Are there preferred neighborhoods to avoid?",
+    "Is there flexibility in the budget?"
+  ]
+}

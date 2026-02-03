@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family relocating to Brussels, looking to buy a home. Budget is 730,000–1,090,000 EUR, prioritizing restaurants, parks, expat community, and central access.",
+  "must_have": [
+    "2+ rooms in a family-friendly neighborhood",
+    "Proximity to restaurants and parks",
+    "Access to schools within 20 min walk",
+    "Strong public transportation options",
+    "Expats community for social integration"
+  ],
+  "nice_to_have": [
+    "Access to childcare facilities",
+    "Family-oriented activities and events",
+    "Quiet residential streets",
+    "Local markets for fresh produce",
+    "Cafes for family gatherings"
+  ],
+  "red_flags": [
+    "Higher rents near central business districts",
+    "Limited availability of suitable properties",
+    "Potentially noisy environments in tourist spots",
+    "Competition from other expat families",
+    "Budget challenges in highly desirable areas"
+  ],
+  "contradictions": [
+    "Prefer central yet quiet locations",
+    "Desire for parks but wary of noise",
+    "Want community yet need privacy",
+    "Seeking proximity to transit while avoiding traffic"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Close to Cinquantenaire park, great for family outings.",
+        "Strong schools nearby, fostering community and support."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher and traffic can be busy."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "why": [
+        "Châtelain area offers vibrant markets and family-friendly parks.",
+        "Strong expat community creates a welcoming atmosphere for newcomers."
+      ],
+      "watch_out": [
+        "Popular streets get noisy on weekends; consider quieter options."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "why": [
+        "Proximity to Royal Palace park enhances recreational opportunities.",
+        "Cultural attractions enrich family life, striking a balance between urban and green."
+      ],
+      "watch_out": [
+        "Touristy areas can be noisy, especially during weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 5,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Logic-immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Listings + agencies, French-first."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Alternative portal with strong coverage."
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Portal + agency listings."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Premium rentals/sales, international clientele."
+    },
+    {
+      "name": "Engel & Völkers",
+      "url": "https://www.engelvoelkers.com",
+      "note": "International brand (search Brussels)."
+    },
+    {
+      "name": "Victoire Properties",
+      "url": "https://www.victoire.be",
+      "note": "Well-known Brussels residential agency."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs involved in the purchase?",
+    "Are there any legal compliance issues I should know?",
+    "What are the building charges or upcoming works?",
+    "What is the current condition of the property?",
+    "What is the expected timeline for negotiation and closing?"
+  ],
+  "next_steps": [
+    "Research neighborhoods based on preferences.",
+    "Contact real estate agencies for listings.",
+    "Schedule property viewings in shortlisted areas.",
+    "Gather necessary documents for purchase process."
+  ],
+  "clarifying_questions": [
+    "What is the preferred property type (apartment/house)?",
+    "Are there specific school districts of interest?",
+    "What is the desired timeline for the move?"
+  ]
+}

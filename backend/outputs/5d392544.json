@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family buying a house in Brussels. Budget is 490,000–895,000 EUR. Priorities include parks, cafes, and family-friendly areas.",
+  "must_have": [
+    "Minimum 2 bedrooms and 1 bathroom.",
+    "Access to parks within 15 min walking distance.",
+    "Proximity to international schools for children.",
+    "Quiet residential neighborhood for family.",
+    "Public transport accessibility for commuting."
+  ],
+  "nice_to_have": [
+    "Nearby cafes and brunch spots for family outings.",
+    "Green spaces for recreational activities.",
+    "Community of expats for social integration.",
+    "Restaurants offering diverse international cuisine.",
+    "Child-friendly amenities and play areas."
+  ],
+  "red_flags": [
+    "High noise levels from nearby commercial areas.",
+    "Properties with less than 5 years warranty.",
+    "Poor maintenance history of the house.",
+    "Budget constraints limiting housing options.",
+    "Schools rated below average in the district."
+  ],
+  "contradictions": [
+    "Desire for a quiet area yet looking for vibrant cafes.",
+    "Need for parks but budget may limit location choices.",
+    "Interest in expat community may restrict school options.",
+    "High budget expectations may conflict with quiet neighborhoods."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Enjoy parks like Flagey Square that are perfect for families.",
+        "Rich expat community offers multiple international cafes and restaurants."
+      ],
+      "watch_out": [
+        "Rental prices may stretch your budget due to high demand."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Close proximity to Parc du Cinquantenaire provides great outdoor activities.",
+        "Family-friendly vibe attracts many expat families and community events."
+      ],
+      "watch_out": [
+        "Commute times can be longer due to traffic during peak hours."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Features many parks like Parc de Wolvendael for family enjoyment.",
+        "Quiet residential streets and a strong community feel enhance family living."
+      ],
+      "watch_out": [
+        "Distance from city center may affect commute options."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings across Belgium."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "User-friendly interface with detailed property filters."
+    },
+    {
+      "name": "Vlan",
+      "url": "https://www.vlan.be",
+      "note": "Local listings including houses and apartments."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Offers a range of properties for sale."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Living",
+      "url": "https://www.brusselsliving.com",
+      "note": "Specializes in family homes and expat relocations."
+    },
+    {
+      "name": "C21 Brussels",
+      "url": "https://www.century21.be",
+      "note": "Wide range of listings in various neighborhoods."
+    },
+    {
+      "name": "Immo K",
+      "url": "https://www.immok.be",
+      "note": "Expert in Brussels real estate market."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the deposit and any additional fees required?",
+    "Are utilities included in the rental price?",
+    "What is the lease term and termination process?",
+    "Are there any noise restrictions or rules?",
+    "Is there an indexation clause in the rental agreement?"
+  ],
+  "next_steps": [
+    "Schedule viewings for shortlisted properties.",
+    "Consult a financial advisor for budget assessment.",
+    "Begin researching schools in preferred districts.",
+    "Gather necessary paperwork for potential offers."
+  ],
+  "clarifying_questions": [
+    "What distance is acceptable for commuting to school?",
+    "Are there specific neighborhoods you prefer?",
+    "Any preferences regarding property age or condition?"
+  ]
+}

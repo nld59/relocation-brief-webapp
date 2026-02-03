@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family of three looking to buy a property in Brussels. Budget is EUR 730,000 to EUR 1,090,000. Prioritizing restaurants, parks, expat community, and central access.",
+  "must_have": [
+    "2+ rooms in a family-friendly area",
+    "Proximity to parks and green spaces",
+    "Access to restaurants and cafes",
+    "Good schools within 20 min walk",
+    "Strong public transport connections"
+  ],
+  "nice_to_have": [
+    "Outdoor spaces for children",
+    "Community activities for expats",
+    "Shopping options nearby",
+    "Cultural attractions within reach",
+    "Quiet, residential neighborhoods"
+  ],
+  "red_flags": [
+    "High competition for desirable properties",
+    "Potentially inflated prices in central areas",
+    "Traffic congestion affecting commutes",
+    "Safety concerns in some districts",
+    "Limited availability of larger homes"
+  ],
+  "contradictions": [
+    "Budget may limit access to preferred districts",
+    "Desirable areas may lack larger homes",
+    "Taste for urban amenities vs. residential comfort",
+    "Interest in expat community vs. local integration"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Nearby Cinquantenaire park is perfect for family outings.",
+        "Strong access to restaurants in lively Jourdan area."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "why": [
+        "Royal Palace area offers cultural attractions and parks.",
+        "Dynamic restaurant scene around Sablon is family-friendly."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Ixelles",
+      "why": [
+        "Flagey area is vibrant with cafes and parks for families.",
+        "Accessible public transport facilitates easy city travel."
+      ],
+      "watch_out": [
+        "Popular streets get noisy on weekends; parking is often tight."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Logic-immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Listings + agencies, French-first."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Alternative portal with strong coverage."
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Portal + agency listings."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Premium rentals/sales, international clientele."
+    },
+    {
+      "name": "Engel & Völkers",
+      "url": "https://www.engelvoelkers.com",
+      "note": "International brand (search Brussels)."
+    },
+    {
+      "name": "Victoire Properties",
+      "url": "https://www.victoire.be",
+      "note": "Well-known Brussels residential agency."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs involved in the purchase?",
+    "Are there any ongoing building charges or planned works?",
+    "How does the property comply with local regulations?",
+    "What is the condition of the property and when can I inspect?",
+    "What is the expected timeline for negotiations and closing?"
+  ],
+  "next_steps": [
+    "Review potential properties in preferred districts.",
+    "Schedule visits to shortlisted homes.",
+    "Discuss financial options with a local bank.",
+    "Engage with a real estate agent for support."
+  ],
+  "clarifying_questions": [
+    "Are there any specific school preferences?",
+    "Do you have a preference for new or older properties?",
+    "What is your ideal commute time to work?"
+  ]
+}

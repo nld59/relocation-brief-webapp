@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family with 1 child in Brussels looking to buy a home. Budget is 760,000 to 1,175,000 EUR. Priorities include premium feel, residential atmosphere, and family-friendly amenities.",
+  "must_have": [
+    "Minimum 3 bedrooms",
+    "Quiet residential area",
+    "Access to schools within 20 min walk",
+    "Proximity to cafes and social spots",
+    "Family-friendly parks and playgrounds"
+  ],
+  "nice_to_have": [
+    "Modern amenities and finishes",
+    "Access to public transport",
+    "Green spaces nearby",
+    "Shopping areas within 15 min",
+    "Community events and activities"
+  ],
+  "red_flags": [
+    "High property taxes could exceed budget",
+    "Limited school options may affect commute",
+    "Home repairs might add unexpected costs",
+    "High competition for family-friendly homes",
+    "Noise from nearby main roads or constructions"
+  ],
+  "contradictions": [
+    "Family-friendly areas may stretch budget",
+    "Premium properties could compromise space",
+    "Quiet neighborhoods might limit amenities",
+    "Close to schools could mean noisy environment"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Ixelles offers vibrant cafes around Flagey Square and peaceful parks like Parc Tenbosch.",
+        "Excellent schools nearby make it appealing for families looking for a community feel."
+      ],
+      "watch_out": [
+        "Busy streets can lead to noise disturbances in certain areas."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Uccle features spacious homes near Parc Brugmann, ideal for families seeking outdoor space.",
+        "Quiet streets and good schools make it attractive for family living."
+      ],
+      "watch_out": [
+        "Home prices can be higher than in nearby areas, affecting budget."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "why": [
+        "This district provides ample green spaces like Parc de Woluwe, perfect for children.",
+        "Family-friendly facilities and schools make it a convenient choice for parents."
+      ],
+      "watch_out": [
+        "Limited shopping options may require longer commutes for essentials."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Major real estate platform in Belgium."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Comprehensive listings for residential properties."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly site for home searches."
+    },
+    {
+      "name": "Realo",
+      "url": "https://www.realo.be",
+      "note": "Reliable market insights and property details."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Properties",
+      "url": "https://www.brussels-properties.com",
+      "note": "Reputable agency specializing in family homes."
+    },
+    {
+      "name": "Home in Brussels",
+      "url": "https://www.homeinbrussels.be",
+      "note": "Boutique agency focused on relocations."
+    },
+    {
+      "name": "Immobiliere J.L.",
+      "url": "https://www.immobilierejl.be",
+      "note": "Local agency with good neighborhood knowledge."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total purchase price including fees?",
+    "Are there any pending building works on the property?",
+    "What is the property tax situation in this area?",
+    "How is the neighborhood during weekends or evenings?",
+    "Are there schools within walking distance?"
+  ],
+  "next_steps": [
+    "Schedule viewings in preferred districts.",
+    "Research schools based on priority needs.",
+    "Obtain financing pre-approval for budget range.",
+    "Explore local amenities for family activities."
+  ],
+  "clarifying_questions": [
+    "What specific home features are essential?",
+    "Are there preferred school types or ratings?",
+    "Is public transport a priority for commuting?"
+  ]
+}

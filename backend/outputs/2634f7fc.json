@@ -1,0 +1,149 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels, with a budget of 490000–895000 EUR. Priorities include cafes, restaurants, and expat-friendly areas.",
+  "must_have": [
+    "1+ room apartment",
+    "Access to public transportation",
+    "Proximity to cafes and restaurants",
+    "Modern amenities",
+    "Safe neighborhood"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space",
+    "Near parks or green areas",
+    "International schools nearby",
+    "Parking availability",
+    "Access to cultural attractions"
+  ],
+  "red_flags": [
+    "High competition in popular neighborhoods",
+    "Potential for budget overruns",
+    "Noise levels in busy areas",
+    "Long commute times from outskirts",
+    "Limited availability of spacious apartments"
+  ],
+  "contradictions": [
+    "Family-friendly areas may stretch the budget",
+    "Busy urban districts might lack tranquility",
+    "Expats may prefer areas with higher costs",
+    "Desired amenities may limit property options"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Ixelles offers vibrant cafes and restaurants, especially on Parvis de Flagey and Rue de Flore.",
+        "The area has a strong expat community supported by cultural events and language schools."
+      ],
+      "watch_out": [
+        "Noise from nightlife can impact peaceful living, particularly on weekends."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Saint-Gilles boasts trendy brunch spots, including those near Avenue Louise and Place Van Meenen.",
+        "The district is home to many multinational residents, enhancing its international vibe."
+      ],
+      "watch_out": [
+        "Property prices are rising quickly, making budgeting crucial for potential buyers."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Schaerbeek",
+      "why": [
+        "Schaerbeek has lovely parks, such as Josaphat Park, ideal for family outings and leisure.",
+        "The district features a diverse array of eateries and is known for its vibrant local culture."
+      ],
+      "watch_out": [
+        "Commute times can be longer if living far from transit options."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Comprehensive listings and market insights."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.google.com/search?q=Zimmo+Brussels%2C+Belgium",
+      "note": "User-friendly platform with various listings."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.google.com/search?q=Logic-Immo+Brussels%2C+Belgium",
+      "note": "Detailed property descriptions and virtual tours."
+    },
+    {
+      "name": "DEME",
+      "url": "https://www.deme-group.com",
+      "note": "Real estate services with a focus on sustainability."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Brussels Real Estate",
+      "url": "https://www.brusselsrealestate.com",
+      "note": "Expertise in the Brussels market."
+    },
+    {
+      "name": "Immo François",
+      "url": "https://www.google.com/search?q=Immo+Fran%C3%A7ois+Brussels%2C+Belgium",
+      "note": "Specializes in residential properties."
+    },
+    {
+      "name": "Agence Immobiliere Bruxelles",
+      "url": "https://www.google.com/search?q=Agence+Immobiliere+Bruxelles+Brussels%2C+Belgium",
+      "note": "Focus on expat housing."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are the total costs associated with the purchase?",
+    "Are there any legal compliance issues I should be aware of?",
+    "What are the typical building charges or maintenance works?",
+    "How is the condition of the apartment and building?",
+    "What is the expected timeline for closing the deal?"
+  ],
+  "next_steps": [
+    "Research targeted neighborhoods.",
+    "Schedule viewings for shortlisted properties.",
+    "Consult a local real estate agent.",
+    "Prepare financing details and documents."
+  ],
+  "clarifying_questions": [
+    "What is your preferred timeline for the purchase?",
+    "Are there specific features you must have?",
+    "Do you have a preferred financing arrangement?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

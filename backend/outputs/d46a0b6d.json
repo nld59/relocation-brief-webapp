@@ -1,0 +1,149 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels. Budget is 1,240,000–1,500,000 EUR. Priorities include cafes, restaurants, and a quiet residential area.",
+  "must_have": [
+    "1+ room apartment suitable for couple",
+    "Quiet neighborhood ideal for work from home",
+    "Access to public transportation and amenities",
+    "Proximity to cafes and brunch spots",
+    "Residential area with low noise levels"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space for relaxation",
+    "Modern kitchen with quality appliances",
+    "Fitness center or gym in the building",
+    "Parking space available or easy access",
+    "Close to parks or green spaces"
+  ],
+  "red_flags": [
+    "Limited availability of listings under budget",
+    "Potential for noise in busy districts",
+    "High competition for popular neighborhoods",
+    "Long commute times from certain suburbs",
+    "High property taxes in urban areas"
+  ],
+  "contradictions": [
+    "Desire for quiet but in trendy areas",
+    "Balance between budget and quality amenities",
+    "Residential charm vs. urban convenience",
+    "Modern features vs. historic architecture"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Rich cultural scene with cafes around Flagey Square.",
+        "Residential streets provide a calm atmosphere for families."
+      ],
+      "watch_out": [
+        "Higher property prices due to its desirable location."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Sablon",
+      "why": [
+        "Famous for its brunch spots near Place du Grand Sablon.",
+        "Art galleries and quiet streets provide a unique vibe."
+      ],
+      "watch_out": [
+        "Busy weekends can lead to noise and crowds."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "Known for its diverse restaurants near Parvis de Saint-Gilles.",
+        "Residential yet vibrant area ideal for young couples."
+      ],
+      "watch_out": [
+        "Busy areas may disrupt desired quiet lifestyle."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Belgium's largest real estate website."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.google.com/search?q=Zimmo+Brussels%2C+Belgium",
+      "note": "Offers a variety of listings across Brussels."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.google.com/search?q=Logic-Immo+Brussels%2C+Belgium",
+      "note": "Features new and unique apartments for sale."
+    },
+    {
+      "name": "Century 21",
+      "url": "https://www.century21.be",
+      "note": "International agency with local expertise."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Berkeley",
+      "url": "https://www.google.com/search?q=Berkeley+Brussels%2C+Belgium",
+      "note": "Specializes in residential properties in Brussels."
+    },
+    {
+      "name": "Trevi",
+      "url": "https://www.trevi.be",
+      "note": "Known for quality service and property management."
+    },
+    {
+      "name": "Immo Vlan",
+      "url": "https://www.immovlan.be",
+      "note": "Well-regarded for local market insights."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total cost including fees and taxes?",
+    "Are there any additional building fees or charges?",
+    "What is the condition of the property upon purchase?",
+    "What is the timeline for closing the deal?",
+    "Are there any pending inspections or repairs needed?"
+  ],
+  "next_steps": [
+    "Schedule property viewings in selected districts.",
+    "Research local schools and amenities.",
+    "Consult a financial advisor about mortgage options.",
+    "Prepare necessary documentation for purchase."
+  ],
+  "clarifying_questions": [
+    "What are your essential home features?",
+    "Do you have any preferred neighborhoods?",
+    "What is your timeline for moving?"
+  ],
+  "action_plan": [
+    "Confirm your top-3 areas by visiting 2 micro-anchors in each (day + evening).",
+    "Confirm full purchase budget: taxes, notary, agency fees, renovation buffer, and monthly charges.",
+    "Line up a trusted notary/agent and define your offer terms (conditions, timeline, financing).",
+    "Ask the agent/landlord the 5 essentials below and request written answers."
+  ]
+}

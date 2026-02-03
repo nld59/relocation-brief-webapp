@@ -1,0 +1,143 @@
+{
+  "client_profile": "Family with 1 child relocating to Brussels, buying an apartment. Budget is 785,000–1,120,000 EUR. Priorities include residential areas, cafes, and parks.",
+  "must_have": [
+    "Minimum of 3 rooms in the apartment",
+    "Proximity to parks and green spaces",
+    "Quiet residential areas",
+    "Walkable distance to schools",
+    "Good cafes and eateries nearby"
+  ],
+  "nice_to_have": [
+    "Access to public transport",
+    "Parking space included",
+    "Family-friendly community",
+    "Outdoor play areas",
+    "Nearby grocery stores"
+  ],
+  "red_flags": [
+    "High costs in popular districts",
+    "Noise from busy streets",
+    "Limited availability of spacious apartments",
+    "Inadequate school options within a short commute",
+    "Potential property value fluctuations"
+  ],
+  "contradictions": [
+    "Quiet living vs. proximity to cafes",
+    "Desire for parks vs. budget constraints",
+    "Need for walkable commute vs. property size",
+    "Family needs vs. luxury housing"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Ixelles boasts trendy cafes around Flagey and a vibrant community atmosphere.",
+        "Enjoy parks like Pond de la Cambre for children's play and family activities."
+      ],
+      "watch_out": [
+        "Consider traffic congestion during rush hours that could affect school commutes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "why": [
+        "Uccle features excellent parks like Parc de Woluwe, ideal for family outings.",
+        "The district offers a range of premium cafes and a calm environment."
+      ],
+      "watch_out": [
+        "High property prices in desirable areas might exceed budget limits."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Etterbeek has family-friendly parks like Parc du Cinquantenaire for weekend activities.",
+        "It's well-connected with cafes and local shops within walking distance."
+      ],
+      "watch_out": [
+        "Ensure the apartment’s noise insulation since some parts can be busier."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Belgians' leading real estate portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Comprehensive listings across Belgium."
+    },
+    {
+      "name": "Logic-Immo",
+      "url": "https://www.logic-immo.be",
+      "note": "User-friendly property search site."
+    },
+    {
+      "name": "Vlan Immo",
+      "url": "https://www.vlan.be",
+      "note": "Local listings with detailed filters."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Eurimmo",
+      "url": "https://www.eurimmo.be",
+      "note": "Specializes in residential properties."
+    },
+    {
+      "name": "Century 21",
+      "url": "https://www.century21.be",
+      "note": "Well-known agency with wide network."
+    },
+    {
+      "name": "L&P Real Estate",
+      "url": "https://www.lprealestate.be",
+      "note": "Offers personalized relocation services."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What is the total deposit and any additional fees?",
+    "Are utilities included in the rental cost?",
+    "What is the typical lease term and termination policy?",
+    "What are the house rules regarding noise and disturbances?",
+    "Is there an indexation clause for rental increases?"
+  ],
+  "next_steps": [
+    "Identify preferred districts and view available properties.",
+    "Visit sites and consult agencies for detailed listings.",
+    "Arrange school visits to assess options.",
+    "Finalize budget and financial planning for purchase."
+  ],
+  "clarifying_questions": [
+    "What are the top schools in preferred areas?",
+    "Can you provide recent market trends in Brussels?",
+    "Which amenities are included in potential properties?"
+  ]
+}

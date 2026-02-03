@@ -1,0 +1,139 @@
+{
+  "client_profile": "Family of 3 relocating to Brussels, buying a 2+ bedroom apartment. Budget EUR 490k-895k. Priorities: safe and calm, parks within 15-minute walk, cafes and family-friendly streets.",
+  "must_have": [
+    "2+ bedroom apartment with practical layout, good storage, and stroller-friendly elevator access.",
+    "Safe, calm street away from heavy traffic noise.",
+    "15-minute walk to a playground or green park.",
+    "Within 20-minute walk to Stepping Stone preschool.",
+    "Private parking or a dedicated garage in the building."
+  ],
+  "nice_to_have": [
+    "South or west-facing balcony or terrace with daylight.",
+    "Energy-efficient windows and modern heating for lower bills.",
+    "Dedicated laundry space with ventilated utility area.",
+    "Secure bike storage and stroller storage on ground level."
+  ],
+  "red_flags": [
+    "Facade or roof works planned with unclear financing or high special assessments.",
+    "Noticeable tram or arterial road noise inside with windows closed.",
+    "EPC rating F or G indicating costly upgrades soon.",
+    "Moisture or ventilation issues in bathrooms or underground cellars.",
+    "Co-ownership disputes or unpaid building charges affecting resale and stability."
+  ],
+  "contradictions": [
+    "Quieter tree-lined street may reduce immediate cafe choices nearby.",
+    "Top-floor light and views may conflict with stroller-friendly access needs.",
+    "Premium Woluwe addresses may compress budget for future renovations.",
+    "Requiring private parking may narrow options near Tomberg or Place Wiener."
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "why": [
+        "Near Stockel metro, kid-friendly squares and cafes support easy errands and weekend brunch.",
+        "Parc de Woluwe paths offer playgrounds and shaded walks within stroller-friendly distances."
+      ],
+      "watch_out": [
+        "Prices near Montgomery and Stockel can stretch budgets for larger two-bedroom apartments."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "why": [
+        "Tomberg metro area links quickly to center while local bakeries and creches cluster nearby.",
+        "Roodebeek metro area offers quick access plus playgrounds and errands within compact walking distances."
+      ],
+      "watch_out": [
+        "Some streets between Roodebeek and Tomberg feel car-heavy, so choose calmer interiors off arteries."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 4
+      }
+    },
+    {
+      "name": "Watermael-Boitsfort",
+      "why": [
+        "Place Wiener offers a village square vibe with cafes, playgrounds, and easy errands for families.",
+        "Sonian Forest edge delivers long stroller walks and quiet air next to shaded trails."
+      ],
+      "watch_out": [
+        "Outside Place Wiener, evening amenities thin out, so plan for earlier dinners or deliveries."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3
+      }
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Logic-immo",
+      "url": "https://www.logic-immo.be",
+      "note": "Listings and agencies, French-first."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Alternative portal with strong coverage."
+    },
+    {
+      "name": "Immovlan",
+      "url": "https://www.immovlan.be",
+      "note": "Portal and agency listings."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "Barnes Brussels",
+      "url": "https://www.barnes-brussels.com",
+      "note": "Premium rentals and sales."
+    },
+    {
+      "name": "Engel & Voelkers",
+      "url": "https://www.engelvoelkers.com",
+      "note": "International brand presence."
+    },
+    {
+      "name": "Victoire Properties",
+      "url": "https://www.victoire.be",
+      "note": "Strong Brussels coverage."
+    }
+  ],
+  "questions_for_agent_landlord": [
+    "What are total purchase costs including taxes, notary, and registration?",
+    "Are all permits, urban planning compliance, and conformity certificates available?",
+    "What are monthly co-ownership charges and planned works over the next 3 years?",
+    "What is the condition of roof, facade, lifts, and heating systems based on reports?",
+    "What is the seller timeline, offer process, and room for negotiation?"
+  ],
+  "next_steps": [
+    "Get mortgage pre-approval and confirm budget ceiling including taxes.",
+    "Map 15-minute walk sheds around Stepping Stone and key parks.",
+    "Set alerts on Immoweb, Logic-immo, Zimmo, and Immovlan with filters.",
+    "Schedule a Saturday viewing block across two communes with 6 to 8 homes, and verify parking options."
+  ],
+  "clarifying_questions": [
+    "Which micro-areas do you prefer among Stockel, Tomberg, or Place Wiener?",
+    "Do you need EV charging or extra-wide parking for car seats and strollers?",
+    "Any preferred floor level or limit on monthly building charges?"
+  ]
+}

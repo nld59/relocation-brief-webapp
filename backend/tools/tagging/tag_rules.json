@@ -1,0 +1,61 @@
+{
+  "metrics": {
+    "cafes_density": "cafes_count / area_km2",
+    "bars_density": "bars_count / area_km2",
+    "restaurants_density": "restaurants_count / area_km2",
+    "parks_share": "parks_area_km2 / area_km2",
+    "metro_density": "metro_stops / area_km2",
+    "tram_density": "tram_stops / area_km2",
+    "train_density": "train_stations / area_km2",
+    "schools_density": "schools_count / area_km2",
+    "childcare_density": "childcare_count / area_km2"
+  },
+  "tag_rules": [
+    {
+      "tag": "cafes_brunch",
+      "metric": "cafes_density",
+      "top_pct": 30
+    },
+    {
+      "tag": "nightlife",
+      "metric": "bars_density",
+      "top_pct": 20
+    },
+    {
+      "tag": "restaurants",
+      "metric": "restaurants_density",
+      "top_pct": 30
+    },
+    {
+      "tag": "green_parks",
+      "metric": "parks_share",
+      "top_pct": 30
+    },
+    {
+      "tag": "metro_strong",
+      "metric": "metro_density",
+      "top_pct": 30,
+      "only_if_metric_nonzero": true
+    },
+    {
+      "tag": "tram_strong",
+      "metric": "tram_density",
+      "top_pct": 30,
+      "only_if_metric_nonzero": true
+    },
+    {
+      "tag": "schools_strong",
+      "metric": "schools_density",
+      "top_pct": 30
+    },
+    {
+      "tag": "childcare_strong",
+      "metric": "childcare_density",
+      "top_pct": 30
+    }
+  ],
+  "confidence": {
+    "high_top_pct": 15,
+    "medium_top_pct": 30
+  }
+}

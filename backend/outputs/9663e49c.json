@@ -1,0 +1,89 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels with a budget of 490,000–895,000 EUR. Priorities include access to cafes, parks, and the EU quarter.",
+  "must_have": [
+    "1+ rooms in the apartment",
+    "Proximity to parks",
+    "Access to cafes",
+    "Connection to the EU quarter",
+    "Good public transport links"
+  ],
+  "nice_to_have": [
+    "Balcony space",
+    "Modern appliances",
+    "Low maintenance costs",
+    "Quiet surroundings",
+    "Access to community events"
+  ],
+  "red_flags": [
+    "High noise levels near busy streets",
+    "Limited parking availability",
+    "Low safety ratings in certain areas",
+    "High maintenance fees",
+    "Long commute times to work"
+  ],
+  "contradictions": [
+    "Desire for parks vs. budget constraints",
+    "Preference for modern features vs. historic buildings",
+    "Quiet environment vs. city center vibrancy",
+    "Access to EU quarter vs. suburban living"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Great access to parks like Parc Tenbosch and cafes around Place Flagey.",
+        "Strong public transport links facilitate easy commutes to the EU quarter."
+      ],
+      "watch_out": [
+        "Property prices can spike due to high demand and limited supply."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "why": [
+        "Close proximity to Jardin du cinquantenaire for relaxation and family outings.",
+        "Access to cafes and restaurants enhances urban living experiences."
+      ],
+      "watch_out": [
+        "Beware of increased traffic congestion during peak hours."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 5,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "—",
+      "why": [
+        "Fits your stated priorities.",
+        "Reasonable trade-off vs commute/budget."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [],
+  "clarifying_questions": [],
+  "real_estate_sites": [],
+  "agencies": []
+}
