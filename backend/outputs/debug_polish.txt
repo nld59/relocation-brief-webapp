@@ -1,105 +1,104 @@
 ```json
 {
-  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is EUR 490,000 to 895,000. Priorities include cafes, parks, and EU quarter proximity.",
-  "must_have": [
-    "1+ room apartment",
-    "Access to parks and green areas",
-    "Proximity to cafes and brunch spots",
-    "Easy commute to the EU quarter",
-    "Safe neighborhood"
-  ],
-  "nice_to_have": [
-    "Modern amenities",
-    "Balcony or outdoor space",
-    "Public transport access",
-    "Low maintenance fees",
-    "Pet-friendly policies"
-  ],
-  "red_flags": [
-    "High noise levels in certain districts",
-    "Potentially expensive renovation costs",
-    "Limited parking availability",
-    "Long commutes in some areas",
-    "Excessive property taxes"
-  ],
-  "contradictions": [
-    "Budget constraints versus desired amenities",
-    "Proximity to lively cafes versus tranquility",
-    "Modern space requirements versus historic charm",
-    "Lifestyle preferences versus commuting times"
-  ],
-  "top_districts": [
-    {
-      "name": "Ixelles",
-      "micro_anchors": [
-        "Flagey Square",
-        "Josaphat Park",
-        "L'Arrière-Scène"
-      ],
-      "microhoods": [
+    "client_profile": "A couple seeking to buy an apartment in Brussels for EUR 490,000–895,000. Priorities include cafes, expat community, and quiet residential areas.",
+    "must_have": [
+        "2+ rooms in a residential area",
+        "Proximity to cafes and brunch spots",
+        "Access to expat-friendly services",
+        "Value for money in property options",
+        "Quiet atmosphere for living"
+    ],
+    "nice_to_have": [
+        "Balcony or outdoor space",
+        "Parking availability",
+        "Proximity to public transit",
+        "Low maintenance costs",
+        "Access to parks and recreational areas"
+    ],
+    "red_flags": [
+        "High noise levels in certain districts",
+        "Overpriced properties due to demand",
+        "Long commuting times from some areas",
+        "Limited services for expats in neighborhoods",
+        "Potential for property value fluctuations"
+    ],
+    "contradictions": [
+        "Expats prioritize community but may face language barriers",
+        "Quiet areas may lack vibrant cafe culture",
+        "Desire for value may limit neighborhood options",
+        "Budget constraints may exclude some preferred districts"
+    ],
+    "top_districts": [
         {
-          "name": "Flagey",
-          "why": "Flagey features lively cafes and a vibrant atmosphere for weekend brunches.",
-          "watch_out": "Often crowded during weekends which may impact peace."
+            "name": "Ixelles",
+            "micro_anchors": [
+                "Flagey Square",
+                "Matongé",
+                "Parc Tenbosch"
+            ],
+            "microhoods": [
+                {
+                    "name": "Flagey",
+                    "why": "Flagey offers vibrant cafes and a lively cultural scene near the lake.",
+                    "watch_out": "Higher prices during weekends due to tourist influx."
+                },
+                {
+                    "name": "Matongé",
+                    "why": "Matongé features diverse restaurants catering to the international community.",
+                    "watch_out": "Busy streets can lead to noise during evenings."
+                },
+                {
+                    "name": "Parc Tenbosch",
+                    "why": "Parc Tenbosch provides peaceful green spaces ideal for relaxation.",
+                    "watch_out": "Limited public transport access can increase commute times."
+                }
+            ],
+            "why": [
+                "Flagey Square hosts festivals, enhancing community engagement.",
+                "Proximity to diverse cafes aligns with expat lifestyle needs."
+            ],
+            "watch_out": [
+                "Ixelles can experience high prices due to its popularity."
+            ],
+            "scores": {
+                "Safety": 3,
+                "Family": 4,
+                "Commute": 3,
+                "Lifestyle": 5,
+                "BudgetFit": 3,
+                "Overall": 4
+            }
         },
         {
-          "name": "Ixelles Ponds",
-          "why": "Ixelles Ponds offers serene green spaces ideal for outdoor activities.",
-          "watch_out": "Can attract tourists, leading to occasional noise."
-        },
-        {
-          "name": "Ma Campagne",
-          "why": "Ma Campagne is known for spacious parks, perfect for refreshing walks.",
-          "watch_out": "Less public transport connectivity might cause inconvenience."
-        }
-      ],
-      "why": [
-        "Flagey Square is famous for its trendy cafes and vibrant culture.",
-        "Easy access to multiple parks enhances outdoor and recreational experiences."
-      ],
-      "watch_out": [
-        "High property prices may stretch your budget significantly."
-      ],
-      "scores": {
-        "Safety": 3,
-        "Family": 4,
-        "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Etterbeek",
-      "micro_anchors": [
-        "Parc du Cinquantenaire",
-        "Tervuren Avenue",
-        "Parc Malou"
-      ],
-      "microhoods": [
-        {
-          "name": "Parc du Cinquantenaire",
-          "why": "The park hosts cafes and outdoor activities for an enjoyable outing.",
-          "watch_out": "Some areas can get busy during events, affecting quietness."
-        },
-        {
-          "name": "Tervuren",
-          "why": "Tervuren provides a mix of green spaces and urban conveniences.",
-          "watch_out": "Distance from certain amenities may be a concern."
-        },
-        {
-          "name": "Malou",
-          "why": "Known for its greenery and family-friendly environment.",
-          "watch_out": "A longer commute to the EU quarter in some spots."
-        }
-      ],
-      "why": [
-        "Proximity to EU institutions ensures excellent access for work-related needs.",
-        "Parc du Cinquantenaire offers extensive green spaces for relaxing strolls."
-      ],
-      "watch_out": [
-        "Traffic congestion during peak hours may cause longer commute times."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family
+            "name": "Saint-Gilles",
+            "micro_anchors": [
+                "Parc de Forest",
+                "Avenue Louise",
+                "Place Stéphanie"
+            ],
+            "microhoods": [
+                {
+                    "name": "Parc de Forest",
+                    "why": "Parc de Forest offers ample green space and peaceful walking paths.",
+                    "watch_out": "Limited dining options may not attract all expats."
+                },
+                {
+                    "name": "Avenue Louise",
+                    "why": "Avenue Louise features upscale shopping and trendy cafes.",
+                    "watch_out": "High rental prices may exceed budget range."
+                },
+                {
+                    "name": "Place Stéphanie",
+                    "why": "Place Stéphanie boasts vibrant bars and nightlife options.",
+                    "watch_out": "Noise levels can rise during weekend evenings."
+                }
+            ],
+            "why": [
+                "The district is filled with international dining spots and cultural events.",
+                "Parc de Forest is perfect for those seeking quiet urban living."
+            ],
+            "watch_out": [
+                "Saint-Gilles can experience high demand, impacting property availability."
+            ],
+            "scores": {
+                "Safety": 4,

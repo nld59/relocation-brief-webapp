@@ -1,0 +1,89 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels for EUR 490,000–895,000. Priorities include cafes, expat community, and quiet residential areas.",
+  "must_have": [
+    "2+ rooms in a residential area",
+    "Proximity to cafes and brunch spots",
+    "Access to expat-friendly services",
+    "Value for money in property options",
+    "Quiet atmosphere for living"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space",
+    "Parking availability",
+    "Proximity to public transit",
+    "Low maintenance costs",
+    "Access to parks and recreational areas"
+  ],
+  "red_flags": [
+    "High noise levels in certain districts",
+    "Overpriced properties due to demand",
+    "Long commuting times from some areas",
+    "Limited services for expats in neighborhoods",
+    "Potential for property value fluctuations"
+  ],
+  "contradictions": [
+    "Expats prioritize community but may face language barriers",
+    "Quiet areas may lack vibrant cafe culture",
+    "Desire for value may limit neighborhood options",
+    "Budget constraints may exclude some preferred districts"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "why": [
+        "Flagey Square hosts festivals, enhancing community engagement.",
+        "Proximity to diverse cafes aligns with expat lifestyle needs."
+      ],
+      "watch_out": [
+        "Ixelles can experience high prices due to its popularity."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "why": [
+        "The district is filled with international dining spots and cultural events.",
+        "Parc de Forest is perfect for those seeking quiet urban living."
+      ],
+      "watch_out": [
+        "Saint-Gilles can experience high demand, impacting property availability."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "—",
+      "why": [
+        "Fits your stated priorities.",
+        "Reasonable trade-off vs commute/budget."
+      ],
+      "watch_out": [],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    }
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [],
+  "clarifying_questions": [],
+  "real_estate_sites": [],
+  "agencies": []
+}

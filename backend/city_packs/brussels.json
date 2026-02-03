@@ -243,8 +243,8 @@
       "metrics": {
         "area_km2": 33.07066047188798,
         "cafes_count": 222.0,
-        "restaurants_count": 697.0,
-        "bars_count": 148.0,
+        "restaurants_count": 696.0,
+        "bars_count": 150.0,
         "schools_count": 128.0,
         "childcare_count": 44.0,
         "metro_stops": 141.0,
@@ -252,8 +252,8 @@
         "train_stations": 27.0,
         "parks_area_km2": 10.57243058210135,
         "cafes_density": 6.712898890807249,
-        "restaurants_density": 21.07608345447141,
-        "bars_density": 4.475265927204833,
+        "restaurants_density": 21.045845171179486,
+        "bars_density": 4.535742493788682,
         "schools_density": 3.870500261366342,
         "childcare_density": 1.33048446484468,
         "metro_density": 4.263597944161361,
@@ -273,62 +273,368 @@
         {
           "id": 900,
           "monitoring_id": 900,
-          "name": "Domaine Royal Laeken"
-        },
-        {
-          "id": 907,
-          "monitoring_id": 907,
-          "name": "Bois de la Cambre"
+          "name": "Domaine Royal Laeken",
+          "metrics": {
+            "area_km2": 2.80060352072507,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 1.0052232687583145,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.3570658940474024,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.499461258331817,
+            "train_station_density": 0.0,
+            "parks_share": 0.35893094517643986
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 78,
           "monitoring_id": 78,
-          "name": "Haren"
-        },
-        {
-          "id": 9,
-          "monitoring_id": 9,
-          "name": "Stalingrad"
-        },
-        {
-          "id": 29,
-          "monitoring_id": 29,
-          "name": "Squares"
+          "name": "Haren",
+          "metrics": {
+            "area_km2": 1.9320169481028957,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 1,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 0,
+            "train": 1,
+            "parks_km2": 0.04695557290568939,
+            "cafes_density": 1.035187606384022,
+            "bars_density": 0.517593803192011,
+            "restaurant_density": 0.517593803192011,
+            "schools_density": 2.070375212768044,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.517593803192011,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.517593803192011,
+            "parks_share": 0.024303913561315522
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 77,
           "monitoring_id": 77,
-          "name": "Heembeek"
-        },
-        {
-          "id": 21,
-          "monitoring_id": 21,
-          "name": "Quartier Nord"
-        },
-        {
-          "id": 19,
-          "monitoring_id": 19,
-          "name": "Vieux Laeken Ouest"
-        },
-        {
-          "id": 6,
-          "monitoring_id": 6,
-          "name": "Quartier Royal"
-        },
-        {
-          "id": 3,
-          "monitoring_id": 3,
-          "name": "Beguinage - Dixmude"
+          "name": "Heembeek",
+          "metrics": {
+            "area_km2": 1.9186008232124339,
+            "cafes": 0,
+            "bars": 6,
+            "restaurants": 8,
+            "schools": 18,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 10,
+            "train": 0,
+            "parks_km2": 0.1881419771908962,
+            "cafes_density": 0.0,
+            "bars_density": 3.1272789667388046,
+            "restaurant_density": 4.169705288985073,
+            "schools_density": 9.381836900216413,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.2121316112313405,
+            "train_station_density": 0.0,
+            "parks_share": 0.0980620746716236
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 76,
           "monitoring_id": 76,
-          "name": "Mutsaard"
+          "name": "Mutsaard",
+          "metrics": {
+            "area_km2": 1.4125255634910154,
+            "cafes": 0,
+            "bars": 5,
+            "restaurants": 11,
+            "schools": 16,
+            "childcare": 5,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.15864052901598627,
+            "cafes_density": 0.0,
+            "bars_density": 3.5397589461267143,
+            "restaurant_density": 7.787469681478771,
+            "schools_density": 11.327228627605486,
+            "childcare_density": 3.5397589461267143,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.247710735352057,
+            "train_station_density": 0.0,
+            "parks_share": 0.1123098463605224
+          },
+          "tag_confidence": {
+            "schools_strong": "medium",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 21,
+          "monitoring_id": 21,
+          "name": "Quartier Nord",
+          "metrics": {
+            "area_km2": 1.3074953239872737,
+            "cafes": 10,
+            "bars": 6,
+            "restaurants": 22,
+            "schools": 8,
+            "childcare": 0,
+            "metro": 4,
+            "tram": 18,
+            "train": 4,
+            "parks_km2": 0.32320055221231886,
+            "cafes_density": 7.6482109087048125,
+            "bars_density": 4.588926545222887,
+            "restaurant_density": 16.826063999150588,
+            "schools_density": 6.11856872696385,
+            "childcare_density": 0.0,
+            "metro_station_density": 3.059284363481925,
+            "tram_stop_density": 13.766779635668662,
+            "train_station_density": 3.059284363481925,
+            "parks_share": 0.24719059891296763
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 907,
+          "monitoring_id": 907,
+          "name": "Bois de la Cambre",
+          "metrics": {
+            "area_km2": 1.2584336091754318,
+            "cafes": 2,
+            "bars": 2,
+            "restaurants": 2,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 3.262891457142278,
+            "cafes_density": 1.5892773249360905,
+            "bars_density": 1.5892773249360905,
+            "restaurant_density": 1.5892773249360905,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 2.5928197032819513
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 20,
           "monitoring_id": 20,
-          "name": "Vieux Laeken Est"
+          "name": "Vieux Laeken Est",
+          "metrics": {
+            "area_km2": 1.0399283692088774,
+            "cafes": 5,
+            "bars": 22,
+            "restaurants": 20,
+            "schools": 11,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 8,
+            "train": 1,
+            "parks_km2": 0.32522151729771137,
+            "cafes_density": 4.808023463965827,
+            "bars_density": 21.155303241449637,
+            "restaurant_density": 19.232093855863308,
+            "schools_density": 10.577651620724819,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.9616046927931653,
+            "tram_stop_density": 7.692837542345322,
+            "train_station_density": 0.9616046927931653,
+            "parks_share": 0.31273453723079286
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 29,
+          "monitoring_id": 29,
+          "name": "Squares",
+          "metrics": {
+            "area_km2": 0.8054117464694075,
+            "cafes": 8,
+            "bars": 12,
+            "restaurants": 37,
+            "schools": 8,
+            "childcare": 3,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.11269429439878992,
+            "cafes_density": 9.932807703722595,
+            "bars_density": 14.899211555583891,
+            "restaurant_density": 45.939235629717,
+            "schools_density": 9.932807703722595,
+            "childcare_density": 3.7248028888959728,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.13992134444623533
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 6,
+          "monitoring_id": 6,
+          "name": "Quartier Royal",
+          "metrics": {
+            "area_km2": 0.7062504647240759,
+            "cafes": 9,
+            "bars": 11,
+            "restaurants": 19,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 3,
+            "tram": 5,
+            "train": 3,
+            "parks_km2": 0.4419458426168198,
+            "cafes_density": 12.743354446522309,
+            "bars_density": 15.575210990193932,
+            "restaurant_density": 26.902637164880428,
+            "schools_density": 1.4159282718358122,
+            "childcare_density": 0.0,
+            "metro_station_density": 4.247784815507436,
+            "tram_stop_density": 7.07964135917906,
+            "train_station_density": 4.247784815507436,
+            "parks_share": 0.6257636131814555
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Marolles",
+          "monitoring_id": "8",
+          "id": 8,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 0.6270624163181614,
+            "cafes": 10,
+            "bars": 24,
+            "restaurants": 25,
+            "schools": 10,
+            "childcare": 1,
+            "metro": 3,
+            "tram": 2,
+            "train": 3,
+            "parks_km2": 0.08720876463689882,
+            "cafes_density": 15.947375795085382,
+            "bars_density": 38.27370190820492,
+            "restaurant_density": 39.86843948771345,
+            "schools_density": 15.947375795085382,
+            "childcare_density": 1.5947375795085381,
+            "metro_station_density": 4.784212738525615,
+            "tram_stop_density": 3.1894751590170762,
+            "train_station_density": 4.784212738525615,
+            "parks_share": 0.13907509422897782
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Dansaert",
+          "monitoring_id": "2",
+          "id": 2,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 0.5435068276342783,
+            "cafes": 24,
+            "bars": 58,
+            "restaurants": 108,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 6,
+            "train": 1,
+            "parks_km2": 0.04086929358304145,
+            "cafes_density": 44.15767894667447,
+            "bars_density": 106.71439078779663,
+            "restaurant_density": 198.70955526003513,
+            "schools_density": 11.039419736668618,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.8399032894447696,
+            "tram_stop_density": 11.039419736668618,
+            "train_station_density": 1.8399032894447696,
+            "parks_share": 0.07519554770072198
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 19,
+          "monitoring_id": 19,
+          "name": "Vieux Laeken Ouest",
+          "metrics": {
+            "area_km2": 0.49939333534424357,
+            "cafes": 2,
+            "bars": 12,
+            "restaurants": 3,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 2,
+            "train": 1,
+            "parks_km2": 0.35341933659639696,
+            "cafes_density": 4.004859213071702,
+            "bars_density": 24.029155278430213,
+            "restaurant_density": 6.007288819607553,
+            "schools_density": 12.014577639215107,
+            "childcare_density": 0.0,
+            "metro_station_density": 2.002429606535851,
+            "tram_stop_density": 4.004859213071702,
+            "train_station_density": 2.002429606535851,
+            "parks_share": 0.7076973431228847
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -460,24 +766,24 @@
       "watch_out_hint": "Popular streets get noisy on weekends; parking is often tight.",
       "metrics": {
         "area_km2": 6.408051861643289,
-        "cafes_count": 61.0,
-        "restaurants_count": 330.0,
-        "bars_count": 56.0,
+        "cafes_count": 62.0,
+        "restaurants_count": 331.0,
+        "bars_count": 57.0,
         "schools_count": 33.0,
         "childcare_count": 13.0,
         "metro_stops": 4.0,
         "tram_stops": 36.0,
         "train_stations": 2.0,
-        "parks_area_km2": 0.6821650778633951,
-        "cafes_density": 9.519273769478684,
-        "restaurants_density": 51.497710556196154,
-        "bars_density": 8.739005427718135,
+        "parks_area_km2": 0.6821650193086747,
+        "cafes_density": 9.675327437830793,
+        "restaurants_density": 51.65376422454826,
+        "bars_density": 8.895059096070245,
         "schools_density": 5.149771055619615,
         "childcare_density": 2.028697688577424,
         "metro_density": 0.6242146734084382,
         "tram_density": 5.617932060675944,
         "train_density": 0.3121073367042191,
-        "parks_share": 0.10645436282228525
+        "parks_share": 0.10645435368460633
       },
       "tag_confidence": {
         "cafes_brunch": "high",
@@ -487,64 +793,357 @@
       },
       "microhoods": [
         {
-          "id": 34,
-          "monitoring_id": 34,
-          "name": "Jourdan"
-        },
-        {
-          "id": 35,
-          "monitoring_id": 35,
-          "name": "Quartier Europeen"
-        },
-        {
-          "id": 36,
-          "monitoring_id": 36,
-          "name": "Matonge"
-        },
-        {
-          "id": 37,
-          "monitoring_id": 37,
-          "name": "Flagey - Malibran"
-        },
-        {
-          "id": 38,
-          "monitoring_id": 38,
-          "name": "Hopital Etterbeek - Ixelles"
-        },
-        {
-          "id": 39,
-          "monitoring_id": 39,
-          "name": "Etangs D’ixelles"
-        },
-        {
-          "id": 40,
-          "monitoring_id": 40,
-          "name": "Louise - Longue Haie"
+          "id": 106,
+          "monitoring_id": 106,
+          "name": "Boondael",
+          "metrics": {
+            "area_km2": 1.4456968672145276,
+            "cafes": 1,
+            "bars": 1,
+            "restaurants": 13,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 3.1965147120059614,
+            "cafes_density": 0.6917079386958439,
+            "bars_density": 0.6917079386958439,
+            "restaurant_density": 8.992203203045971,
+            "schools_density": 3.4585396934792194,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.841955570870907,
+            "train_station_density": 0.0,
+            "parks_share": 2.2110546024525823
+          },
+          "tag_confidence": {
+            "green_parks": "medium"
+          }
         },
         {
           "id": 43,
           "monitoring_id": 43,
-          "name": "Brugmann - Lepoutre"
-        },
-        {
-          "id": 105,
-          "monitoring_id": 105,
-          "name": "Dries"
-        },
-        {
-          "id": 106,
-          "monitoring_id": 106,
-          "name": "Boondael"
+          "name": "Brugmann - Lepoutre",
+          "metrics": {
+            "area_km2": 1.309791868278924,
+            "cafes": 12,
+            "bars": 5,
+            "restaurants": 58,
+            "schools": 7,
+            "childcare": 1,
+            "metro": 1,
+            "tram": 11,
+            "train": 1,
+            "parks_km2": 3.2387470241378704,
+            "cafes_density": 9.161760956546544,
+            "bars_density": 3.81740039856106,
+            "restaurant_density": 44.281844623308295,
+            "schools_density": 5.3443605579854845,
+            "childcare_density": 0.763480079712212,
+            "metro_station_density": 0.763480079712212,
+            "tram_stop_density": 8.398280876834333,
+            "train_station_density": 0.763480079712212,
+            "parks_share": 2.4727188361564707
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         },
         {
           "id": 107,
           "monitoring_id": 107,
-          "name": "Universite"
+          "name": "Universite",
+          "metrics": {
+            "area_km2": 1.2257139926041711,
+            "cafes": 9,
+            "bars": 20,
+            "restaurants": 47,
+            "schools": 4,
+            "childcare": 1,
+            "metro": 1,
+            "tram": 8,
+            "train": 1,
+            "parks_km2": 0.03082805164487543,
+            "cafes_density": 7.34265909853771,
+            "bars_density": 16.317020218972687,
+            "restaurant_density": 38.34499751458581,
+            "schools_density": 3.2634040437945377,
+            "childcare_density": 0.8158510109486344,
+            "metro_station_density": 0.8158510109486344,
+            "tram_stop_density": 6.5268080875890755,
+            "train_station_density": 0.8158510109486344,
+            "parks_share": 0.02515109710004833
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 105,
+          "monitoring_id": 105,
+          "name": "Dries",
+          "metrics": {
+            "area_km2": 1.0403518049883382,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 3.164334471457363,
+            "cafes_density": 0.9612133080417056,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 0.9612133080417056,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.806066540208528,
+            "train_station_density": 0.0,
+            "parks_share": 3.041600405059934
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
+        },
+        {
+          "id": 35,
+          "monitoring_id": 35,
+          "name": "Quartier Europeen",
+          "metrics": {
+            "area_km2": 0.9610667507434083,
+            "cafes": 20,
+            "bars": 13,
+            "restaurants": 56,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 6,
+            "tram": 0,
+            "train": 6,
+            "parks_km2": 0.26320881312338873,
+            "cafes_density": 20.810209056269525,
+            "bars_density": 13.52663588657519,
+            "restaurant_density": 58.26858535755466,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 6.243062716880857,
+            "tram_stop_density": 0.0,
+            "train_station_density": 6.243062716880857,
+            "parks_share": 0.27387152132751486
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high"
+          }
+        },
+        {
+          "id": 39,
+          "monitoring_id": 39,
+          "name": "Etangs D’ixelles",
+          "metrics": {
+            "area_km2": 0.811029777725698,
+            "cafes": 4,
+            "bars": 2,
+            "restaurants": 29,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 17,
+            "train": 0,
+            "parks_km2": 0.22670672518950033,
+            "cafes_density": 4.932001401005103,
+            "bars_density": 2.4660007005025517,
+            "restaurant_density": 35.757010157287,
+            "schools_density": 4.932001401005103,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 20.96100595427169,
+            "train_station_density": 0.0,
+            "parks_share": 0.27952947156297364
+          },
+          "tag_confidence": {}
+        },
+        {
+          "id": 38,
+          "monitoring_id": 38,
+          "name": "Hopital Etterbeek - Ixelles",
+          "metrics": {
+            "area_km2": 0.6730165935258192,
+            "cafes": 4,
+            "bars": 2,
+            "restaurants": 12,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 4,
+            "train": 0,
+            "parks_km2": 0.04262275061412625,
+            "cafes_density": 5.94338986360601,
+            "bars_density": 2.971694931803005,
+            "restaurant_density": 17.83016959081803,
+            "schools_density": 8.915084795409015,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.94338986360601,
+            "train_station_density": 0.0,
+            "parks_share": 0.06333090598975119
+          },
+          "tag_confidence": {}
+        },
+        {
+          "id": 37,
+          "monitoring_id": 37,
+          "name": "Flagey - Malibran",
+          "metrics": {
+            "area_km2": 0.6412408539088316,
+            "cafes": 6,
+            "bars": 19,
+            "restaurants": 44,
+            "schools": 6,
+            "childcare": 2,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.021225657052293317,
+            "cafes_density": 9.356858602232867,
+            "bars_density": 29.63005224040408,
+            "restaurant_density": 68.61696308304103,
+            "schools_density": 9.356858602232867,
+            "childcare_density": 3.1189528674109557,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 7.797382168527389,
+            "train_station_density": 0.0,
+            "parks_share": 0.03310091196296591
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 34,
+          "monitoring_id": 34,
+          "name": "Jourdan",
+          "metrics": {
+            "area_km2": 0.5572466499649813,
+            "cafes": 6,
+            "bars": 10,
+            "restaurants": 37,
+            "schools": 10,
+            "childcare": 3,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.2607211174168198,
+            "cafes_density": 10.767224891126855,
+            "bars_density": 17.945374818544757,
+            "restaurant_density": 66.3978868286156,
+            "schools_density": 17.945374818544757,
+            "childcare_density": 5.383612445563427,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.4678738175154649
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "medium",
+            "green_parks": "medium",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 36,
+          "monitoring_id": 36,
+          "name": "Matonge",
+          "metrics": {
+            "area_km2": 0.48733032250489045,
+            "cafes": 15,
+            "bars": 21,
+            "restaurants": 84,
+            "schools": 8,
+            "childcare": 2,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.02405337403473398,
+            "cafes_density": 30.779943925712672,
+            "bars_density": 43.09192149599774,
+            "restaurant_density": 172.36768598399095,
+            "schools_density": 16.415970093713426,
+            "childcare_density": 4.1039925234283565,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.049357433600887
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 40,
+          "monitoring_id": 40,
+          "name": "Louise - Longue Haie",
+          "metrics": {
+            "area_km2": 0.44815191792417264,
+            "cafes": 7,
+            "bars": 4,
+            "restaurants": 13,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.002398739873673685,
+            "cafes_density": 15.619703319409648,
+            "bars_density": 8.92554475394837,
+            "restaurant_density": 29.008020450332207,
+            "schools_density": 13.388317130922557,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.2313861884870927,
+            "train_station_density": 0.0,
+            "parks_share": 0.005352515023888734
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "schools_strong": "medium"
+          }
         },
         {
           "id": 701,
           "monitoring_id": 701,
-          "name": "Cimetiere D’ixelles"
+          "name": "Cimetiere D’ixelles",
+          "metrics": {
+            "area_km2": 0.11786837677359367,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.00930982502092851,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.07898492603161233
+          },
+          "tag_confidence": {}
         }
       ],
       "microhoods_all": [
@@ -654,62 +1253,369 @@
         {
           "id": 906,
           "monitoring_id": 906,
-          "name": "Foret de Soignes"
-        },
-        {
-          "id": 115,
-          "monitoring_id": 115,
-          "name": "Kalevoet - Moensberg"
+          "name": "Foret de Soignes",
+          "metrics": {
+            "area_km2": 17.87501782113516,
+            "cafes": 0,
+            "bars": 1,
+            "restaurants": 3,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 4.604190012922058,
+            "cafes_density": 0.0,
+            "bars_density": 0.05594400016863841,
+            "restaurant_density": 0.16783200050591524,
+            "schools_density": 0.11188800033727682,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.33566400101183047,
+            "train_station_density": 0.0,
+            "parks_share": 0.2575768068593549
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 111,
           "monitoring_id": 111,
-          "name": "Vivier D’oie"
-        },
-        {
-          "id": 44,
-          "monitoring_id": 44,
-          "name": "Churchill"
-        },
-        {
-          "id": 112,
-          "monitoring_id": 112,
-          "name": "Kriekenput - Homborch -"
-        },
-        {
-          "id": 46,
-          "monitoring_id": 46,
-          "name": "Altitude 100"
-        },
-        {
-          "id": 908,
-          "monitoring_id": 908,
-          "name": "Parc Wolvendael"
+          "name": "Vivier D’oie",
+          "metrics": {
+            "area_km2": 2.504201241213183,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.01062488553688803,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 1.1979867874143466,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.004242824163660548
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 113,
           "monitoring_id": 113,
-          "name": "Saint - Job Kauwberg"
+          "name": "Saint - Job Kauwberg",
+          "metrics": {
+            "area_km2": 2.1760454664416846,
+            "cafes": 1,
+            "bars": 1,
+            "restaurants": 9,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.3059063718945809,
+            "cafes_density": 0.45954922147615834,
+            "bars_density": 0.45954922147615834,
+            "restaurant_density": 4.1359429932854255,
+            "schools_density": 1.378647664428475,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.75729532885695,
+            "train_station_density": 0.0,
+            "parks_share": 0.14057903504875083
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
-          "id": 110,
-          "monitoring_id": 110,
-          "name": "Fort Jaco"
-        },
-        {
-          "id": 117,
-          "monitoring_id": 117,
-          "name": "Vossegat - Roosendaal"
+          "id": 115,
+          "monitoring_id": 115,
+          "name": "Kalevoet - Moensberg",
+          "metrics": {
+            "area_km2": 2.0944665147236807,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 4,
+            "schools": 13,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 21,
+            "train": 0,
+            "parks_km2": 0.09676254214857967,
+            "cafes_density": 0.9548970995432011,
+            "bars_density": 0.47744854977160056,
+            "restaurant_density": 1.9097941990864022,
+            "schools_density": 6.206831147030807,
+            "childcare_density": 0.47744854977160056,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 10.026419545203611,
+            "train_station_density": 0.0,
+            "parks_share": 0.04619913542105274
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 109,
           "monitoring_id": 109,
-          "name": "Observatoire"
+          "name": "Observatoire",
+          "metrics": {
+            "area_km2": 1.9865344841573915,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.4098073161067722,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.0067783952153844,
+            "schools_density": 2.516945988038461,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 1.0067783952153844,
+            "train_station_density": 0.0,
+            "parks_share": 0.20629257602874992
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
-          "id": 702,
-          "monitoring_id": 702,
-          "name": "Cimetiere Saint - Gilles"
+          "id": 112,
+          "monitoring_id": 112,
+          "name": "Kriekenput - Homborch -",
+          "metrics": {
+            "area_km2": 1.906387259672865,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.0041003154247245535,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.5245523935003633,
+            "schools_density": 3.14731436100218,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.0021508302701457233
+          },
+          "tag_confidence": {
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Globe",
+          "monitoring_id": "116",
+          "id": 116,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 1.454143434581433,
+            "cafes": 1,
+            "bars": 2,
+            "restaurants": 22,
+            "schools": 9,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 24,
+            "train": 0,
+            "parks_km2": 0.02228254903728446,
+            "cafes_density": 0.6876900697817643,
+            "bars_density": 1.3753801395635286,
+            "restaurant_density": 15.129181535198814,
+            "schools_density": 6.1892106280358785,
+            "childcare_density": 0.6876900697817643,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 16.504561674762343,
+            "train_station_density": 0.0,
+            "parks_share": 0.015323487702365734
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 110,
+          "monitoring_id": 110,
+          "name": "Fort Jaco",
+          "metrics": {
+            "area_km2": 1.2879884084633095,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 15,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 3.1597006516616397,
+            "cafes_density": 0.776404502889194,
+            "bars_density": 0.0,
+            "restaurant_density": 11.64606754333791,
+            "schools_density": 3.105618011556776,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 2.453205813732018
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "green_parks": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Dieweg",
+          "monitoring_id": "114",
+          "id": 114,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 1.1903737203977525,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 5,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.004918696331843901,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 4.2003615455567145,
+            "schools_density": 1.6801446182226858,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.040433854668057,
+            "train_station_density": 0.0,
+            "parks_share": 0.0041320605853095976
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Montjoie - langeveld",
+          "monitoring_id": "108",
+          "id": 108,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 1.1172111166617993,
+            "cafes": 0,
+            "bars": 1,
+            "restaurants": 7,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 3.330855428700777,
+            "cafes_density": 0.0,
+            "bars_density": 0.8950859735337907,
+            "restaurant_density": 6.265601814736534,
+            "schools_density": 2.685257920601372,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.8950859735337907,
+            "train_station_density": 0.0,
+            "parks_share": 2.981401974098947
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 44,
+          "monitoring_id": 44,
+          "name": "Churchill",
+          "metrics": {
+            "area_km2": 1.0960508640971987,
+            "cafes": 2,
+            "bars": 5,
+            "restaurants": 9,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 19,
+            "train": 0,
+            "parks_km2": 3.417243916506779,
+            "cafes_density": 1.8247328344997669,
+            "bars_density": 4.561832086249417,
+            "restaurant_density": 8.211297755248951,
+            "schools_density": 1.8247328344997669,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 17.334961927747784,
+            "train_station_density": 0.0,
+            "parks_share": 3.1177785889722496
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 117,
+          "monitoring_id": 117,
+          "name": "Vossegat - Roosendaal",
+          "metrics": {
+            "area_km2": 1.0063506066999965,
+            "cafes": 0,
+            "bars": 1,
+            "restaurants": 0,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.011892232192634342,
+            "cafes_density": 0.0,
+            "bars_density": 0.9936894690004497,
+            "restaurant_density": 0.0,
+            "schools_density": 2.981068407001349,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.9936894690004497,
+            "train_station_density": 0.0,
+            "parks_share": 0.011817185892728873
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -850,29 +1756,154 @@
       },
       "microhoods": [
         {
-          "id": 31,
-          "monitoring_id": 31,
-          "name": "Saint - Michel"
-        },
-        {
-          "id": 32,
-          "monitoring_id": 32,
-          "name": "Saint - Pierre"
+          "id": 100,
+          "monitoring_id": 100,
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "metrics": {
+            "area_km2": 1.4037251630166165,
+            "cafes": 2,
+            "bars": 4,
+            "restaurants": 24,
+            "schools": 8,
+            "childcare": 1,
+            "metro": 3,
+            "tram": 0,
+            "train": 3,
+            "parks_km2": 0.110773246549774,
+            "cafes_density": 1.4247803292932244,
+            "bars_density": 2.849560658586449,
+            "restaurant_density": 17.09736395151869,
+            "schools_density": 5.699121317172898,
+            "childcare_density": 0.7123901646466122,
+            "metro_station_density": 2.1371704939398364,
+            "tram_stop_density": 0.0,
+            "train_station_density": 2.1371704939398364,
+            "parks_share": 0.07891377134803326
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 33,
           "monitoring_id": 33,
-          "name": "Chasse"
+          "name": "Chasse",
+          "metrics": {
+            "area_km2": 1.0599278549516267,
+            "cafes": 1,
+            "bars": 10,
+            "restaurants": 11,
+            "schools": 11,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.044742996500085945,
+            "cafes_density": 0.9434604396217499,
+            "bars_density": 9.434604396217498,
+            "restaurant_density": 10.378064835839249,
+            "schools_density": 10.378064835839249,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.660762637730499,
+            "train_station_density": 0.0,
+            "parks_share": 0.0422132471479655
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "schools_strong": "medium"
+          }
         },
         {
-          "id": 100,
-          "monitoring_id": 100,
-          "name": "Chaussee de Wavre - Saint - Julien"
+          "id": 32,
+          "monitoring_id": 32,
+          "name": "Saint - Pierre",
+          "metrics": {
+            "area_km2": 0.8011083360609995,
+            "cafes": 5,
+            "bars": 8,
+            "restaurants": 17,
+            "schools": 14,
+            "childcare": 1,
+            "metro": 1,
+            "tram": 6,
+            "train": 1,
+            "parks_km2": 0.055681029110743935,
+            "cafes_density": 6.241353104106609,
+            "bars_density": 9.986164966570575,
+            "restaurant_density": 21.22060055396247,
+            "schools_density": 17.475788691498504,
+            "childcare_density": 1.248270620821322,
+            "metro_station_density": 1.248270620821322,
+            "tram_stop_density": 7.489623724927931,
+            "train_station_density": 1.248270620821322,
+            "parks_share": 0.06950499277603843
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 31,
+          "monitoring_id": 31,
+          "name": "Saint - Michel",
+          "metrics": {
+            "area_km2": 0.7240183162392008,
+            "cafes": 1,
+            "bars": 4,
+            "restaurants": 14,
+            "schools": 7,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 3,
+            "train": 1,
+            "parks_km2": 0.07310860957356663,
+            "cafes_density": 1.3811805275788362,
+            "bars_density": 5.524722110315345,
+            "restaurant_density": 19.336527386103707,
+            "schools_density": 9.668263693051854,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.3811805275788362,
+            "tram_stop_density": 4.143541582736509,
+            "train_station_density": 1.3811805275788362,
+            "parks_share": 0.10097618794137392
+          },
+          "tag_confidence": {
+            "green_parks": "medium"
+          }
         },
         {
           "id": 903,
           "monitoring_id": 903,
-          "name": "Cinquantenaire"
+          "name": "Cinquantenaire",
+          "metrics": {
+            "area_km2": 0.378972039528976,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.8475267861754419,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 5.277434194052411,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 2.2363834208688114
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -948,44 +1979,240 @@
       },
       "microhoods": [
         {
-          "id": 30,
-          "monitoring_id": 30,
-          "name": "Porte Tervueren"
-        },
-        {
-          "id": 88,
-          "monitoring_id": 88,
-          "name": "Georges Henri"
-        },
-        {
-          "id": 89,
-          "monitoring_id": 89,
-          "name": "Gribaumont"
-        },
-        {
-          "id": 90,
-          "monitoring_id": 90,
-          "name": "Roodebeek - Constellations"
+          "id": 92,
+          "monitoring_id": 92,
+          "name": "Kapelleveld",
+          "metrics": {
+            "area_km2": 1.9173231833967803,
+            "cafes": 6,
+            "bars": 7,
+            "restaurants": 17,
+            "schools": 11,
+            "childcare": 3,
+            "metro": 3,
+            "tram": 4,
+            "train": 3,
+            "parks_km2": 0.6363238061051478,
+            "cafes_density": 3.129362880477063,
+            "bars_density": 3.650923360556573,
+            "restaurant_density": 8.866528161351678,
+            "schools_density": 5.737165280874615,
+            "childcare_density": 1.5646814402385314,
+            "metro_station_density": 1.5646814402385314,
+            "tram_stop_density": 2.086241920318042,
+            "train_station_density": 1.5646814402385314,
+            "parks_share": 0.3318813497982222
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "medium",
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 91,
           "monitoring_id": 91,
-          "name": "Val D’or"
+          "name": "Val D’or",
+          "metrics": {
+            "area_km2": 1.6449940946012898,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 3,
+            "schools": 7,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.2309686763137793,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.8237147536551697,
+            "schools_density": 4.255334425195396,
+            "childcare_density": 0.6079049178850565,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.6079049178850565,
+            "train_station_density": 0.0,
+            "parks_share": 0.1404069942085482
+          },
+          "tag_confidence": {}
         },
         {
-          "id": 92,
-          "monitoring_id": 92,
-          "name": "Kapelleveld"
-        },
-        {
-          "id": 93,
-          "monitoring_id": 93,
-          "name": "Boulevard de la Woluwe"
+          "id": 90,
+          "monitoring_id": 90,
+          "name": "Roodebeek - Constellations",
+          "metrics": {
+            "area_km2": 1.5402906601284998,
+            "cafes": 1,
+            "bars": 1,
+            "restaurants": 19,
+            "schools": 9,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 4,
+            "train": 2,
+            "parks_km2": 0.3690212260545635,
+            "cafes_density": 0.649228113813645,
+            "bars_density": 0.649228113813645,
+            "restaurant_density": 12.335334162459255,
+            "schools_density": 5.8430530243228045,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.29845622762729,
+            "tram_stop_density": 2.59691245525458,
+            "train_station_density": 1.29845622762729,
+            "parks_share": 0.23957895454860295
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "schools_strong": "medium"
+          }
         },
         {
           "id": 94,
           "monitoring_id": 94,
-          "name": "Stockel"
+          "name": "Stockel",
+          "metrics": {
+            "area_km2": 1.5160569752302164,
+            "cafes": 9,
+            "bars": 1,
+            "restaurants": 13,
+            "schools": 7,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 5,
+            "train": 1,
+            "parks_km2": 0.01590460440043892,
+            "cafes_density": 5.93645235439343,
+            "bars_density": 0.6596058171548256,
+            "restaurant_density": 8.574875623012732,
+            "schools_density": 4.617240720083779,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.6596058171548256,
+            "tram_stop_density": 3.2980290857741275,
+            "train_station_density": 0.6596058171548256,
+            "parks_share": 0.01049076958207575
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high"
+          }
+        },
+        {
+          "id": 88,
+          "monitoring_id": 88,
+          "name": "Georges Henri",
+          "metrics": {
+            "area_km2": 1.1500022489770685,
+            "cafes": 1,
+            "bars": 4,
+            "restaurants": 25,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.019222666863406367,
+            "cafes_density": 0.8695635168448618,
+            "bars_density": 3.478254067379447,
+            "restaurant_density": 21.739087921121545,
+            "schools_density": 3.478254067379447,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.016715329800880828
+          },
+          "tag_confidence": {}
+        },
+        {
+          "id": 93,
+          "monitoring_id": 93,
+          "name": "Boulevard de la Woluwe",
+          "metrics": {
+            "area_km2": 1.061600105462437,
+            "cafes": 2,
+            "bars": 4,
+            "restaurants": 20,
+            "schools": 8,
+            "childcare": 2,
+            "metro": 0,
+            "tram": 9,
+            "train": 0,
+            "parks_km2": 0.548872769195565,
+            "cafes_density": 1.8839485694368807,
+            "bars_density": 3.7678971388737614,
+            "restaurant_density": 18.839485694368808,
+            "schools_density": 7.535794277747523,
+            "childcare_density": 1.8839485694368807,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 8.477768562465963,
+            "train_station_density": 0.0,
+            "parks_share": 0.517024034164422
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 89,
+          "monitoring_id": 89,
+          "name": "Gribaumont",
+          "metrics": {
+            "area_km2": 1.0096716611789438,
+            "cafes": 1,
+            "bars": 2,
+            "restaurants": 7,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 3,
+            "tram": 13,
+            "train": 3,
+            "parks_km2": 0.0829156985424049,
+            "cafes_density": 0.990420983819977,
+            "bars_density": 1.980841967639954,
+            "restaurant_density": 6.932946886739839,
+            "schools_density": 1.980841967639954,
+            "childcare_density": 0.0,
+            "metro_station_density": 2.971262951459931,
+            "tram_stop_density": 12.875472789659701,
+            "train_station_density": 2.971262951459931,
+            "parks_share": 0.08212144772448929
+          },
+          "tag_confidence": {}
+        },
+        {
+          "id": 30,
+          "monitoring_id": 30,
+          "name": "Porte Tervueren",
+          "metrics": {
+            "area_km2": 0.9214352834867068,
+            "cafes": 7,
+            "bars": 6,
+            "restaurants": 17,
+            "schools": 10,
+            "childcare": 1,
+            "metro": 2,
+            "tram": 6,
+            "train": 2,
+            "parks_km2": 0.04413861697720391,
+            "cafes_density": 7.596843886324857,
+            "bars_density": 6.511580473992734,
+            "restaurant_density": 18.449478009646082,
+            "schools_density": 10.852634123321225,
+            "childcare_density": 1.0852634123321225,
+            "metro_station_density": 2.170526824664245,
+            "tram_stop_density": 6.511580473992734,
+            "train_station_density": 2.170526824664245,
+            "parks_share": 0.04790202607630086
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -1076,14 +2303,65 @@
       },
       "microhoods": [
         {
-          "id": 95,
-          "monitoring_id": 95,
-          "name": "Sainte - Alix - Joli Bois"
-        },
-        {
           "id": 96,
           "monitoring_id": 96,
-          "name": "Saint - Paul"
+          "name": "Saint - Paul",
+          "metrics": {
+            "area_km2": 1.7819337491675329,
+            "cafes": 1,
+            "bars": 1,
+            "restaurants": 9,
+            "schools": 9,
+            "childcare": 2,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.07851192142537135,
+            "cafes_density": 0.5611880915702789,
+            "bars_density": 0.5611880915702789,
+            "restaurant_density": 5.050692824132511,
+            "schools_density": 5.050692824132511,
+            "childcare_density": 1.1223761831405579,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.805940457851395,
+            "train_station_density": 0.0,
+            "parks_share": 0.044059955350219844
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 95,
+          "monitoring_id": 95,
+          "name": "Sainte - Alix - Joli Bois",
+          "metrics": {
+            "area_km2": 0.9836834477210354,
+            "cafes": 2,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.0011403205661089633,
+            "cafes_density": 2.03317439632997,
+            "bars_density": 0.0,
+            "restaurant_density": 2.03317439632997,
+            "schools_density": 1.016587198164985,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.0011592352893106206
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1144,34 +2422,186 @@
       },
       "microhoods": [
         {
-          "id": 97,
-          "monitoring_id": 97,
-          "name": "Putdaal"
-        },
-        {
-          "id": 98,
-          "monitoring_id": 98,
-          "name": "Auderghem Centre"
-        },
-        {
           "id": 99,
           "monitoring_id": 99,
-          "name": "Chant D’oiseau"
-        },
-        {
-          "id": 102,
-          "monitoring_id": 102,
-          "name": "Transvaal"
-        },
-        {
-          "id": 802,
-          "monitoring_id": 802,
-          "name": "Delta"
+          "name": "Chant D’oiseau",
+          "metrics": {
+            "area_km2": 1.564636787830564,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 1.8885736742849677,
+            "cafes_density": 0.6391259669833935,
+            "bars_density": 0.0,
+            "restaurant_density": 0.6391259669833935,
+            "schools_density": 3.195629834916968,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 1.2070364757967604
+          },
+          "tag_confidence": {
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 905,
           "monitoring_id": 905,
-          "name": "Parc de la Woluwe"
+          "name": "Parc de la Woluwe",
+          "metrics": {
+            "area_km2": 1.3561335489879454,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 3,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 3,
+            "train": 0,
+            "parks_km2": 2.4268692018382523,
+            "cafes_density": 0.737390503130226,
+            "bars_density": 0.0,
+            "restaurant_density": 2.2121715093906777,
+            "schools_density": 1.474781006260452,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.2121715093906777,
+            "train_station_density": 0.0,
+            "parks_share": 1.7895503017747587
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "green_parks": "medium",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 102,
+          "monitoring_id": 102,
+          "name": "Transvaal",
+          "metrics": {
+            "area_km2": 1.2196647295208827,
+            "cafes": 0,
+            "bars": 1,
+            "restaurants": 5,
+            "schools": 7,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 1,
+            "train": 1,
+            "parks_km2": 0.34898257661962573,
+            "cafes_density": 0.0,
+            "bars_density": 0.8198974486970916,
+            "restaurant_density": 4.099487243485458,
+            "schools_density": 5.7392821408796415,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.8198974486970916,
+            "tram_stop_density": 0.8198974486970916,
+            "train_station_density": 0.8198974486970916,
+            "parks_share": 0.2861299242101684
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 98,
+          "monitoring_id": 98,
+          "name": "Auderghem Centre",
+          "metrics": {
+            "area_km2": 0.7888606039069269,
+            "cafes": 3,
+            "bars": 2,
+            "restaurants": 18,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 5,
+            "train": 1,
+            "parks_km2": 1.9802095547530114,
+            "cafes_density": 3.802953253264442,
+            "bars_density": 2.535302168842961,
+            "restaurant_density": 22.81771951958665,
+            "schools_density": 6.3382554221074034,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.2676510844214806,
+            "tram_stop_density": 6.3382554221074034,
+            "train_station_density": 1.2676510844214806,
+            "parks_share": 2.5102147894644324
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 97,
+          "monitoring_id": 97,
+          "name": "Putdaal",
+          "metrics": {
+            "area_km2": 0.7814937728036203,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.0,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.279600727223309,
+            "schools_density": 1.279600727223309,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.559201454446618,
+            "train_station_density": 0.0,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 802,
+          "monitoring_id": 802,
+          "name": "Delta",
+          "metrics": {
+            "area_km2": 0.24510721035596217,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.0,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 4.07984733924281,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "childcare_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1235,7 +2665,7 @@
         "metro_stops": 0.0,
         "tram_stops": 12.0,
         "train_stations": 1.0,
-        "parks_area_km2": 1.6001083196306032,
+        "parks_area_km2": 1.6001076412596862,
         "cafes_density": 0.4628696426406892,
         "restaurants_density": 2.314348213203446,
         "bars_density": 0.07714494044011486,
@@ -1244,24 +2674,98 @@
         "metro_density": 0.0,
         "tram_density": 0.9257392852813784,
         "train_density": 0.07714494044011486,
-        "parks_share": 0.12344026101563516
+        "parks_share": 0.12344020868275117
       },
       "tag_confidence": {},
       "microhoods": [
         {
-          "id": 101,
-          "monitoring_id": 101,
-          "name": "Trois Tilleuls"
+          "id": 104,
+          "monitoring_id": 104,
+          "name": "Watermael Centre",
+          "metrics": {
+            "area_km2": 1.7296011160163085,
+            "cafes": 3,
+            "bars": 0,
+            "restaurants": 9,
+            "schools": 6,
+            "childcare": 2,
+            "metro": 2,
+            "tram": 1,
+            "train": 2,
+            "parks_km2": 0.3066338272460911,
+            "cafes_density": 1.7345039687010197,
+            "bars_density": 0.0,
+            "restaurant_density": 5.203511906103059,
+            "schools_density": 3.4690079374020395,
+            "childcare_density": 1.156335979134013,
+            "metro_station_density": 1.156335979134013,
+            "tram_stop_density": 0.5781679895670065,
+            "train_station_density": 1.156335979134013,
+            "parks_share": 0.1772858634321093
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 103,
           "monitoring_id": 103,
-          "name": "Boitsfort Centre"
+          "name": "Boitsfort Centre",
+          "metrics": {
+            "area_km2": 1.635224659363736,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 16,
+            "schools": 8,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 10,
+            "train": 0,
+            "parks_km2": 1.2674106812627621,
+            "cafes_density": 1.2230735321580812,
+            "bars_density": 0.6115367660790406,
+            "restaurant_density": 9.78458825726465,
+            "schools_density": 4.892294128632325,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 6.115367660790406,
+            "train_station_density": 0.0,
+            "parks_share": 0.7750682293134633
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         },
         {
-          "id": 104,
-          "monitoring_id": 104,
-          "name": "Watermael Centre"
+          "id": 101,
+          "monitoring_id": 101,
+          "name": "Trois Tilleuls",
+          "metrics": {
+            "area_km2": 1.0046188797419613,
+            "cafes": 0,
+            "bars": 1,
+            "restaurants": 2,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.2629515400865715,
+            "cafes_density": 0.0,
+            "bars_density": 0.9954023562217469,
+            "restaurant_density": 1.9908047124434938,
+            "schools_density": 5.972414137330481,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.9954023562217469,
+            "train_station_density": 0.0,
+            "parks_share": 0.2617425825743104
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "schools_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1340,44 +2844,248 @@
       },
       "microhoods": [
         {
-          "id": 11,
-          "monitoring_id": 11,
-          "name": "Cureghem Bara"
-        },
-        {
-          "id": 41,
-          "monitoring_id": 41,
-          "name": "Berckmans - Hotel des Monnaies"
-        },
-        {
-          "id": 42,
-          "monitoring_id": 42,
-          "name": "Chatelain"
+          "id": 50,
+          "monitoring_id": 50,
+          "name": "Bas Forest",
+          "metrics": {
+            "area_km2": 0.815931482110265,
+            "cafes": 6,
+            "bars": 3,
+            "restaurants": 7,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 10,
+            "train": 0,
+            "parks_km2": 0.0063299057567713,
+            "cafes_density": 7.353558640098115,
+            "bars_density": 3.6767793200490577,
+            "restaurant_density": 8.579151746781134,
+            "schools_density": 3.6767793200490577,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 12.255931066830192,
+            "train_station_density": 0.0,
+            "parks_share": 0.007757888861452066
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 47,
           "monitoring_id": 47,
-          "name": "Haut Saint - Gilles"
+          "name": "Haut Saint - Gilles",
+          "metrics": {
+            "area_km2": 0.7658117045570966,
+            "cafes": 21,
+            "bars": 19,
+            "restaurants": 36,
+            "schools": 9,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 15,
+            "train": 1,
+            "parks_km2": 0.42129975504244144,
+            "cafes_density": 27.421884354908425,
+            "bars_density": 24.810276321107622,
+            "restaurant_density": 47.008944608414446,
+            "schools_density": 11.752236152103611,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.3058040169004013,
+            "tram_stop_density": 19.587060253506017,
+            "train_station_density": 1.3058040169004013,
+            "parks_share": 0.550134912453575
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 42,
+          "monitoring_id": 42,
+          "name": "Chatelain",
+          "metrics": {
+            "area_km2": 0.6595413908801065,
+            "cafes": 16,
+            "bars": 28,
+            "restaurants": 64,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 13,
+            "train": 0,
+            "parks_km2": 0.016450411185581576,
+            "cafes_density": 24.25928110235697,
+            "bars_density": 42.453741929124696,
+            "restaurant_density": 97.03712440942788,
+            "schools_density": 3.032410137794621,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 19.710665895665038,
+            "train_station_density": 0.0,
+            "parks_share": 0.024942196825023803
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 11,
+          "monitoring_id": 11,
+          "name": "Cureghem Bara",
+          "metrics": {
+            "area_km2": 0.5911364838749665,
+            "cafes": 7,
+            "bars": 4,
+            "restaurants": 15,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 4,
+            "train": 1,
+            "parks_km2": 0.017200426423134577,
+            "cafes_density": 11.841596976241778,
+            "bars_density": 6.76662684356673,
+            "restaurant_density": 25.374850663375238,
+            "schools_density": 5.074970132675047,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.6916567108916825,
+            "tram_stop_density": 6.76662684356673,
+            "train_station_density": 1.6916567108916825,
+            "parks_share": 0.029097216788894226
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 48,
           "monitoring_id": 48,
-          "name": "Porte de Hal"
+          "name": "Porte de Hal",
+          "metrics": {
+            "area_km2": 0.5321576840581603,
+            "cafes": 16,
+            "bars": 17,
+            "restaurants": 29,
+            "schools": 11,
+            "childcare": 1,
+            "metro": 2,
+            "tram": 9,
+            "train": 2,
+            "parks_km2": 0.06932919642663227,
+            "cafes_density": 30.066276367534957,
+            "bars_density": 31.945418640505892,
+            "restaurant_density": 54.49512591615711,
+            "schools_density": 20.670565002680284,
+            "childcare_density": 1.8791422729709348,
+            "metro_station_density": 3.7582845459418697,
+            "tram_stop_density": 16.91228045673841,
+            "train_station_density": 3.7582845459418697,
+            "parks_share": 0.13027942375639018
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         },
         {
-          "id": 49,
-          "monitoring_id": 49,
-          "name": "Bosnie"
-        },
-        {
-          "id": 50,
-          "monitoring_id": 50,
-          "name": "Bas Forest"
+          "id": 41,
+          "monitoring_id": 41,
+          "name": "Berckmans - Hotel des Monnaies",
+          "metrics": {
+            "area_km2": 0.4426943839896631,
+            "cafes": 10,
+            "bars": 10,
+            "restaurants": 47,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 3,
+            "train": 0,
+            "parks_km2": 0.0033082589095931184,
+            "cafes_density": 22.588947051637998,
+            "bars_density": 22.588947051637998,
+            "restaurant_density": 106.16805114269859,
+            "schools_density": 13.553368230982798,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 6.776684115491399,
+            "train_station_density": 0.0,
+            "parks_share": 0.007473008534190861
+          },
+          "tag_confidence": {
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 804,
           "monitoring_id": 804,
-          "name": "Gare du Midi"
+          "name": "Gare du Midi",
+          "metrics": {
+            "area_km2": 0.2445352855811859,
+            "cafes": 7,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 6,
+            "train": 2,
+            "parks_km2": 0.0,
+            "cafes_density": 28.6257256631211,
+            "bars_density": 0.0,
+            "restaurant_density": 8.178778760891742,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 8.178778760891742,
+            "tram_stop_density": 24.53633628267523,
+            "train_station_density": 8.178778760891742,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 49,
+          "monitoring_id": 49,
+          "name": "Bosnie",
+          "metrics": {
+            "area_km2": 0.2002894917872192,
+            "cafes": 7,
+            "bars": 1,
+            "restaurants": 8,
+            "schools": 3,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.0,
+            "cafes_density": 34.94941216105618,
+            "bars_density": 4.992773165865168,
+            "restaurant_density": 39.94218532692135,
+            "schools_density": 14.978319497595505,
+            "childcare_density": 4.992773165865168,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.992773165865168,
+            "train_station_density": 0.0,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1443,7 +3151,7 @@
       "metrics": {
         "area_km2": 6.289138699766675,
         "cafes_count": 20.0,
-        "restaurants_count": 30.0,
+        "restaurants_count": 31.0,
         "bars_count": 4.0,
         "schools_count": 29.0,
         "childcare_count": 3.0,
@@ -1452,7 +3160,7 @@
         "train_stations": 3.0,
         "parks_area_km2": 1.5817198530234,
         "cafes_density": 3.1800856929331185,
-        "restaurants_density": 4.770128539399678,
+        "restaurants_density": 4.9291328240463335,
         "bars_density": 0.6360171385866237,
         "schools_density": 4.6111242547530225,
         "childcare_density": 0.4770128539399678,
@@ -1464,19 +3172,95 @@
       "tag_confidence": {},
       "microhoods": [
         {
-          "id": 51,
-          "monitoring_id": 51,
-          "name": "Van Volxem - Van Haelen"
-        },
-        {
           "id": 118,
           "monitoring_id": 118,
-          "name": "Saint - Denis - Neerstalle"
+          "name": "Saint - Denis - Neerstalle",
+          "metrics": {
+            "area_km2": 0.8302102303738631,
+            "cafes": 6,
+            "bars": 3,
+            "restaurants": 4,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.5028883689731568,
+            "cafes_density": 7.227085117101074,
+            "bars_density": 3.613542558550537,
+            "restaurant_density": 4.818056744734049,
+            "schools_density": 7.227085117101074,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 6.022570930917562,
+            "train_station_density": 0.0,
+            "parks_share": 0.6057361744948558
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 51,
+          "monitoring_id": 51,
+          "name": "Van Volxem - Van Haelen",
+          "metrics": {
+            "area_km2": 0.8291895585290571,
+            "cafes": 2,
+            "bars": 4,
+            "restaurants": 6,
+            "schools": 8,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 11,
+            "train": 0,
+            "parks_km2": 0.634502050086112,
+            "cafes_density": 2.411993710518865,
+            "bars_density": 4.82398742103773,
+            "restaurant_density": 7.235981131556596,
+            "schools_density": 9.64797484207546,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 13.265965407853757,
+            "train_station_density": 0.0,
+            "parks_share": 0.7652074770595141
+          },
+          "tag_confidence": {
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 909,
           "monitoring_id": 909,
-          "name": "Parc Duden - Parc de Forest"
+          "name": "Parc Duden - Parc de Forest",
+          "metrics": {
+            "area_km2": 0.47609707103978577,
+            "cafes": 0,
+            "bars": 4,
+            "restaurants": 1,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 1.0302750457777627,
+            "cafes_density": 0.0,
+            "bars_density": 8.401647990112785,
+            "restaurant_density": 2.1004119975281963,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.200823995056393,
+            "train_station_density": 0.0,
+            "parks_share": 2.1640020669055247
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1552,54 +3336,302 @@
       "osm_query": "Schaerbeek, Belgium",
       "microhoods": [
         {
-          "id": 23,
-          "monitoring_id": 23,
-          "name": "Collignon"
-        },
-        {
           "id": 26,
           "monitoring_id": 26,
-          "name": "Dailly"
+          "name": "Dailly",
+          "metrics": {
+            "area_km2": 0.8829361637884339,
+            "cafes": 6,
+            "bars": 16,
+            "restaurants": 21,
+            "schools": 5,
+            "childcare": 3,
+            "metro": 0,
+            "tram": 4,
+            "train": 0,
+            "parks_km2": 0.0527412238276342,
+            "cafes_density": 6.795508266708282,
+            "bars_density": 18.12135537788875,
+            "restaurant_density": 23.784278933478987,
+            "schools_density": 5.662923555590235,
+            "childcare_density": 3.397754133354141,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.530338844472188,
+            "train_station_density": 0.0,
+            "parks_share": 0.059733903752833335
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "childcare_strong": "high"
+          }
         },
         {
-          "id": 27,
-          "monitoring_id": 27,
-          "name": "Josaphat"
-        },
-        {
-          "id": 28,
-          "monitoring_id": 28,
-          "name": "Plasky"
+          "id": 23,
+          "monitoring_id": 23,
+          "name": "Collignon",
+          "metrics": {
+            "area_km2": 0.7701644533087152,
+            "cafes": 12,
+            "bars": 7,
+            "restaurants": 13,
+            "schools": 13,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 20,
+            "train": 0,
+            "parks_km2": 0.069907807091678,
+            "cafes_density": 15.581087842273968,
+            "bars_density": 9.08896790799315,
+            "restaurant_density": 16.879511829130134,
+            "schools_density": 16.879511829130134,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 25.968479737123282,
+            "train_station_density": 0.0,
+            "parks_share": 0.09076997359634817
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "medium",
+            "green_parks": "medium",
+            "schools_strong": "high"
+          }
         },
         {
           "id": 80,
           "monitoring_id": 80,
-          "name": "Helmet"
-        },
-        {
-          "id": 81,
-          "monitoring_id": 81,
-          "name": "Gare de Schaerbeek"
+          "name": "Helmet",
+          "metrics": {
+            "area_km2": 0.7182826807660944,
+            "cafes": 4,
+            "bars": 1,
+            "restaurants": 3,
+            "schools": 7,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.00015666029636666554,
+            "cafes_density": 5.568838156773799,
+            "bars_density": 1.3922095391934497,
+            "restaurant_density": 4.1766286175803495,
+            "schools_density": 9.745466774354147,
+            "childcare_density": 1.3922095391934497,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 6.961047695967249,
+            "train_station_density": 0.0,
+            "parks_share": 0.0002181039590145447
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 82,
           "monitoring_id": 82,
-          "name": "Terdelt"
+          "name": "Terdelt",
+          "metrics": {
+            "area_km2": 0.6770071963788135,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 7,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.06135876074972887,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 10.339624212920791,
+            "schools_density": 5.908356693097595,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.09063236118895864
+          },
+          "tag_confidence": {
+            "green_parks": "medium"
+          }
         },
         {
           "id": 85,
           "monitoring_id": 85,
-          "name": "Gare Josaphat"
+          "name": "Gare Josaphat",
+          "metrics": {
+            "area_km2": 0.6126967724496831,
+            "cafes": 2,
+            "bars": 0,
+            "restaurants": 6,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.001510577902945706,
+            "cafes_density": 3.2642574433738303,
+            "bars_density": 0.0,
+            "restaurant_density": 9.79277233012149,
+            "schools_density": 3.2642574433738303,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 3.2642574433738303,
+            "train_station_density": 0.0,
+            "parks_share": 0.002465457581743276
+          },
+          "tag_confidence": {}
         },
         {
           "id": 87,
           "monitoring_id": 87,
-          "name": "Reyers"
+          "name": "Reyers",
+          "metrics": {
+            "area_km2": 0.5965722027019477,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 1,
+            "train": 1,
+            "parks_km2": 0.020874332611730786,
+            "cafes_density": 1.6762430355804026,
+            "bars_density": 0.0,
+            "restaurant_density": 3.352486071160805,
+            "schools_density": 5.028729106741208,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.6762430355804026,
+            "tram_stop_density": 1.6762430355804026,
+            "train_station_density": 1.6762430355804026,
+            "parks_share": 0.03499045466280261
+          },
+          "tag_confidence": {}
+        },
+        {
+          "id": 28,
+          "monitoring_id": 28,
+          "name": "Plasky",
+          "metrics": {
+            "area_km2": 0.4986595300230458,
+            "cafes": 2,
+            "bars": 9,
+            "restaurants": 13,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.012500832193936062,
+            "cafes_density": 4.010752586855342,
+            "bars_density": 18.04838664084904,
+            "restaurant_density": 26.06989181455972,
+            "schools_density": 12.032257760566026,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.010752586855342,
+            "train_station_density": 0.0,
+            "parks_share": 0.0250688725298368
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "schools_strong": "high"
+          }
+        },
+        {
+          "id": 27,
+          "monitoring_id": 27,
+          "name": "Josaphat",
+          "metrics": {
+            "area_km2": 0.4363002362496809,
+            "cafes": 2,
+            "bars": 8,
+            "restaurants": 7,
+            "schools": 3,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 4,
+            "train": 0,
+            "parks_km2": 0.02657452372563645,
+            "cafes_density": 4.583999351436204,
+            "bars_density": 18.335997405744816,
+            "restaurant_density": 16.043997730026714,
+            "schools_density": 6.8759990271543066,
+            "childcare_density": 2.291999675718102,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 9.167998702872408,
+            "train_station_density": 0.0,
+            "parks_share": 0.060908799761521755
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 81,
+          "monitoring_id": 81,
+          "name": "Gare de Schaerbeek",
+          "metrics": {
+            "area_km2": 0.37753344813745227,
+            "cafes": 5,
+            "bars": 2,
+            "restaurants": 3,
+            "schools": 0,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.07979439208423021,
+            "cafes_density": 13.243859649171009,
+            "bars_density": 5.297543859668404,
+            "restaurant_density": 7.946315789502606,
+            "schools_density": 0.0,
+            "childcare_density": 2.648771929834202,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 13.243859649171009,
+            "train_station_density": 0.0,
+            "parks_share": 0.2113571459108934
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 901,
           "monitoring_id": 901,
-          "name": "Parc Josaphat"
+          "name": "Parc Josaphat",
+          "metrics": {
+            "area_km2": 0.36954487938247377,
+            "cafes": 0,
+            "bars": 2,
+            "restaurants": 1,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 0.7502365057123778,
+            "cafes_density": 0.0,
+            "bars_density": 5.412062543911015,
+            "restaurant_density": 2.7060312719555073,
+            "schools_density": 2.7060312719555073,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 18.942218903688552,
+            "train_station_density": 0.0,
+            "parks_share": 2.0301634458203206
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1713,22 +3745,126 @@
         {
           "id": 22,
           "monitoring_id": 22,
-          "name": "Quartier Brabant"
+          "name": "Quartier Brabant",
+          "metrics": {
+            "area_km2": 0.7850157549361965,
+            "cafes": 8,
+            "bars": 9,
+            "restaurants": 10,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 11,
+            "train": 0,
+            "parks_km2": 0.145346386041724,
+            "cafes_density": 10.190878271800054,
+            "bars_density": 11.46473805577506,
+            "restaurant_density": 12.738597839750067,
+            "schools_density": 6.369298919875034,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 14.012457623725073,
+            "train_station_density": 0.0,
+            "parks_share": 0.18515091592465846
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "medium",
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 24,
           "monitoring_id": 24,
-          "name": "Chaussee de Haecht"
+          "name": "Chaussee de Haecht",
+          "metrics": {
+            "area_km2": 0.7117780371763888,
+            "cafes": 9,
+            "bars": 8,
+            "restaurants": 20,
+            "schools": 17,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 12,
+            "train": 0,
+            "parks_km2": 0.02238553393477215,
+            "cafes_density": 12.644391270771496,
+            "bars_density": 11.239458907352441,
+            "restaurant_density": 28.098647268381104,
+            "schools_density": 23.88385017812394,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 16.85918836102866,
+            "train_station_density": 0.0,
+            "parks_share": 0.0314501610973769
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "schools_strong": "high",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 25,
           "monitoring_id": 25,
-          "name": "Saint - Josse Centre"
+          "name": "Saint - Josse Centre",
+          "metrics": {
+            "area_km2": 0.6153020364459666,
+            "cafes": 6,
+            "bars": 15,
+            "restaurants": 24,
+            "schools": 7,
+            "childcare": 1,
+            "metro": 1,
+            "tram": 0,
+            "train": 1,
+            "parks_km2": 0.038413844677714894,
+            "cafes_density": 9.75130853565263,
+            "bars_density": 24.378271339131576,
+            "restaurant_density": 39.00523414261052,
+            "schools_density": 11.376526624928069,
+            "childcare_density": 1.6252180892754384,
+            "metro_station_density": 1.6252180892754384,
+            "tram_stop_density": 0.0,
+            "train_station_density": 1.6252180892754384,
+            "parks_share": 0.06243087524883927
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "schools_strong": "medium",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 902,
           "monitoring_id": 902,
-          "name": "Botanique"
+          "name": "Botanique",
+          "metrics": {
+            "area_km2": 0.07125196461524762,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 2,
+            "train": 1,
+            "parks_km2": 0.12836248850953969,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 14.034700732813256,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 14.034700732813256,
+            "tram_stop_density": 28.069401465626513,
+            "train_station_density": 14.034700732813256,
+            "parks_share": 1.8015291115505698
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -1779,7 +3915,7 @@
         "cafes_count": 19.0,
         "restaurants_count": 30.0,
         "bars_count": 9.0,
-        "schools_count": 43.0,
+        "schools_count": 44.0,
         "childcare_count": 5.0,
         "metro_stops": 22.0,
         "tram_stops": 27.0,
@@ -1788,7 +3924,7 @@
         "cafes_density": 3.1599962672651736,
         "restaurants_density": 4.989467790418695,
         "bars_density": 1.4968403371256087,
-        "schools_density": 7.15157049960013,
+        "schools_density": 7.317886092614087,
         "childcare_density": 0.8315779650697825,
         "metro_density": 3.6589430463070434,
         "tram_density": 4.490521011376826,
@@ -1800,59 +3936,331 @@
       },
       "microhoods": [
         {
-          "id": 13,
-          "monitoring_id": 13,
-          "name": "Cureghem Rosee"
-        },
-        {
-          "id": 14,
-          "monitoring_id": 14,
-          "name": "Duchesse"
-        },
-        {
-          "id": 15,
-          "monitoring_id": 15,
-          "name": "Gare de L’ouest"
-        },
-        {
-          "id": 16,
-          "monitoring_id": 16,
-          "name": "Molenbeek Historique"
-        },
-        {
           "id": 18,
           "monitoring_id": 18,
-          "name": "Quartier Maritime"
-        },
-        {
-          "id": 61,
-          "monitoring_id": 61,
-          "name": "Moortebeek - Peterbos"
+          "name": "Quartier Maritime",
+          "metrics": {
+            "area_km2": 1.740977560738233,
+            "cafes": 7,
+            "bars": 9,
+            "restaurants": 15,
+            "schools": 15,
+            "childcare": 2,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 0.5580944369394845,
+            "cafes_density": 4.020729593454246,
+            "bars_density": 5.169509477298316,
+            "restaurant_density": 8.615849128830527,
+            "schools_density": 8.615849128830527,
+            "childcare_density": 1.1487798838440701,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.020729593454246,
+            "train_station_density": 0.0,
+            "parks_share": 0.3205638312206814
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "green_parks": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 62,
           "monitoring_id": 62,
-          "name": "Machtens"
+          "name": "Machtens",
+          "metrics": {
+            "area_km2": 1.402307240846339,
+            "cafes": 5,
+            "bars": 2,
+            "restaurants": 4,
+            "schools": 9,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 2,
+            "train": 1,
+            "parks_km2": 0.26013611637821354,
+            "cafes_density": 3.565552436984019,
+            "bars_density": 1.4262209747936077,
+            "restaurant_density": 2.8524419495872153,
+            "schools_density": 6.417994386571234,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.7131104873968038,
+            "tram_stop_density": 1.4262209747936077,
+            "train_station_density": 0.7131104873968038,
+            "parks_share": 0.18550579273997955
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium"
+          }
+        },
+        {
+          "id": 61,
+          "monitoring_id": 61,
+          "name": "Moortebeek - Peterbos",
+          "metrics": {
+            "area_km2": 1.069853726354914,
+            "cafes": 2,
+            "bars": 0,
+            "restaurants": 3,
+            "schools": 6,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.20138926171694818,
+            "cafes_density": 1.8694144355735214,
+            "bars_density": 0.0,
+            "restaurant_density": 2.804121653360282,
+            "schools_density": 5.608243306720564,
+            "childcare_density": 0.9347072177867607,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.18823999651157844
+          },
+          "tag_confidence": {}
         },
         {
           "id": 63,
           "monitoring_id": 63,
-          "name": "Karreveld"
+          "name": "Karreveld",
+          "metrics": {
+            "area_km2": 0.7985850191221029,
+            "cafes": 0,
+            "bars": 2,
+            "restaurants": 2,
+            "schools": 5,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 4,
+            "train": 0,
+            "parks_km2": 0.053529228427897715,
+            "cafes_density": 0.0,
+            "bars_density": 2.5044296500811294,
+            "restaurant_density": 2.5044296500811294,
+            "schools_density": 6.261074125202823,
+            "childcare_density": 1.2522148250405647,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.008859300162259,
+            "train_station_density": 0.0,
+            "parks_share": 0.06703009341039635
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 65,
           "monitoring_id": 65,
-          "name": "Korenbeek"
+          "name": "Korenbeek",
+          "metrics": {
+            "area_km2": 0.7612470336540601,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 1,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.2101706331714016,
+            "cafes_density": 2.6272680372885064,
+            "bars_density": 1.3136340186442532,
+            "restaurant_density": 1.3136340186442532,
+            "schools_density": 1.3136340186442532,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 1.3136340186442532,
+            "train_station_density": 0.0,
+            "parks_share": 0.2760872934539555
+          },
+          "tag_confidence": {
+            "green_parks": "medium"
+          }
         },
         {
-          "id": 913,
-          "monitoring_id": 913,
-          "name": "Parc Marie - Jose"
+          "id": 16,
+          "monitoring_id": 16,
+          "name": "Molenbeek Historique",
+          "metrics": {
+            "area_km2": 0.720057957984178,
+            "cafes": 7,
+            "bars": 2,
+            "restaurants": 12,
+            "schools": 9,
+            "childcare": 1,
+            "metro": 2,
+            "tram": 2,
+            "train": 2,
+            "parks_km2": 0.04603659850654927,
+            "cafes_density": 9.72143967354613,
+            "bars_density": 2.7775541924417513,
+            "restaurant_density": 16.665325154650507,
+            "schools_density": 12.49899386598788,
+            "childcare_density": 1.3887770962208756,
+            "metro_station_density": 2.7775541924417513,
+            "tram_stop_density": 2.7775541924417513,
+            "train_station_density": 2.7775541924417513,
+            "parks_share": 0.0639345735938118
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "medium",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 13,
+          "monitoring_id": 13,
+          "name": "Cureghem Rosee",
+          "metrics": {
+            "area_km2": 0.6947934322672028,
+            "cafes": 3,
+            "bars": 1,
+            "restaurants": 2,
+            "schools": 3,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.09912387277421038,
+            "cafes_density": 4.317830107015554,
+            "bars_density": 1.4392767023385178,
+            "restaurant_density": 2.8785534046770356,
+            "schools_density": 4.317830107015554,
+            "childcare_density": 1.4392767023385178,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.1426666807294883
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 15,
+          "monitoring_id": 15,
+          "name": "Gare de L’ouest",
+          "metrics": {
+            "area_km2": 0.5132602264342346,
+            "cafes": 1,
+            "bars": 2,
+            "restaurants": 2,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 3,
+            "tram": 2,
+            "train": 3,
+            "parks_km2": 0.04237964001805326,
+            "cafes_density": 1.9483294214073152,
+            "bars_density": 3.8966588428146305,
+            "restaurant_density": 3.8966588428146305,
+            "schools_density": 11.689976528443891,
+            "childcare_density": 0.0,
+            "metro_station_density": 5.8449882642219455,
+            "tram_stop_density": 3.8966588428146305,
+            "train_station_density": 5.8449882642219455,
+            "parks_share": 0.08256949951582401
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "schools_strong": "high"
+          }
         },
         {
           "id": 914,
           "monitoring_id": 914,
-          "name": "Scheutbos"
+          "name": "Scheutbos",
+          "metrics": {
+            "area_km2": 0.45661598368490175,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 1,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.19148092595204447,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 2.1900240809136298,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.419347838870617
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
+        },
+        {
+          "id": 14,
+          "monitoring_id": 14,
+          "name": "Duchesse",
+          "metrics": {
+            "area_km2": 0.36435594232552654,
+            "cafes": 1,
+            "bars": 2,
+            "restaurants": 3,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.002228119919370787,
+            "cafes_density": 2.744568933382648,
+            "bars_density": 5.489137866765296,
+            "restaurant_density": 8.233706800147944,
+            "schools_density": 10.978275733530593,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 16.467413600295888,
+            "train_station_density": 0.0,
+            "parks_share": 0.006115228710556113
+          },
+          "tag_confidence": {
+            "nightlife": "high",
+            "schools_strong": "medium"
+          }
+        },
+        {
+          "id": 913,
+          "monitoring_id": 913,
+          "name": "Parc Marie - Jose",
+          "metrics": {
+            "area_km2": 0.0786543273825856,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.1673788361339305,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 12.71385864296901,
+            "train_station_density": 0.0,
+            "parks_share": 2.128030862431466
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -1957,62 +4365,367 @@
         {
           "id": 55,
           "monitoring_id": 55,
-          "name": "Neerpede"
-        },
-        {
-          "id": 12,
-          "monitoring_id": 12,
-          "name": "Cureghem Veterinaire"
-        },
-        {
-          "id": 53,
-          "monitoring_id": 53,
-          "name": "Bizet - Roue - Ceria"
+          "name": "Neerpede",
+          "metrics": {
+            "area_km2": 3.958546300011317,
+            "cafes": 0,
+            "bars": 2,
+            "restaurants": 4,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.7901763516589757,
+            "cafes_density": 0.0,
+            "bars_density": 0.5052359751341755,
+            "restaurant_density": 1.010471950268351,
+            "schools_density": 1.010471950268351,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.5052359751341755,
+            "train_station_density": 0.0,
+            "parks_share": 0.19961275977919388
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 803,
           "monitoring_id": 803,
-          "name": "Industrie Sud"
-        },
-        {
-          "id": 60,
-          "monitoring_id": 60,
-          "name": "Buffon"
+          "name": "Industrie Sud",
+          "metrics": {
+            "area_km2": 3.8679963973155918,
+            "cafes": 0,
+            "bars": 4,
+            "restaurants": 3,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 3,
+            "train": 2,
+            "parks_km2": 0.5574502787596335,
+            "cafes_density": 0.0,
+            "bars_density": 1.0341271265857486,
+            "restaurant_density": 0.7755953449393114,
+            "schools_density": 1.5511906898786227,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.5170635632928743,
+            "tram_stop_density": 0.7755953449393114,
+            "train_station_density": 0.5170635632928743,
+            "parks_share": 0.14411861374703108
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 54,
           "monitoring_id": 54,
-          "name": "Vogelenzang - Erasme"
+          "name": "Vogelenzang - Erasme",
+          "metrics": {
+            "area_km2": 2.4218803098932704,
+            "cafes": 3,
+            "bars": 0,
+            "restaurants": 6,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 0,
+            "train": 2,
+            "parks_km2": 0.4267539670585207,
+            "cafes_density": 1.238706961588951,
+            "bars_density": 0.0,
+            "restaurant_density": 2.477413923177902,
+            "schools_density": 2.0645116026482517,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.8258046410593006,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.8258046410593006,
+            "parks_share": 0.17620770329369714
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
-          "id": 56,
-          "monitoring_id": 56,
-          "name": "Bon Air"
-        },
-        {
-          "id": 52,
-          "monitoring_id": 52,
-          "name": "Veeweyde - Aurore"
+          "id": 53,
+          "monitoring_id": 53,
+          "name": "Bizet - Roue - Ceria",
+          "metrics": {
+            "area_km2": 1.8040249289026313,
+            "cafes": 1,
+            "bars": 3,
+            "restaurants": 4,
+            "schools": 14,
+            "childcare": 0,
+            "metro": 3,
+            "tram": 0,
+            "train": 3,
+            "parks_km2": 0.5120908726023227,
+            "cafes_density": 0.5543160651379075,
+            "bars_density": 1.6629481954137226,
+            "restaurant_density": 2.21726426055163,
+            "schools_density": 7.760424911930706,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.6629481954137226,
+            "tram_stop_density": 0.0,
+            "train_station_density": 1.6629481954137226,
+            "parks_share": 0.283860197493957
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 57,
           "monitoring_id": 57,
-          "name": "Scherdemael"
+          "name": "Scherdemael",
+          "metrics": {
+            "area_km2": 1.0831350629842964,
+            "cafes": 2,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 9,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 3,
+            "train": 0,
+            "parks_km2": 0.6544592686981038,
+            "cafes_density": 1.8464917888351995,
+            "bars_density": 0.0,
+            "restaurant_density": 1.8464917888351995,
+            "schools_density": 8.309213049758398,
+            "childcare_density": 0.9232458944175997,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 2.7697376832527993,
+            "train_station_density": 0.0,
+            "parks_share": 0.6042268328890691
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 59,
           "monitoring_id": 59,
-          "name": "Scheut"
+          "name": "Scheut",
+          "metrics": {
+            "area_km2": 0.9357166884327481,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 2,
+            "schools": 9,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 0,
+            "train": 2,
+            "parks_km2": 0.2378877586435126,
+            "cafes_density": 2.137399091759112,
+            "bars_density": 1.068699545879556,
+            "restaurant_density": 2.137399091759112,
+            "schools_density": 9.618295912916004,
+            "childcare_density": 0.0,
+            "metro_station_density": 2.137399091759112,
+            "tram_stop_density": 0.0,
+            "train_station_density": 2.137399091759112,
+            "parks_share": 0.2542305396326274
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 52,
+          "monitoring_id": 52,
+          "name": "Veeweyde - Aurore",
+          "metrics": {
+            "area_km2": 0.9248010375525582,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 5,
+            "train": 1,
+            "parks_km2": 0.17854286052847163,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.0813136657442042,
+            "schools_density": 6.487881994465225,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.0813136657442042,
+            "tram_stop_density": 5.40656832872102,
+            "train_station_density": 1.0813136657442042,
+            "parks_share": 0.1930608350104978
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "name": "Anderlecht centre - wayez",
+          "monitoring_id": "58",
+          "id": 58,
+          "source": "monitoring_des_quartiers",
+          "metrics": {
+            "area_km2": 0.7302731424115393,
+            "cafes": 7,
+            "bars": 3,
+            "restaurants": 9,
+            "schools": 10,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 5,
+            "train": 1,
+            "parks_km2": 0.4238373526242718,
+            "cafes_density": 9.58545452854024,
+            "bars_density": 4.10805194080296,
+            "restaurant_density": 12.324155822408878,
+            "schools_density": 13.693506469343198,
+            "childcare_density": 0.0,
+            "metro_station_density": 1.3693506469343197,
+            "tram_stop_density": 6.846753234671599,
+            "train_station_density": 1.3693506469343197,
+            "parks_share": 0.5803819530109761
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 12,
+          "monitoring_id": 12,
+          "name": "Cureghem Veterinaire",
+          "metrics": {
+            "area_km2": 0.658772123145429,
+            "cafes": 3,
+            "bars": 2,
+            "restaurants": 7,
+            "schools": 8,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 2,
+            "train": 0,
+            "parks_km2": 0.10253727971020536,
+            "cafes_density": 4.55392675949302,
+            "bars_density": 3.0359511729953463,
+            "restaurant_density": 10.625829105483712,
+            "schools_density": 12.143804691981385,
+            "childcare_density": 1.5179755864976732,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 3.0359511729953463,
+            "train_station_density": 0.0,
+            "parks_share": 0.15564908730597496
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "medium",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 60,
+          "monitoring_id": 60,
+          "name": "Buffon",
+          "metrics": {
+            "area_km2": 0.4628010866788934,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.13969153762124792,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 4.321511028317152,
+            "schools_density": 4.321511028317152,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.3018392601964016
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 56,
+          "monitoring_id": 56,
+          "name": "Bon Air",
+          "metrics": {
+            "area_km2": 0.30341546767558586,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.05276255934820071,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 3.295810881563914,
+            "schools_density": 9.887432644691744,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.17389541723896174
+          },
+          "tag_confidence": {
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 805,
           "monitoring_id": 805,
-          "name": "Industrie Birmingham"
-        },
-        {
-          "id": 911,
-          "monitoring_id": 911,
-          "name": "Parc Astrid"
+          "name": "Industrie Birmingham",
+          "metrics": {
+            "area_km2": 0.24012956777189734,
+            "cafes": 2,
+            "bars": 1,
+            "restaurants": 0,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 0,
+            "train": 1,
+            "parks_km2": 0.0,
+            "cafes_density": 8.328836879845758,
+            "bars_density": 4.164418439922879,
+            "restaurant_density": 0.0,
+            "schools_density": 8.328836879845758,
+            "childcare_density": 0.0,
+            "metro_station_density": 4.164418439922879,
+            "tram_stop_density": 0.0,
+            "train_station_density": 4.164418439922879,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -2139,39 +4852,219 @@
       },
       "microhoods": [
         {
-          "id": 79,
-          "monitoring_id": 79,
-          "name": "Paix"
-        },
-        {
-          "id": 83,
-          "monitoring_id": 83,
-          "name": "Conscience"
-        },
-        {
-          "id": 84,
-          "monitoring_id": 84,
-          "name": "Avenue Leopold Iii"
-        },
-        {
-          "id": 86,
-          "monitoring_id": 86,
-          "name": "Paduwa"
-        },
-        {
-          "id": 700,
-          "monitoring_id": 700,
-          "name": "Cimetiere de Bruxelles"
-        },
-        {
           "id": 800,
           "monitoring_id": 800,
-          "name": "Industrie Nord"
+          "name": "Industrie Nord",
+          "metrics": {
+            "area_km2": 6.730293473344695,
+            "cafes": 0,
+            "bars": 2,
+            "restaurants": 7,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 14,
+            "train": 1,
+            "parks_km2": 2.172164210969272,
+            "cafes_density": 0.0,
+            "bars_density": 0.29716386186144683,
+            "restaurant_density": 1.0400735165150639,
+            "schools_density": 0.29716386186144683,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.14858193093072342,
+            "tram_stop_density": 2.0801470330301277,
+            "train_station_density": 0.14858193093072342,
+            "parks_share": 0.32274435276442565
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 801,
           "monitoring_id": 801,
-          "name": "Industrie Otan"
+          "name": "Industrie Otan",
+          "metrics": {
+            "area_km2": 2.4289109250833394,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 3,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 11,
+            "train": 0,
+            "parks_km2": 0.001939713906650549,
+            "cafes_density": 0.41170715223560067,
+            "bars_density": 0.0,
+            "restaurant_density": 1.2351214567068018,
+            "schools_density": 1.2351214567068018,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.528778674591607,
+            "train_station_density": 0.0,
+            "parks_share": 0.0007985940886588892
+          },
+          "tag_confidence": {
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 84,
+          "monitoring_id": 84,
+          "name": "Avenue Leopold Iii",
+          "metrics": {
+            "area_km2": 1.2288047327327507,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 2,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 6,
+            "train": 0,
+            "parks_km2": 0.0884536102931997,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.6275978979607124,
+            "schools_density": 4.068994744901781,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 4.882793693882137,
+            "train_station_density": 0.0,
+            "parks_share": 0.07198345509012394
+          },
+          "tag_confidence": {
+            "green_parks": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 79,
+          "monitoring_id": 79,
+          "name": "Paix",
+          "metrics": {
+            "area_km2": 1.191420968137013,
+            "cafes": 11,
+            "bars": 1,
+            "restaurants": 3,
+            "schools": 8,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 0.43559967812350037,
+            "cafes_density": 9.232672828647921,
+            "bars_density": 0.8393338935134473,
+            "restaurant_density": 2.5180016805403422,
+            "schools_density": 6.714671148107579,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 5.875337254594132,
+            "train_station_density": 0.0,
+            "parks_share": 0.365613573852602
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "green_parks": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 86,
+          "monitoring_id": 86,
+          "name": "Paduwa",
+          "metrics": {
+            "area_km2": 1.1531031001606222,
+            "cafes": 2,
+            "bars": 3,
+            "restaurants": 13,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.04024799857599469,
+            "cafes_density": 1.7344502843860266,
+            "bars_density": 2.60167542657904,
+            "restaurant_density": 11.273926848509172,
+            "schools_density": 3.468900568772053,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.034904076288051186
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 700,
+          "monitoring_id": 700,
+          "name": "Cimetiere de Bruxelles",
+          "metrics": {
+            "area_km2": 0.5098369151030939,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.0,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.0
+          },
+          "tag_confidence": {
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 83,
+          "monitoring_id": 83,
+          "name": "Conscience",
+          "metrics": {
+            "area_km2": 0.4692626299248699,
+            "cafes": 5,
+            "bars": 0,
+            "restaurants": 7,
+            "schools": 5,
+            "childcare": 0,
+            "metro": 1,
+            "tram": 0,
+            "train": 1,
+            "parks_km2": 0.01882210452848853,
+            "cafes_density": 10.655014231157747,
+            "bars_density": 0.0,
+            "restaurant_density": 14.917019923620845,
+            "schools_density": 10.655014231157747,
+            "childcare_density": 0.0,
+            "metro_station_density": 2.1310028462315493,
+            "tram_stop_density": 0.0,
+            "train_station_density": 2.1310028462315493,
+            "parks_share": 0.04010995832227679
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -2257,29 +5150,153 @@
       },
       "microhoods": [
         {
-          "id": 71,
-          "monitoring_id": 71,
-          "name": "Woeste"
+          "id": 74,
+          "monitoring_id": 74,
+          "name": "Heysel",
+          "metrics": {
+            "area_km2": 2.760512450563145,
+            "cafes": 2,
+            "bars": 10,
+            "restaurants": 12,
+            "schools": 10,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 23,
+            "train": 2,
+            "parks_km2": 1.426770882739588,
+            "cafes_density": 0.7245031622994491,
+            "bars_density": 3.6225158114972453,
+            "restaurant_density": 4.347018973796694,
+            "schools_density": 3.6225158114972453,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.7245031622994491,
+            "tram_stop_density": 8.331786366443664,
+            "train_station_density": 0.7245031622994491,
+            "parks_share": 0.516850008210804
+          },
+          "tag_confidence": {}
         },
         {
           "id": 73,
           "monitoring_id": 73,
-          "name": "Heymbosch - Az - Jette"
-        },
-        {
-          "id": 74,
-          "monitoring_id": 74,
-          "name": "Heysel"
+          "name": "Heymbosch - Az - Jette",
+          "metrics": {
+            "area_km2": 1.3361198859464352,
+            "cafes": 0,
+            "bars": 3,
+            "restaurants": 2,
+            "schools": 9,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 9,
+            "train": 0,
+            "parks_km2": 1.097223238512244,
+            "cafes_density": 0.0,
+            "bars_density": 2.2453074993902677,
+            "restaurant_density": 1.4968716662601784,
+            "schools_density": 6.735922498170803,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 6.735922498170803,
+            "train_station_density": 0.0,
+            "parks_share": 0.821201188645606
+          },
+          "tag_confidence": {
+            "green_parks": "medium"
+          }
         },
         {
           "id": 75,
           "monitoring_id": 75,
-          "name": "Houba"
+          "name": "Houba",
+          "metrics": {
+            "area_km2": 1.2091066852156902,
+            "cafes": 4,
+            "bars": 14,
+            "restaurants": 16,
+            "schools": 12,
+            "childcare": 1,
+            "metro": 2,
+            "tram": 6,
+            "train": 2,
+            "parks_km2": 0.26780775701288956,
+            "cafes_density": 3.3082275111947195,
+            "bars_density": 11.578796289181518,
+            "restaurant_density": 13.232910044778878,
+            "schools_density": 9.924682533584159,
+            "childcare_density": 0.8270568777986799,
+            "metro_station_density": 1.6541137555973597,
+            "tram_stop_density": 4.962341266792079,
+            "train_station_density": 1.6541137555973597,
+            "parks_share": 0.22149224736534795
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 71,
+          "monitoring_id": 71,
+          "name": "Woeste",
+          "metrics": {
+            "area_km2": 1.0588003235004468,
+            "cafes": 4,
+            "bars": 7,
+            "restaurants": 11,
+            "schools": 16,
+            "childcare": 1,
+            "metro": 1,
+            "tram": 9,
+            "train": 1,
+            "parks_km2": 0.0369803902814622,
+            "cafes_density": 3.777860575992081,
+            "bars_density": 6.611256007986142,
+            "restaurant_density": 10.389116583978224,
+            "schools_density": 15.111442303968325,
+            "childcare_density": 0.9444651439980203,
+            "metro_station_density": 0.9444651439980203,
+            "tram_stop_density": 8.500186295982182,
+            "train_station_density": 0.9444651439980203,
+            "parks_share": 0.03492668963228419
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "medium",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         },
         {
           "id": 917,
           "monitoring_id": 917,
-          "name": "Parc Baudouin - Dielegembos"
+          "name": "Parc Baudouin - Dielegembos",
+          "metrics": {
+            "area_km2": 0.4817589626219186,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 4,
+            "train": 0,
+            "parks_km2": 1.2952193712767381,
+            "cafes_density": 2.075726821059256,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 6.227180463177768,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 8.302907284237024,
+            "train_station_density": 0.0,
+            "parks_share": 2.688521588114632
+          },
+          "tag_confidence": {
+            "green_parks": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -2360,14 +5377,66 @@
       },
       "microhoods": [
         {
-          "id": 17,
-          "monitoring_id": 17,
-          "name": "Koekelberg"
-        },
-        {
           "id": 64,
           "monitoring_id": 64,
-          "name": "Hopital Francais"
+          "name": "Hopital Francais",
+          "metrics": {
+            "area_km2": 0.7923495910371713,
+            "cafes": 1,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 7,
+            "train": 0,
+            "parks_km2": 0.09741963599892647,
+            "cafes_density": 1.2620691817244685,
+            "bars_density": 0.0,
+            "restaurant_density": 1.2620691817244685,
+            "schools_density": 5.048276726897874,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 8.834484272071279,
+            "train_station_density": 0.0,
+            "parks_share": 0.12295032028906071
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 17,
+          "monitoring_id": 17,
+          "name": "Koekelberg",
+          "metrics": {
+            "area_km2": 0.36287190024751964,
+            "cafes": 3,
+            "bars": 3,
+            "restaurants": 2,
+            "schools": 6,
+            "childcare": 0,
+            "metro": 2,
+            "tram": 0,
+            "train": 2,
+            "parks_km2": 0.02427029716137522,
+            "cafes_density": 8.267380301295473,
+            "bars_density": 8.267380301295473,
+            "restaurant_density": 5.5115868675303155,
+            "schools_density": 16.534760602590946,
+            "childcare_density": 0.0,
+            "metro_station_density": 5.5115868675303155,
+            "tram_stop_density": 0.0,
+            "train_station_density": 5.5115868675303155,
+            "parks_share": 0.06688392555284697
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -2426,34 +5495,186 @@
       },
       "microhoods": [
         {
-          "id": 68,
-          "monitoring_id": 68,
-          "name": "Villas de Ganshoren"
-        },
-        {
-          "id": 69,
-          "monitoring_id": 69,
-          "name": "Ganshoren Centre"
-        },
-        {
-          "id": 70,
-          "monitoring_id": 70,
-          "name": "Basilique"
+          "id": 916,
+          "monitoring_id": 916,
+          "name": "Bois du Laarbeek - Poelbos",
+          "metrics": {
+            "area_km2": 1.1992565423938808,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 2,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 1.0740624420997393,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.8338499434023204,
+            "schools_density": 1.6676998868046409,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.8956069065554257
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 72,
           "monitoring_id": 72,
-          "name": "Jette Centre"
+          "name": "Jette Centre",
+          "metrics": {
+            "area_km2": 0.9536598406428025,
+            "cafes": 3,
+            "bars": 22,
+            "restaurants": 34,
+            "schools": 12,
+            "childcare": 2,
+            "metro": 1,
+            "tram": 8,
+            "train": 1,
+            "parks_km2": 1.1092673851667734,
+            "cafes_density": 3.1457757495354817,
+            "bars_density": 23.069022163260197,
+            "restaurant_density": 35.652125161402125,
+            "schools_density": 12.583102998141927,
+            "childcare_density": 2.0971838330236543,
+            "metro_station_density": 1.0485919165118271,
+            "tram_stop_density": 8.388735332094617,
+            "train_station_density": 1.0485919165118271,
+            "parks_share": 1.16316881333609
+          },
+          "tag_confidence": {
+            "cafes_brunch": "medium",
+            "nightlife": "high",
+            "green_parks": "medium",
+            "schools_strong": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 69,
+          "monitoring_id": 69,
+          "name": "Ganshoren Centre",
+          "metrics": {
+            "area_km2": 0.8491400401191423,
+            "cafes": 0,
+            "bars": 2,
+            "restaurants": 2,
+            "schools": 7,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 3,
+            "train": 0,
+            "parks_km2": 0.27793627277812066,
+            "cafes_density": 0.0,
+            "bars_density": 2.355324099096047,
+            "restaurant_density": 2.355324099096047,
+            "schools_density": 8.243634346836163,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 3.53298614864407,
+            "train_station_density": 0.0,
+            "parks_share": 0.32731500064362007
+          },
+          "tag_confidence": {
+            "nightlife": "medium",
+            "schools_strong": "medium",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 70,
+          "monitoring_id": 70,
+          "name": "Basilique",
+          "metrics": {
+            "area_km2": 0.7897123169907941,
+            "cafes": 3,
+            "bars": 0,
+            "restaurants": 5,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 11,
+            "train": 0,
+            "parks_km2": 0.5158947724090925,
+            "cafes_density": 3.798851727970417,
+            "bars_density": 0.0,
+            "restaurant_density": 6.3314195466173615,
+            "schools_density": 3.798851727970417,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 13.929123002558196,
+            "train_station_density": 0.0,
+            "parks_share": 0.6532692492057287
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "childcare_strong": "medium"
+          }
+        },
+        {
+          "id": 68,
+          "monitoring_id": 68,
+          "name": "Villas de Ganshoren",
+          "metrics": {
+            "area_km2": 0.7692921802791234,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 1,
+            "schools": 4,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 0,
+            "train": 0,
+            "parks_km2": 0.254719509463757,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 1.2998962236132032,
+            "schools_density": 5.199584894452813,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 0.0,
+            "train_station_density": 0.0,
+            "parks_share": 0.3311089284325453
+          },
+          "tag_confidence": {
+            "childcare_strong": "medium"
+          }
         },
         {
           "id": 915,
           "monitoring_id": 915,
-          "name": "Parc Elisabeth"
-        },
-        {
-          "id": 916,
-          "monitoring_id": 916,
-          "name": "Bois du Laarbeek - Poelbos"
+          "name": "Parc Elisabeth",
+          "metrics": {
+            "area_km2": 0.23257203167572346,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 0,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 5,
+            "train": 0,
+            "parks_km2": 0.510536591081473,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 0.0,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 21.49871574829569,
+            "train_station_density": 0.0,
+            "parks_share": 2.195176210152892
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "childcare_strong": "medium"
+          }
         }
       ],
       "microhoods_all": [
@@ -2532,14 +5753,65 @@
       },
       "microhoods": [
         {
-          "id": 66,
-          "monitoring_id": 66,
-          "name": "Potaarde"
-        },
-        {
           "id": 67,
           "monitoring_id": 67,
-          "name": "Berchem Sainte - Agathe Centre"
+          "name": "Berchem Sainte - Agathe Centre",
+          "metrics": {
+            "area_km2": 1.7885916383167737,
+            "cafes": 4,
+            "bars": 1,
+            "restaurants": 5,
+            "schools": 7,
+            "childcare": 1,
+            "metro": 0,
+            "tram": 19,
+            "train": 0,
+            "parks_km2": 0.08846406724888649,
+            "cafes_density": 2.2363964553498423,
+            "bars_density": 0.5590991138374606,
+            "restaurant_density": 2.795495569187303,
+            "schools_density": 3.913693796862224,
+            "childcare_density": 0.5590991138374606,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 10.622883162911751,
+            "train_station_density": 0.0,
+            "parks_share": 0.049460181605309954
+          },
+          "tag_confidence": {
+            "cafes_brunch": "high",
+            "nightlife": "high",
+            "childcare_strong": "high"
+          }
+        },
+        {
+          "id": 66,
+          "monitoring_id": 66,
+          "name": "Potaarde",
+          "metrics": {
+            "area_km2": 0.6538796464753949,
+            "cafes": 0,
+            "bars": 0,
+            "restaurants": 0,
+            "schools": 3,
+            "childcare": 0,
+            "metro": 0,
+            "tram": 1,
+            "train": 0,
+            "parks_km2": 0.036530912078566374,
+            "cafes_density": 0.0,
+            "bars_density": 0.0,
+            "restaurant_density": 0.0,
+            "schools_density": 4.588000278294162,
+            "childcare_density": 0.0,
+            "metro_station_density": 0.0,
+            "tram_stop_density": 1.529333426098054,
+            "train_station_density": 0.0,
+            "parks_share": 0.0558679449276007
+          },
+          "tag_confidence": {
+            "green_parks": "high",
+            "schools_strong": "high"
+          }
         }
       ],
       "microhoods_all": [
@@ -2596,7 +5868,7 @@
   "_metrics_meta": {
     "city": "Brussels",
     "country": null,
-    "generated_at": "2026-02-02 11:23:32"
+    "generated_at": "2026-02-03 09:41:43"
   },
   "microhoods_source": {
     "provider": "IBSA / perspective.brussels",
