@@ -10,6 +10,35 @@ from openai import OpenAI
 from .city_packs import load_city_pack
 
 
+def _load_microhood_commune_map() -> Dict[str, str]:
+    """Map microhood name variants -> commune_en using monitoring_quartiers_full.geojson.
+
+    This is used as a validator so the LLM cannot recommend microhoods outside a commune.
+    """
+    geo_path = Path(__file__).resolve().parent.parent / "city_packs" / "monitoring_quartiers_full.geojson"
+    if not geo_path.exists():
+        return {}
+    try:
+        data = json.loads(geo_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+    def _norm(s: str) -> str:
+        return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+    out: Dict[str, str] = {}
+    for feat in data.get("features", []) or []:
+        props = feat.get("properties") or {}
+        commune = str(props.get("commune_en") or "").strip()
+        if not commune:
+            continue
+        for k in ["name_fr", "name_nl", "name_bil"]:
+            nm = str(props.get(k) or "").strip()
+            if nm:
+                out[_norm(nm)] = commune
+    return out
+
+
 SYSTEM_INSTRUCTIONS = """You are a B2B relocation brief assistant.
 Return ONLY valid JSON (no markdown, no extra text). Keep it concise and premium.
 
@@ -219,11 +248,15 @@ def _compact_pack_for_llm(pack: Dict[str, Any], shortlist_communes: list[Dict[st
         })
 
     communes_out = []
+    microhood_commune = _load_microhood_commune_map()
     for c in shortlist_communes:
         # Microhood shortlist (names only + a tiny hint) so the model can pick 2–3 per commune.
         mh_short = []
         for mh in (c.get("microhoods") or [])[:8]:
             if not isinstance(mh, dict) or not mh.get("name"):
+                continue
+            owner = microhood_commune.get(re.sub(r"\s+", " ", str(mh.get("name") or "").strip().lower()))
+            if owner and owner != str(c.get("name") or "").strip():
                 continue
             hint_parts = []
             m = mh.get("metrics") or {}
@@ -334,12 +367,21 @@ def _enforce_microhoods_on_top_districts(
         return brief
 
     commune_by_name = {c.get("name"): c for c in communes_shortlist if c.get("name")}
+    microhood_commune = _load_microhood_commune_map()
     for item in td:
         if not isinstance(item, dict):
             continue
         cname = item.get("name")
         c = commune_by_name.get(cname, {})
-        allowed = [mh.get("name") for mh in (c.get("microhoods") or []) if isinstance(mh, dict) and mh.get("name")]
+        allowed = []
+        for mh in (c.get("microhoods") or []):
+            if not isinstance(mh, dict) or not mh.get("name"):
+                continue
+            nm = str(mh.get("name") or "").strip()
+            owner = microhood_commune.get(re.sub(r"\s+", " ", nm.lower()))
+            if owner and owner != str(cname or "").strip():
+                continue
+            allowed.append(nm)
         allowed_norm = {_norm_label(n): n for n in allowed}
         if not allowed:
             continue

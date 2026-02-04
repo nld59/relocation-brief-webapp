@@ -1,120 +1,131 @@
 {
-  "client_profile": "Couple looking to buy an apartment in Brussels with a budget of 490000–895000 EUR. Priorities include cafes, restaurants, family-friendly areas, and quiet residential neighborhoods.",
+  "client_profile": "A family in Brussels is looking to buy an apartment with 2+ rooms, budget of EUR 620,000 to EUR 1,065,000. Priorities include cafes, quiet residential areas, parks, premium feel, and family-friendliness.",
   "must_have": [
-    "Apartment with 1+ room",
-    "Quiet residential neighborhood",
-    "Cafes and brunch spots nearby",
-    "Parks and green areas available"
+    "2+ rooms apartment",
+    "Good access to parks",
+    "Family-friendly environment",
+    "Cafes and brunch nearby",
+    "Quiet residential area"
   ],
   "nice_to_have": [
-    "Proximity to restaurants and dining options",
-    "Access to public transit",
-    "Family-friendly activities and facilities",
-    "Good local schools"
+    "Premium feel",
+    "School access within 20 min walk",
+    "Green spaces for children",
+    "Good community vibe"
   ],
   "red_flags": [
-    "High noise levels in busy areas",
-    "Rising property prices impacting budget",
-    "Limited green spaces in some districts",
-    "Long commute times to work"
+    "High traffic noise during weekends",
+    "Rising property prices in top areas",
+    "Long commutes to work or school"
   ],
   "contradictions": [
-    "Quiet residential areas might lack dining options",
-    "Family-friendly neighborhoods may have higher prices",
-    "Parks might be farther from cafes",
-    "Desirable districts could stretch budget limits"
+    "Quiet areas may sacrifice nightlife",
+    "Premium properties can exceed budget",
+    "Good cafes may attract more crowds"
   ],
   "top_districts": [
     {
-      "name": "Ixelles",
-      "micro_anchors": ["Parc Tenbosch", "Flagey Square"],
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
       "microhoods": [
         {
-          "name": "Flagey",
-          "why": "Flagey is vibrant with cafes, hosting cultural events near the scenic lake.",
-          "watch_out": "Popular area can lead to noise from events and nightlife."
+          "name": "Saint - Paul",
+          "why": "Saint - Paul offers lively cafes and excellent transit options.",
+          "watch_out": "House-focused pockets are pricey; fewer nightlife options exist."
         },
         {
-          "name": "Abbaye",
-          "why": "Abbaye is peaceful, featuring beautiful parks perfect for families.",
-          "watch_out": "Limited parking in residential zones can be problematic."
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "Sainte - Alix features vibrant parks and a welcoming community feel.",
+          "watch_out": "Prices can rise rapidly in popular sections."
         }
       ],
       "why": [
-        "Flagey Square offers a variety of cafes and restaurants for socializing.",
-        "Parc Tenbosch provides green space, ideal for families and relaxation."
+        "Parc de Woluwe provides ample green space for family activities.",
+        "Strong community vibe with family-oriented amenities available."
       ],
       "watch_out": [
-        "Ixelles has high demand, leading to possible budget overruns."
+        "Rental prices can exceed budget due to high demand."
       ],
       "scores": {
         "Safety": 4,
         "Family": 5,
-        "Commute": 3,
+        "Commute": 4,
         "Lifestyle": 5,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Etterbeek",
-      "micro_anchors": ["Parc du Cinquantenaire", "Place Jourdan"],
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
       "microhoods": [
         {
-          "name": "Cinquantenaire",
-          "why": "Cinquantenaire features spacious parks and museums appealing to families.",
-          "watch_out": "Heavy traffic during peak hours can affect commuting."
+          "name": "Chant D’oiseau",
+          "why": "Chant D’oiseau features greenery and vibrant community spots.",
+          "watch_out": "Some areas feel suburban so check commute times."
         },
         {
-          "name": "Jourdan",
-          "why": "Jourdan is known for its local eateries and a lively market atmosphere.",
-          "watch_out": "Parking space is often limited in this popular area."
+          "name": "Transvaal",
+          "why": "Transvaal offers lively parks and convenient transport links.",
+          "watch_out": "Suburban feel may stretch your daily commute."
         }
       ],
       "why": [
-        "Parc du Cinquantenaire is perfect for family outings and recreational activities.",
-        "Place Jourdan is vibrant with restaurants and cafes, enhancing lifestyle."
+        "Val Duchesse provides ample outdoor space for young families.",
+        "Strong bike lanes make commuting accessible and convenient."
       ],
       "watch_out": [
-        "Etterbeek's rising property prices could impact your budget significantly."
+        "Suburban areas can lead to longer commutes."
       ],
       "scores": {
-        "Safety": 5,
+        "Safety": 4,
         "Family": 5,
-        "Commute": 4,
+        "Commute": 3,
         "Lifestyle": 4,
-        "BudgetFit": 3,
+        "BudgetFit": 4,
         "Overall": 4
       }
     },
     {
-      "name": "Uccle",
-      "micro_anchors": ["Parc de Woluwe", "Avenue Louise"],
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
       "microhoods": [
         {
-          "name": "Woluwe",
-          "why": "Woluwe offers plenty of green parks, making it ideal for families.",
-          "watch_out": "Some areas may face higher home prices due to demand."
+          "name": "Ganshoren Centre",
+          "why": "Ganshoren Centre is well-connected and filled with family-friendly spots.",
+          "watch_out": "Fewer nightlife options can limit weekend activities."
         },
         {
-          "name": "Observatoire",
-          "why": "Observatoire features a quiet atmosphere, fostering a family-friendly environment.",
-          "watch_out": "Limited dining options can make socializing a challenge."
+          "name": "Basilique",
+          "why": "Basilique offers a blend of tranquility and community parks.",
+          "watch_out": "Nightlife options are limited; prefer nearby areas."
         }
       ],
       "why": [
-        "Parc de Woluwe provides extensive green spaces for family-friendly activities.",
-        "Avenue Louise hosts upscale restaurants, ideal for dining experiences."
+        "Parc Elisabeth provides a green retreat perfect for children.",
+        "Family-focused amenities ensure a supportive environment."
       ],
       "watch_out": [
-        "Uccle's appealing landscape can drive property prices above budget."
+        "Limited nightlife options may affect weekend outings."
       ],
       "scores": {
-        "Safety": 5,
+        "Safety": 4,
         "Family": 5,
         "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 2,
+        "Lifestyle": 3,
+        "BudgetFit": 5,
         "Overall": 4
       }
     }
@@ -123,34 +134,34 @@
     {
       "name": "Immoweb",
       "url": "https://www.immoweb.be",
-      "note": "Popular site for listings in Belgium."
+      "note": "Largest Belgian property portal."
     },
     {
       "name": "Zimmo",
       "url": "https://www.zimmo.be",
-      "note": "Comprehensive listings for residential properties."
+      "note": "Very popular portal; broad coverage."
     },
     {
-      "name": "Logic-Immo",
-      "url": "https://www.logic-immo.be",
-      "note": "Features a wide range of listings."
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
     }
   ],
   "agencies": [
     {
-      "name": "Century 21",
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
       "url": "https://www.century21.be",
-      "note": "Established agency with local expertise."
+      "note": "National network (130+ branches)."
     },
     {
-      "name": "Bledina",
-      "url": "https://www.bledina.be",
-      "note": "Focuses on family-friendly properties."
-    },
-    {
-      "name": "Vermier",
-      "url": "https://www.vermier.be",
-      "note": ""
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Well-known agency with extensive listings."
     }
   ]
 }

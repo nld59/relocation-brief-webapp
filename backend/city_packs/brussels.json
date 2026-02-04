@@ -5879,5 +5879,51 @@
     "provider": "IBSA / perspective.brussels",
     "dataset": "quartiers-du-monitoring-des-quartiers-ibsa-perspective-rbc",
     "note": "Official Monitoring des Quartiers quarters. Populated by compute_metrics_and_tags.py --include-microhoods."
+  },
+  "resources": {
+    "agencies": [
+      {
+        "name": "ERA Belgium",
+        "url": "https://www.era.be",
+        "note": "National network (100+ offices)."
+      },
+      {
+        "name": "CENTURY 21 Belgium",
+        "url": "https://www.century21.be",
+        "note": "National network (130+ branches)."
+      },
+      {
+        "name": "TREVI",
+        "url": "https://www.trevi.be",
+        "note": "Large Belgian network (35+ agencies)."
+      },
+      {
+        "name": "Dewaele",
+        "url": "https://www.dewaele.com",
+        "note": "Large network in Flanders & Brussels."
+      },
+      {
+        "name": "Immo Francois",
+        "url": "https://www.immofrancois.be",
+        "note": "Large network (24+ offices)."
+      }
+    ],
+    "websites": [
+      {
+        "name": "Immoweb",
+        "url": "https://www.immoweb.be",
+        "note": "Largest Belgian property portal."
+      },
+      {
+        "name": "Zimmo",
+        "url": "https://www.zimmo.be",
+        "note": "Very popular portal; broad coverage."
+      },
+      {
+        "name": "Immoscoop",
+        "url": "https://www.immoscoop.be",
+        "note": "Strong listings; many agent exclusives."
+      }
+    ]
   }
 }

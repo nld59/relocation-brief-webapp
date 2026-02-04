@@ -109,53 +109,7 @@
           "why": "Good transit ensures easy access to schools and amenities.",
           "watch_out": "Limited housing stock in certain family-friendly pockets."
         }
-      ],
-      "why": [
-        "Parks and green spaces promote a family-friendly environment.",
-        "Ganshoren Center features essential amenities within walking distance."
-      ],
-      "watch_out": [
-        "Fewer nightlife and entertainment options may affect community life."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 3,
-        "BudgetFit": 4,
-        "Overall": 4
-      }
+      ]
     }
-  ],
-  "real_estate_sites": [
-    {
-      "name": "Immoweb",
-      "url": "https://www.immoweb.be",
-      "note": "Largest Belgian property portal."
-    },
-    {
-      "name": "Zimmo",
-      "url": "https://www.zimmo.be",
-      "note": "Very popular portal; broad coverage."
-    },
-    {
-      "name": "Immoscoop",
-      "url": "https://www.immoscoop.be",
-      "note": "Strong listings; many agent exclusives."
-    }
-  ],
-  "agencies": [
-    {
-      "name": "ERA Belgium",
-      "url": "https://www.era.be",
-      "note": "National network (100+ offices)."
-    },
-    {
-      "name": "CENTURY 21 Belgium",
-      "url": "https://www.century21.be",
-      "note": "National network (130+ branches)."
-    },
-    {
-      "name": "TREVI",
-      "url": "https://www.trevi.be",
-      "note": "Large Belgian network (35+ agencies)."
+  ]
+}

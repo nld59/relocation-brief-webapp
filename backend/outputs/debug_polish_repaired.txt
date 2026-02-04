@@ -1,91 +1,32 @@
 {
-  "client_profile": "Couple looking to buy an apartment in Brussels with a budget of 490000–895000 EUR. Priorities include cafes, restaurants, family-friendly areas, and quiet residential neighborhoods.",
-  "must_have": [
-    "Apartment with 1+ room",
-    "Quiet residential neighborhood",
-    "Cafes and brunch spots nearby",
-    "Parks and green areas available"
-  ],
-  "nice_to_have": [
-    "Proximity to restaurants and dining options",
-    "Access to public transit",
-    "Family-friendly activities and facilities",
-    "Good local schools"
-  ],
-  "red_flags": [
-    "High noise levels in busy areas",
-    "Rising property prices impacting budget",
-    "Limited green spaces in some districts",
-    "Long commute times to work"
-  ],
-  "contradictions": [
-    "Quiet residential areas might lack dining options",
-    "Family-friendly neighborhoods may have higher prices",
-    "Parks might be farther from cafes",
-    "Desirable districts could stretch budget limits"
-  ],
+  "client_profile": "Family of three based in Brussels seeking to buy an apartment. Budget between 620000 EUR and 1065000 EUR, prioritizing cafes, quiet living, green parks, and family-friendly atmosphere.",
+  "must_have": ["2+ rooms", "Access to schools within 20 min walk", "Green parks nearby"],
+  "nice_to_have": ["Cafes and brunch places nearby", "Family-friendly community", "Premium feel apartments"],
+  "red_flags": ["High traffic noise in certain areas", "Potentially high property prices", "Budget stretch in premium neighborhoods"],
+  "contradictions": ["Quiet residential areas may be farther from cafes", "Higher property prices in family-friendly zones", "Walkable areas might limit housing options"],
   "top_districts": [
     {
-      "name": "Ixelles",
-      "micro_anchors": [
-        "Parc Tenbosch",
-        "Flagey Square"
-      ],
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": ["Stockel", "Montgomery area", "Parc de Woluwe edge"],
       "microhoods": [
         {
-          "name": "Flagey",
-          "why": "Flagey is vibrant with cafes, hosting cultural events near the scenic lake.",
-          "watch_out": "Popular area can lead to noise from events and nightlife."
+          "name": "Saint - Paul",
+          "why": "Good transit options make commuting to schools easy.",
+          "watch_out": "House-focused pockets can raise overall housing costs."
         },
         {
-          "name": "Abbaye",
-          "why": "Abbaye is peaceful, featuring beautiful parks perfect for families.",
-          "watch_out": "Limited parking in residential zones can be problematic."
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "Lively atmosphere suitable for families and young children.",
+          "watch_out": "Fewer nightlife options compared to central locales."
         }
       ],
       "why": [
-        "Flagey Square offers a variety of cafes and restaurants for socializing.",
-        "Parc Tenbosch provides green space, ideal for families and relaxation."
+        "Close to Parc de Woluwe for outdoor activities and relaxation.",
+        "Stockel area features diverse cafes and a welcoming community."
       ],
-      "watch_out": [
-        "Ixelles has high demand, leading to possible budget overruns."
-      ],
+      "watch_out": ["Property prices vary significantly; some areas may stretch budgets."],
       "scores": {
         "Safety": 4,
-        "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 5,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Etterbeek",
-      "micro_anchors": [
-        "Parc du Cinquantenaire",
-        "Place Jourdan"
-      ],
-      "microhoods": [
-        {
-          "name": "Cinquantenaire",
-          "why": "Cinquantenaire features spacious parks and museums appealing to families.",
-          "watch_out": "Heavy traffic during peak hours can affect commuting."
-        },
-        {
-          "name": "Jourdan",
-          "why": "Jourdan is known for its local eateries and a lively market atmosphere.",
-          "watch_out": "Parking space is often limited in this popular area."
-        }
-      ],
-      "why": [
-        "Parc du Cinquantenaire is perfect for family outings and recreational activities.",
-        "Place Jourdan is vibrant with restaurants and cafes, enhancing lifestyle."
-      ],
-      "watch_out": [
-        "Etterbeek's rising property prices could impact your budget significantly."
-      ],
-      "scores": {
-        "Safety": 5,
         "Family": 5,
         "Commute": 4,
         "Lifestyle": 4,
@@ -94,38 +35,49 @@
       }
     },
     {
-      "name": "Uccle",
-      "micro_anchors": [
-        "Parc de Woluwe",
-        "Avenue Louise"
-      ],
+      "name": "Auderghem",
+      "micro_anchors": ["Herrmann-Debroux", "Rouge-Cloitre", "Val Duchesse edge"],
       "microhoods": [
         {
-          "name": "Woluwe",
-          "why": "Woluwe offers plenty of green parks, making it ideal for families.",
-          "watch_out": "Uccle can have higher property prices compared to other districts."
+          "name": "Chant D’oiseau",
+          "why": "Greener area ideal for family strolls and outdoor play.",
+          "watch_out": "Certain areas may feel more suburban with limited amenities."
         },
         {
-          "name": "Katerijne",
-          "why": "Katerijne is known for its spacious homes and quiet surroundings.",
-          "watch_out": "Limited shopping options compared to busier areas."
+          "name": "Parc de la Woluwe",
+          "why": "Offers great green spaces complemented by local cafes.",
+          "watch_out": "Commute times may vary widely depending on exact location."
         }
       ],
       "why": [
-        "Parc de Woluwe offers extensive green areas for outdoor activities.",
-        "Avenue Louise features upscale shopping and dining options."
+        "Accessible parks encourage family outings and activities.",
+        "Herrmann-Debroux provides good transport options for commuting."
       ],
-      "watch_out": [
-        "Uccle may have longer commute times to central Brussels."
-      ],
+      "watch_out": ["Suburban nature might make access to cafes less convenient."],
       "scores": {
-        "Safety": 5,
+        "Safety": 4,
         "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 4,
-        "BudgetFit": 2,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 4,
         "Overall": 4
       }
+    },
+    {
+      "name": "Ganshoren",
+      "micro_anchors": ["Parc Elisabeth edge", "Ganshoren center", "Basilica edge"],
+      "microhoods": [
+        {
+          "name": "Bois du Laarbeek - Poelbos",
+          "why": "Greener area that provides ample space for children to play.",
+          "watch_out": "Fewer nightlife options could limit dining choices."
+        },
+        {
+          "name": "Ganshoren Centre",
+          "why": "Good transit ensures easy access to schools and amenities.",
+          "watch_out": "Limited housing stock in certain family-friendly pockets."
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,3 @@
-```json
 {
   "client_profile": "A family in Brussels is looking to buy an apartment with 2+ rooms, budget of EUR 620,000 to EUR 1,065,000. Priorities include cafes, quiet residential areas, parks, premium feel, and family-friendliness.",
   "must_have": [
@@ -105,4 +104,14 @@
       "microhoods": [
         {
           "name": "Ganshoren Centre",
-          "why": "Ganshoren Centre is well-connected and
+          "why": "Ganshoren Centre is well-connected and"
+        },
+        {
+          "name": "Bois du Laarbeek - Poelbos",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

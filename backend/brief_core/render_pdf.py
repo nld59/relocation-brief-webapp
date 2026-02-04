@@ -51,13 +51,17 @@ def _clean_text(s: Any) -> str:
 
 
 def _rating_bar(value: Any) -> str:
-    """Render a compact 1–5 rating as blocks: ■■■□□"""
+    """Render a compact 1–5 rating.
+
+    Important: avoid unicode block characters here.
+    Some PDF viewers/fonts render them as empty squares, which looks broken.
+    """
     try:
         v = int(value)
     except Exception:
         v = 3
     v = max(1, min(5, v))
-    return "■" * v + "□" * (5 - v)
+    return f"{v}/5"
 
 
 def _bullets(items: List[str], style: ParagraphStyle) -> ListFlowable:
@@ -80,9 +84,15 @@ def _section_title(text: str, styles) -> Paragraph:
     return Paragraph(_clean_text(text), styles["H2"])
 
 
-def _card(elements: List[Any], padding: float = 10) -> Table:
-    """Wrap a list of flowables in a rounded-ish card."""
-    tbl = Table([[elements]], colWidths=[A4[0] - 4 * cm])
+def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = None) -> Table:
+    """Wrap a list of flowables in a rounded-ish card.
+
+    IMPORTANT: the card width must match the container.
+    If we always use full-page width and then place cards into a 2-column table,
+    ReportLab will let the inner table overflow and visually overlap.
+    """
+    card_w = float(width) if width else (A4[0] - 4 * cm)
+    tbl = Table([[elements]], colWidths=[card_w])
     tbl.setStyle(
         TableStyle(
             [
@@ -110,7 +120,6 @@ def _two_col_grid(left: List[Any], right: List[Any], gap: float = 10) -> Table:
                 ("RIGHTPADDING", (0, 0), (-1, -1), 0),
                 ("TOPPADDING", (0, 0), (-1, -1), 0),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
-                ("COLWIDTHS", (0, 0), (-1, -1), w),
             ]
         )
     )
@@ -214,10 +223,61 @@ def render_minimal_premium_pdf(
 
     story: List[Any] = []
 
+    # For any 2-column layouts we must size cards to the column width,
+    # otherwise inner tables overflow and overlap visually.
+    page_w = A4[0] - 4 * cm
+    col_gap = 12
+    col_w = (page_w - col_gap) / 2.0
+
     # Cover title
     story.append(Paragraph(f"Relocation Brief — {_clean_text(city)}", styles["Title"]))
     story.append(Paragraph("A practical shortlist and action plan for the next 1–2 weeks.", styles["Small"]))
     story.append(Spacer(1, 10))
+
+    # Executive summary (60-second scan)
+    exec_rows = []
+    for row in (brief.get("executive_summary") or [])[:3]:
+        if not isinstance(row, dict):
+            continue
+        name = _clean_text(row.get("name", "—"))
+        best_for = "; ".join([_clean_text(x) for x in (row.get("best_for") or []) if _clean_text(x)])
+        watch = "; ".join([_clean_text(x) for x in (row.get("watch") or []) if _clean_text(x)])
+        microhoods = ", ".join([_clean_text(x) for x in (row.get("microhoods") or []) if _clean_text(x)])
+        exec_rows.append([
+            Paragraph(f"<b>{name}</b>", styles["Body"]),
+            Paragraph(best_for or "—", styles["Body"]),
+            Paragraph(watch or "—", styles["Body"]),
+            Paragraph(microhoods or "—", styles["Body"]),
+        ])
+
+    if exec_rows:
+        story.append(_section_title("Executive summary (quick scan)", styles))
+        tbl = Table(
+            [[
+                Paragraph("<b>Commune</b>", styles["Small"]),
+                Paragraph("<b>Best for</b>", styles["Small"]),
+                Paragraph("<b>Watch-outs</b>", styles["Small"]),
+                Paragraph("<b>Microhoods</b>", styles["Small"]),
+            ]] + exec_rows,
+            colWidths=[3.2 * cm, 5.6 * cm, 5.2 * cm, 4.5 * cm],
+            hAlign="LEFT",
+        )
+        tbl.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), BG_SOFT),
+                    ("BOX", (0, 0), (-1, -1), 0.8, STROKE),
+                    ("INNERGRID", (0, 0), (-1, -1), 0.5, STROKE),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                    ("TOPPADDING", (0, 0), (-1, -1), 5),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                ]
+            )
+        )
+        story.append(_card([tbl], padding=8))
+        story.append(Spacer(1, 14))
 
     # 1) Client profile
     cp = _clean_text(brief.get("client_profile", ""))
@@ -249,6 +309,22 @@ def render_minimal_premium_pdf(
     story.append(_card(left))
     story.append(Spacer(1, 12))
 
+    # Methodology (trust)
+    meth = brief.get("methodology") or {}
+    if isinstance(meth, dict):
+        inputs = meth.get("inputs") or []
+        matching = meth.get("matching") or []
+        if inputs or matching:
+            blocks = [_section_title("How this shortlist was matched", styles)]
+            if inputs:
+                blocks.append(Paragraph("<b>Inputs used</b>", styles["Body"]))
+                blocks.append(_bullets([_clean_text(x) for x in inputs], styles["Bullet"]))
+            if matching:
+                blocks.append(Paragraph("<b>Matching logic</b>", styles["Body"]))
+                blocks.append(_bullets([_clean_text(x) for x in matching], styles["Bullet"]))
+            story.append(_card(blocks, padding=12))
+            story.append(Spacer(1, 14))
+
     # 2) Must-have / Nice-to-have / Red flags / Trade-offs
     def _pill_box(title: str, items: List[str]) -> List[Any]:
         return [
@@ -257,17 +333,17 @@ def render_minimal_premium_pdf(
         ]
 
     grid = _two_col_grid(
-        _card(_pill_box("Must-have", brief.get("must_have", [])), padding=10),
-        _card(_pill_box("Nice-to-have", brief.get("nice_to_have", [])), padding=10),
-        gap=12,
+        _card(_pill_box("Must-have", brief.get("must_have", [])), padding=10, width=col_w),
+        _card(_pill_box("Nice-to-have", brief.get("nice_to_have", [])), padding=10, width=col_w),
+        gap=col_gap,
     )
     story.append(grid)
     story.append(Spacer(1, 12))
 
     grid2 = _two_col_grid(
-        _card(_pill_box("Red flags", brief.get("red_flags", [])), padding=10),
-        _card(_pill_box("Trade-offs", brief.get("contradictions", [])), padding=10),
-        gap=12,
+        _card(_pill_box("Red flags", brief.get("red_flags", [])), padding=10, width=col_w),
+        _card(_pill_box("Trade-offs", brief.get("contradictions", [])), padding=10, width=col_w),
+        gap=col_gap,
     )
     story.append(grid2)
     story.append(Spacer(1, 16))
@@ -301,7 +377,7 @@ def render_minimal_premium_pdf(
         if micro_anchors:
             anchors_txt = ", ".join([_clean_text(a) for a in micro_anchors[:3] if _clean_text(a)])
             if anchors_txt:
-                header.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Anchors:</font> {anchors_txt}", styles["Small"]))
+                header.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Landmarks (anchors):</font> {anchors_txt}", styles["Small"]))
 
         # Score row
         score_parts = []
@@ -391,6 +467,38 @@ def render_minimal_premium_pdf(
         story.append(_numbered(w2, styles["Bullet"]))
         story.append(Spacer(1, 10))
 
+    # Practical checklists
+    viewing = [_clean_text(x) for x in (brief.get("viewing_checklist") or []) if _clean_text(x)]
+    if viewing:
+        story.append(Paragraph("<b>Viewing checklist</b>", styles["Body"]))
+        story.append(_bullets(viewing[:10], styles["Bullet"]))
+        story.append(Spacer(1, 8))
+
+    offer = [_clean_text(x) for x in (brief.get("offer_strategy") or []) if _clean_text(x)]
+    if offer:
+        story.append(Paragraph("<b>Offer / decision strategy</b>", styles["Body"]))
+        story.append(_bullets(offer[:8], styles["Bullet"]))
+        story.append(Spacer(1, 10))
+
+    # Relocation essentials (beyond real estate)
+    rel = brief.get("relocation_essentials") or {}
+    if isinstance(rel, dict) and any(rel.get(k) for k in ["first_72h", "first_2_weeks", "first_2_months"]):
+        story.append(_section_title("Relocation essentials", styles))
+        story.append(Paragraph("Operational steps to avoid surprises once you arrive.", styles["Small"]))
+        story.append(Spacer(1, 6))
+
+        def _phase(title: str, key: str) -> List[Any]:
+            items = [_clean_text(x) for x in (rel.get(key) or []) if _clean_text(x)]
+            if not items:
+                return []
+            return [Paragraph(f"<b>{title}</b>", styles["Body"]), _bullets(items, styles["Bullet"])]
+
+        left = _phase("First 72 hours", "first_72h") + _phase("First 2 weeks", "first_2_weeks")
+        right = _phase("First 2 months", "first_2_months")
+        if left or right:
+            story.append(_two_col_grid(_card(left, padding=10, width=col_w), _card(right, padding=10, width=col_w), gap=col_gap))
+            story.append(Spacer(1, 12))
+
     # Questions for agent/landlord
     q = [_clean_text(x) for x in (brief.get("questions_for_agent_landlord") or []) if _clean_text(x)]
     if q:
@@ -424,7 +532,7 @@ def render_minimal_premium_pdf(
     right_block: List[Any] = [Paragraph("<b>Websites</b>", styles["Body"])]
     right_block.append(_numbered([_link_line(x) for x in websites[:3] if isinstance(x, dict)], styles["Bullet"]))
 
-    story.append(_two_col_grid(_card(left_block, padding=10), _card(right_block, padding=10), gap=12))
+    story.append(_two_col_grid(_card(left_block, padding=10, width=col_w), _card(right_block, padding=10, width=col_w), gap=col_gap))
 
     # Clarifying questions (should normally be empty by the time user downloads)
     clar = [_clean_text(x) for x in (brief.get("clarifying_questions") or []) if _clean_text(x)]
