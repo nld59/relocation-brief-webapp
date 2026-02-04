@@ -1,0 +1,116 @@
+{
+  "client_profile": "Family of four seeking to buy a 3+ room apartment in Brussels. Budget is 745000–1205000 EUR, focusing on residential areas, family-friendly amenities, and parks.",
+  "must_have": [
+    "3 or more rooms in an apartment",
+    "Proximity to schools within 20 min walk",
+    "Access to parks and green areas",
+    "Quiet residential environment"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots nearby",
+    "Family-friendly amenities",
+    "Bike-friendly streets",
+    "Public transport access"
+  ],
+  "red_flags": [
+    "High demand areas may exceed budget",
+    "Noisy locations due to traffic",
+    "Long commutes to preferred schools",
+    "Limited nightlife options"
+  ],
+  "contradictions": [
+    "Peaceful areas might have fewer amenities",
+    "Green spaces may be far from active zones",
+    "Higher prices in family-friendly districts"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Close to parks and good transit options; ideal for families seeking calm.",
+          "watch_out": "House-focused pockets are pricey; fewer nightlife options persist."
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "Family-friendly with access to green spaces; perfect for young children.",
+          "watch_out": "Popular areas may stretch your budget significantly."
+        }
+      ],
+      "why": [
+        "Proximity to Parc de Woluwe offers outdoor activities for children.",
+        "Festive atmosphere around Stockel creates a vibrant community feel."
+      ],
+      "watch_out": [
+        "Some pockets can be pricier; research before committing."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chant D’oiseau",
+          "why": "Green surroundings and lively shops; great for family outings.",
+          "watch_out": "Some areas feel suburban; check commute times to your daily anchors."
+        },
+        {
+          "name": "Parc de la Woluwe",
+          "why": "Offers a spacious environment with multiple playgrounds; perfect for families.",
+          "watch_out": "Distance from city center may impact social options."
+        }
+      ],
+      "why": [
+        "Access to parks and bike lanes makes it ideal for families.",
+        "Suburban feel provides quiet living while maintaining accessibility."
+      ],
+      "watch_out": [
+        "Public transport may vary between pockets; plan deployment routes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Bois du Laarbeek - Poelbos"
+        },
+        {
+          "name": "Jette Centre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

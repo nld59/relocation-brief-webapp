@@ -55,7 +55,9 @@ def _parse_money(value: Any) -> Optional[int]:
         suf = m.group(2).lower()
         return int(num * (1_000 if suf == "k" else 1_000_000))
 
-    # Strip currency symbols and keep digits
+    # Strip currency symbols and keep digits.
+    # NOTE: ranges like "745000-1205000" are NOT supported here because this
+    # would concatenate the digits. Use _parse_money_range() for ranges.
     digits = re.sub(r"[^0-9]", "", s)
     if not digits:
         return None
@@ -65,8 +67,79 @@ def _parse_money(value: Any) -> Optional[int]:
         return None
 
 
+def _parse_money_range(value: Any) -> Tuple[Optional[int], Optional[int]]:
+    """Parse a money value that may represent a range.
+
+    Supported examples:
+    - "745000-1205000" / "745000 – 1205000"
+    - "€745k–€1.2M"
+    - single numbers (returns (n, n))
+    """
+    if value is None:
+        return None, None
+    if isinstance(value, (int, float)):
+        n = int(value)
+        return n, n
+
+    s = str(value).strip()
+    if not s:
+        return None, None
+
+    # Normalize dash variants
+    s_norm = re.sub(r"[–—]", "-", s)
+    # Split on a dash that is likely a range separator
+    if "-" in s_norm:
+        parts = [p.strip() for p in s_norm.split("-") if p.strip()]
+        if len(parts) >= 2:
+            a = _parse_money(parts[0])
+            b = _parse_money(parts[1])
+            if a and b:
+                lo, hi = (a, b) if a <= b else (b, a)
+                return lo, hi
+
+    n = _parse_money(s_norm)
+    if n is None:
+        return None, None
+    return n, n
+
+
 def _clamp_1_5(v: float) -> int:
     return max(1, min(5, int(round(v))))
+
+
+def _clamp_2_5(v: float) -> int:
+    """Keep ratings realistic (avoid 1/5 unless explicitly needed)."""
+    return max(2, min(5, int(round(v))))
+
+
+def _percentile_rank(values: List[float], v: float) -> float:
+    """Deterministic percentile rank in [0, 1].
+
+    We intentionally use a simple inclusive rank to make the output stable
+    across runs. This helps avoid the "everything is 5/5" trust issue by
+    spreading communes relative to each other.
+    """
+    if not values:
+        return 0.5
+    vals = sorted(float(x) for x in values)
+
+    # Mid-rank percentile (reduces tie inflation to 1.0).
+    lt = 0
+    eq = 0
+    for x in vals:
+        if x < v:
+            lt += 1
+        elif x == v:
+            eq += 1
+        else:
+            break
+
+    n = float(len(vals))
+    if n <= 0:
+        return 0.5
+
+    p = (lt + 0.5 * eq) / n
+    return max(0.0, min(1.0, p))
 
 
 def _norm_minmax(value: float, mn: float, mx: float) -> float:
@@ -283,6 +356,8 @@ def _derive_strengths_tradeoffs(
     snapshot: Dict[str, str],
     *,
     anchors: List[str],
+    scores: Optional[Dict[str, int]] = None,
+    tenure: str = "buy",
 ) -> Tuple[List[str], List[str]]:
     """Generate market-sounding strengths/trade-offs from deterministic inputs."""
 
@@ -292,17 +367,45 @@ def _derive_strengths_tradeoffs(
     strengths: List[str] = []
     tradeoffs: List[str] = []
 
-    # Strengths
+    scores = scores or {}
+
+    # Strengths (tag-driven)
     if "expats_international" in tags:
         strengths.append("Strong international / expat ecosystem and services.")
     if "eu_quarter_access" in tags:
         strengths.append("Very convenient access to the EU Quarter and central corridors.")
     if "green_parks" in tags or "families" in tags or "residential_quiet" in tags:
-        strengths.append("Good balance of residential feel and nearby green space.")
+        if "green_parks" in tags:
+            strengths.append(f"Stronger green pockets around {anchor_hint} (parks and calmer streets).")
+        else:
+            strengths.append(f"Calmer, more residential pockets around {anchor_hint} compared with busier hubs.")
     if "cafes_brunch" in tags or "restaurants" in tags:
         strengths.append("Plenty of day-to-day amenities (cafés, restaurants) within walking distance.")
     if "metro_strong" in tags or "tram_strong" in tags:
         strengths.append("Reliable public transport coverage for everyday commuting.")
+
+    # Score-derived (commune-specific, helps avoid copy/paste text)
+    if int(scores.get("Commute", 3)) >= 4:
+        strengths.append("Above-average connectivity for commuting across Brussels.")
+    if int(scores.get("Lifestyle", 3)) >= 4:
+        strengths.append("Stronger lifestyle density (cafés/amenities) compared with quieter communes.")
+    if int(scores.get("Family", 3)) >= 4:
+        strengths.append("Often preferred by families due to parks/schools access and calmer pockets.")
+
+    # If the first bullet is still generic across communes, promote the strongest driver.
+    # This makes the report feel less templated and improves "scan in 60s".
+    driver_candidates: List[str] = []
+    if int(scores.get("Family", 3)) >= 4:
+        driver_candidates.append(f"Family-oriented pockets around {anchor_hint} with parks/schools within reach.")
+    if int(scores.get("Commute", 3)) >= 4:
+        driver_candidates.append(f"Above-average commute convenience around {anchor_hint} via metro/tram corridors.")
+    if int(scores.get("Lifestyle", 3)) >= 4:
+        driver_candidates.append(f"Higher amenity density near {anchor_hint} (cafés, restaurants) for day-to-day life.")
+    if driver_candidates:
+        first = strengths[0] if strengths else ""
+        if first.lower().startswith("good balance") or first.lower().startswith("stronger green") or first.lower().startswith("calmer"):
+            # Insert after the first line to keep the tone natural.
+            strengths = strengths[:1] + [driver_candidates[0]] + strengths[1:]
 
     # Snapshot-derived (keeps it grounded)
     if snapshot.get("commute_access"):
@@ -313,8 +416,11 @@ def _derive_strengths_tradeoffs(
         tradeoffs.append("Traffic/noise can be noticeable on main arteries; shortlist street-by-street.")
     if "nightlife" in tags or "night_caution" in tags:
         tradeoffs.append("Busier evenings in hotspots; confirm noise levels during a late walk-through.")
-    if "premium_feel" in tags:
-        tradeoffs.append("Prime pockets can be pricey; compare total monthly cost (rent + charges).")
+    if "premium_feel" in tags or int(scores.get("BudgetFit", 3)) <= 2:
+        if tenure == "rent":
+            tradeoffs.append("Prime pockets can be pricey; validate the full monthly cost (rent + charges + utilities).")
+        else:
+            tradeoffs.append("Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges).")
     if "car_friendly" not in tags and "parking_tight" in tags:
         tradeoffs.append("Parking can be challenging without a private spot; verify permits early.")
     if snapshot.get("housing_cost"):
@@ -342,8 +448,12 @@ def _derive_strengths_tradeoffs(
     return strengths, tradeoffs
 
 
-def _build_commune_score_index(pack: Dict[str, Any]) -> Dict[str, Dict[str, float]]:
-    """Precompute raw feature scores for scaling across communes."""
+def _build_commune_score_index(pack: Dict[str, Any]) -> Tuple[Dict[str, Dict[str, float]], Dict[str, List[float]]]:
+    """Precompute raw feature scores and distributions for scaling across communes.
+
+    We keep the scoring deterministic and *relative* (percentile-based) so
+    communes don't all collapse to the same 5/5 ratings.
+    """
     communes = pack.get("communes") or []
     rows = []
     for c in communes:
@@ -363,80 +473,190 @@ def _build_commune_score_index(pack: Dict[str, Any]) -> Dict[str, Dict[str, floa
             safety -= 0.2
         rows.append((c.get("name"), {"lifestyle": lifestyle, "commute": commute, "family": family, "safety": safety}))
 
-    # mins/maxs
-    def _minmax(key: str) -> Tuple[float, float]:
-        vals = [r[1][key] for r in rows if r[0]]
-        if not vals:
-            return (0.0, 1.0)
-        return (min(vals), max(vals))
-
-    mn_l, mx_l = _minmax("lifestyle")
-    mn_c, mx_c = _minmax("commute")
-    mn_f, mx_f = _minmax("family")
-    mn_s, mx_s = _minmax("safety")
+    dists = {
+        "lifestyle": [r[1]["lifestyle"] for r in rows if r[0]],
+        "commute": [r[1]["commute"] for r in rows if r[0]],
+        "family": [r[1]["family"] for r in rows if r[0]],
+        "safety": [r[1]["safety"] for r in rows if r[0]],
+    }
 
     idx: Dict[str, Dict[str, float]] = {}
     for name, raw in rows:
         if not name:
             continue
         idx[name] = {
-            "lifestyle_n": _norm_minmax(raw["lifestyle"], mn_l, mx_l),
-            "commute_n": _norm_minmax(raw["commute"], mn_c, mx_c),
-            "family_n": _norm_minmax(raw["family"], mn_f, mx_f),
-            "safety_n": _norm_minmax(raw["safety"], mn_s, mx_s),
+            "lifestyle": float(raw["lifestyle"]),
+            "commute": float(raw["commute"]),
+            "family": float(raw["family"]),
+            "safety": float(raw["safety"]),
         }
-    return idx
+    return idx, dists
 
 
-def _compute_budget_fit(tags: List[str], answers: Optional[Dict[str, Any]] = None) -> int:
-    """Budget fit heuristic (1-5) based on user budget and 'premium' signals."""
+def _compute_budget_fit(
+    tags: List[str],
+    *,
+    answers: Optional[Dict[str, Any]] = None,
+    commune: Optional[Dict[str, Any]] = None,
+    score_index: Optional[Dict[str, Dict[str, float]]] = None,
+    score_dists: Optional[Dict[str, List[float]]] = None,
+) -> int:
+    """Budget fit heuristic (2-5) based on budget *and* commune cost pressure.
+
+    We do not have official pricing data in the pack. To avoid misleading
+    precision we approximate "cost pressure" from amenity + connectivity
+    densities (lifestyle + commute). This creates realistic variation between
+    communes and prevents identical BudgetFit everywhere.
+    """
     answers = answers or {}
-    rent = _parse_money(answers.get("budget_rent"))
-    buy = _parse_money(answers.get("budget_buy"))
+    rent_lo, rent_hi = _parse_money_range(answers.get("budget_rent"))
+    buy_lo, buy_hi = _parse_money_range(answers.get("budget_buy"))
 
-    # Decide which budget we have
-    budget = buy if buy else rent
+    # Use the *upper* end as what the client can realistically spend.
+    rent = rent_hi
+    buy = buy_hi
 
-    # If we don't have budget, return neutral
-    if not budget:
+    if not rent and not buy:
         return 3
 
     premium = "premium_feel" in tags
     central = "central_access" in tags
 
+    # Commune cost pressure (percentile of lifestyle+commute raw index)
+    pressure_p = 0.5
+    if commune and score_index and score_dists:
+        name = commune.get("name")
+        base = score_index.get(name or "", {})
+        pressure_raw = float(base.get("lifestyle", 0.0)) + 0.8 * float(base.get("commute", 0.0))
+        dist = [float(r.get("lifestyle", 0.0)) + 0.8 * float(r.get("commute", 0.0)) for r in score_index.values()]
+        pressure_p = _percentile_rank(dist, pressure_raw)
+
+    # Convert pressure percentile to an integer penalty (0..2)
+    pressure_pen = 2 if pressure_p >= 0.8 else (1 if pressure_p >= 0.55 else 0)
+
     # Very rough tiers (Brussels): rent in EUR/mo, buy in EUR
     if rent and not buy:
+        # Baseline per preference
         if premium or central:
-            if rent >= 2800:
-                return 4
-            if rent >= 2200:
-                return 3
-            return 2
-        # non-premium
-        if rent >= 2000:
-            return 4
-        if rent >= 1500:
-            return 3
-        return 2
+            base = 4 if rent >= 2800 else (3 if rent >= 2200 else 2)
+        else:
+            base = 4 if rent >= 2000 else (3 if rent >= 1500 else 2)
+        return max(2, min(5, base - pressure_pen))
+
     if buy:
         if premium or central:
-            if buy >= 850_000:
-                return 4
-            if buy >= 650_000:
-                return 3
-            return 2
-        if buy >= 650_000:
-            return 4
-        if buy >= 450_000:
-            return 3
-        return 2
+            base = 4 if buy >= 850_000 else (3 if buy >= 650_000 else 2)
+        else:
+            base = 4 if buy >= 650_000 else (3 if buy >= 450_000 else 2)
+        return max(2, min(5, base - pressure_pen))
 
     return 3
+
+
+def _fmt_eur_range(lo: Optional[int], hi: Optional[int], *, per_month: bool = False) -> str:
+    if lo and hi and lo != hi:
+        core = f"€{lo:,}–€{hi:,}"
+    elif hi:
+        core = f"€{hi:,}"
+    elif lo:
+        core = f"€{lo:,}"
+    else:
+        core = "€—"
+    return f"{core}/mo" if per_month else core
+
+
+def _budget_reality_check(
+    tags: List[str],
+    scores: Dict[str, int],
+    *,
+    answers: Optional[Dict[str, Any]] = None,
+    commune: Optional[Dict[str, Any]] = None,
+    score_index: Optional[Dict[str, Dict[str, float]]] = None,
+    score_dists: Optional[Dict[str, List[float]]] = None,
+) -> str:
+    """Generate an honest, non-numeric 'what you can expect' budget line.
+
+    We avoid pretending we have market pricing data. Instead we provide a
+    rule-of-thumb framing (bedroom range) and highlight uncertainty.
+    """
+    answers = answers or {}
+    rent_lo, rent_hi = _parse_money_range(answers.get("budget_rent"))
+    buy_lo, buy_hi = _parse_money_range(answers.get("budget_buy"))
+    budgetfit = int(scores.get("BudgetFit", 3))
+
+    # Commune cost pressure (same proxy as in BudgetFit; keeps messages commune-specific
+    # without pretending we know exact prices).
+    pressure_p = 0.5
+    if commune and score_index:
+        name = commune.get("name")
+        base = score_index.get(name or "", {})
+        pressure_raw = float(base.get("lifestyle", 0.0)) + 0.8 * float(base.get("commute", 0.0))
+        dist = [float(r.get("lifestyle", 0.0)) + 0.8 * float(r.get("commute", 0.0)) for r in score_index.values()]
+        pressure_p = _percentile_rank(dist, pressure_raw)
+
+    pressure_txt = "more options" if pressure_p < 0.55 else ("moderate competition" if pressure_p < 0.8 else "tighter supply")
+
+    if buy_hi:
+        # Conservative, non-binding heuristic for BE apartments / townhouses
+        buy_cap = buy_hi
+        if buy_cap >= 950_000:
+            target = "2–3BR (sometimes 4BR) depending on condition/building type"
+        elif buy_cap >= 650_000:
+            target = "2–3BR, depending on condition/building age"
+        elif buy_cap >= 450_000:
+            target = "1–2BR; 3BR becomes harder in prime streets"
+        else:
+            target = "studio–1BR; consider compromises on size or location"
+
+        fit_txt = {
+            5: "very comfortable",
+            4: "generally workable",
+            3: "workable with trade-offs",
+            2: "likely tight",
+            1: "very tight",
+        }.get(budgetfit, "workable")
+
+        amt = _fmt_eur_range(buy_lo, buy_hi)
+        return (
+            f"Rule of thumb for a {amt} purchase in this commune: target {target}. "
+            f"Budget fit here is {fit_txt} with {pressure_txt}; verify listing density and condition during viewings."
+        )
+
+    if rent_hi:
+        rent_cap = rent_hi
+        if rent_cap >= 3200:
+            target = "2–3BR apartments become realistic in many pockets"
+        elif rent_cap >= 2300:
+            target = "1–2BR apartments are typical; 3BR depends on compromise"
+        elif rent_cap >= 1600:
+            target = "studio–1BR is typical; 2BR depends on compromise"
+        else:
+            target = "studio-focused; consider widening the search"
+
+        fit_txt = {
+            5: "very comfortable",
+            4: "generally workable",
+            3: "workable with trade-offs",
+            2: "likely tight",
+            1: "very tight",
+        }.get(budgetfit, "workable")
+
+        amt = _fmt_eur_range(rent_lo, rent_hi, per_month=True)
+        return (
+            f"Rule of thumb for {amt} rent in this commune: {target}. "
+            f"Budget fit here is {fit_txt} with {pressure_txt}; always confirm charges and indexation."
+        )
+
+    # No budget provided
+    if "premium_feel" in tags:
+        return "Prime pockets can be costly; confirm the full monthly cost (price/rent + charges + utilities)."
+    return "Budget reality depends on the exact street and building condition; confirm total monthly cost early."
 
 
 def _compute_scores_for_commune(
     commune: Dict[str, Any],
     score_index: Dict[str, Dict[str, float]],
+    score_dists: Dict[str, List[float]],
     *,
     answers: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, int]:
@@ -444,13 +664,11 @@ def _compute_scores_for_commune(
     tags = commune.get("tags") or []
     base = score_index.get(name or "", {})
 
-    # IMPORTANT: keep the scale realistic.
-    # A common user trust issue was "everything is 5/5".
-    # We deliberately compress the upper end and only allow 5 in truly top cases.
-    s_n = float(base.get("safety_n", 0.5))
-    f_n = float(base.get("family_n", 0.5))
-    c_n = float(base.get("commute_n", 0.5))
-    l_n = float(base.get("lifestyle_n", 0.5))
+    # Percentile-based scaling (relative across communes) to avoid “all 5/5”.
+    s_p = _percentile_rank(score_dists.get("safety", []), float(base.get("safety", 0.0)))
+    f_p = _percentile_rank(score_dists.get("family", []), float(base.get("family", 0.0)))
+    c_p = _percentile_rank(score_dists.get("commute", []), float(base.get("commute", 0.0)))
+    l_p = _percentile_rank(score_dists.get("lifestyle", []), float(base.get("lifestyle", 0.0)))
 
     # Small deterministic bonuses/penalties based on tags
     safety_bonus = 0.4 if any(t in tags for t in ["older_quiet", "residential_quiet"]) else 0.0
@@ -462,11 +680,33 @@ def _compute_scores_for_commune(
     lifestyle_bonus = 0.2 if any(t in tags for t in ["cafes_brunch", "restaurants", "culture_museums"]) else 0.0
     family_bonus = 0.3 if any(t in tags for t in ["families", "schools_strong", "childcare_strong", "green_parks"]) else 0.0
 
-    safety = _clamp_1_5(2.1 + 2.3 * s_n + safety_bonus - safety_pen)
-    family = _clamp_1_5(2.0 + 2.4 * f_n + family_bonus)
-    commute = _clamp_1_5(2.0 + 2.3 * c_n + commute_bonus - commute_pen)
-    lifestyle = _clamp_1_5(2.0 + 2.3 * l_n + lifestyle_bonus)
-    budget = _compute_budget_fit(tags, answers=answers)
+    def _p_to_score(p: float) -> int:
+        """Convert percentile to a realistic 2..5 score using bins."""
+        if p < 0.25:
+            return 2
+        if p < 0.55:
+            return 3
+        if p < 0.8:
+            return 4
+        return 5
+
+    # Map percentile -> 2..5, then apply tiny deterministic bumps.
+    # IMPORTANT: Safety should very rarely be 5/5 for *all* communes (trust issue).
+    # We therefore cap Safety at 4/5 unless the commune is in the top safety band.
+    safety = _p_to_score(s_p)
+    if safety_bonus > 0:
+        safety += 1
+    if safety_pen > 0:
+        safety -= 1
+    safety = max(2, min(5, safety))
+    if safety >= 5 and s_p < 0.85:
+        safety = 4
+
+    family = _clamp_2_5(_p_to_score(f_p) + (1 if family_bonus > 0 else 0))
+    commute = _clamp_2_5(_p_to_score(c_p) + (1 if commute_bonus > 0 else 0) - (1 if commute_pen > 0 else 0))
+    lifestyle = _clamp_2_5(_p_to_score(l_p) + (1 if lifestyle_bonus > 0 else 0))
+
+    budget = _compute_budget_fit(tags, answers=answers, commune=commune, score_index=score_index, score_dists=score_dists)
 
     overall = int(round((safety + family + commute + lifestyle + budget) / 5.0))
     return {
@@ -497,8 +737,60 @@ def _enforce_communes_and_microhoods(
     commune_by_name = {c.get("name"): c for c in communes if c.get("name")}
 
     # Scoring and geo validators
-    score_index = _build_commune_score_index(pack)
+    score_index, score_dists = _build_commune_score_index(pack)
     microhood_commune = _load_microhood_commune_map()
+    microhood_profiles = pack.get("microhood_profiles") or {}
+    microhood_profiles_norm = {_norm_label(k): v for k, v in microhood_profiles.items() if isinstance(k, str) and isinstance(v, dict)}
+
+    # If a microhood name looks like it belongs to a different commune (e.g. "Jette Centre"),
+    # drop it to avoid perception issues even when the geojson doesn't provide a mapping.
+    commune_tokens = {c: set(_norm_label(c).split()) for c in allowed}
+
+    def _belongs_to_other_commune(mh_name: str, current_commune: str) -> bool:
+        mh_norm = _norm_label(mh_name)
+        for other in allowed:
+            if other == current_commune:
+                continue
+            # strong signal: the other commune name (or a key token) is embedded in the microhood label
+            if _norm_label(other) in mh_norm:
+                return True
+            toks = commune_tokens.get(other) or set()
+            if toks and len(toks) == 1:
+                t = next(iter(toks))
+                if len(t) >= 5 and t in mh_norm:
+                    return True
+        return False
+
+    def _is_landmark_like_microhood(mh_obj: Dict[str, Any]) -> bool:
+        """Heuristic filter: avoid recommending parks/forests as "microhoods".
+
+        Some monitoring zones are very large green areas (e.g., Forêt de Soignes).
+        They are useful as anchors, but not as search-zones in property listings.
+        """
+        if not isinstance(mh_obj, dict):
+            return True
+        nm = _as_str(mh_obj.get("name"))
+        n = _norm_label(nm)
+        if any(k in n for k in ["foret", "forêt", "forest", "parc", "park", "bois", "cemet", "cimet"]):
+            # allow known residential microhoods that contain one of these words (rare)
+            # if they also have meaningful amenity density.
+            m = mh_obj.get("metrics") or {}
+            cafes = float(m.get("cafes_density") or 0)
+            rest = float(m.get("restaurant_density") or m.get("restaurants_density") or 0)
+            if cafes + rest < 2.0:
+                return True
+        m = mh_obj.get("metrics") or {}
+        area = float(m.get("area_km2") or 0)
+        parks_share = float(m.get("parks_share") or 0)
+        # Very large zones with high parks share are anchors, not microhoods.
+        if area >= 5.0 and parks_share >= 0.12:
+            return True
+        return False
+
+    # Tenure mode (affects phrasing and some checklists)
+    buy_lo, buy_hi = _parse_money_range((answers or {}).get("budget_buy"))
+    rent_lo, rent_hi = _parse_money_range((answers or {}).get("budget_rent"))
+    tenure = "buy" if (buy_hi or "buy" in _as_str((answers or {}).get("housing_type")).lower()) else "rent"
 
     # Desired priorities (for "matched_priorities")
     priority_ids = _split_csv((answers or {}).get("priority_tag_ids", ""))
@@ -526,7 +818,7 @@ def _enforce_communes_and_microhoods(
         tags = commune.get("tags") or []
         # Always compute scores deterministically from city-pack metrics + budget.
         # This prevents "everything is 5/5" and improves trust.
-        scores = _compute_scores_for_commune(commune, score_index, answers=answers)
+        scores = _compute_scores_for_commune(commune, score_index, score_dists, answers=answers)
 
         # Why / watch-out lists
         why = _trim(_as_list(it.get("why")), LIMITS["district_why"])
@@ -551,9 +843,13 @@ def _enforce_communes_and_microhoods(
         for mh in (commune.get("microhoods") or []):
             if not isinstance(mh, dict) or not mh.get("name"):
                 continue
+            if _is_landmark_like_microhood(mh):
+                continue
             nm = _as_str(mh.get("name"))
             owner = microhood_commune.get(_norm_label(nm))
             if owner and owner != name:
+                continue
+            if not owner and _belongs_to_other_commune(nm, name):
                 continue
             allowed_mh.append(mh)
         allowed_mh_names = [mh.get("name") for mh in allowed_mh]
@@ -575,8 +871,14 @@ def _enforce_communes_and_microhoods(
                 used_mh.add(nm)
 
                 mh_obj = next((m for m in allowed_mh if m.get("name") == nm), {})
+                prof = microhood_profiles.get(nm) or microhood_profiles_norm.get(_norm_label(nm)) or {}
                 why_s = _as_str(mho.get("why"))
                 watch_s = _as_str(mho.get("watch_out"))
+                # Prefer curated microhood profiles from the city pack; fall back to metrics-based text.
+                if not why_s:
+                    why_s = _as_str(prof.get("why"))
+                if not watch_s:
+                    watch_s = _as_str(prof.get("watch_out"))
                 if not why_s or not watch_s:
                     gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
                     why_s = why_s or gen_why
@@ -591,13 +893,28 @@ def _enforce_communes_and_microhoods(
                 nm = mh_obj.get("name")
                 if any(x["name"] == nm for x in out_mh):
                     continue
-                gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
-                out_mh.append({"name": nm, "why": gen_why[:160], "watch_out": gen_watch[:160]})
+                prof = microhood_profiles.get(nm) or microhood_profiles_norm.get(_norm_label(str(nm))) or {}
+                why_s = _as_str(prof.get("why"))
+                watch_s = _as_str(prof.get("watch_out"))
+                if not why_s or not watch_s:
+                    gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
+                    why_s = why_s or gen_why
+                    watch_s = watch_s or gen_watch
+                out_mh.append({"name": nm, "why": why_s[:160], "watch_out": watch_s[:160]})
 
         out_mh = out_mh[: LIMITS["microhoods"]]
 
         snapshot = _priority_snapshot(tags, scores, metrics=commune.get("metrics") or {})
-        strengths, tradeoffs = _derive_strengths_tradeoffs(tags, snapshot, anchors=micro_anchors)
+        strengths, tradeoffs = _derive_strengths_tradeoffs(tags, snapshot, anchors=micro_anchors, scores=scores, tenure=tenure)
+
+        budget_reality = _budget_reality_check(
+            tags,
+            scores,
+            answers=answers,
+            commune=commune,
+            score_index=score_index,
+            score_dists=score_dists,
+        )
 
         fixed.append(
             {
@@ -610,6 +927,7 @@ def _enforce_communes_and_microhoods(
                 "tradeoffs": tradeoffs,
                 "matched_priorities": _priority_match(tags, priority_ids, top3_ids),
                 "priority_snapshot": snapshot,
+                "budget_reality": budget_reality,
                 "microhoods": out_mh,
             }
         )
@@ -622,7 +940,7 @@ def _enforce_communes_and_microhoods(
             continue
         commune = commune_by_name.get(n, {})
         tags = commune.get("tags") or []
-        scores = _compute_scores_for_commune(commune, score_index, answers=answers)
+        scores = _compute_scores_for_commune(commune, score_index, score_dists, answers=answers)
         why = ["Strong fit for your stated priorities.", "Balanced trade-off between lifestyle and commute."]
         hint = _as_str(commune.get("watch_out_hint"))
         watch = [hint or "Verify street-level noise/parking before shortlisting."]
@@ -631,17 +949,42 @@ def _enforce_communes_and_microhoods(
         for mh in (commune.get("microhoods") or []):
             if not isinstance(mh, dict) or not mh.get("name"):
                 continue
+            if _is_landmark_like_microhood(mh):
+                continue
             nm = _as_str(mh.get("name"))
             owner = microhood_commune.get(_norm_label(nm))
             if owner and owner != n:
                 continue
+            if not owner and _belongs_to_other_commune(nm, n):
+                continue
             allowed_mh.append(mh)
         out_mh = []
         for mh_obj in allowed_mh[:2]:
-            gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
-            out_mh.append({"name": mh_obj.get("name"), "why": gen_why[:160], "watch_out": gen_watch[:160]})
+            nm = _as_str(mh_obj.get("name"))
+            prof = microhood_profiles.get(nm) or microhood_profiles_norm.get(_norm_label(nm)) or {}
+            why_s = _as_str(prof.get("why"))
+            watch_s = _as_str(prof.get("watch_out"))
+            if not why_s or not watch_s:
+                gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
+                why_s = why_s or gen_why
+                watch_s = watch_s or gen_watch
+            out_mh.append({"name": nm or mh_obj.get("name"), "why": why_s[:160], "watch_out": watch_s[:160]})
         snapshot = _priority_snapshot(tags, scores, metrics=commune.get("metrics") or {})
-        strengths, tradeoffs = _derive_strengths_tradeoffs(tags, snapshot, anchors=[str(x).strip() for x in micro_anchors if str(x).strip()])
+        budget_reality = _budget_reality_check(
+            tags,
+            scores,
+            answers=answers,
+            commune=commune,
+            score_index=score_index,
+            score_dists=score_dists,
+        )
+        strengths, tradeoffs = _derive_strengths_tradeoffs(
+            tags,
+            snapshot,
+            anchors=[str(x).strip() for x in micro_anchors if str(x).strip()],
+            scores=scores,
+            tenure=tenure,
+        )
         fixed.append(
             {
                 "name": n,
@@ -653,6 +996,7 @@ def _enforce_communes_and_microhoods(
                 "tradeoffs": tradeoffs,
                 "matched_priorities": _priority_match(tags, priority_ids, top3_ids),
                 "priority_snapshot": snapshot,
+                "budget_reality": budget_reality,
                 "microhoods": out_mh,
             }
         )
@@ -670,6 +1014,10 @@ def normalize_brief(
     # Basic shape
     if not isinstance(brief, dict):
         brief = {"client_profile": _as_str(brief)}
+
+    answers = answers or {}
+    buy_lo, buy_hi = _parse_money_range(answers.get("budget_buy"))
+    is_buy = bool(buy_hi or ("buy" in _as_str(answers.get("housing_type")).lower()))
 
     out: Dict[str, Any] = {}
 
@@ -690,26 +1038,38 @@ def normalize_brief(
 
     # If the model provided too few steps, expand deterministically.
     if len(out["next_steps"]) < 8:
+        default_steps_buy = [
+            "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+            "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+            "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+            "Ask about parking (permit vs private spot), storage, and building rules.",
+            "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+            "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+            "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+            "Plan your notary steps and financing timeline; align deed date with your move plan.",
+            "Book a second visit with measurements/photos to compare objectively.",
+            "If needed, line up a survey/technical inspection for building issues.",
+        ]
+        default_steps_rent = [
+            "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+            "Confirm total monthly cost: rent + charges + utilities (and what's included).",
+            "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+            "Ask about parking rules/permits and bike/storage options.",
+            "Prepare a rental document pack: ID, proof of income, employer letter, bank statements.",
+            "For the top 2 options, do an evening walk-through to assess noise and safety.",
+            "Clarify contract length, notice period, indexation, and deposit rules.",
+            "Book a second visit with measurements and photos to compare objectively.",
+            "Pre-validate a rental guarantee to move fast on good listings.",
+            "Confirm handover checklist and inventory (appliances/fixtures) in writing.",
+        ]
         out["next_steps"] = (
             out["next_steps"]
-            + [
-                "Schedule viewings across the 3 communes and keep notes in a single tracker.",
-                "Confirm total monthly cost: rent + charges + utilities (and what's included).",
-                "Test the commute at peak hours (public transport and/or car).",
-                "Ask about parking rules/permits and bike/storage options.",
-                "Prepare a document pack: ID, proof of income, employer letter, bank statements.",
-                "For the top 2 options, do an evening walk-through to assess noise and safety.",
-                "If buying: request EPC, urbanism/permit docs, and recent syndic/HOA minutes.",
-                "If renting: clarify contract length, notice period, indexation, and deposit rules.",
-                "Book a second visit with measurements and photos to compare objectively.",
-                "Pre-validate financing (or a rental guarantee) to move fast on good listings.",
-            ]
+            + (default_steps_buy if is_buy else default_steps_rent)
         )[: LIMITS["next_steps"]]
 
     # Practical checklists (for 'act tomorrow')
-    out.setdefault(
-        "viewing_checklist",
-        [
+    if "viewing_checklist" not in out:
+        out["viewing_checklist"] = [
             "Noise: check windows closed/open, street vs courtyard orientation.",
             "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
             "Charges: what's included (common areas, heating, water) and past statements.",
@@ -718,10 +1078,36 @@ def normalize_brief(
             "Storage: cellar, bike room, stroller access, elevator size.",
             "Parking: permit eligibility, private spot, guest parking, EV charging.",
             "Safety basics: entrance, lighting, intercom, visibility at night.",
-            "Appliances/fixtures: inventory list and condition (if renting).",
-            "Total budget: rent/mortgage + charges + utilities + insurance.",
-        ],
-    )
+        ]
+        if is_buy:
+            out["viewing_checklist"] += [
+                "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+                "Total budget: mortgage + recurring charges + utilities + insurance + taxes.",
+            ]
+        else:
+            out["viewing_checklist"] += [
+                "Appliances/fixtures: inventory list and condition (rental check-in).",
+                "Total budget: rent + charges + utilities + insurance.",
+            ]
+    else:
+        # Sanitize generic lines that confuse buy vs rent mode.
+        vc = _as_list(out.get("viewing_checklist"))
+        cleaned = []
+        for line in vc:
+            l = _as_str(line)
+            low = _norm_label(l)
+            if "appliances/fixtures" in low:
+                if is_buy:
+                    continue
+                cleaned.append("Appliances/fixtures: inventory list and condition (rental check-in).")
+                continue
+            if low.startswith("total budget"):
+                cleaned.append(
+                    "Total budget: mortgage + recurring charges + utilities + insurance + taxes." if is_buy else "Total budget: rent + charges + utilities + insurance."
+                )
+                continue
+            cleaned.append(l)
+        out["viewing_checklist"] = cleaned
     out.setdefault(
         "offer_strategy",
         [
@@ -754,6 +1140,36 @@ def normalize_brief(
                 "If driving: confirm parking permit process, resident rules, and any LEZ requirements.",
             ],
         },
+    )
+
+    # Sanitize relocation-essentials copy to avoid confusing instructions.
+    # (Example: "Pick 1–2 communes" is misleading; you register in the commune of residence.)
+    essentials = out.get("relocation_essentials")
+    if isinstance(essentials, dict):
+        for k in ["first_72h", "first_2_weeks", "first_2_months"]:
+            items = _as_list(essentials.get(k))
+            fixed_items: List[str] = []
+            for it in items:
+                s = _as_str(it)
+                s_norm = _norm_label(s)
+                if "pick 1" in s_norm and "commune" in s_norm:
+                    fixed_items.append("Once your address is confirmed, register in the commune of residence (appointment-based).")
+                    continue
+                fixed_items.append(s)
+            essentials[k] = fixed_items
+        out["relocation_essentials"] = essentials
+
+    # Relocation admin checklist (kept high-level to avoid false precision)
+    out.setdefault(
+        "registration_checklist",
+        [
+            "Valid passport/ID + visa/residence documents (if applicable).",
+            "Proof of address: signed lease / deed / housing attestation.",
+            "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+            "Work proof: contract or employer letter (useful for some registrations).",
+            "Keep digital scans of all documents and a folder for commune appointments.",
+            "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms.",
+        ],
     )
 
     # Determine city pack

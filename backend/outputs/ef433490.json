@@ -1,0 +1,129 @@
+{
+  "client_profile": "Family in Brussels looking to buy an apartment with budget of 745,000–1,205,000 EUR. Priorities include residential areas, family-friendliness, green parks, and cafes.",
+  "must_have": [
+    "3+ rooms in the apartment",
+    "Family-friendly environment",
+    "Proximity to parks",
+    "Schools within a 20 min walk"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch options nearby",
+    "Quiet residential streets",
+    "Good public transport access",
+    "Community vibe"
+  ],
+  "red_flags": [
+    "High competition in family-friendly areas",
+    "Limited availability of larger apartments",
+    "Price fluctuations in parks-adjacent zones",
+    "Potentially high maintenance costs"
+  ],
+  "contradictions": [
+    "Family-oriented areas may exceed budget",
+    "Quiet zones can lack amenities",
+    "Parks may not be close to transport",
+    "Expansive layouts lead to higher prices"
+  ],
+  "questions_for_agent_landlord": [
+    "What is the average time on the market for family apartments?",
+    "Are there upcoming developments in these areas?",
+    "What are the property tax rates?",
+    "How do schools in the area rank?",
+    "What are the common maintenance issues in older buildings?"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Vibrant area close to Stockel, offers good transport options.",
+          "watch_out": "Higher price per square meter in desirable sections."
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "Lively neighborhood known for parks and cafes, ideal for families.",
+          "watch_out": "Limited nightlife may not suit all preferences."
+        }
+      ],
+      "why": [
+        "Access to Parc de Woluwe provides ample green space for children.",
+        "Stockel offers multiple cafes and a community feel ideal for families."
+      ],
+      "watch_out": [
+        "Some pockets are expensive; budget planning is crucial."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chant D’oiseau",
+          "why": "Greener area with great parks, perfect for family activities.",
+          "watch_out": "Some regions feel more suburban; commuting can vary."
+        },
+        {
+          "name": "Parc de la Woluwe",
+          "why": "Excellent access to recreational green spaces and playgrounds.",
+          "watch_out": "Commute times can be longer to central work areas."
+        }
+      ],
+      "why": [
+        "Proximity to parks is beneficial for family outings and activities.",
+        "Good public transport makes commuting easier for families."
+      ],
+      "watch_out": [
+        "Some areas can appear quiet, affecting community interaction."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Bois du Laarbeek - Poelbos",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Jette Centre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

@@ -90,9 +90,20 @@ def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = 
     IMPORTANT: the card width must match the container.
     If we always use full-page width and then place cards into a 2-column table,
     ReportLab will let the inner table overflow and visually overlap.
+
+    Also important: do NOT create a 1×1 table that contains a *list* of flowables
+    inside a single cell. A single table row cannot split across pages and will
+    trigger LayoutError for tall content (e.g., long commune sections).
+    We instead put each flowable into its own row so Platypus can split by row.
     """
     card_w = float(width) if width else (A4[0] - 4 * cm)
-    tbl = Table([[elements]], colWidths=[card_w])
+
+    safe_elements = [e for e in (elements or []) if e is not None]
+    if not safe_elements:
+        safe_elements = [Paragraph("—", getSampleStyleSheet()["BodyText"])]
+
+    data = [[e] for e in safe_elements]
+    tbl = Table(data, colWidths=[card_w], splitByRow=1, hAlign="LEFT")
     tbl.setStyle(
         TableStyle(
             [
@@ -102,6 +113,7 @@ def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = 
                 ("RIGHTPADDING", (0, 0), (-1, -1), padding),
                 ("TOPPADDING", (0, 0), (-1, -1), padding),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), padding),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
             ]
         )
     )
@@ -416,6 +428,13 @@ def render_minimal_premium_pdf(
                 blocks.append(Paragraph("<b>Priorities snapshot</b>", styles["Body"]))
                 blocks.append(_bullets(snap_lines, styles["Bullet"]))
 
+        # Budget reality check (honest rule-of-thumb, avoids false precision)
+        budget_reality = _clean_text(d.get("budget_reality", ""))
+        if budget_reality:
+            blocks.append(Spacer(1, 6))
+            blocks.append(Paragraph("<b>Budget reality check</b>", styles["Body"]))
+            blocks.append(_bullets([budget_reality], styles["Bullet"]))
+
         # Microhoods
         microhoods = d.get("microhoods") or []
         if microhoods:
@@ -498,6 +517,13 @@ def render_minimal_premium_pdf(
         if left or right:
             story.append(_two_col_grid(_card(left, padding=10, width=col_w), _card(right, padding=10, width=col_w), gap=col_gap))
             story.append(Spacer(1, 12))
+
+    # Commune registration / admin checklist (kept high-level to avoid false precision)
+    reg = [_clean_text(x) for x in (brief.get("registration_checklist") or []) if _clean_text(x)]
+    if reg:
+        story.append(Paragraph("<b>Commune registration checklist (typical)</b>", styles["Body"]))
+        story.append(_bullets(reg, styles["Bullet"]))
+        story.append(Spacer(1, 10))
 
     # Questions for agent/landlord
     q = [_clean_text(x) for x in (brief.get("questions_for_agent_landlord") or []) if _clean_text(x)]

@@ -1,0 +1,134 @@
+{
+  "client_profile": "Family of 3 relocating to Brussels, looking to buy a 3+ room home. Budget is 830,000 to 1,305,000 EUR. Priorities include residential areas, premium feel, and access to childcare.",
+  "must_have": [
+    "3+ rooms property",
+    "Childcare access",
+    "Schools accessible within 20 min walk",
+    "Residential and quiet environment"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots nearby",
+    "Parks for children",
+    "Proximity to grocery stores",
+    "Low noise levels"
+  ],
+  "red_flags": [
+    "Properties above budget limits",
+    "High noise from main roads",
+    "Long commutes to schools",
+    "Limited public transport options"
+  ],
+  "contradictions": [
+    "Premium feel vs. budget constraints",
+    "Residential quietness vs. accessibility",
+    "Childcare availability vs. property type choices",
+    "Desire for cafes vs. silence"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "microhoods": [
+        {
+          "name": "Foret de Soignes",
+          "why": "Access to vast green space for family activities.",
+          "watch_out": "Commute can be slower without a car, affecting travel times."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "Offers good public transit options for commuting needs.",
+          "watch_out": "Some pockets may stretch your budget limits."
+        }
+      ],
+      "why": [
+        "Features large parks like Fort Jaco for outdoor activities.",
+        "Has numerous reputable schools in close proximity."
+      ],
+      "watch_out": [
+        "Commute can be slower without a car; some pockets stretch budgets."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 5
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "This area is greener and lively, perfect for families.",
+          "watch_out": "Popular family areas book fast; prices can be above average."
+        },
+        {
+          "name": "Stockel",
+          "why": "Features local shops and parks, catering to family needs.",
+          "watch_out": "Rents can increase rapidly in sought-after pockets."
+        }
+      ],
+      "why": [
+        "Close to metro stations offering strong public transport links.",
+        "Proximity to quality educational institutions and childcare facilities."
+      ],
+      "watch_out": [
+        "Popular family areas book fast; prices can be above average."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Lively setting with good transit access for families.",
+          "watch_out": "Some areas may have higher property prices limiting options."
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Good access to parks and recreational areas.",
+        "Strong community feel with family-oriented activities."
+      ],
+      "watch_out": [
+        "Some areas may have higher property prices limiting options."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "client_profile": "Family with a 2-year-old, seeking to buy a 2+ room apartment in Brussels. Budget is EUR 490,000–895,000. Priorities include cafes, quiet residential areas, and parks.",
+  "must_have": [
+    "2+ rooms for family comfort",
+    "Good access to parks and green areas",
+    "Proximity to schools within 20 min walk"
+  ],
+  "nice_to_have": [
+    "Local cafes and brunch spots nearby",
+    "Quiet residential neighborhoods",
+    "Value for money in property pricing"
+  ],
+  "red_flags": [
+    "High noise levels in busy districts",
+    "Commute lengths exceeding 20 min to schools",
+    "Potentially high maintenance costs for older properties"
+  ],
+  "contradictions": [
+    "Quiet areas may be farther from amenities",
+    "Value properties might lack newer features",
+    "Balancing budget constraints with desired locations"
+  ],
+  "top_districts": [
+    {
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center",
+        "Basilica edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Bois du Laarbeek - Poelbos",
+          "why": "Offers green spaces with numerous trails for family activities.",
+          "watch_out": "Fewer nightlife options may limit social activities."
+        },
+        {
+          "name": "Ganshoren Centre",
+          "why": "Good transit options enhance connectivity to the city.",
+          "watch_out": "Limited dining choices could affect meal options."
+        }
+      ],
+      "why": [
+        "Contains numerous parks like Parc Elisabeth, ideal for families.",
+        "Offers a quieter lifestyle with accessible amenities."
+      ],
+      "watch_out": [
+        "Smaller commune may lack vibrant nightlife and activities."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 3,
+        "BudgetFit": 5,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "microhoods": [
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "Features parks and good access to public transportation.",
+          "watch_out": "Busy areas may experience high traffic noise."
+        },
+        {
+          "name": "Haren",
+          "why": "Lively area with amenities nearby for families.",
+          "watch_out": "Tourist crowds can create safety concerns."
+        }
+      ],
+      "why": [
+        "Offers access to cultural sites and parks near the Royal Palace.",
+        "Strong dining options in a cosmopolitan environment attract families."
+      ],
+      "watch_out": [
+        "Traffic can lead to noise issues, especially on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "Lively area with the charm of local cafes and boutiques.",
+          "watch_out": "High rents near EU quarter may stretch budgets."
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Accessibility to European institutions and parks."
+      ],
+      "watch_out": [
+        "May have higher competition for available apartments."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 2,
+        "Overall": 4
+      }
+    }
+  ]
+}

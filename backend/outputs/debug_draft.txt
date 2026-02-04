@@ -1,128 +1,125 @@
 {
-  "client_profile": "Family of three based in Brussels seeking to buy an apartment. Budget between 620000 EUR and 1065000 EUR, prioritizing cafes, quiet living, green parks, and family-friendly atmosphere.",
+  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 725000–1325000 EUR. Priorities include cafes & brunch, restaurants, a premium feel, and a residential environment.",
   "must_have": [
-    "2+ rooms",
-    "Access to schools within 20 min walk",
-    "Green parks nearby"
+    "2+ rooms available",
+    "Premium feel throughout",
+    "Residential and quiet atmosphere"
   ],
   "nice_to_have": [
-    "Cafes and brunch places nearby",
-    "Family-friendly community",
-    "Premium feel apartments"
+    "Access to good transit options",
+    "Local cafes and restaurants nearby"
   ],
   "red_flags": [
-    "High traffic noise in certain areas",
-    "Potentially high property prices",
-    "Budget stretch in premium neighborhoods"
+    "High competition for premium listings",
+    "Potentially long commute from some districts"
   ],
   "contradictions": [
-    "Quiet residential areas may be farther from cafes",
-    "Higher property prices in family-friendly zones",
-    "Walkable areas might limit housing options"
+    "Premium feel may conflict with budget limits",
+    "Desire for quiet areas may limit access to restaurants"
   ],
   "top_districts": [
     {
-      "name": "Woluwe-Saint-Pierre",
+      "name": "Ixelles",
       "micro_anchors": [
-        "Stockel",
-        "Montgomery area",
-        "Parc de Woluwe edge"
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
       ],
       "microhoods": [
         {
-          "name": "Saint - Paul",
-          "why": "Good transit options make commuting to schools easy.",
-          "watch_out": "House-focused pockets can raise overall housing costs."
+          "name": "Boondael",
+          "why": "Offers a green environment and lively scene with parks.",
+          "watch_out": "Popular streets can experience significant noise and tight parking."
         },
         {
-          "name": "Sainte - Alix - Joli Bois",
-          "why": "Lively atmosphere suitable for families and young children.",
-          "watch_out": "Fewer nightlife options compared to central locales."
+          "name": "Universite",
+          "why": "Known for lively atmosphere, good transit, and vibrant cafes.",
+          "watch_out": "Can be expensive, especially for premium apartments."
         }
       ],
       "why": [
-        "Close to Parc de Woluwe for outdoor activities and relaxation.",
-        "Stockel area features diverse cafes and a welcoming community."
+        "Vibrant area with access to parks like Flagey.",
+        "Diverse dining options attract both locals and tourists."
       ],
       "watch_out": [
-        "Property prices vary significantly; some areas may stretch budgets."
+        "Expect some street noise on weekends due to nightlife."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
+        "Family": 3,
         "Commute": 4,
-        "Lifestyle": 4,
+        "Lifestyle": 5,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Auderghem",
+      "name": "Saint-Gilles",
       "micro_anchors": [
-        "Herrmann-Debroux",
-        "Rouge-Cloitre",
-        "Val Duchesse edge"
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
       ],
       "microhoods": [
         {
-          "name": "Chant D’oiseau",
-          "why": "Greener area ideal for family strolls and outdoor play.",
-          "watch_out": "Certain areas may feel more suburban with limited amenities."
+          "name": "Haut Saint - Gilles",
+          "why": "Greener and quieter area with good access to amenities.",
+          "watch_out": "Some streets are lively and noisy late at night."
         },
         {
-          "name": "Parc de la Woluwe",
-          "why": "Offers great green spaces complemented by local cafes.",
-          "watch_out": "Commute times may vary widely depending on exact location."
+          "name": "Chatelain",
+          "why": "Offers a lively vibe with lots of cafes and restaurants.",
+          "watch_out": "Traffic noise can be an issue on busy streets."
         }
       ],
       "why": [
-        "Accessible parks encourage family outings and activities.",
-        "Herrmann-Debroux provides good transport options for commuting."
+        "Charming streets lined with cafes close to Parvis.",
+        "Excellent blend of residential and vibrant cultural life."
       ],
       "watch_out": [
-        "Suburban nature might make access to cafes less convenient."
+        "Choose quieter side streets to avoid night noise."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
+        "Family": 3,
         "Commute": 4,
-        "Lifestyle": 3,
+        "Lifestyle": 5,
         "BudgetFit": 4,
         "Overall": 4
       }
     },
     {
-      "name": "Ganshoren",
+      "name": "Etterbeek",
       "micro_anchors": [
-        "Parc Elisabeth edge",
-        "Ganshoren center",
-        "Basilica edge"
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
       ],
       "microhoods": [
         {
-          "name": "Bois du Laarbeek - Poelbos",
-          "why": "Greener area that provides ample space for children to play.",
-          "watch_out": "Fewer nightlife options could limit dining choices."
+          "name": "Chasse",
+          "why": "Lively neighborhood with good transit connections.",
+          "watch_out": "Higher rents closer to EU quarter and busy roads."
         },
         {
-          "name": "Ganshoren Centre",
-          "why": "Good transit ensures easy access to schools and amenities.",
-          "watch_out": "Limited housing stock in certain family-friendly pockets."
+          "name": "Saint - Pierre",
+          "why": "Offers access to green spaces and community vibe.",
+          "watch_out": "Traffic can be congested during peak hours."
         }
       ],
       "why": [
-        "Parks and green spaces promote a family-friendly environment.",
-        "Ganshoren Center features essential amenities within walking distance."
+        "Access to parks and a residential, community vibe.",
+        "Good dining options with a bustling local market feel."
       ],
       "watch_out": [
-        "Fewer nightlife and entertainment options may affect community life."
+        "Traffic around main roads can be a significant concern."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 3,
-        "BudgetFit": 4,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
         "Overall": 4
       }
     }
@@ -159,3 +156,12 @@
       "name": "TREVI",
       "url": "https://www.trevi.be",
       "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://

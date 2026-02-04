@@ -1,0 +1,130 @@
+{
+  "client_profile": "Family of 3 seeking to buy a 2+ room apartment in Brussels. Budget of €490,000–€895,000. Priorities include cafes, quiet residential areas, and access to parks.",
+  "must_have": [
+    "2+ rooms for family comfort",
+    "Proximity to parks and green areas",
+    "Quiet residential environment",
+    "Easy access to cafes and brunch spots",
+    "Schools within 20 min walking distance"
+  ],
+  "nice_to_have": [
+    "Community atmosphere",
+    "Close to public transport",
+    "Family-oriented amenities nearby",
+    "Affordable housing options"
+  ],
+  "red_flags": [
+    "High traffic noise near major roads",
+    "Limited availability of family-friendly apartments",
+    "Long commute times to desired schools"
+  ],
+  "contradictions": [
+    "Quiet areas may lack vibrant nightlife",
+    "Affordability might compromise location access",
+    "Larger apartments may exceed budget constraints"
+  ],
+  "top_districts": [
+    {
+      "name": "Ganshoren",
+      "micro_anchors": [
+        "Parc Elisabeth edge",
+        "Ganshoren center"
+      ],
+      "microhoods": [
+        {
+          "name": "Bois du Laarbeek - Poelbos",
+          "why": "This area features extensive green spaces ideal for family outings.",
+          "watch_out": "Smaller commune might lack diverse cafes and brunch options."
+        },
+        {
+          "name": "Ganshoren Centre",
+          "why": "Well-connected to public transport and local amenities for families.",
+          "watch_out": "Limited nightlife and entertainment options available."
+        }
+      ],
+      "why": [
+        "Offers beautiful parks like Parc Elisabeth for relaxation.",
+        "Great for families due to its overall quiet atmosphere."
+      ],
+      "watch_out": [
+        "Can feel isolated; fewer amenities compared to larger districts."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 5,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Royal Palace / Park area"
+      ],
+      "microhoods": [
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "Rich in cultural attractions and local cafes for family fun.",
+          "watch_out": "Touristy areas can become noisy during weekends."
+        },
+        {
+          "name": "Bois de la Cambre",
+          "why": "Offers expansive park space ideal for family outings.",
+          "watch_out": "Traffic can be heavy in popular tourist seasons."
+        }
+      ],
+      "why": [
+        "Major cultural and shopping attractions enhance lifestyle choices.",
+        "Easy access to parks allows for family recreation."
+      ],
+      "watch_out": [
+        "Busy traffic areas can create noise disturbances, especially on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "Cinquantenaire edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "Engaging community with decent parks for family activities.",
+          "watch_out": "Higher rents near the EU quarter can stretch budgets."
+        },
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "Engaging community with decent parks for family activities.",
+          "watch_out": "Higher rents near the EU quarter can stretch budgets."
+        }
+      ],
+      "why": [
+        "Excellent transport links and amenities.",
+        "Family-friendly parks and activities."
+      ],
+      "watch_out": [
+        "Potentially higher living costs due to proximity to the city center."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ]
+}

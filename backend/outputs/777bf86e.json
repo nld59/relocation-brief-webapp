@@ -1,0 +1,137 @@
+{
+  "client_profile": "Family looking to buy in Brussels, budget 830000–1305000 EUR. Priorities include residential and quiet areas, premium feel, and childcare access.",
+  "must_have": [
+    "3+ rooms with child-friendly spaces",
+    "Proximity to quality schools",
+    "Quiet residential neighborhoods"
+  ],
+  "nice_to_have": [
+    "Access to local cafes and brunch spots",
+    "Nearby parks for child play",
+    "Modern, well-maintained properties"
+  ],
+  "red_flags": [
+    "Areas with high noise levels",
+    "Complicated school commutes",
+    "Limited public transport access"
+  ],
+  "contradictions": [
+    "Desire for quiet yet vibrant neighborhoods",
+    "Budget versus premium properties",
+    "Access to amenities vs. quiet living"
+  ],
+  "questions_for_agent_landlord": [
+    "What is the average time on the market for properties in this area?",
+    "Are there any upcoming developments that might affect property prices?",
+    "How often do properties become available in our budget range?",
+    "What utilities and maintenance costs can we expect?",
+    "Are there any neighborhood associations or restrictions we should know about?"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "microhoods": [
+        {
+          "name": "Foret de Soignes",
+          "why": "Offers extensive green spaces and playgrounds ideal for families.",
+          "watch_out": "Commute can be slower without a car."
+        },
+        {
+          "name": "Vivier D’oie",
+          "why": "Has a family-friendly atmosphere and easy access to parks.",
+          "watch_out": "Budget stretch possible in prime areas."
+        }
+      ],
+      "why": [
+        "Residential vibe attracts families seeking quiet living.",
+        "Excellent childcare facilities and schools nearby."
+      ],
+      "watch_out": [
+        "Commute can be slower without a car."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "Greener area with lively family-friendly parks and amenities.",
+          "watch_out": "Prices can be above average, especially in popular areas."
+        },
+        {
+          "name": "Val D’or",
+          "why": "Offers good transit access and proximity to major amenities.",
+          "watch_out": "Fast rentals may limit options within budget."
+        }
+      ],
+      "why": [
+        "Well-known for family-oriented neighborhoods and parks.",
+        "Strong schools and childcare facilities available."
+      ],
+      "watch_out": [
+        "Prices can be above average, especially in popular areas."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Offers a peaceful environment with good amenities.",
+          "watch_out": "Limited options for larger families."
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Blend of residential comfort and accessibility.",
+        "Good mix of parks and local shops."
+      ],
+      "watch_out": [
+        "Higher price range for larger homes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ]
+}

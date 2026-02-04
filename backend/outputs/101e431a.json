@@ -1,0 +1,123 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels with a budget of 660000–1120000 EUR. Priorities include cafes, restaurants, and a quiet residential area.",
+  "must_have": [
+    "2+ rooms in apartment",
+    "Quiet residential area",
+    "Proximity to cafes and restaurants"
+  ],
+  "nice_to_have": [
+    "Good public transport access",
+    "Green spaces nearby",
+    "Vibrant local market"
+  ],
+  "red_flags": [
+    "Possibility of noise in busy areas",
+    "Parking can be limited in some districts",
+    "Higher costs near popular cafes"
+  ],
+  "contradictions": [
+    "Desiring a quiet area while close to vibrant cafes",
+    "Budget stretch for upscale neighborhoods",
+    "Mixing residential quiet with trendy nightlife"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "why": "Known for its greenery and lively atmosphere, ideal for couples.",
+          "watch_out": "Busy streets can mean noise and tight parking."
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "Offers a peaceful ambiance and ample cafes nearby.",
+          "watch_out": "Traffic can be heavy during peak hours."
+        },
+        {
+          "name": "Universite",
+          "why": "Great for transit access and vibrant cafes for young professionals.",
+          "watch_out": "Can be noisy during university events."
+        }
+      ],
+      "why": [
+        "Charming local cafes near Châtelain and Flagey squares enhance community feel.",
+        "Strengthening transport links make commutes to the city center manageable."
+      ],
+      "watch_out": [
+        "Popular streets get noisy on weekends; parking is often tight."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "A lively area with great access to cafes and parks.",
+          "watch_out": "Near EU quarter, rents can be higher."
+        },
+        {
+          "name": "Chasse",
+          "why": "Known for vibrant cafés and community activities.",
+          "watch_out": "Traffic can lead to congestion and noise."
+        },
+        {
+          "name": "Saint - Pierre",
+          "why": "Offers a blend of parks and eateries ideal for relaxation.",
+          "watch_out": "Busy roads can impact quietness."
+        }
+      ],
+      "why": [
+        "Exceptional park access at Cinquantenaire enhances outdoor activities.",
+        "Central location provides convenient commuting options across Brussels."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis"
+      ],
+      "microhoods": [
+        {
+          "name": "Bas Forest",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

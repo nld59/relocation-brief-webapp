@@ -5155,6 +5155,9 @@
       },
       "microhoods": [
         {
+          "name": "Jette Centre"
+        },
+        {
           "id": 74,
           "monitoring_id": 74,
           "name": "Heysel",
@@ -5529,39 +5532,6 @@
           }
         },
         {
-          "id": 72,
-          "monitoring_id": 72,
-          "name": "Jette Centre",
-          "metrics": {
-            "area_km2": 0.9536598406428025,
-            "cafes": 3,
-            "bars": 22,
-            "restaurants": 34,
-            "schools": 12,
-            "childcare": 2,
-            "metro": 1,
-            "tram": 8,
-            "train": 1,
-            "parks_km2": 1.1092673851667734,
-            "cafes_density": 3.1457757495354817,
-            "bars_density": 23.069022163260197,
-            "restaurant_density": 35.652125161402125,
-            "schools_density": 12.583102998141927,
-            "childcare_density": 2.0971838330236543,
-            "metro_station_density": 1.0485919165118271,
-            "tram_stop_density": 8.388735332094617,
-            "train_station_density": 1.0485919165118271,
-            "parks_share": 1.16316881333609
-          },
-          "tag_confidence": {
-            "cafes_brunch": "medium",
-            "nightlife": "high",
-            "green_parks": "medium",
-            "schools_strong": "high",
-            "childcare_strong": "high"
-          }
-        },
-        {
           "id": 69,
           "monitoring_id": 69,
           "name": "Ganshoren Centre",
@@ -5925,5 +5895,47 @@
         "note": "Strong listings; many agent exclusives."
       }
     ]
+  },
+  "microhood_profiles": {
+    "Châtelain": {
+      "why": "Upscale local feel with boutiques, cafés and a walkable street grid; popular for young professionals and expats.",
+      "watch_out": "Rents/prices are among the higher end; check parking availability and street noise near busy corners."
+    },
+    "Flagey": {
+      "why": "Lively neighborhood around the ponds with strong café culture and easy access to Ixelles/Etterbeek.",
+      "watch_out": "Can get busy in the evenings and on weekends; some streets are noisier than others."
+    },
+    "Parc Tenbosch": {
+      "why": "Quieter residential pocket near green space and close to Louise/Châtelain amenities.",
+      "watch_out": "Availability can be limited; verify access to shops and public transport for your exact address."
+    },
+    "Sainte-Alix": {
+      "why": "Calmer residential area often chosen by families for its green feel and larger homes.",
+      "watch_out": "Fewer nightlife/late-evening amenities; verify commute time to your key destinations."
+    },
+    "Joli Bois": {
+      "why": "Leafier, more spacious feel with a strong residential character; good for those prioritizing quiet.",
+      "watch_out": "Less dense retail/cafés; public transport convenience varies by pocket."
+    },
+    "Stockel": {
+      "why": "Well-known family-friendly hub with metro access and everyday services; practical base for the east side.",
+      "watch_out": "Demand is consistently high; compare total cost and be ready to move quickly on good listings."
+    },
+    "Montgomery": {
+      "why": "Excellent connectivity (tram/metro links) and quick access to central corridors; convenient for commuters.",
+      "watch_out": "Traffic/arterial roads can be noisy; shortlist streets away from main junctions."
+    },
+    "Parc Elisabeth": {
+      "why": "Green anchor area with a calmer feel and good access toward Koekelberg/Jette.",
+      "watch_out": "Street-by-street variation; confirm safety/ambience at night for your exact route."
+    },
+    "Basilique": {
+      "why": "Distinct landmark zone with good access links and a more residential price point than prime central areas.",
+      "watch_out": "Some pockets feel less lively; check walkability to your preferred cafés/shops."
+    },
+    "Koekelberg Centre": {
+      "why": "Practical, local-feel center with everyday amenities and relatively good value.",
+      "watch_out": "Quality varies by building; pay attention to condition, charges, and renovation plans."
+    }
   }
 }

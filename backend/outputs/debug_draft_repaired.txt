@@ -1,58 +1,52 @@
 {
-  "client_profile": "A family in Brussels is looking to buy an apartment with 2+ rooms, budget of EUR 620,000 to EUR 1,065,000. Priorities include cafes, quiet residential areas, parks, premium feel, and family-friendliness.",
+  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 725000–1325000 EUR. Priorities include cafes & brunch, restaurants, a premium feel, and a residential environment.",
   "must_have": [
-    "2+ rooms apartment",
-    "Good access to parks",
-    "Family-friendly environment",
-    "Cafes and brunch nearby",
-    "Quiet residential area"
+    "2+ rooms available",
+    "Premium feel throughout",
+    "Residential and quiet atmosphere"
   ],
   "nice_to_have": [
-    "Premium feel",
-    "School access within 20 min walk",
-    "Green spaces for children",
-    "Good community vibe"
+    "Access to good transit options",
+    "Local cafes and restaurants nearby"
   ],
   "red_flags": [
-    "High traffic noise during weekends",
-    "Rising property prices in top areas",
-    "Long commutes to work or school"
+    "High competition for premium listings",
+    "Potentially long commute from some districts"
   ],
   "contradictions": [
-    "Quiet areas may sacrifice nightlife",
-    "Premium properties can exceed budget",
-    "Good cafes may attract more crowds"
+    "Premium feel may conflict with budget limits",
+    "Desire for quiet areas may limit access to restaurants"
   ],
   "top_districts": [
     {
-      "name": "Woluwe-Saint-Pierre",
+      "name": "Ixelles",
       "micro_anchors": [
-        "Stockel",
-        "Montgomery area",
-        "Parc de Woluwe edge"
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
       ],
       "microhoods": [
         {
-          "name": "Saint - Paul",
-          "why": "Saint - Paul offers lively cafes and excellent transit options.",
-          "watch_out": "House-focused pockets are pricey; fewer nightlife options exist."
+          "name": "Boondael",
+          "why": "Offers a green environment and lively scene with parks.",
+          "watch_out": "Popular streets can experience significant noise and tight parking."
         },
         {
-          "name": "Sainte - Alix - Joli Bois",
-          "why": "Sainte - Alix features vibrant parks and a welcoming community feel.",
-          "watch_out": "Prices can rise rapidly in popular sections."
+          "name": "Universite",
+          "why": "Known for lively atmosphere, good transit, and vibrant cafes.",
+          "watch_out": "Can be expensive, especially for premium apartments."
         }
       ],
       "why": [
-        "Parc de Woluwe provides ample green space for family activities.",
-        "Strong community vibe with family-oriented amenities available."
+        "Vibrant area with access to parks like Flagey.",
+        "Diverse dining options attract both locals and tourists."
       ],
       "watch_out": [
-        "Rental prices can exceed budget due to high demand."
+        "Expect some street noise on weekends due to nightlife."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
+        "Family": 3,
         "Commute": 4,
         "Lifestyle": 5,
         "BudgetFit": 3,
@@ -60,72 +54,72 @@
       }
     },
     {
-      "name": "Auderghem",
+      "name": "Saint-Gilles",
       "micro_anchors": [
-        "Herrmann-Debroux",
-        "Rouge-Cloitre",
-        "Val Duchesse edge"
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
       ],
       "microhoods": [
         {
-          "name": "Chant D’oiseau",
-          "why": "Chant D’oiseau features greenery and vibrant community spots.",
-          "watch_out": "Some areas feel suburban so check commute times."
+          "name": "Haut Saint - Gilles",
+          "why": "Greener and quieter area with good access to amenities.",
+          "watch_out": "Some streets are lively and noisy late at night."
         },
         {
-          "name": "Transvaal",
-          "why": "Transvaal offers lively parks and convenient transport links.",
-          "watch_out": "Suburban feel may stretch your daily commute."
+          "name": "Chatelain",
+          "why": "Offers a lively vibe with lots of cafes and restaurants.",
+          "watch_out": "Traffic noise can be an issue on busy streets."
         }
       ],
       "why": [
-        "Val Duchesse provides ample outdoor space for young families.",
-        "Strong bike lanes make commuting accessible and convenient."
+        "Charming streets lined with cafes close to Parvis.",
+        "Excellent blend of residential and vibrant cultural life."
       ],
       "watch_out": [
-        "Suburban areas can lead to longer commutes."
+        "Choose quieter side streets to avoid night noise."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
         "BudgetFit": 4,
         "Overall": 4
       }
     },
     {
-      "name": "Ganshoren",
+      "name": "Etterbeek",
       "micro_anchors": [
-        "Parc Elisabeth edge",
-        "Ganshoren center",
-        "Basilica edge"
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
       ],
       "microhoods": [
         {
-          "name": "Ganshoren Centre",
-          "why": "Ganshoren Centre is well-connected and filled with family-friendly spots.",
-          "watch_out": "Fewer nightlife options can limit weekend activities."
+          "name": "Chasse",
+          "why": "Lively neighborhood with good transit connections.",
+          "watch_out": "Higher rents closer to EU quarter and busy roads."
         },
         {
-          "name": "Basilique",
-          "why": "Basilique offers a blend of tranquility and community parks.",
-          "watch_out": "Nightlife options are limited; prefer nearby areas."
+          "name": "Saint - Pierre",
+          "why": "Offers access to green spaces and community vibe.",
+          "watch_out": "Traffic can be congested during peak hours."
         }
       ],
       "why": [
-        "Parc Elisabeth provides a green retreat perfect for children.",
-        "Family-focused amenities ensure a supportive environment."
+        "Access to parks and a residential, community vibe.",
+        "Good dining options with a bustling local market feel."
       ],
       "watch_out": [
-        "Limited nightlife options may affect weekend outings."
+        "Traffic around main roads can be a significant concern."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
+        "Family": 4,
         "Commute": 4,
-        "Lifestyle": 3,
-        "BudgetFit": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
         "Overall": 4
       }
     }
@@ -161,7 +155,17 @@
     {
       "name": "TREVI",
       "url": "https://www.trevi.be",
-      "note": "Well-known agency with extensive listings."
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immo-francois.be",
+      "note": "Local expertise and personalized service."
     }
   ]
 }
