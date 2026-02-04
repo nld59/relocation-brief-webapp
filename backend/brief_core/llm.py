@@ -11,7 +11,7 @@ from .city_packs import load_city_pack
 
 
 SYSTEM_INSTRUCTIONS = """You are a B2B relocation brief assistant.
-Return ONLY valid JSON (no markdown, no extra text). Keep it concise for a 1-page PDF.
+Return ONLY valid JSON (no markdown, no extra text). Keep it concise and premium.
 
 Style rules (VERY IMPORTANT):
 - Be specific; avoid generic filler.
@@ -37,16 +37,16 @@ Completeness rules (VERY IMPORTANT):
 - No truncated phrases. Each bullet must be a complete thought with a clear object.
 
 Limits:
-- must_have: max 5 items
-- nice_to_have: max 5 items
-- red_flags: max 5 items
-- contradictions (trade-offs): max 4 items
-- next_steps: max 4 items
+- must_have: max 8 items
+- nice_to_have: max 8 items
+- red_flags: max 8 items
+- contradictions (trade-offs): max 8 items
+- next_steps: max 12 items (concrete 1–2 week plan)
 - top_districts: exactly 3 districts
   - why: EXACTLY 2 bullets
   - watch_out: EXACTLY 1 bullet
-- real_estate_sites: max 4
-- agencies: max 3
+- real_estate_sites: max 3
+- agencies: max 5
 
 Top-3 district explanation rules (VERY IMPORTANT):
 - District names must be EXACT matches of commune names from the city pack shortlist.
@@ -220,12 +220,29 @@ def _compact_pack_for_llm(pack: Dict[str, Any], shortlist_communes: list[Dict[st
 
     communes_out = []
     for c in shortlist_communes:
+        # Microhood shortlist (names only + a tiny hint) so the model can pick 2–3 per commune.
+        mh_short = []
+        for mh in (c.get("microhoods") or [])[:8]:
+            if not isinstance(mh, dict) or not mh.get("name"):
+                continue
+            hint_parts = []
+            m = mh.get("metrics") or {}
+            if isinstance(m, dict):
+                if (m.get("parks_share") or 0) >= 0.16:
+                    hint_parts.append("greener")
+                if (m.get("cafes_density") or 0) >= 0.55:
+                    hint_parts.append("lively")
+                if (m.get("tram_stop_density") or 0) >= 0.55 or (m.get("metro_stop_density") or 0) >= 0.30:
+                    hint_parts.append("good transit")
+            mh_short.append({"name": mh.get("name"), "hint": ", ".join(hint_parts[:2])})
+
         communes_out.append({
             "name": c.get("name"),
             "micro_anchors": c.get("micro_anchors", []),
             "tags": c.get("tags", []),
             "watch_out_hint": c.get("watch_out_hint", ""),
-            "tag_confidence": {k:v for k,v in (c.get("tag_confidence") or {}).items() if k in (c.get("tags") or [])}
+            "tag_confidence": {k:v for k,v in (c.get("tag_confidence") or {}).items() if k in (c.get("tags") or [])},
+            "microhoods_shortlist": mh_short,
         })
 
     return {
@@ -234,8 +251,8 @@ def _compact_pack_for_llm(pack: Dict[str, Any], shortlist_communes: list[Dict[st
         "tags_vocab": [{"id": t.get("id"), "title": t.get("title")} for t in vocab if t.get("id")],
         "user_priority_tags": user_tags,
         "communes_shortlist": communes_out,
-        "real_estate_sites": pack.get("real_estate_sites", [])[:4],
-        "agencies": pack.get("agencies", [])[:3],
+        "real_estate_sites": pack.get("real_estate_sites", [])[:3],
+        "agencies": pack.get("agencies", [])[:5],
         "rules": {
             "district_selection": "Choose top_districts ONLY from communes_shortlist names.",
             "anchors": "Use micro_anchors inside why bullets (one anchor per bullet).",
@@ -392,7 +409,7 @@ def _validate_brief(obj: Dict[str, Any]) -> list[str]:
     _check_list("red_flags", max_len=5)
     _check_list("contradictions", max_len=4)
     _check_list("next_steps", max_len=4)
-    _check_list("clarifying_questions", max_len=3)
+    _check_list("clarifying_questions", max_len=5)
     _check_list("questions_for_agent_landlord", exact=5)
 
     td = _check_list("top_districts", exact=3)
@@ -460,8 +477,12 @@ def _maybe_polish_invalid_json(client: OpenAI, model: str, obj: Dict[str, Any], 
     raw = _extract_resp_text(resp)
 
     if not raw:
-        # Fail-soft: keep the original object if the model produced no text
-        return obj
+        # Fail-soft: deterministic minimal brief from shortlist
+        return _fallback_brief_from_shortlist(
+            normalized={"location": answers.get("city", "")},
+            communes_shortlist=shortlist,
+            pack=pack,
+        )
     fixed = _parse_json_with_repair(client, model, raw, tag="polish")
     return fixed
 
@@ -541,8 +562,8 @@ def draft_brief(answers: Dict[str, str], quality: bool = False) -> Dict[str, Any
             legacy = {
                 "city": pack.get("city"),
                 "district_hints": pack.get("district_hints"),
-                "real_estate_sites": pack.get("real_estate_sites", [])[:4],
-                "agencies": pack.get("agencies", [])[:3],
+                "real_estate_sites": pack.get("real_estate_sites", [])[:3],
+                "agencies": pack.get("agencies", [])[:5],
             }
         pack_text = "" if not legacy else ("City pack (reference):\n" + json.dumps(legacy, ensure_ascii=False))
 
@@ -563,7 +584,7 @@ def draft_brief(answers: Dict[str, str], quality: bool = False) -> Dict[str, Any
                     "client_profile, must_have, nice_to_have, red_flags, contradictions, "
                     "top_districts (exactly 3 objs), real_estate_sites, agencies, "
                     "questions_for_agent_landlord (exactly 5), next_steps, "
-                    "clarifying_questions (max 3). "
+                    "clarifying_questions (max 5). "
                     "For real_estate_sites/agencies items include name,url,note. "
                     "For top_districts.scores always include Safety, Family, Commute as integers 1..5. "
                     "Remember: no truncated bullets, ASCII only, client_profile <= 230 chars. "
@@ -577,8 +598,8 @@ def draft_brief(answers: Dict[str, str], quality: bool = False) -> Dict[str, Any
     raw = _extract_resp_text(resp)
 
     if not raw:
-        # Fail-soft: keep the original object if the model produced no text
-        return obj
+        # Fail-soft: deterministic brief from the pack shortlist
+        return _fallback_brief_from_shortlist({"location": answers.get("city", "")}, shortlist, pack)
 
     parsed = _parse_json_with_repair(client, model, raw, tag="draft")
     errs = _validate_brief(parsed)
@@ -586,6 +607,7 @@ def draft_brief(answers: Dict[str, str], quality: bool = False) -> Dict[str, Any
     # Hard guardrail: district names must be communes from shortlist
     if pack and shortlist:
         parsed = _enforce_communes_on_top_districts(parsed, shortlist)
+        parsed = _enforce_microhoods_on_top_districts(parsed, shortlist)
     return parsed
 
 
@@ -654,6 +676,7 @@ def finalize_brief(
         # Hard guardrail: district names must be communes from shortlist
         if pack and shortlist:
             parsed = _enforce_communes_on_top_districts(parsed, shortlist)
+            parsed = _enforce_microhoods_on_top_districts(parsed, shortlist)
         return parsed
     except Exception:
         _save_debug_raw("final_parse_error", raw)

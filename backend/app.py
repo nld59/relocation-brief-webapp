@@ -207,25 +207,37 @@ def ui_to_answers(payload: Dict[str, Any]) -> Dict[str, str]:
     }
 
 
-def _render_all(brief_id: str, raw: Dict[str, Any], norm: Dict[str, Any], answers: Dict[str, str]):
-    # markdown (for download + preview)
-    md = render_md(norm, city=answers.get("city") or "Relocation")
-    md_path = OUT_DIR / f"{brief_id}.md"
-    md_path.write_text(md, encoding="utf-8")
+def _render_all(
+    brief_id: str,
+    raw: Dict[str, Any],
+    norm: Dict[str, Any],
+    answers: Dict[str, str],
+    *,
+    render_files: bool,
+):
+    """Render MD/PDF to disk only when we are ready for download.
 
-    # json (debug)
+    We always return markdown content for UI preview, but we only write files
+    (and compute pdf_ms) when `render_files=True`.
+    """
+    md = render_md(norm, city=answers.get("city") or "Relocation")
+
+    # json (debug) is always saved, helpful for troubleshooting
     (OUT_DIR / f"{brief_id}.json").write_text(json.dumps(raw, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # pdf (minimal premium, 1 page)
-    pdf_path = OUT_DIR / f"{brief_id}.pdf"
-    t0 = time.perf_counter()
-    render_minimal_premium_pdf(
-        out_path=str(pdf_path),
-        city=answers.get("city") or "Relocation",
-        brief=norm,
-        answers=answers,
-    )
-    pdf_ms = int((time.perf_counter() - t0) * 1000)
+    pdf_ms = None
+    if render_files:
+        (OUT_DIR / f"{brief_id}.md").write_text(md, encoding="utf-8")
+
+        pdf_path = OUT_DIR / f"{brief_id}.pdf"
+        t0 = time.perf_counter()
+        render_minimal_premium_pdf(
+            out_path=str(pdf_path),
+            city=answers.get("city") or "Relocation",
+            brief=norm,
+            answers=answers,
+        )
+        pdf_ms = int((time.perf_counter() - t0) * 1000)
 
     return md, pdf_ms
 
@@ -245,12 +257,13 @@ def brief_draft(payload: Dict[str, Any]):
     raw = draft_brief(answers, quality=quality)
     llm_ms = int((time.perf_counter() - llm_t0) * 1000)
 
-    norm = normalize_brief(raw)
+    norm = normalize_brief(raw, city=answers.get("city"), answers=answers)
 
     brief_id = str(uuid.uuid4())[:8]
     STORE[brief_id] = {"answers": answers, "raw": raw, "norm": norm, "quality": quality}
 
-    md, pdf_ms = _render_all(brief_id, raw, norm, answers)
+    can_download = len(norm.get("clarifying_questions") or []) == 0
+    md, pdf_ms = _render_all(brief_id, raw, norm, answers, render_files=can_download)
 
     total_ms = int((time.perf_counter() - total_t0) * 1000)
 
@@ -261,6 +274,7 @@ def brief_draft(payload: Dict[str, Any]):
         "llm_ms": llm_ms,
         "pdf_render_ms": pdf_ms,
         "total_ms": total_ms,
+        "can_download": can_download,
     }
 
 
@@ -281,10 +295,11 @@ def brief_final(payload: Dict[str, Any]):
     updated_raw = finalize_brief(answers, current_raw, clar)
     llm_ms = int((time.perf_counter() - llm_t0) * 1000)
 
-    updated = normalize_brief(updated_raw)
+    updated = normalize_brief(updated_raw, city=answers.get("city"), answers=answers)
     STORE[brief_id] = {"answers": answers, "raw": updated_raw, "norm": updated, "quality": saved.get("quality", False)}
 
-    md, pdf_ms = _render_all(brief_id, updated_raw, updated, answers)
+    can_download = len(updated.get("clarifying_questions") or []) == 0
+    md, pdf_ms = _render_all(brief_id, updated_raw, updated, answers, render_files=can_download)
 
     total_ms = int((time.perf_counter() - total_t0) * 1000)
 
@@ -295,6 +310,7 @@ def brief_final(payload: Dict[str, Any]):
         "llm_ms": llm_ms,
         "pdf_render_ms": pdf_ms,
         "total_ms": total_ms,
+        "can_download": can_download,
     }
 
 

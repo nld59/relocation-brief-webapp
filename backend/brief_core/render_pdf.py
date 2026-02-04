@@ -1,630 +1,440 @@
 from __future__ import annotations
 
-from typing import Dict, Any, List, Tuple
-from pathlib import Path
-from functools import lru_cache
-import json
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import cm
+"""PDF renderer (premium, multi-page).
+
+This replaces the previous canvas-based one-page renderer.
+We use ReportLab Platypus so content can naturally flow across pages.
+
+The public entrypoint is `render_minimal_premium_pdf(...)` because the
+rest of the app imports that name.
+"""
+
+from dataclasses import dataclass
+from datetime import date
+from typing import Any, Dict, List, Optional
+
 from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.units import cm
+from reportlab.platypus import (
+    SimpleDocTemplate,
+    Paragraph,
+    Spacer,
+    Table,
+    TableStyle,
+    PageBreak,
+    ListFlowable,
+    ListItem,
+    KeepTogether,
+)
 
-# base vertical spacing between major blocks
-GAP = 0.30 * cm
-# extra safety spacing before the Top-3 title (prevents collisions)
-TOP3_TITLE_GAP = 0.45 * cm
 
-def _clean_text(s: str) -> str:
-    if not s:
-        return s
-    s = str(s).replace("\u00A0", " ")
-    s = s.replace("’", "'").replace("“", '"').replace("”", '"')
-    s = s.replace("minutes'", "minutes").replace("minute'", "minute")
-    s = s.replace("minute\u2019", "minute").replace("minutes\u2019", "minutes")
-    return s
+ACCENT = colors.HexColor("#2F66FF")
+BG_SOFT = colors.HexColor("#F7F9FF")
+BG_CARD = colors.HexColor("#FFFFFF")
+STROKE = colors.HexColor("#E5E7EB")
+TEXT_MUTED = colors.HexColor("#6B7280")
 
-@lru_cache(maxsize=8)
-def _microanchors_map_for_city(city: str) -> Dict[str, List[str]]:
-    """
-    Best-effort micro-anchors lookup from local city pack JSON.
-    This keeps the PDF consistent even if LLM output omits micro_anchors.
-    """
+
+def _clean_text(s: Any) -> str:
+    if s is None:
+        return ""
+    s = str(s)
+    # Keep the PDF stable (avoid curly quotes / NBSP)
+    return (
+        s.replace("\u00A0", " ")
+        .replace("’", "'")
+        .replace("“", '"')
+        .replace("”", '"')
+    ).strip()
+
+
+def _rating_bar(value: Any) -> str:
+    """Render a compact 1–5 rating as blocks: ■■■□□"""
     try:
-        if not city:
-            return {}
-        city_l = str(city).lower()
-        # For now we only ship Brussels pack, keep it explicit & safe.
-        if "brussels" not in city_l:
-            return {}
-
-        pack_path = Path(__file__).resolve().parents[1] / "city_packs" / "brussels.json"
-        if not pack_path.exists():
-            return {}
-
-        data = json.loads(pack_path.read_text(encoding="utf-8"))
-
-        out: Dict[str, List[str]] = {}
-
-        def add_list(lst):
-            if not isinstance(lst, list):
-                return
-            for it in lst:
-                if not isinstance(it, dict):
-                    continue
-                nm = (it.get("name") or "").strip()
-                if not nm:
-                    continue
-                micro = it.get("micro_anchors") or []
-                if isinstance(micro, str):
-                    micro = [micro]
-                if isinstance(micro, list):
-                    micro = [_clean_text(x) for x in micro if str(x).strip()]
-                else:
-                    micro = []
-                if micro:
-                    out[nm.lower()] = micro
-
-        # Common layouts: top-level list, or nested lists under a dict
-        for v in data.values():
-            if isinstance(v, list):
-                add_list(v)
-            elif isinstance(v, dict):
-                for vv in v.values():
-                    if isinstance(vv, list):
-                        add_list(vv)
-
-        return out
+        v = int(value)
     except Exception:
-        return {}
+        v = 3
+    v = max(1, min(5, v))
+    return "■" * v + "□" * (5 - v)
 
-def _wrap(c: canvas.Canvas, text: str, max_width: float, font_name: str, font_size: float) -> List[str]:
-    text = _clean_text(text or "")
-    c.setFont(font_name, font_size)
-    words = text.split()
-    lines, cur = [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        if c.stringWidth(test, font_name, font_size) <= max_width:
-            cur = test
-        else:
-            if cur:
-                lines.append(cur)
-            cur = w
-    if cur:
-        lines.append(cur)
-    return lines
 
-def _draw_section_title(c, x, y, title, accent):
-    c.setFont("Helvetica-Bold", 11)
-    c.setFillColor(accent)
-    c.drawString(x, y, _clean_text(title))
-    c.setFillColor(colors.black)
+def _bullets(items: List[str], style: ParagraphStyle) -> ListFlowable:
+    items = [i for i in (items or []) if _clean_text(i)]
+    if not items:
+        items = ["—"]
+    li = [ListItem(Paragraph(_clean_text(t), style), leftIndent=10) for t in items]
+    return ListFlowable(li, bulletType="bullet", start="•", leftIndent=14)
 
-def _bullets_line_count(c: canvas.Canvas, items: List[str], max_width: float, font_size: float) -> int:
-    c.setFont("Helvetica", font_size)
-    total = 0
-    for it in (items or []):
-        lines = _wrap(c, f"• {it}", max_width, "Helvetica", font_size)
-        total += max(1, len(lines))
-    return total
 
-def _draw_bullets(c, x, y, items: List[str], max_width, max_lines, font_size=9.0) -> Tuple[float, int]:
-    c.setFont("Helvetica", font_size)
-    line_h = font_size + 3
-    used = 0
-    for it in (items or [])[:max_lines]:
-        it = _clean_text(str(it))
-        lines = _wrap(c, f"• {it}", max_width, "Helvetica", font_size)
-        for ln in lines:
-            if used >= max_lines:
-                return y - used * line_h, used
-            c.drawString(x, y - used * line_h, ln)
-            used += 1
-    return y - used * line_h, used
+def _numbered(items: List[str], style: ParagraphStyle) -> ListFlowable:
+    items = [i for i in (items or []) if _clean_text(i)]
+    if not items:
+        items = ["—"]
+    li = [ListItem(Paragraph(_clean_text(t), style), leftIndent=10) for t in items]
+    return ListFlowable(li, bulletType="1", leftIndent=16)
 
-def _mode_from_answers(answers: Dict[str, str]) -> str:
-    if (answers.get("budget_rent") or "").strip():
-        return "rent"
-    if (answers.get("budget_buy") or "").strip():
-        return "buy"
-    ht = (answers.get("housing_type") or "").lower()
-    if "rent" in ht:
-        return "rent"
-    return "buy"
 
-def _fallback_questions(mode: str) -> List[str]:
-    if mode == "rent":
-        return [
-            "What is the total move-in cost (deposit + first month + fees)?",
-            "Which utilities are included, and typical monthly costs?",
-            "Minimum lease term and early-termination policy?",
-            "Any building rules in writing (noise, pets, renovations)?",
-            "Is contract registration/indexation applicable and how?",
-        ]
-    return [
-        "What are total purchase costs (taxes, notary, agency, other fees)?",
-        "Is the property legally compliant (permits, energy cert, no liens)?",
-        "Monthly charges (syndic/HOA) and what they cover?",
-        "Any known defects / upcoming works / special assessments?",
-        "Realistic closing timeline and negotiation flexibility?",
+def _section_title(text: str, styles) -> Paragraph:
+    return Paragraph(_clean_text(text), styles["H2"])
+
+
+def _card(elements: List[Any], padding: float = 10) -> Table:
+    """Wrap a list of flowables in a rounded-ish card."""
+    tbl = Table([[elements]], colWidths=[A4[0] - 4 * cm])
+    tbl.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), BG_CARD),
+                ("BOX", (0, 0), (-1, -1), 0.8, STROKE),
+                ("LEFTPADDING", (0, 0), (-1, -1), padding),
+                ("RIGHTPADDING", (0, 0), (-1, -1), padding),
+                ("TOPPADDING", (0, 0), (-1, -1), padding),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), padding),
+            ]
+        )
+    )
+    return tbl
+
+
+def _two_col_grid(left: List[Any], right: List[Any], gap: float = 10) -> Table:
+    w_total = A4[0] - 4 * cm
+    w = (w_total - gap) / 2.0
+    tbl = Table([[left, right]], colWidths=[w, w], hAlign="LEFT")
+    tbl.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+                ("COLWIDTHS", (0, 0), (-1, -1), w),
+            ]
+        )
+    )
+    return tbl
+
+
+def _header_footer(canvas, doc, title: str):
+    canvas.saveState()
+    canvas.setFillColor(TEXT_MUTED)
+    canvas.setFont("Helvetica", 8.5)
+    canvas.drawString(2 * cm, A4[1] - 1.2 * cm, _clean_text(title))
+    canvas.drawRightString(A4[0] - 2 * cm, A4[1] - 1.2 * cm, date.today().isoformat())
+    canvas.drawRightString(A4[0] - 2 * cm, 1.1 * cm, f"Page {doc.page}")
+    canvas.restoreState()
+
+
+def render_minimal_premium_pdf(
+    out_path: str,
+    city: str,
+    brief: Dict[str, Any],
+    answers: Optional[Dict[str, str]] = None,
+) -> None:
+    """Render a premium, multi-page PDF relocation brief."""
+
+    answers = answers or {}
+
+    styles_src = getSampleStyleSheet()
+    styles: Dict[str, ParagraphStyle] = {
+        "Title": ParagraphStyle(
+            "Title",
+            parent=styles_src["Title"],
+            fontName="Helvetica-Bold",
+            fontSize=20,
+            leading=24,
+            textColor=colors.black,
+            spaceAfter=10,
+        ),
+        "H2": ParagraphStyle(
+            "H2",
+            parent=styles_src["Heading2"],
+            fontName="Helvetica-Bold",
+            fontSize=12.5,
+            leading=15,
+            textColor=ACCENT,
+            spaceBefore=6,
+            spaceAfter=6,
+        ),
+        "H3": ParagraphStyle(
+            "H3",
+            parent=styles_src["Heading3"],
+            fontName="Helvetica-Bold",
+            fontSize=11,
+            leading=13,
+            textColor=colors.black,
+            spaceBefore=6,
+            spaceAfter=4,
+        ),
+        "Body": ParagraphStyle(
+            "Body",
+            parent=styles_src["BodyText"],
+            fontName="Helvetica",
+            fontSize=10.2,
+            leading=13,
+            spaceAfter=6,
+        ),
+        "Small": ParagraphStyle(
+            "Small",
+            parent=styles_src["BodyText"],
+            fontName="Helvetica",
+            fontSize=9.2,
+            leading=12,
+            textColor=TEXT_MUTED,
+        ),
+        "Bullet": ParagraphStyle(
+            "Bullet",
+            parent=styles_src["BodyText"],
+            fontName="Helvetica",
+            fontSize=10.0,
+            leading=13,
+        ),
+        "Link": ParagraphStyle(
+            "Link",
+            parent=styles_src["BodyText"],
+            fontName="Helvetica",
+            fontSize=10.0,
+            leading=13,
+            textColor=ACCENT,
+        ),
+    }
+
+    doc = SimpleDocTemplate(
+        out_path,
+        pagesize=A4,
+        leftMargin=2 * cm,
+        rightMargin=2 * cm,
+        topMargin=1.8 * cm,
+        bottomMargin=1.6 * cm,
+        title=f"Relocation Brief — {city}",
+        author="Relocation Brief",
+    )
+
+    story: List[Any] = []
+
+    # Cover title
+    story.append(Paragraph(f"Relocation Brief — {_clean_text(city)}", styles["Title"]))
+    story.append(Paragraph("A practical shortlist and action plan for the next 1–2 weeks.", styles["Small"]))
+    story.append(Spacer(1, 10))
+
+    # 1) Client profile
+    cp = _clean_text(brief.get("client_profile", ""))
+
+    # A small factual snapshot from answers (keeps the report grounded even if LLM is vague)
+    snapshot_lines: List[str] = []
+    for key, label in [
+        ("family", "Household"),
+        ("housing_type", "Housing"),
+        ("budget_rent", "Budget (rent)"),
+        ("budget_buy", "Budget (buy)"),
+        ("priorities", "Priorities"),
+        ("office_commute", "Work commute"),
+        ("school_commute", "School commute"),
+    ]:
+        v = _clean_text((answers or {}).get(key, ""))
+        if v:
+            snapshot_lines.append(f"<b>{label}:</b> {v}")
+
+    left = [
+        _section_title("Client profile", styles),
+        Paragraph(cp or "—", styles["Body"]),
     ]
+    if snapshot_lines:
+        left.append(Spacer(1, 2))
+        left.append(Paragraph("<b>Snapshot</b>", styles["Body"]))
+        left.append(_bullets(snapshot_lines, styles["Bullet"]))
 
-def _score_bar_no_label(c, x, y, value, width=44, height=6, accent=colors.HexColor("#2F66FF")):
-    value = max(1, min(5, int(value or 3)))
-    c.setFillColor(colors.HexColor("#E5E7EB"))
-    c.roundRect(x, y, width, height, 3, fill=1, stroke=0)
-    fill_w = width * (value / 5.0)
-    c.setFillColor(accent)
-    c.roundRect(x, y, fill_w, height, 3, fill=1, stroke=0)
-    c.setFillColor(colors.black)
+    story.append(_card(left))
+    story.append(Spacer(1, 12))
 
-def _draw_card(c, x, y_top, w, h, bg, stroke, r=10):
-    c.setFillColor(bg)
-    c.roundRect(x, y_top - h, w, h, r, fill=1, stroke=0)
-    c.setStrokeColor(stroke)
-    c.roundRect(x, y_top - h, w, h, r, fill=0, stroke=1)
+    # 2) Must-have / Nice-to-have / Red flags / Trade-offs
+    def _pill_box(title: str, items: List[str]) -> List[Any]:
+        return [
+            Paragraph(_clean_text(title), styles["H3"]),
+            _bullets([_clean_text(x) for x in (items or [])], styles["Bullet"]),
+        ]
 
-def _draw_link_list(
-    c: canvas.Canvas,
-    x: float,
-    y_top: float,
-    max_width: float,
-    label: str,
-    items: List[Dict[str, Any]],
-    label_color,
-    link_color,
-    font_size: float = 8.8,
-    max_lines: int = 2
-) -> float:
-    label = _clean_text(label)
-    c.setFont("Helvetica", font_size)
-    line_h = font_size + 3
-
-    c.setFillColor(label_color)
-    c.drawString(x, y_top, label)
-    label_w = c.stringWidth(label, "Helvetica", font_size)
-
-    cur_x = x + label_w + 6
-    cur_y = y_top
-    used_lines = 1
-
-    sep = " • "
-    sep_w = c.stringWidth(sep, "Helvetica", font_size)
-
-    for idx, it in enumerate(items or []):
-        name = _clean_text((it.get("name") or "").strip()) or "—"
-        url = (it.get("url") or "").strip()
-        text_w = c.stringWidth(name, "Helvetica", font_size)
-
-        if idx > 0:
-            if cur_x + sep_w > x + max_width:
-                used_lines += 1
-                if used_lines > max_lines:
-                    c.setFillColor(label_color)
-                    c.drawString(x + max_width - c.stringWidth("…", "Helvetica", font_size), cur_y, "…")
-                    return cur_y - (used_lines - 1) * line_h
-                cur_y -= line_h
-                cur_x = x
-            c.setFillColor(label_color)
-            c.drawString(cur_x, cur_y, sep)
-            cur_x += sep_w
-
-        if cur_x + text_w > x + max_width:
-            used_lines += 1
-            if used_lines > max_lines:
-                c.setFillColor(label_color)
-                c.drawString(x + max_width - c.stringWidth("…", "Helvetica", font_size), cur_y, "…")
-                return cur_y - (used_lines - 1) * line_h
-            cur_y -= line_h
-            cur_x = x
-
-        if url:
-            c.setFillColor(link_color)
-            c.drawString(cur_x, cur_y, name)
-            c.linkURL(url, (cur_x, cur_y - 2, cur_x + text_w, cur_y + font_size + 1), relative=0)
-        else:
-            c.setFillColor(label_color)
-            c.drawString(cur_x, cur_y, name)
-
-        cur_x += text_w
-
-    return cur_y - (used_lines - 1) * line_h
-
-def render_minimal_premium_pdf(out_path: str, city: str, brief: Dict[str, Any], answers: Dict[str, str]) -> None:
-    """
-    Render a relocation brief as a multi-page PDF. The document consists of
-    a header repeated on each page, a client profile section, preference
-    columns (must‑have / nice‑to‑have / red flags / trade‑offs), a detailed
-    Top‑3 areas shortlist (with extended justification, priorities, and
-    micro‑neighborhoods), and finally a page with next steps, useful
-    resources, and questions to ask the agent. If content overflows a
-    page, a new page is automatically started with the header drawn
-    again. All measurements are derived relative to the A4 page size.
-    """
-    W, H = A4
-    m = 1.6 * cm
-
-    # define colours once for reuse
-    accent = colors.HexColor("#2F66FF")
-    dark = colors.HexColor("#0B1220")
-    muted = colors.HexColor("#6B7280")
-    card_bg = colors.HexColor("#F9FAFB")
-    stroke = colors.HexColor("#E5E7EB")
-    link_blue = colors.HexColor("#2563EB")
-
-    c = canvas.Canvas(out_path, pagesize=A4)
-
-    header_h = 2.8 * cm
-
-    def draw_header(page_num: int) -> None:
-        """Draws the common header bar at the top of every page."""
-        c.setFillColor(dark)
-        c.rect(0, H - header_h, W, header_h, stroke=0, fill=1)
-        c.setFillColor(colors.white)
-        c.setFont("Helvetica-Bold", 17)
-        c.drawString(m, H - 1.25 * cm, _clean_text(f"Relocation Brief — {city}"))
-        c.setFont("Helvetica", 9)
-        c.setFillColor(colors.HexColor("#C7D2FE"))
-        c.drawString(m, H - 2.0 * cm, "Generated by Relocation Brief Builder")
-        c.setFillColor(colors.HexColor("#E0E7FF"))
-        # show current page number in the header to help navigation
-        c.drawRightString(W - m, H - 2.0 * cm, f"Page {page_num}")
-        c.setFillColor(colors.black)
-
-    # start with first page
-    page_num = 1
-    draw_header(page_num)
-    y = H - header_h - 0.5 * cm
-
-    # Client profile
-    # Draw a card summarising the client's core information. We respect the
-    # original layout but allow up to three lines of text for the profile. If
-    # additional content pushes past the bottom of the page, we start a new
-    # page automatically.
-    prof_h = 2.55 * cm
-    if y - prof_h < (1.5 * cm):
-        # not enough space for the profile card on the current page
-        c.showPage()
-        page_num += 1
-        draw_header(page_num)
-        y = H - header_h - 0.5 * cm
-    _draw_card(c, m, y, W - 2 * m, prof_h, card_bg, stroke)
-    pad_x = 0.55 * cm
-    top_pad = 0.52 * cm
-
-    _draw_section_title(c, m + pad_x, y - top_pad, "Client profile", accent)
-
-    c.setFillColor(muted)
-    c.setFont("Helvetica", 8.2)
-    mode_line = []
-    if answers.get("budget_rent"):
-        mode_line.append("Rent")
-        mode_line.append(_clean_text(answers["budget_rent"]))
-    if answers.get("budget_buy"):
-        mode_line.append("Buy")
-        mode_line.append(_clean_text(answers["budget_buy"]))
-    ml = " • ".join([s for s in mode_line if s])
-    if ml:
-        c.drawString(m + pad_x, y - (top_pad + 0.48 * cm), ml)
-
-    c.setFillColor(colors.black)
-    font_prof = 9
-    c.setFont("Helvetica", font_prof)
-    line_h = 12  # points
-    prof_text = _clean_text((brief.get("client_profile") or "").strip())
-    max_w = W - 2 * m - 2 * pad_x
-    lines = _wrap(c, prof_text, max_w, "Helvetica", font_prof)[:3]  # cap lines
-
-    text_top_y = y - (top_pad + 0.92 * cm)
-    yy = text_top_y
-    for ln in lines:
-        c.drawString(m + pad_x, yy, ln)
-        yy -= line_h
-
-    y = y - prof_h - GAP
-
-    # Two columns (preferences). This block lists must‑have vs nice‑to‑have on the
-    # left and red flags vs trade‑offs on the right. We allocate a fixed height
-    # but will start a new page if insufficient room remains.
-    col_gap = 0.6 * cm
-    col_w = (W - 2 * m - col_gap) / 2
-    left_x = m
-    right_x = m + col_w + col_gap
-    two_h = 5.6 * cm
-    if y - two_h - TOP3_TITLE_GAP < (1.5 * cm):
-        # not enough space for both columns and spacing before Top‑3 title
-        c.showPage()
-        page_num += 1
-        draw_header(page_num)
-        y = H - header_h - 0.5 * cm
-    _draw_card(c, left_x, y, col_w, two_h, card_bg, stroke)
-    _draw_section_title(c, left_x + 0.4 * cm, y - 0.55 * cm, "Must-have", accent)
-    y1, _ = _draw_bullets(
-        c, left_x + 0.4 * cm, y - 1.15 * cm,
-        brief.get("must_have", []), col_w - 0.8 * cm, max_lines=4, font_size=8.8
+    grid = _two_col_grid(
+        _card(_pill_box("Must-have", brief.get("must_have", [])), padding=10),
+        _card(_pill_box("Nice-to-have", brief.get("nice_to_have", [])), padding=10),
+        gap=12,
     )
-    _draw_section_title(c, left_x + 0.4 * cm, y1 - 0.45 * cm, "Nice-to-have", accent)
-    _draw_bullets(
-        c, left_x + 0.4 * cm, y1 - 1.05 * cm,
-        brief.get("nice_to_have", []), col_w - 0.8 * cm, max_lines=4, font_size=8.8
+    story.append(grid)
+    story.append(Spacer(1, 12))
+
+    grid2 = _two_col_grid(
+        _card(_pill_box("Red flags", brief.get("red_flags", [])), padding=10),
+        _card(_pill_box("Trade-offs", brief.get("contradictions", [])), padding=10),
+        gap=12,
     )
+    story.append(grid2)
+    story.append(Spacer(1, 16))
 
-    _draw_card(c, right_x, y, col_w, two_h, card_bg, stroke)
-    _draw_section_title(c, right_x + 0.4 * cm, y - 0.55 * cm, "Red flags", accent)
-    y2, _ = _draw_bullets(
-        c, right_x + 0.4 * cm, y - 1.15 * cm,
-        brief.get("red_flags", []), col_w - 0.8 * cm, max_lines=4, font_size=8.8
-    )
-    _draw_section_title(c, right_x + 0.4 * cm, y2 - 0.45 * cm, "Trade-offs", accent)
-    _draw_bullets(
-        c, right_x + 0.4 * cm, y2 - 1.05 * cm,
-        brief.get("contradictions", []), col_w - 0.8 * cm, max_lines=3, font_size=8.8
-    )
+    # 3) Top-3 communes (multi-page, no forced limit)
+    story.append(_section_title("Top-3 communes shortlist", styles))
+    story.append(Paragraph("Each option includes strengths, trade-offs, and 2–3 microhoods to start your search.", styles["Small"]))
+    story.append(Spacer(1, 6))
 
-    # Ensure there is breathing room before the Top‑3 title
-    y = y - two_h - GAP - TOP3_TITLE_GAP
+    districts = brief.get("top_districts") or []
+    for idx, d in enumerate(districts[:3], 1):
+        name = _clean_text(d.get("name", "—"))
+        scores = d.get("scores") or {}
+        micro_anchors = d.get("micro_anchors") or []
+        priority_snapshot = d.get("priority_snapshot") or {}
 
-    # Top-3 title
-    c.setFont("Helvetica-Bold", 12)
-    c.setFillColor(colors.black)
-    c.drawString(m, y, "Top‑3 areas (shortlist)")
-    y -= 0.45 * cm  # breathing room
+        why = d.get("why") or []
+        watch_out = d.get("watch_out") or []
+        strengths = d.get("strengths") or []
+        tradeoffs = d.get("tradeoffs") or []
 
-    # Get up to 3 districts; if fewer are provided, handle gracefully
-    districts = (brief.get("top_districts") or [])[:3]
+        # If enrichers didn't create strengths/tradeoffs, fallback
+        if not strengths:
+            strengths = why
+        if not tradeoffs:
+            tradeoffs = watch_out
 
-    top_font = 8.6
-    step = 10.5
+        header = [
+            Paragraph(f"{idx}. <b>{name}</b>", ParagraphStyle("AreaTitle", parent=styles["Body"], fontSize=13, leading=16)),
+        ]
+        if micro_anchors:
+            anchors_txt = ", ".join([_clean_text(a) for a in micro_anchors[:3] if _clean_text(a)])
+            if anchors_txt:
+                header.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Anchors:</font> {anchors_txt}", styles["Small"]))
 
-    # Enlarged card height to accommodate extended why/priorities/microhoods
-    card_h = 6.0 * cm
-    gap_h = GAP
+        # Score row
+        score_parts = []
+        for k in ["Safety", "Family", "Commute", "Lifestyle", "BudgetFit", "Overall"]:
+            if k in scores:
+                score_parts.append(f"<b>{k}:</b> {_rating_bar(scores.get(k))}")
+        if score_parts:
+            header.append(Paragraph(" · ".join(score_parts), styles["Small"]))
 
-    # horizontal positions for the score bars
-    group_w = 3 * 44 + 2 * 10
-    right_pad = 0.45 * cm
-    gx = (W - m) - group_w - right_pad
-    text_x = m + 0.4 * cm
-    maxw = (gx - text_x) - 0.35 * cm
+        blocks: List[Any] = []
+        blocks.extend(header)
+        blocks.append(Spacer(1, 6))
 
-    for idx, d in enumerate(districts, 1):
-        # Before drawing a card, ensure there is enough space on this page; if
-        # not, start a new page and redraw the header and title for continuity.
-        if y - card_h - GAP < (1.7 * cm):
-            c.showPage()
-            page_num += 1
-            draw_header(page_num)
-            # draw the Top‑3 title again on the new page for context
-            y = H - header_h - 0.5 * cm
-            c.setFont("Helvetica-Bold", 12)
-            c.setFillColor(colors.black)
-            c.drawString(m, y, "Top‑3 areas (shortlist)")
-            y -= 0.45 * cm
+        # Strengths & trade-offs
+        blocks.append(Paragraph("<b>Key strengths</b>", styles["Body"]))
+        blocks.append(_bullets([_clean_text(x) for x in strengths], styles["Bullet"]))
+        blocks.append(Spacer(1, 4))
+        blocks.append(Paragraph("<b>Trade-offs to watch</b>", styles["Body"]))
+        blocks.append(_bullets([_clean_text(x) for x in tradeoffs], styles["Bullet"]))
 
-        _draw_card(c, m, y, W - 2 * m, card_h, card_bg, stroke)
+        # Priorities snapshot (explicitly answers manager's 3.2)
+        if isinstance(priority_snapshot, dict) and priority_snapshot:
+            snap_lines = []
+            for k in ["housing_cost", "transit", "commute_access", "schools_family"]:
+                v = _clean_text(priority_snapshot.get(k, ""))
+                if v:
+                    label = {
+                        "housing_cost": "Typical housing cost",
+                        "transit": "Public transport",
+                        "commute_access": "Commute access",
+                        "schools_family": "Schools & family",
+                    }.get(k, k)
+                    snap_lines.append(f"<b>{label}:</b> {v}")
+            if snap_lines:
+                blocks.append(Spacer(1, 6))
+                blocks.append(Paragraph("<b>Priorities snapshot</b>", styles["Body"]))
+                blocks.append(_bullets(snap_lines, styles["Bullet"]))
 
-        base_name = _clean_text(d.get("name", "—"))
-        micro = d.get("micro_anchors") or []
-        if isinstance(micro, str):
-            micro = [micro]
-        if isinstance(micro, list):
-            micro = [_clean_text(x) for x in micro if str(x).strip()]
-        else:
-            micro = []
-
-        # If no micro anchors provided, fallback to city pack; no artificial
-        # limitation is imposed here. We take the full list from the city pack.
-        if not micro:
-            pack_map = _microanchors_map_for_city(city)
-            micro = pack_map.get(base_name.lower()) or []
-
-        name = base_name
-        if micro:
-            # show up to two micro anchors in parentheses after the commune name
-            name = f"{base_name} ({', '.join(micro[:2])})"
-        scores = d.get("scores", {}) or {}
-
-        c.setFillColor(colors.black)
-        c.setFont("Helvetica-Bold", 10.5)
-        c.drawString(text_x, y - 0.50 * cm, f"{idx}) {name}")
-
-        # Draw two rows of score bars with labels
-        gy = y - 0.78 * cm
-        c.setFont("Helvetica", 7)
-        c.setFillColor(muted)
-        c.drawString(gx + 0,   gy + 10, "Safe")
-        c.drawString(gx + 54,  gy + 10, "Fam")
-        c.drawString(gx + 108, gy + 10, "Comm")
-        c.setFillColor(colors.black)
-
-        _score_bar_no_label(c, gx + 0,   gy, scores.get("Safety", 3), accent=accent)
-        _score_bar_no_label(c, gx + 54,  gy, scores.get("Family", 3), accent=accent)
-        _score_bar_no_label(c, gx + 108, gy, scores.get("Commute", 3), accent=accent)
-
-        # second row of scores
-        gy2 = gy - 0.72 * cm
-        c.setFont("Helvetica", 7)
-        c.setFillColor(muted)
-        c.drawString(gx + 0,   gy2 + 10, "Life")
-        c.drawString(gx + 54,  gy2 + 10, "Budget")
-        c.setFillColor(colors.black)
-        c.drawString(gx + 108, gy2 + 10, "Overall")
-        _score_bar_no_label(c, gx + 0,   gy2, scores.get("Lifestyle", 3), accent=accent)
-        _score_bar_no_label(c, gx + 54,  gy2, scores.get("BudgetFit", 3), accent=accent)
-        _score_bar_no_label(c, gx + 108, gy2, scores.get("Overall", 3), accent=colors.HexColor("#1B2ED6"))
-
-        # Build extended 'why' text: allow up to 4 reasons from `why` or
-        # `why_detail` lists. We concatenate them into a single paragraph.
-        extended_why = []
-        for key in ["why_detail", "why", "why_long"]:
-            vals = d.get(key)
-            if vals:
-                if isinstance(vals, list):
-                    extended_why.extend([_clean_text(x) for x in vals if str(x).strip()])
-                else:
-                    extended_why.append(_clean_text(str(vals)))
-        # limit to 4 bullet points to avoid overflow
-        extended_why = extended_why[:4]
-        if not extended_why:
-            extended_why = ["—"]
-        why_text = "Why & reasoning: " + "; ".join(extended_why)
-        yy2 = y - 1.02 * cm  # start a bit lower than the bars
-        c.setFont("Helvetica", top_font)
-        c.setFillColor(colors.black)
-        for ln in _wrap(c, why_text, maxw, "Helvetica", top_font)[:4]:
-            c.drawString(text_x, yy2, ln)
-            yy2 -= step
-
-        # Priorities: typical cost, transport, commute, etc.
-        priorities = d.get("priorities", []) or []
-        if isinstance(priorities, str):
-            priorities = [priorities]
-        priorities = [_clean_text(x) for x in priorities if str(x).strip()] or []
-        if priorities:
-            c.setFillColor(muted)
-            c.setFont("Helvetica", top_font)
-            c.drawString(text_x, yy2, "Priorities:")
-            yy2 -= step
-            c.setFillColor(colors.black)
-            for pr in priorities[:3]:  # show up to 3 priority lines
-                for pl in _wrap(c, f"• {pr}", maxw, "Helvetica", top_font)[:2]:
-                    c.drawString(text_x, yy2, pl)
-                    yy2 -= (top_font + 3)
-
-        # Watch‑outs (risks). We allow up to two lines.
-        watch_item = None
-        for key in ["watch_out", "watch_outs", "watchouts"]:
-            if d.get(key):
-                watch_item = d.get(key)
-                break
-        if watch_item is None:
-            watch_item = ["—"]
-        if isinstance(watch_item, list):
-            watch_item = watch_item[0] if watch_item else "—"
-        watch_item = _clean_text(str(watch_item))
-        c.setFillColor(muted)
-        c.setFont("Helvetica", top_font)
-        watch_lines = _wrap(c, f"Watch‑out: {watch_item}", maxw, "Helvetica", top_font)[:2]
-        for wl in watch_lines:
-            c.drawString(text_x, yy2, wl)
-            yy2 -= step
-
-        # Micro‑neighborhoods: list up to 3 entries. Each entry may contain a
-        # name, a why, and an optional watch‑out. We display them as bullet
-        # points. We do not artificially truncate the number of microhoods; the
-        # caller is responsible for limiting to 2–3.
+        # Microhoods
         microhoods = d.get("microhoods") or []
-        if isinstance(microhoods, list) and microhoods:
-            c.setFillColor(muted)
-            c.setFont("Helvetica", top_font)
-            c.drawString(text_x, yy2, "Micro‑neighborhoods:")
-            yy2 -= step
-            c.setFillColor(colors.black)
+        if microhoods:
+            blocks.append(Spacer(1, 6))
+            blocks.append(Paragraph("<b>Microhoods to start with</b>", styles["Body"]))
+            mh_items: List[Any] = []
             for mh in microhoods[:3]:
                 if not isinstance(mh, dict):
                     continue
-                nm = _clean_text(str(mh.get("name", "")).strip())
-                why_mh = _clean_text(str(mh.get("why", "")).strip())
-                wo = _clean_text(str(mh.get("watch_out", "")).strip())
-                line = f"• {nm}: {why_mh}" if why_mh else f"• {nm}"
-                if wo:
-                    line += f" (Watch‑out: {wo})"
-                # wrap each microhood line; allow up to two lines per microhood
-                for ln in _wrap(c, line, maxw, "Helvetica", 7.6)[:2]:
-                    c.setFont("Helvetica", 7.6)
-                    c.drawString(text_x, yy2, ln)
-                    yy2 -= (7.6 + 2)
+                mh_name = _clean_text(mh.get("name", "")) or "—"
+                mh_why = _clean_text(mh.get("why", ""))
+                mh_wo = _clean_text(mh.get("watch_out", ""))
+                mh_items.append(Paragraph(f"<b>{mh_name}</b>", styles["Body"]))
+                if mh_why:
+                    mh_items.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Why:</font> {mh_why}", styles["Body"]))
+                if mh_wo:
+                    mh_items.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Watch-out:</font> {mh_wo}", styles["Body"]))
+                mh_items.append(Spacer(1, 4))
+            if mh_items:
+                blocks.append(_card(mh_items, padding=10))
 
-        # After finishing this card, move down by card height plus gap
-        y -= (card_h + gap_h)
+        story.append(_card(blocks, padding=12))
+        story.append(Spacer(1, 12))
 
-    # --------------------
-    # Bottom blocks: Next steps, resources and questions. We always start these
-    # on a fresh page to ensure there is adequate room for expanded content. The
-    # next steps list now allows up to 6 bullets, resources lists are
-    # presented as plain bullet points, and agencies/sites lists can be
-    # extended by the caller. Finally we include default questions if none
-    # supplied.
-    c.showPage()
-    page_num += 1
-    draw_header(page_num)
-    y = H - header_h - 0.5 * cm
+    # 4) Next steps (expanded)
+    story.append(PageBreak())
+    story.append(_section_title("Next steps (1–2 weeks)", styles))
 
-    # Next steps
-    next_items = [_clean_text(x) for x in (brief.get("next_steps") or []) if str(x).strip()]
-    # Suggest at least 1–2 week plan if none provided
-    next_font = 8.6
-    next_max_lines = 6
-    next_line_h = next_font + 3
-    next_needed_lines = min(_bullets_line_count(c, next_items[:next_max_lines], W - 2*m - 0.8*cm, next_font), next_max_lines)
-    # dynamic card height: header + lines + padding
-    next_h = (0.66 * cm) + (next_needed_lines * next_line_h) + (0.46 * cm)
-    if next_h < 2.0 * cm:
-        next_h = 2.0 * cm
+    next_steps = [_clean_text(x) for x in (brief.get("next_steps") or []) if _clean_text(x)]
+    if not next_steps:
+        next_steps = [
+            "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+            "For each listing, confirm total monthly cost and what utilities are included.",
+            "Validate commute: do one test route at peak hours (metro/tram and by car).",
+            "Ask about parking rules/permits and storage (cellar, bike room).",
+            "Prepare a document pack (ID, proof of income, employer letter, bank statements).",
+            "If buying: request EPC, urbanism/permit docs, and recent syndic/HOA minutes.",
+        ]
 
-    _draw_card(c, m, y, W - 2*m, next_h, card_bg, stroke)
-    _draw_section_title(c, m + 0.4 * cm, y - 0.55 * cm, "Next steps", accent)
-    _draw_bullets(c, m + 0.4 * cm, y - 1.0 * cm, next_items, W - 2*m - 0.8*cm, max_lines=next_max_lines, font_size=next_font)
-    y = y - next_h - GAP
+    # Split into Week 1 / Week 2 for readability
+    w1 = next_steps[:5]
+    w2 = next_steps[5:10]
+    if w1:
+        story.append(Paragraph("<b>Week 1</b>", styles["Body"]))
+        story.append(_numbered(w1, styles["Bullet"]))
+        story.append(Spacer(1, 6))
+    if w2:
+        story.append(Paragraph("<b>Week 2</b>", styles["Body"]))
+        story.append(_numbered(w2, styles["Bullet"]))
+        story.append(Spacer(1, 10))
 
-    # Resources: we render two columns of lists for websites and agencies. Each
-    # list entry should be a short string (name or name + description). Up to
-    # three websites and five agencies will be shown; the caller should have
-    # prepared these lists accordingly. We do not use link annotations here to
-    # avoid clutter.
-    res_h = 2.0 * cm
-    _draw_card(c, m, y, W - 2*m, res_h, card_bg, stroke)
-    _draw_section_title(c, m + 0.4 * cm, y - 0.55 * cm, "Resources", accent)
+    # Questions for agent/landlord
+    q = [_clean_text(x) for x in (brief.get("questions_for_agent_landlord") or []) if _clean_text(x)]
+    if q:
+        story.append(Paragraph("<b>Questions to ask (agent / landlord)</b>", styles["Body"]))
+        story.append(_bullets(q, styles["Bullet"]))
+        story.append(Spacer(1, 10))
 
-    # Build lists: websites and agencies
-    sites = [(str(it.get("name")) if isinstance(it, dict) else str(it)).strip() for it in (brief.get("real_estate_sites") or []) if str(it)]
-    agencies = [(str(it.get("name")) if isinstance(it, dict) else str(it)).strip() for it in (brief.get("agencies") or []) if str(it)]
-    sites = sites[:3]
-    agencies = agencies[:5]
+    # 5) Agencies & resources (fixed from city pack)
+    story.append(_section_title("Agencies and resources", styles))
+    story.append(Paragraph("Curated starting points for Belgium/Brussels.", styles["Small"]))
+    story.append(Spacer(1, 6))
 
-    # Positioning for lists
-    y_sites_start = y - 0.95 * cm
-    maxw_links = W - 2*m - 0.8*cm
-    # Draw Websites as bullet list
-    c.setFont("Helvetica", 8.5)
-    c.setFillColor(colors.black)
-    c.drawString(m + 0.4*cm, y_sites_start, "Websites:")
-    yy_sites = y_sites_start - (8.5 + 3)
-    for site in sites:
-        for ln in _wrap(c, f"• {site}", maxw_links - (0.4*cm), "Helvetica", 8.5)[:2]:
-            c.drawString(m + 0.4*cm, yy_sites, ln)
-            yy_sites -= (8.5 + 3)
+    def _link_line(item: Dict[str, Any]) -> str:
+        name = _clean_text(item.get("name", "—"))
+        url = _clean_text(item.get("url", ""))
+        note = _clean_text(item.get("note", ""))
+        if url:
+            base = f"<link href='{url}' color='{ACCENT.hexval()}'>{name}</link>"
+        else:
+            base = name
+        if note:
+            return f"{base} <font color='{TEXT_MUTED.hexval()}'>— {note}</font>"
+        return base
 
-    # Draw Agencies as bullet list below websites
-    yy_ag = y_sites_start
-    # compute offset: number of lines drawn for websites + header line
-    lines_sites = max(1, sum([max(1, len(_wrap(c, f"• {s}", maxw_links - (0.4*cm), "Helvetica", 8.5)[:2])) for s in sites]))
-    yy_ag = y_sites_start - ((lines_sites + 1) * (8.5 + 3))
-    c.setFont("Helvetica", 8.5)
-    c.setFillColor(colors.black)
-    c.drawString(m + 0.4*cm, yy_ag, "Agencies:")
-    yy_ag -= (8.5 + 3)
-    for ag in agencies:
-        for ln in _wrap(c, f"• {ag}", maxw_links - (0.4*cm), "Helvetica", 8.5)[:2]:
-            c.drawString(m + 0.4*cm, yy_ag, ln)
-            yy_ag -= (8.5 + 3)
-    y = y - res_h - GAP
+    agencies = brief.get("agencies") or []
+    websites = brief.get("real_estate_sites") or []
 
-    # Essentials to ask your Real Estate agent / landlord
-    mode = _mode_from_answers(answers)
-    qs = [_clean_text(str(x)) for x in (brief.get("questions_for_agent_landlord") or []) if str(x).strip()]
-    if len(qs) < 5:
-        qs = _fallback_questions(mode)
-    qs = qs[:7]
-    q_font = 8.1
-    q_max_lines = 7
-    q_line_h = q_font + 3
-    q_needed_lines = min(_bullets_line_count(c, qs, W - 2*m - 0.8*cm, q_font), q_max_lines)
-    q_h = (0.66 * cm) + (q_needed_lines * q_line_h) + (0.48 * cm)
-    if q_h < 2.0 * cm:
-        q_h = 2.0 * cm
-    _draw_card(c, m, y, W - 2*m, q_h, card_bg, stroke)
-    _draw_section_title(c, m + 0.4 * cm, y - 0.55 * cm, "Essentials to ask your Real Estate agent", accent)
-    _draw_bullets(c, m + 0.4 * cm, y - 1.0 * cm, qs, W - 2*m - 0.8*cm, max_lines=q_max_lines, font_size=q_font)
+    left_block: List[Any] = [Paragraph("<b>Agencies</b>", styles["Body"])]
+    left_block.append(_numbered([_link_line(x) for x in agencies[:5] if isinstance(x, dict)], styles["Bullet"]))
 
-    c.save()
+    right_block: List[Any] = [Paragraph("<b>Websites</b>", styles["Body"])]
+    right_block.append(_numbered([_link_line(x) for x in websites[:3] if isinstance(x, dict)], styles["Bullet"]))
+
+    story.append(_two_col_grid(_card(left_block, padding=10), _card(right_block, padding=10), gap=12))
+
+    # Clarifying questions (should normally be empty by the time user downloads)
+    clar = [_clean_text(x) for x in (brief.get("clarifying_questions") or []) if _clean_text(x)]
+    if clar:
+        story.append(Spacer(1, 14))
+        story.append(_section_title("Open questions (to finalize the search)", styles))
+        story.append(_bullets(clar, styles["Bullet"]))
+
+    doc.build(
+        story,
+        onFirstPage=lambda c, d: _header_footer(c, d, f"Relocation Brief — {city}"),
+        onLaterPages=lambda c, d: _header_footer(c, d, f"Relocation Brief — {city}"),
+    )

@@ -23,7 +23,11 @@
   "top_districts": [
     {
       "name": "Ixelles",
-      "micro_anchors": ["Parc Tenbosch", "Place Flagey", "Châtelain"],
+      "micro_anchors": [
+        "Parc Tenbosch",
+        "Place Flagey",
+        "Châtelain"
+      ],
       "microhoods": [
         {
           "name": "Flagey",
@@ -54,7 +58,11 @@
     },
     {
       "name": "Saint-Gilles",
-      "micro_anchors": ["Parc de Forest", "Place Stéphanie", "Avenue Louise"],
+      "micro_anchors": [
+        "Parc de Forest",
+        "Place Stéphanie",
+        "Avenue Louise"
+      ],
       "microhoods": [
         {
           "name": "Parc de Forest",
@@ -85,7 +93,11 @@
     },
     {
       "name": "Etterbeek",
-      "micro_anchors": ["Parc du Cinquantenaire", "Place Jourdan", "Avenue de la Bourse"],
+      "micro_anchors": [
+        "Parc du Cinquantenaire",
+        "Place Jourdan",
+        "Avenue de la Bourse"
+      ],
       "microhoods": [
         {
           "name": "Parc du Cinquantenaire",
@@ -95,64 +107,24 @@
         {
           "name": "Place Jourdan",
           "why": "Place Jourdan boasts delightful dining experiences and local cafes.",
-          "watch_out": "Potential high rents may limit housing choices."
+          "watch_out": "Potentially high property prices in desirable areas."
         }
       ],
       "why": [
-        "Family-friendly spaces create a welcoming community vibe.",
-        "Nearby amenities cater to lifestyle preferences and needs."
+        "Rich cultural heritage and vibrant community atmosphere.",
+        "Easily accessible by public transport."
       ],
       "watch_out": [
-        "Parking spaces could be harder to find during peak hours."
+        "Property sizes may be smaller in more sought-after locations."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
+        "Family": 4,
         "Commute": 4,
         "Lifestyle": 4,
-        "BudgetFit": 4,
+        "BudgetFit": 3,
         "Overall": 4
       }
     }
-  ],
-  "real_estate_sites": [
-    {
-      "name": "Immoweb",
-      "url": "https://www.immoweb.be",
-      "note": "Popular site for property listings and market overview."
-    },
-    {
-      "name": "Zimmo",
-      "url": "https://www.zimmo.be",
-      "note": "User-friendly platform with extensive options."
-    },
-    {
-      "name": "Logic-Immo",
-      "url": "https://www.logic-immo.be",
-      "note": "Offers a variety of residential properties."
-    }
-  ],
-  "agencies": [
-    {
-      "name": "Agent 1",
-      "url": "https://www.agent1.be",
-      "note": "Expertise in residential properties in Brussels."
-    },
-    {
-      "name": "Agent 2",
-      "url": "https://www.agent2.be",
-      "note": "Specializes in family-friendly neighborhoods."
-    },
-    {
-      "name": "Agent 3",
-      "url": "https://www.agent3.be",
-      "note": "Focuses on urban lifestyle properties."
-    },
-    {
-      "name": "Agent 4",
-      "url": "https://www.agent4.be",
-      "note": "Known for competitive market insights."
-    },
-    {
-      "name": "Agent 5",
-      "url": "https://www.agent
+  ]
+}

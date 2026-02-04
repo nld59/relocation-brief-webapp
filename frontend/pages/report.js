@@ -20,6 +20,7 @@ export default function Report(){
   const [llmMs, setLlmMs] = useState(null)
   const [pdfMs, setPdfMs] = useState(null)
   const [totalMs, setTotalMs] = useState(null)
+  const [canDownload, setCanDownload] = useState(false)
 
   const payload = useMemo(()=>state, [state])
 
@@ -42,6 +43,7 @@ export default function Report(){
 
         setBriefId(j.brief_id)
         setClarQs(j.clarifying_questions || [])
+        setCanDownload(Boolean(j.can_download))
 
         setLlmMs(j.llm_ms ?? null)
         setPdfMs(j.pdf_render_ms ?? null)
@@ -73,6 +75,7 @@ export default function Report(){
       const j = await res.json()
 
       setClarQs(j.clarifying_questions || [])
+      setCanDownload(Boolean(j.can_download))
 
       setLlmMs(j.llm_ms ?? null)
       setPdfMs(j.pdf_render_ms ?? null)
@@ -101,13 +104,13 @@ export default function Report(){
     <Layout
       step={6}
       title="Your brief is ready"
-      subtitle="Download a 1-page report. If we need clarifications, answer them (optional) and regenerate."
+      subtitle={canDownload ? "Download your report." : "Please answer the optional questions to finalize the report."}
       actions={
         <div className="btnRow">
           <button className="linkBtn" onClick={() => router.push('/quiz/6')}>Back</button>
           <div style={{display:'flex', gap:10, flexWrap:'wrap'}}>
-            <button className="btn" disabled={!briefId || loading} onClick={()=>download('pdf')}>Download PDF</button>
-            <button className="btn" disabled={!briefId || loading} onClick={()=>download('md')}>Download Markdown</button>
+            <button className="btn" disabled={!briefId || loading || !canDownload} onClick={()=>download('pdf')}>Download PDF</button>
+            <button className="btn" disabled={!briefId || loading || !canDownload} onClick={()=>download('md')}>Download Markdown</button>
           </div>
         </div>
       }
@@ -147,8 +150,14 @@ export default function Report(){
               </div>
             </>
           ) : (
-            <div className="noteBox">No clarifications needed.</div>
+            <div className="noteBox">No clarifications needed. Your report is ready to download.</div>
           )}
+
+          {!canDownload ? (
+            <div className="noteBox" style={{borderColor:'var(--warning)', color:'var(--warning)'}}>
+              Download will unlock after optional questions are answered.
+            </div>
+          ) : null}
         </>
       ) : null}
     </Layout>

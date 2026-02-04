@@ -184,36 +184,41 @@
       "note": "Largest Belgian property portal."
     },
     {
-      "name": "Logic-immo",
-      "url": "https://www.logic-immo.be",
-      "note": "Listings + agencies, French-first."
-    },
-    {
       "name": "Zimmo",
       "url": "https://www.zimmo.be",
-      "note": "Alternative portal with strong coverage."
+      "note": "Very popular portal; broad coverage."
     },
     {
-      "name": "Immovlan",
-      "url": "https://www.immovlan.be",
-      "note": "Portal + agency listings."
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
     }
   ],
   "agencies": [
     {
-      "name": "Barnes Brussels",
-      "url": "https://www.barnes-brussels.com",
-      "note": "Premium rentals/sales, international clientele."
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
     },
     {
-      "name": "Engel & Völkers",
-      "url": "https://www.engelvoelkers.com",
-      "note": "International brand (search Brussels)."
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
     },
     {
-      "name": "Victoire Properties",
-      "url": "https://www.victoire.be",
-      "note": "Well-known Brussels residential agency."
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
     }
   ],
   "communes": [
