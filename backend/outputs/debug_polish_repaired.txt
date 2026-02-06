@@ -1,105 +1,129 @@
 {
-    "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 610000–1135000 EUR. Priorities include cafes, restaurants, and local markets.",
-    "must_have": [
-        "One or more bedrooms in the apartment.",
-        "Access to local cafes and vibrant restaurants.",
-        "Proximity to markets and local shops."
-    ],
-    "nice_to_have": [
-        "Green spaces or parks nearby.",
-        "Strong public transport connectivity.",
-        "Cultural venues within walking distance."
-    ],
-    "red_flags": [
-        "High traffic noise in busy areas.",
-        "Rising property prices impacting budget.",
-        "Long commute times for remote work."
-    ],
-    "contradictions": [
-        "Central areas may be noisy but vibrant.",
-        "Quieter districts could lack dining options.",
-        "Prices in popular areas can exceed budget."
-    ],
-    "top_districts": [
+  "client_profile": "Family of three looking to buy a home in Brussels. Budget of 785,000–1,140,000 EUR, prioritizing residential peace, family-friendly locations, and premium feel.",
+  "must_have": [
+    "3+ rooms",
+    "Safe neighborhood",
+    "Access to good schools",
+    "Quiet surroundings"
+  ],
+  "nice_to_have": [
+    "Cafes within walking distance",
+    "Nearby parks",
+    "Public transport access",
+    "Community activities"
+  ],
+  "red_flags": [
+    "High noise levels nearby",
+    "Limited school options",
+    "Budget exceedance in certain areas",
+    "Transit commute challenges"
+  ],
+  "contradictions": [
+    "Quiet areas may lack vibrant cafes",
+    "Premium feel can stretch budget",
+    "Family-friendly may mean longer commute"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange"
+      ],
+      "microhoods": [
         {
-            "name": "Ixelles",
-            "micro_anchors": [
-                "Châtelain",
-                "Flagey",
-                "Cimetiere d'Ixelles"
-            ],
-            "microhoods": [
-                {
-                    "name": "Boondael",
-                    "why": "Boondael offers lively cafes and transit access at Flagey.",
-                    "watch_out": "Popular streets get noisy on weekends; parking is tight."
-                },
-                {
-                    "name": "Brugmann - Lepoutre",
-                    "why": "Brugmann features local shops and green spaces transitioning towards quieter zones.",
-                    "watch_out": "Expect traffic during rush hours; plan accordingly."
-                },
-                {
-                    "name": "Universite",
-                    "why": "Universite is known for vibrant nightlife and diverse dining options.",
-                    "watch_out": "Some streets may be too lively and noisy at night."
-                }
-            ],
-            "why": [
-                "Rich cultural scene with local markets and cafes mixed with parks.",
-                "Strong transport links make commuting easy from the area."
-            ],
-            "watch_out": [
-                "Noise levels can be high in busy environments, especially nightlife zones."
-            ],
-            "scores": {
-                "Safety": 3,
-                "Family": 4,
-                "Commute": 4,
-                "Lifestyle": 5,
-                "BudgetFit": 3,
-                "Overall": 4
-            }
+          "name": "Vivier D’oie",
+          "why": "Vivier D'oie provides local parks for family outings and a quiet residential feel.",
+          "watch_out": "Commute can be slower without a car; some pockets stretch budgets."
         },
         {
-            "name": "City of Brussels",
-            "micro_anchors": [
-                "Sablon",
-                "Sainte-Catherine / Dansaert",
-                "Royal Palace / Park area"
-            ],
-            "microhoods": [
-                {
-                    "name": "Domaine Royal Laeken",
-                    "why": "Domaine offers a quieter vibe while accessing major attractions easily.",
-                    "watch_out": "Can feel touristy and crowded during weekends."
-                },
-                {
-                    "name": "Haren",
-                    "why": "Haren provides numerous cafes alongside vibrant community markets.",
-                    "watch_out": "Traffic can be heavy on main roads during peak hours."
-                },
-                {
-                    "name": "Heembeek",
-                    "why": "Heembeek is quieter and close to green spaces yet retains good access.",
-                    "watch_out": "Limited dining options in the immediate vicinity."
-                }
-            ],
-            "why": [
-                "Cafes and restaurants abound, along with cultural sites like museums.",
-                "Central parks enhance the living experience amidst urban life."
-            ],
-            "watch_out": [
-                "Touristy pockets can feel noisy and congested, especially on weekends."
-            ],
-            "scores": {
-                "Safety": 3,
-                "Family": 4,
-                "Commute": 5,
-                "Lifestyle": 5,
-                "BudgetFit": 2,
-                "Overall": 4
-            }
+          "name": "Saint - Job Kauwberg",
+          "why": "Saint-Job offers good transit and access to family amenities in a quieter setting.",
+          "watch_out": "Certain homes may require renovation, impacting your budget."
         }
-    ]
+      ],
+      "why": [
+        "Strong family-oriented community with parks like Fort Jaco for recreational fun.",
+        "Access to quality schools within a 20-minute walk enhances family convenience."
+      ],
+      "watch_out": [
+        "Some areas can exceed budget expectations due to demand."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg"
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "Kapelleveld features a blend of green spaces and lively local cafes for families.",
+          "watch_out": "Popular family areas book fast; prices can be above average."
+        },
+        {
+          "name": "Roodebeek - Constellations",
+          "why": "Offers lively community with ample green areas and great school access.",
+          "watch_out": "Higher demand can lead to competitive pricing."
+        }
+      ],
+      "why": [
+        "Lively cafes and parks like Roodebeek create a welcoming atmosphere for families.",
+        "Strong school presence supports educational needs within close proximity."
+      ],
+      "watch_out": [
+        "Prices can be higher due to popularity among families."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Saint-Paul neighborhood provides ample green spaces for family activities.",
+          "watch_out": "House-focused pockets are pricey; consider budget limitations."
+        },
+        {
+          "name": "Montgomery - Avenue du Diamant",
+          "why": "This area balances residential charm with family-friendly amenities.",
+          "watch_out": "Competition for homes may drive prices higher."
+        }
+      ],
+      "why": [
+        "Green spaces and good schools make it ideal for families."
+      ],
+      "watch_out": [
+        "Can be pricey in certain pockets."
+      ],
+      "scores": {
+        "Safety": 5,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 2,
+        "Overall": 4
+      }
+    }
+  ]
 }

@@ -1,0 +1,121 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget is 490,000–895,000 EUR. Priorities include cafes, restaurants, expat community, and central access.",
+  "must_have": [
+    "1+ bedroom apartments.",
+    "Access to public transport.",
+    "Proximity to cafes and restaurants."
+  ],
+  "nice_to_have": [
+    "Access to parks.",
+    "Family-friendly areas.",
+    "Cultural amenities nearby."
+  ],
+  "red_flags": [
+    "Limited parking availability.",
+    "High property taxes.",
+    "Potential noise issues in busy areas."
+  ],
+  "contradictions": [
+    "Desire for central access vs. need for quiet.",
+    "Cafes & restaurants vs. affordability.",
+    "Cultural life vs. residential comfort."
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "why": "Great vibe with parks and cafes near Flagey Square.",
+          "watch_out": "Busy streets can lead to noise during weekends."
+        },
+        {
+          "name": "Universite",
+          "why": "Lively area with excellent transit access and cafes.",
+          "watch_out": "Rental demand can push prices up quickly."
+        }
+      ],
+      "why": [
+        "Offers a vibrant atmosphere with plenty of cafes around Châtelain.",
+        "Strong expat community ensures diversity and cultural engagement."
+      ],
+      "watch_out": [
+        "Noise from nightlife can be disruptive on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "Lively area-focused hubs with dining and recreation options.",
+          "watch_out": "Traffic congestion can slow down commuting times."
+        },
+        {
+          "name": "Saint - Pierre",
+          "why": "Excellent transport links with a growing expat population.",
+          "watch_out": "Rents are on the rise near EU quarters."
+        }
+      ],
+      "why": [
+        "Central access to Brussels' main attractions, including parks.",
+        "Family-oriented amenities and childcare options are abundant."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be notably higher."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "microhoods": [
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "Close to parks and cultural attractions while maintaining quiet.",
+          "watch_out": "Touristy sections can become overly crowded."
+        },
+        {
+          "name": "Mutsaard",
+          "why": "This area offers a mix of culture, dining, and historical sites.",
+          "watch_out": "Traffic noise may disrupt late-night tranquility."
+        }
+      ],
+      "why": [
+        "Diverse cultural scene with plenty of restaurants and museums.",
+        "Strong public transport access to all parts of the city."
+      ],
+      "watch_out": [
+        "Higher prices in tourist-frequented areas."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 5
+      }
+    }
+  ]
+}

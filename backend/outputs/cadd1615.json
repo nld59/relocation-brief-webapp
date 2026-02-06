@@ -1,0 +1,116 @@
+{
+  "client_profile": "Family relocating to Brussels, looking to buy a home between 785000-1195000 EUR. Priorities include family-friendly options, cafes, a premium feel, and a quiet residential area.",
+  "must_have": [
+    "3+ bedrooms in purchase option",
+    "Proximity to schools within 20 min walk",
+    "Access to cafes and brunch spots",
+    "Family-friendly community features"
+  ],
+  "nice_to_have": [
+    "Parks and green spaces nearby",
+    "Good public transport connections",
+    "Quiet streets with low traffic",
+    "Local markets for fresh produce"
+  ],
+  "red_flags": [
+    "High competition for premium properties",
+    "Potential budget restrictions in desired districts",
+    "Long commute times if schools are far",
+    "Limited options for larger family homes"
+  ],
+  "contradictions": [
+    "Premium feel vs. budget constraints",
+    "Residential quiet vs. proximity to cafes",
+    "Family-friendly vs. urban density",
+    "Space requirements vs. local market supply"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange"
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "why": "Vivier D’oie offers excellent schools and family parks; ideal for children.",
+          "watch_out": "Commute can be slower without a car; some pockets stretch budgets."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "Lively atmosphere with cafes nearby, appealing for family-friendly outings.",
+          "watch_out": "Some areas might exceed your housing budget."
+        }
+      ],
+      "why": [
+        "Green parks like Forêt de Soignes provide outdoor spaces for children.",
+        "Strong community vibe in family-centric locales enhances lifestyle."
+      ],
+      "watch_out": [
+        "Competitive real estate can drive up prices quickly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg"
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "Kapelleveld features plentiful cafes and parks, ideal for families.",
+          "watch_out": "Popular family areas book fast; prices can be above average."
+        },
+        {
+          "name": "Gribaumont",
+          "why": "Lively and close to transport, making daily commute easier for families.",
+          "watch_out": "Market can be competitive; act quickly on good listings."
+        }
+      ],
+      "why": [
+        "Woluwe Shopping area has diverse options for family activities and cafes.",
+        "Strong public transport network eases commuting challenges."
+      ],
+      "watch_out": [
+        "High family demand drives up housing costs significantly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Saint - Paul provides community events and parks, boosting family interaction.",
+          "watch_out": "House-focused neighborhoods can exceed budget expectations."
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,109 +1,108 @@
 ```json
 {
-  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is EUR 610,000–1,135,000. Priorities include cafes, restaurants, and local markets.",
+  "client_profile": "Family with 1 child in Brussels looking to buy a 3+ room house. Budget is 785,000–1,140,000 EUR. Priorities include residential quiet, family-friendliness, and cafes.",
   "must_have": [
-    "1+ room apartment",
-    "Proximity to cafes and restaurants",
-    "Access to local markets"
+    "3+ rooms",
+    "Proximity to schools (max 20 min walk)",
+    "Residential and quiet areas",
+    "Family-friendly environment"
   ],
   "nice_to_have": [
-    "Outdoor space or balcony",
-    "Public transport accessibility",
-    "Cultural venues nearby"
+    "Premium feel properties",
+    "Access to cafes and brunch spots",
+    "Green spaces nearby",
+    "Good public transport connections"
   ],
   "red_flags": [
-    "High purchase costs in certain districts",
-    "Noise in tourist areas",
-    "Traffic congestion during peak hours"
+    "High property prices in popular areas",
+    "Limited availability of family-friendly homes",
+    "Long commute times if not near schools",
+    "Potential noise from nearby roads"
   ],
   "contradictions": [
-    "Desire for local vibe but avoiding tourist noise",
-    "Preferring lively areas while needing quiet nights",
-    "Budget constraints vs premium property expectations"
+    "Desire for premium feel versus budget limits",
+    "Residential quiet may limit access to cafes",
+    "Family-friendly options may lack modern amenities"
   ],
   "top_districts": [
     {
-      "name": "Ixelles",
+      "name": "Uccle",
       "micro_anchors": [
-        "Châtelain",
-        "Flagey",
-        "Cimetiere d'Ixelles"
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
       ],
       "microhoods": [
         {
-          "name": "Boondael",
-          "why": "Boondael offers lush green parks and a vibrant atmosphere.",
-          "watch_out": "Popular streets can become noisy during weekends."
+          "name": "Vivier D’oie",
+          "why": "Offers a family-friendly vibe with nearby parks and schools.",
+          "watch_out": "Some pockets can stretch your budget significantly."
         },
         {
-          "name": "Flagey - Malibran",
-          "why": "Flagey is known for its lively markets and cultural events.",
-          "watch_out": "Parking can be difficult to find in crowded areas."
-        },
-        {
-          "name": "Universite",
-          "why": "Universite features excellent public transport links and local cafes.",
-          "watch_out": "Busy streets may face noise issues during rush hours."
+          "name": "Fort Jaco",
+          "why": "Features a lively atmosphere along with access to shops and cafes.",
+          "watch_out": "Commute can be slower without a car."
         }
       ],
       "why": [
-        "Rich cafes and restaurant scene around Châtelain.",
-        "Excellent public transport access via Brussels Metro."
+        "Close to Fort Jaco's cafes and greenery, perfect for relaxing weekends.",
+        "Strong community focus, making it ideal for families with children."
       ],
       "watch_out": [
-        "Expect property prices to fluctuate during high demand seasons."
+        "Commute can be slower without a car; some pockets stretch budgets."
       ],
       "scores": {
-        "Safety": 3,
-        "Family": 4,
-        "Commute": 5,
-        "Lifestyle": 5,
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Schaerbeek",
+      "name": "Woluwe-Saint-Lambert",
       "micro_anchors": [
-        "Plasky",
-        "Parc Josaphat",
-        "Helmet"
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
       ],
       "microhoods": [
         {
-          "name": "Dailly",
-          "why": "Dailly is vibrant, offering shops and excellent transport links.",
-          "watch_out": "Safety can vary significantly from street to street."
+          "name": "Kapelleveld",
+          "why": "Known for excellent schools and green areas, great for children.",
+          "watch_out": "Prices can be above average in popular areas."
         },
         {
-          "name": "Collignon",
-          "why": "Collignon is lively with a strong market and community vibe.",
-          "watch_out": "Some streets are busier, increasing noise levels."
-        },
-        {
-          "name": "Gare Josaphat",
-          "why": "Gare Josaphat benefits from strong public transport connections.",
-          "watch_out": "Keep an eye on potential traffic concerns."
+          "name": "Stockel",
+          "why": "Lively area with shops and cafes, plus reliable transport options.",
+          "watch_out": "Family areas book fast, be ready to act."
         }
       ],
       "why": [
-        "Parc Josaphat provides a lovely green space for relaxation.",
-        "Vibrant local markets and lunch options enhance community feel."
+        "Close to Woluwe Shopping, which is great for families and groceries.",
+        "Features parks that are ideal for outdoor activities with children."
       ],
       "watch_out": [
-        "Street variability requires checking individual safety ratings."
+        "Popular family areas book fast; prices can be above average."
       ],
       "scores": {
-        "Safety": 4,
-        "Family": 4,
+        "Safety": 5,
+        "Family": 5,
         "Commute": 4,
         "Lifestyle": 4,
-        "BudgetFit": 4,
+        "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "City of Brussels",
+      "name": "Woluwe-Saint-Pierre",
       "micro_anchors": [
-        "Sablon",
-        "Sainte
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "Offers quiet

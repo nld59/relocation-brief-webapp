@@ -26,7 +26,11 @@
   "top_districts": [
     {
       "name": "Uccle",
-      "micro_anchors": ["Fort Jaco", "Prince d'Orange", "Vivier d'Oie"],
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
       "microhoods": [
         {
           "name": "Vivier D’oie",
@@ -57,7 +61,11 @@
     },
     {
       "name": "Woluwe-Saint-Lambert",
-      "micro_anchors": ["Roodebeek", "Tomberg", "Woluwe Shopping area"],
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
       "microhoods": [
         {
           "name": "Kapelleveld",
@@ -88,65 +96,22 @@
     },
     {
       "name": "Woluwe-Saint-Pierre",
-      "micro_anchors": ["Stockel", "Montgomery area", "Parc de Woluwe edge"],
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
       "microhoods": [
         {
           "name": "Saint - Paul",
-          "why": "Offers quiet living while being near vibrant community parks.",
-          "watch_out": "House-focused pockets can be pricey for families."
+          "why": "Offers quiet"
         },
         {
           "name": "Sainte - Alix - Joli Bois",
-          "why": "Features access to green parks and family-friendly amenities.",
-          "watch_out": "Limited nightlife can affect weekend activities."
+          "why": "",
+          "watch_out": ""
         }
-      ],
-      "why": [
-        "Parc de Woluwe shows off beautiful green spaces for outdoor gatherings.",
-        "Host of quality schools nearby, making it great for families."
-      ],
-      "watch_out": [
-        "House-focused pockets are pricey; fewer nightlife options nearby."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 3,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
+      ]
     }
-  ],
-  "real_estate_sites": [
-    {
-      "name": "Immoweb",
-      "url": "https://www.immoweb.be",
-      "note": "Largest Belgian property portal."
-    },
-    {
-      "name": "Zimmo",
-      "url": "https://www.zimmo.be",
-      "note": "Very popular portal; broad coverage."
-    },
-    {
-      "name": "Immoscoop",
-      "url": "https://www.immoscoop.be",
-      "note": "Strong listings; many agent exclusives."
-    }
-  ],
-  "agencies": [
-    {
-      "name": "ERA Belgium",
-      "url": "https://www.era.be",
-      "note": "National network (100+ offices)."
-    },
-    {
-      "name": "CENTURY 21 Belgium",
-      "url": "https://www.century21.be",
-      "note": "National network (130+ branches)."
-    },
-    {
-      "name": "TREVI",
-      "url": "https://www.trevi.be",
-      "
+  ]
+}

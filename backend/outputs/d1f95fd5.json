@@ -106,59 +106,24 @@
         },
         {
           "name": "Sainte - Alix - Joli Bois",
-          "why": "A vibrant area with local amenities and school options for families.",
-          "watch_out": "Limited nightlife may not suit those seeking vibrant evening activities."
+          "why": "This area balances residential charm with family-friendly amenities.",
+          "watch_out": "Competition for homes may drive prices higher."
         }
       ],
       "why": [
-        "Access to Parc de Woluwe offers a peaceful retreat for family activities.",
-        "Quality schools contribute to a family-friendly environment, boosting local appeal."
+        "Green spaces and good schools make it ideal for families."
       ],
       "watch_out": [
-        "House prices can be significantly higher in certain pockets."
+        "Can be pricey in certain pockets."
       ],
       "scores": {
-        "Safety": 4,
+        "Safety": 5,
         "Family": 5,
         "Commute": 4,
-        "Lifestyle": 3,
-        "BudgetFit": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 2,
         "Overall": 4
       }
-    }
-  ],
-  "real_estate_sites": [
-    {
-      "name": "Immoweb",
-      "url": "https://www.immoweb.be",
-      "note": "Largest Belgian property portal."
-    },
-    {
-      "name": "Zimmo",
-      "url": "https://www.zimmo.be",
-      "note": "Very popular portal; broad coverage."
-    },
-    {
-      "name": "Immoscoop",
-      "url": "https://www.immoscoop.be",
-      "note": "Strong listings; many agent exclusives."
-    }
-  ],
-  "agencies": [
-    {
-      "name": "ERA Belgium",
-      "url": "https://www.era.be",
-      "note": "National network (100+ offices)."
-    },
-    {
-      "name": "CENTURY 21 Belgium",
-      "url": "https://www.century21.be",
-      "note": "National network (130+ branches)."
-    },
-    {
-      "name": "TREVI",
-      "url": "https://www.trevi.be",
-      "note": "Large Belgian network (35+ agencies)."
     }
   ]
 }

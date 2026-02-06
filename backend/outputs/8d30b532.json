@@ -1,0 +1,129 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget between 490000 and 895000 EUR. Priorities include cafes, restaurants, expat community, and central access.",
+  "must_have": [
+    "1+ bedroom apartment",
+    "Proximity to cafes and restaurants",
+    "Access to public transport"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space",
+    "Modern amenities",
+    "Quiet neighborhood",
+    "Expats community nearby"
+  ],
+  "red_flags": [
+    "High renovation costs",
+    "Excessive noise levels",
+    "Overpriced listings",
+    "Hidden fees in transactions"
+  ],
+  "contradictions": [
+    "Desire for central location vs. quiet area",
+    "Modern amenities vs. historic buildings",
+    "Expats community vs. local culture"
+  ],
+  "top_districts": [
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey"
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "why": "Lively area with good transit and a vibrant expat scene.",
+          "watch_out": "Popular streets get noisy on weekends; parking can be challenging."
+        },
+        {
+          "name": "Boondael",
+          "why": "Offers greener spaces and a lively atmosphere for young professionals.",
+          "watch_out": "Some spots are busier at night; noise might be an issue."
+        }
+      ],
+      "why": [
+        "Strong cafes and restaurants like those around Flagey Square.",
+        "Art and culture attract a vibrant expat community."
+      ],
+      "watch_out": [
+        "Budget stretch possible during peak property seasons."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 5,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse"
+      ],
+      "microhoods": [
+        {
+          "name": "Chasse",
+          "why": "Great transit connections make this area very accessible.",
+          "watch_out": "Higher rents near EU quarter can affect budget plans."
+        },
+        {
+          "name": "Saint - Pierre",
+          "why": "Offers various parks and a lively local dining scene.",
+          "watch_out": "Traffic can get heavy around main thoroughfares."
+        }
+      ],
+      "why": [
+        "Proximity to cafes along Jourdan Street enhances lifestyle.",
+        "Schools and parks suit family needs in the area."
+      ],
+      "watch_out": [
+        "Traffic congestion can affect commute times during peak hours."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert"
+      ],
+      "microhoods": [
+        {
+          "name": "Quartier Nord",
+          "why": "Diverse dining options available and lively atmosphere for expats.",
+          "watch_out": "Touristy areas can get crowded, impacting comfort."
+        },
+        {
+          "name": "Haren",
+          "why": "Well-connected and offers a mix of urban and green spaces.",
+          "watch_out": "Tourist traffic can create noise and congestion."
+        }
+      ],
+      "why": [
+        "Cultural attractions and historical sites enhance appeal.",
+        "Vibrant nightlife and diverse communities support expat integration."
+      ],
+      "watch_out": [
+        "High property prices may limit options."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    }
+  ]
+}
