@@ -1,0 +1,140 @@
+{
+  "client_profile": "Family of 3 relocating to Brussels. Interested in buying an apartment priced 475000–1345000 EUR. Priorities include residential quietness, childcare access, and cafes.",
+  "must_have": [
+    "At least 2 rooms.",
+    "Access to good childcare facilities.",
+    "Quiet residential area."
+  ],
+  "nice_to_have": [
+    "Proximity to cafes and brunch spots.",
+    "Market access for local produce.",
+    "Premium feel in the neighborhood."
+  ],
+  "red_flags": [
+    "High traffic noise in busy areas.",
+    "Limited parking availability around schools.",
+    "Potential budget stretch in popular districts."
+  ],
+  "contradictions": [
+    "Balancing quietness with access to amenities.",
+    "Desiring premium feel while staying budget-friendly.",
+    "Need for childcare access vs. residential calm."
+  ],
+  "top_districts": [
+    {
+      "name": "Schaerbeek",
+      "micro_anchors": [
+        "Plasky",
+        "Parc Josaphat",
+        "Helmet"
+      ],
+      "microhoods": [
+        {
+          "name": "Dailly",
+          "why": "This area offers lively markets and vibrant cafes for family outings.",
+          "watch_out": "Community dynamics vary; some streets may feel less safe."
+        },
+        {
+          "name": "Collignon",
+          "why": "Great access to parks and playgrounds for children’s activities.",
+          "watch_out": "Transit noise can be an issue near main roads."
+        },
+        {
+          "name": "Helmet",
+          "why": "Close to schools with good reputations and ample green spaces.",
+          "watch_out": "Check street safety to ensure a quiet environment."
+        }
+      ],
+      "why": [
+        "Schaerbeek features family-friendly parks such as Parc Josaphat.",
+        "It offers good access to local cafes and markets."
+      ],
+      "watch_out": [
+        "Residential noise levels may vary street by street."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "why": "This micro-area has excellent access to green spaces and family-friendly activities.",
+          "watch_out": "Busy weekend crowds may increase noise levels significantly."
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "Known for its cafes and vibrant local markets, great for family outings.",
+          "watch_out": "Limited parking choices during peak hours."
+        },
+        {
+          "name": "Universite",
+          "why": "Offers a youthful vibe along with good educational facilities nearby.",
+          "watch_out": "Noise from nightlife can affect quietude on weekends."
+        }
+      ],
+      "why": [
+        "Ixelles is famed for its vibrant cafe culture and market scenes.",
+        "Access to excellent schools and childcare facilities is abundant."
+      ],
+      "watch_out": [
+        "Parking is often tight; consider commute methods."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "This area offers a blend of residential options and access to shopping.",
+          "watch_out": "Traffic can be heavy during rush hours."
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Etterbeek is close to several parks and recreational areas.",
+        "Good transportation links make commuting easier."
+      ],
+      "watch_out": [
+        "Watch out for construction work that may affect traffic."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    }
+  ]
+}

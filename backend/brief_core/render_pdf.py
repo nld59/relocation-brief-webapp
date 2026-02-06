@@ -11,6 +11,7 @@ rest of the app imports that name.
 
 from dataclasses import dataclass
 from datetime import date
+import re
 from typing import Any, Dict, List, Optional
 
 from reportlab.lib import colors
@@ -27,6 +28,7 @@ from reportlab.platypus import (
     ListFlowable,
     ListItem,
     KeepTogether,
+    CondPageBreak,
 )
 
 
@@ -36,18 +38,38 @@ BG_CARD = colors.HexColor("#FFFFFF")
 STROKE = colors.HexColor("#E5E7EB")
 TEXT_MUTED = colors.HexColor("#6B7280")
 
+# Displayed in footer for easier iteration and client support.
+REPORT_VERSION = "v8.1"
+
+
+def _truncate(text: Any, max_chars: int) -> str:
+    """Hard truncate to keep summary tables scannable in auto-generated PDFs."""
+    t = _clean_text(text)
+    if len(t) <= max_chars:
+        return t
+    # Avoid breaking words too aggressively.
+    cut = t[: max_chars - 1].rstrip()
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(" ,.;:") + "…"
+
 
 def _clean_text(s: Any) -> str:
     if s is None:
         return ""
     s = str(s)
-    # Keep the PDF stable (avoid curly quotes / NBSP)
-    return (
+    # Keep the PDF stable (avoid curly quotes / NBSP) and common punctuation artifacts.
+    s = (
         s.replace("\u00A0", " ")
         .replace("’", "'")
         .replace("“", '"')
         .replace("”", '"')
-    ).strip()
+    )
+    # Remove odd ".;" / ";." artifacts which look unprofessional in tables.
+    s = s.replace(".;", ".").replace(";.", ".").replace("..", ".")
+    # Collapse excessive whitespace
+    s = re.sub(r"\s+", " ", s)
+    return s.strip()
 
 
 def _rating_bar(value: Any) -> str:
@@ -65,7 +87,7 @@ def _rating_bar(value: Any) -> str:
 
 
 def _bullets(items: List[str], style: ParagraphStyle) -> ListFlowable:
-    items = [i for i in (items or []) if _clean_text(i)]
+    items = [i for i in (items or []) if (t := _clean_text(i)) and t not in {'•', '-', '—'}]
     if not items:
         items = ["—"]
     li = [ListItem(Paragraph(_clean_text(t), style), leftIndent=10) for t in items]
@@ -73,28 +95,154 @@ def _bullets(items: List[str], style: ParagraphStyle) -> ListFlowable:
 
 
 def _numbered(items: List[str], style: ParagraphStyle) -> ListFlowable:
-    items = [i for i in (items or []) if _clean_text(i)]
+    items = [i for i in (items or []) if (t := _clean_text(i)) and t not in {'•', '-', '—'}]
     if not items:
         items = ["—"]
     li = [ListItem(Paragraph(_clean_text(t), style), leftIndent=10) for t in items]
     return ListFlowable(li, bulletType="1", leftIndent=16)
 
 
+def _numbered_table(items: List[str], styles: Dict[str, ParagraphStyle], *, width: Optional[float] = None) -> Table:
+    """A cleaner numbered list than ListFlowable (numbers align like a proper report)."""
+    clean = [_clean_text(i) for i in (items or []) if _clean_text(i)]
+    if not clean:
+        clean = ["—"]
+
+    rows: List[List[Any]] = []
+    for i, t in enumerate(clean, 1):
+        rows.append(
+            [
+                Paragraph(f"<b>{i}</b>", styles["Small"]),
+                Paragraph(t, styles["Body"]),
+            ]
+        )
+
+    w_total = float(width) if width else (A4[0] - 4 * cm)
+    tbl = Table(rows, colWidths=[0.55 * cm, w_total - 0.55 * cm - 2], hAlign="LEFT", splitByRow=1)
+    tbl.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 1),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+            ]
+        )
+    )
+    return tbl
+
+
+def _chips(scores: Dict[str, Any], styles: Dict[str, ParagraphStyle], keys: List[str]) -> Optional[Table]:
+    """Small score chips for quick scanning (Family / Commute / Lifestyle + Overall)."""
+    cells = []
+    for k in keys:
+        if k not in scores:
+            continue
+        cells.append(Paragraph(f"<b>{k}:</b> {_rating_bar(scores.get(k))}", styles["Small"]))
+    if not cells:
+        return None
+    t = Table([cells], hAlign="LEFT")
+    t.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), BG_SOFT),
+                ("BOX", (0, 0), (-1, -1), 0.6, STROKE),
+                ("INNERGRID", (0, 0), (-1, -1), 0.4, STROKE),
+                ("LEFTPADDING", (0, 0), (-1, -1), 4),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                ("TOPPADDING", (0, 0), (-1, -1), 2),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+            ]
+        )
+    )
+    return t
+
+
+def _split_budget_reality(text: str) -> List[str]:
+    """Split budget reality into 'Rule of thumb' and 'How to validate' when possible."""
+    t = _clean_text(text)
+    if not t:
+        return []
+    low = t.lower()
+    # Try to split on validate/verify/check as a second bullet.
+    for token in [" verify ", " validate ", " check ", " confirm ", " during viewings", " during viewing"]:
+        idx = low.find(token)
+        if idx > 40 and idx < len(t) - 25:
+            left = t[:idx].rstrip(" ,.;:")
+            right = t[idx:].lstrip()
+            return [f"Rule of thumb: {left}", f"How to validate: {right}"]
+    return [t]
+
+
 def _section_title(text: str, styles) -> Paragraph:
-    return Paragraph(_clean_text(text), styles["H2"])
+    # A tiny underline gives a more "consulting report" feel without adding clutter.
+    p = Paragraph(_clean_text(text), styles["H2"])
+    w_total = A4[0] - 4 * cm
+    t = Table([[p]], colWidths=[w_total], hAlign="LEFT")
+    t.setStyle(
+        TableStyle(
+            [
+                ("LINEBELOW", (0, 0), (-1, -1), 1.0, STROKE),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ]
+        )
+    )
+    return t
 
 
-def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = None) -> Table:
+def _kv_table(pairs: List[List[str]], styles: Dict[str, ParagraphStyle], *, col_widths: List[float]) -> Table:
+    """Compact 2-col key/value table used for snapshots.
+
+    Using tables (instead of bullet lists) improves scanability and removes
+    "mystery empty bullets" that can appear with PDF text extraction.
+    """
+    rows = []
+    for k, v in pairs:
+        kk = _clean_text(k)
+        vv = _clean_text(v)
+        if not kk or not vv:
+            continue
+        rows.append([
+            Paragraph(f"<b>{kk}</b>", styles["Small"]),
+            Paragraph(vv, styles["Body"]),
+        ])
+    if not rows:
+        rows = [[Paragraph("—", styles["Small"]), Paragraph("—", styles["Body"])]]
+
+    tbl = Table(rows, colWidths=col_widths, hAlign="LEFT")
+    tbl.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 2),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+            ]
+        )
+    )
+    return tbl
+
+
+def _card(
+    elements: List[Any],
+    padding: float = 10,
+    *,
+    width: Optional[float] = None,
+    repeat_first_row: bool = False,
+) -> Table:
     """Wrap a list of flowables in a rounded-ish card.
 
-    IMPORTANT: the card width must match the container.
-    If we always use full-page width and then place cards into a 2-column table,
-    ReportLab will let the inner table overflow and visually overlap.
-
-    Also important: do NOT create a 1×1 table that contains a *list* of flowables
-    inside a single cell. A single table row cannot split across pages and will
-    trigger LayoutError for tall content (e.g., long commune sections).
-    We instead put each flowable into its own row so Platypus can split by row.
+    IMPORTANT:
+    - The card width must match the container (especially in 2-column layouts).
+    - Do NOT put a *list* of flowables into a single cell; split rows so Platypus can paginate.
+    - If `repeat_first_row=True`, the first row (typically a header) will repeat when the
+      card splits across pages — useful for long commune cards ("continued" UX).
     """
     card_w = float(width) if width else (A4[0] - 4 * cm)
 
@@ -103,13 +251,18 @@ def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = 
         safe_elements = [Paragraph("—", getSampleStyleSheet()["BodyText"])]
 
     data = [[e] for e in safe_elements]
-    tbl = Table(data, colWidths=[card_w], splitByRow=1, hAlign="LEFT")
+    tbl = Table(
+        data,
+        colWidths=[card_w],
+        splitByRow=1,
+        repeatRows=1 if repeat_first_row else 0,
+        hAlign="LEFT",
+    )
     tbl.setStyle(
         TableStyle(
             [
                 ("BACKGROUND", (0, 0), (-1, -1), BG_CARD),
-                ("BOX", (0, 0), (-1, -1), 0.8, STROKE),
-                ("LEFTPADDING", (0, 0), (-1, -1), padding),
+                                ("LEFTPADDING", (0, 0), (-1, -1), padding),
                 ("RIGHTPADDING", (0, 0), (-1, -1), padding),
                 ("TOPPADDING", (0, 0), (-1, -1), padding),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), padding),
@@ -118,7 +271,6 @@ def _card(elements: List[Any], padding: float = 10, *, width: Optional[float] = 
         )
     )
     return tbl
-
 
 def _two_col_grid(left: List[Any], right: List[Any], gap: float = 10) -> Table:
     w_total = A4[0] - 4 * cm
@@ -139,12 +291,24 @@ def _two_col_grid(left: List[Any], right: List[Any], gap: float = 10) -> Table:
 
 
 def _header_footer(canvas, doc, title: str):
+    # Soft premium background
     canvas.saveState()
+    canvas.setFillColor(BG_SOFT)
+    canvas.rect(0, 0, A4[0], A4[1], stroke=0, fill=1)
+
+    # Top accent line
+    canvas.setStrokeColor(ACCENT)
+    canvas.setLineWidth(2)
+    canvas.line(0, A4[1] - 0.45 * cm, A4[0], A4[1] - 0.45 * cm)
+
+    # Header / footer
     canvas.setFillColor(TEXT_MUTED)
-    canvas.setFont("Helvetica", 8.5)
-    canvas.drawString(2 * cm, A4[1] - 1.2 * cm, _clean_text(title))
-    canvas.drawRightString(A4[0] - 2 * cm, A4[1] - 1.2 * cm, date.today().isoformat())
-    canvas.drawRightString(A4[0] - 2 * cm, 1.1 * cm, f"Page {doc.page}")
+    canvas.setFont("Helvetica", 8.2)
+    canvas.drawString(2 * cm, A4[1] - 1.05 * cm, _clean_text(title))
+    canvas.drawRightString(A4[0] - 2 * cm, A4[1] - 1.05 * cm, date.today().isoformat())
+    # Footer: version + page
+    canvas.drawString(2 * cm, 0.9 * cm, f"{REPORT_VERSION}")
+    canvas.drawRightString(A4[0] - 2 * cm, 0.9 * cm, f"Page {doc.page}")
     canvas.restoreState()
 
 
@@ -164,8 +328,8 @@ def render_minimal_premium_pdf(
             "Title",
             parent=styles_src["Title"],
             fontName="Helvetica-Bold",
-            fontSize=20,
-            leading=24,
+            fontSize=18,
+            leading=22,
             textColor=colors.black,
             spaceAfter=10,
         ),
@@ -173,51 +337,51 @@ def render_minimal_premium_pdf(
             "H2",
             parent=styles_src["Heading2"],
             fontName="Helvetica-Bold",
-            fontSize=12.5,
-            leading=15,
+            fontSize=11.2,
+            leading=13.5,
             textColor=ACCENT,
-            spaceBefore=6,
-            spaceAfter=6,
+            spaceBefore=4,
+            spaceAfter=3,
         ),
         "H3": ParagraphStyle(
             "H3",
             parent=styles_src["Heading3"],
             fontName="Helvetica-Bold",
-            fontSize=11,
-            leading=13,
+            fontSize=8.0,
+            leading=10.2,
             textColor=colors.black,
-            spaceBefore=6,
-            spaceAfter=4,
+            spaceBefore=4,
+            spaceAfter=3,
         ),
         "Body": ParagraphStyle(
             "Body",
             parent=styles_src["BodyText"],
             fontName="Helvetica",
-            fontSize=10.2,
-            leading=13,
-            spaceAfter=6,
+            fontSize=8.0,
+            leading=10.2,
+            spaceAfter=3,
         ),
         "Small": ParagraphStyle(
             "Small",
             parent=styles_src["BodyText"],
             fontName="Helvetica",
-            fontSize=9.2,
-            leading=12,
+            fontSize=8.0,
+            leading=10.2,
             textColor=TEXT_MUTED,
         ),
         "Bullet": ParagraphStyle(
             "Bullet",
             parent=styles_src["BodyText"],
             fontName="Helvetica",
-            fontSize=10.0,
-            leading=13,
+            fontSize=8.7,
+            leading=10.2,
         ),
         "Link": ParagraphStyle(
             "Link",
             parent=styles_src["BodyText"],
             fontName="Helvetica",
-            fontSize=10.0,
-            leading=13,
+            fontSize=8.7,
+            leading=10.2,
             textColor=ACCENT,
         ),
     }
@@ -227,8 +391,8 @@ def render_minimal_premium_pdf(
         pagesize=A4,
         leftMargin=2 * cm,
         rightMargin=2 * cm,
-        topMargin=1.8 * cm,
-        bottomMargin=1.6 * cm,
+        topMargin=1.4 * cm,
+        bottomMargin=1.2 * cm,
         title=f"Relocation Brief — {city}",
         author="Relocation Brief",
     )
@@ -238,23 +402,41 @@ def render_minimal_premium_pdf(
     # For any 2-column layouts we must size cards to the column width,
     # otherwise inner tables overflow and overlap visually.
     page_w = A4[0] - 4 * cm
-    col_gap = 12
+    col_gap = 10
     col_w = (page_w - col_gap) / 2.0
 
     # Cover title
     story.append(Paragraph(f"Relocation Brief — {_clean_text(city)}", styles["Title"]))
     story.append(Paragraph("A practical shortlist and action plan for the next 1–2 weeks.", styles["Small"]))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     # Executive summary (60-second scan)
     exec_rows = []
+    highlights: List[str] = []
     for row in (brief.get("executive_summary") or [])[:3]:
         if not isinstance(row, dict):
             continue
         name = _clean_text(row.get("name", "—"))
-        best_for = "; ".join([_clean_text(x) for x in (row.get("best_for") or []) if _clean_text(x)])
-        watch = "; ".join([_clean_text(x) for x in (row.get("watch") or []) if _clean_text(x)])
+        best_for_raw = " · ".join([_clean_text(x) for x in (row.get("best_for") or []) if _clean_text(x)])
+        watch_raw = " · ".join([_clean_text(x) for x in (row.get("watch") or []) if _clean_text(x)])
+        best_for = _truncate(best_for_raw, 120)
+        watch = _truncate(watch_raw, 120)
         microhoods = ", ".join([_clean_text(x) for x in (row.get("microhoods") or []) if _clean_text(x)])
+
+        # One-line highlight to add "consulting" punch below the table.
+        # Keep deterministic and robust: infer a short label from the best_for text.
+        bf_l = best_for_raw.lower()
+        if "family" in bf_l or "schools" in bf_l or "child" in bf_l:
+            tag = "family fit"
+        elif "eu" in bf_l or "quarter" in bf_l:
+            tag = "EU access"
+        elif "expat" in bf_l or "international" in bf_l:
+            tag = "expat/lifestyle"
+        elif "commute" in bf_l or "transport" in bf_l:
+            tag = "commute"
+        else:
+            tag = "best match"
+        highlights.append(f"{name} — {tag}")
         exec_rows.append([
             Paragraph(f"<b>{name}</b>", styles["Body"]),
             Paragraph(best_for or "—", styles["Body"]),
@@ -278,18 +460,20 @@ def render_minimal_premium_pdf(
             TableStyle(
                 [
                     ("BACKGROUND", (0, 0), (-1, 0), BG_SOFT),
-                    ("BOX", (0, 0), (-1, -1), 0.8, STROKE),
-                    ("INNERGRID", (0, 0), (-1, -1), 0.5, STROKE),
+                                        ("INNERGRID", (0, 0), (-1, -1), 0.5, STROKE),
                     ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 6),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-                    ("TOPPADDING", (0, 0), (-1, -1), 5),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 4),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                    ("TOPPADDING", (0, 0), (-1, -1), 4),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
                 ]
             )
         )
         story.append(_card([tbl], padding=8))
-        story.append(Spacer(1, 14))
+        if highlights:
+            story.append(Spacer(1, 4))
+            story.append(Paragraph("<b>At a glance:</b> " + " · ".join(highlights[:3]), styles["Small"]))
+        story.append(Spacer(1, 10))
 
     # 1) Client profile
     cp = _clean_text(brief.get("client_profile", ""))
@@ -314,12 +498,12 @@ def render_minimal_premium_pdf(
         Paragraph(cp or "—", styles["Body"]),
     ]
     if snapshot_lines:
-        left.append(Spacer(1, 2))
+        left.append(Spacer(1, 1))
         left.append(Paragraph("<b>Snapshot</b>", styles["Body"]))
         left.append(_bullets(snapshot_lines, styles["Bullet"]))
 
-    story.append(_card(left))
-    story.append(Spacer(1, 12))
+    story.append(_card(left, padding=8))
+    story.append(Spacer(1, 8))
 
     # Methodology (trust)
     meth = brief.get("methodology") or {}
@@ -334,8 +518,8 @@ def render_minimal_premium_pdf(
             if matching:
                 blocks.append(Paragraph("<b>Matching logic</b>", styles["Body"]))
                 blocks.append(_bullets([_clean_text(x) for x in matching], styles["Bullet"]))
-            story.append(_card(blocks, padding=12))
-            story.append(Spacer(1, 14))
+            story.append(_card(blocks, padding=8, repeat_first_row=True))
+            story.append(Spacer(1, 10))
 
     # 2) Must-have / Nice-to-have / Red flags / Trade-offs
     def _pill_box(title: str, items: List[str]) -> List[Any]:
@@ -345,20 +529,20 @@ def render_minimal_premium_pdf(
         ]
 
     grid = _two_col_grid(
-        _card(_pill_box("Must-have", brief.get("must_have", [])), padding=10, width=col_w),
-        _card(_pill_box("Nice-to-have", brief.get("nice_to_have", [])), padding=10, width=col_w),
+        _card(_pill_box("Must-have", brief.get("must_have", [])), padding=8, width=col_w),
+        _card(_pill_box("Nice-to-have", brief.get("nice_to_have", [])), padding=8, width=col_w),
         gap=col_gap,
     )
     story.append(grid)
-    story.append(Spacer(1, 12))
+    story.append(Spacer(1, 8))
 
     grid2 = _two_col_grid(
-        _card(_pill_box("Red flags", brief.get("red_flags", [])), padding=10, width=col_w),
-        _card(_pill_box("Trade-offs", brief.get("contradictions", [])), padding=10, width=col_w),
+        _card(_pill_box("Red flags", brief.get("red_flags", [])), padding=8, width=col_w),
+        _card(_pill_box("Trade-offs", brief.get("contradictions", [])), padding=8, width=col_w),
         gap=col_gap,
     )
     story.append(grid2)
-    story.append(Spacer(1, 16))
+    story.append(Spacer(1, 10))
 
     # 3) Top-3 communes (multi-page, no forced limit)
     story.append(_section_title("Top-3 communes shortlist", styles))
@@ -392,16 +576,34 @@ def render_minimal_premium_pdf(
                 header.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Landmarks (anchors):</font> {anchors_txt}", styles["Small"]))
 
         # Score row
-        score_parts = []
-        for k in ["Safety", "Family", "Commute", "Lifestyle", "BudgetFit", "Overall"]:
-            if k in scores:
-                score_parts.append(f"<b>{k}:</b> {_rating_bar(scores.get(k))}")
-        if score_parts:
-            header.append(Paragraph(" · ".join(score_parts), styles["Small"]))
+        # Use compact chips for quick scan (more premium / consulting feel)
+        chips = _chips(scores, styles, ["Family", "Commute", "Lifestyle", "BudgetFit", "Overall"])
+        if chips is not None:
+            header.append(chips)
+        else:
+            score_parts = []
+            for k in ["Safety", "Family", "Commute", "Lifestyle", "BudgetFit", "Overall"]:
+                if k in scores:
+                    score_parts.append(f"<b>{k}:</b> {_rating_bar(scores.get(k))}")
+            if score_parts:
+                header.append(Paragraph(" · ".join(score_parts), styles["Small"]))
 
-        blocks: List[Any] = []
-        blocks.extend(header)
-        blocks.append(Spacer(1, 6))
+        # Header row (repeats if card splits across pages)
+        header_tbl = Table([[header]], colWidths=[page_w], hAlign="LEFT")
+        header_tbl.setStyle(
+            TableStyle(
+                [
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                    ("TOPPADDING", (0, 0), (-1, -1), 0),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                    ("LINEBELOW", (0, 0), (-1, -1), 0.8, STROKE),
+                ]
+            )
+        )
+
+        blocks: List[Any] = [header_tbl, Spacer(1, 4)]
 
         # Strengths & trade-offs
         blocks.append(Paragraph("<b>Key strengths</b>", styles["Body"]))
@@ -412,52 +614,91 @@ def render_minimal_premium_pdf(
 
         # Priorities snapshot (explicitly answers manager's 3.2)
         if isinstance(priority_snapshot, dict) and priority_snapshot:
-            snap_lines = []
+            snap_pairs: List[List[str]] = []
             for k in ["housing_cost", "transit", "commute_access", "schools_family"]:
                 v = _clean_text(priority_snapshot.get(k, ""))
-                if v:
-                    label = {
-                        "housing_cost": "Typical housing cost",
-                        "transit": "Public transport",
-                        "commute_access": "Commute access",
-                        "schools_family": "Schools & family",
-                    }.get(k, k)
-                    snap_lines.append(f"<b>{label}:</b> {v}")
-            if snap_lines:
+                if not v:
+                    continue
+                label = {
+                    "housing_cost": "Typical housing cost",
+                    "transit": "Public transport",
+                    "commute_access": "Commute access",
+                    "schools_family": "Schools & family",
+                }.get(k, k)
+                snap_pairs.append([label, v])
+
+            if snap_pairs:
                 blocks.append(Spacer(1, 6))
                 blocks.append(Paragraph("<b>Priorities snapshot</b>", styles["Body"]))
-                blocks.append(_bullets(snap_lines, styles["Bullet"]))
+                blocks.append(
+                    _kv_table(
+                        snap_pairs,
+                        styles,
+                        col_widths=[3.2 * cm, (A4[0] - 4 * cm) - 3.2 * cm - 16],
+                    )
+                )
 
         # Budget reality check (honest rule-of-thumb, avoids false precision)
         budget_reality = _clean_text(d.get("budget_reality", ""))
         if budget_reality:
             blocks.append(Spacer(1, 6))
             blocks.append(Paragraph("<b>Budget reality check</b>", styles["Body"]))
-            blocks.append(_bullets([budget_reality], styles["Bullet"]))
+            blocks.append(_bullets(_split_budget_reality(budget_reality), styles["Bullet"]))
 
         # Microhoods
         microhoods = d.get("microhoods") or []
         if microhoods:
             blocks.append(Spacer(1, 6))
             blocks.append(Paragraph("<b>Microhoods to start with</b>", styles["Body"]))
-            mh_items: List[Any] = []
+            mh_rows: List[List[Any]] = []
             for mh in microhoods[:3]:
                 if not isinstance(mh, dict):
                     continue
                 mh_name = _clean_text(mh.get("name", "")) or "—"
                 mh_why = _clean_text(mh.get("why", ""))
                 mh_wo = _clean_text(mh.get("watch_out", ""))
-                mh_items.append(Paragraph(f"<b>{mh_name}</b>", styles["Body"]))
-                if mh_why:
-                    mh_items.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Why:</font> {mh_why}", styles["Body"]))
-                if mh_wo:
-                    mh_items.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Watch-out:</font> {mh_wo}", styles["Body"]))
-                mh_items.append(Spacer(1, 4))
-            if mh_items:
-                blocks.append(_card(mh_items, padding=10))
 
-        story.append(_card(blocks, padding=12))
-        story.append(Spacer(1, 12))
+                details_parts: List[str] = []
+                if mh_why:
+                    details_parts.append(f"<font color='{TEXT_MUTED.hexval()}'>Why:</font> {mh_why}")
+                if mh_wo:
+                    # Encourage actionable language in the UI even if upstream missed it.
+                    wo = mh_wo.strip()
+                    # Avoid copy-bug like "What to check: Check: ..."
+                    if wo.lower().startswith("check:"):
+                        wo = wo[6:].strip()
+                    details_parts.append(f"<font color='{TEXT_MUTED.hexval()}'>What to check:</font> {wo}")
+                details_html = "<br/>".join(details_parts) if details_parts else "—"
+
+                mh_rows.append([
+                    Paragraph(f"<b>{mh_name}</b>", styles["Body"]),
+                    Paragraph(details_html, styles["Body"]),
+                ])
+
+            if mh_rows:
+                mh_tbl = Table(
+                    mh_rows,
+                    colWidths=[3.4 * cm, (A4[0] - 4 * cm) - 3.4 * cm - 16],
+                    hAlign="LEFT",
+                    splitByRow=1,
+                )
+                mh_tbl.setStyle(
+                    TableStyle(
+                        [
+                            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                                                        ("INNERGRID", (0, 0), (-1, -1), 0.5, STROKE),
+                            ("ROWBACKGROUNDS", (0, 0), (-1, -1), [colors.white, BG_SOFT]),
+                            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                            ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                            ("TOPPADDING", (0, 0), (-1, -1), 4),
+                            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                        ]
+                    )
+                )
+                blocks.append(mh_tbl)
+
+        story.append(_card(blocks, padding=8, repeat_first_row=True))
+        story.append(Spacer(1, 8))
 
     # 4) Next steps (expanded)
     story.append(PageBreak())
@@ -479,11 +720,11 @@ def render_minimal_premium_pdf(
     w2 = next_steps[5:10]
     if w1:
         story.append(Paragraph("<b>Week 1</b>", styles["Body"]))
-        story.append(_numbered(w1, styles["Bullet"]))
+        story.append(_numbered_table(w1, styles))
         story.append(Spacer(1, 6))
     if w2:
         story.append(Paragraph("<b>Week 2</b>", styles["Body"]))
-        story.append(_numbered(w2, styles["Bullet"]))
+        story.append(_numbered_table(w2, styles))
         story.append(Spacer(1, 10))
 
     # Practical checklists
@@ -502,12 +743,25 @@ def render_minimal_premium_pdf(
     # Relocation essentials (beyond real estate)
     rel = brief.get("relocation_essentials") or {}
     if isinstance(rel, dict) and any(rel.get(k) for k in ["first_72h", "first_2_weeks", "first_2_months"]):
-        story.append(_section_title("Relocation essentials", styles))
-        story.append(Paragraph("Operational steps to avoid surprises once you arrive.", styles["Small"]))
-        story.append(Spacer(1, 6))
+        # Avoid orphan section headers at the bottom of a page.
+        story.append(CondPageBreak(220))
+        essentials_intro: List[Any] = [
+            _section_title("Relocation essentials", styles),
+            Paragraph("Operational steps to avoid surprises once you arrive.", styles["Small"]),
+            Spacer(1, 6),
+        ]
 
         def _phase(title: str, key: str) -> List[Any]:
-            items = [_clean_text(x) for x in (rel.get(key) or []) if _clean_text(x)]
+            raw = [_clean_text(x) for x in (rel.get(key) or []) if _clean_text(x)]
+            items: List[str] = []
+            for it in raw:
+                # Copy safety-net: avoid confusing advice.
+                if "pick 1–2 communes" in it.lower():
+                    items.append(
+                        "Once you have an address, register in the commune of residence (appointment-based)."
+                    )
+                    continue
+                items.append(it)
             if not items:
                 return []
             return [Paragraph(f"<b>{title}</b>", styles["Body"]), _bullets(items, styles["Bullet"])]
@@ -515,8 +769,12 @@ def render_minimal_premium_pdf(
         left = _phase("First 72 hours", "first_72h") + _phase("First 2 weeks", "first_2_weeks")
         right = _phase("First 2 months", "first_2_months")
         if left or right:
-            story.append(_two_col_grid(_card(left, padding=10, width=col_w), _card(right, padding=10, width=col_w), gap=col_gap))
-            story.append(Spacer(1, 12))
+            essentials_intro.append(_two_col_grid(_card(left, padding=8, width=col_w), _card(right, padding=8, width=col_w), gap=col_gap))
+            # Avoid LayoutError: keep only the section header together; allow body to split.
+            story.append(CondPageBreak(120))
+            story.append(KeepTogether(essentials_intro[:3]))
+            story.extend(essentials_intro[3:])
+            story.append(Spacer(1, 8))
 
     # Commune registration / admin checklist (kept high-level to avoid false precision)
     reg = [_clean_text(x) for x in (brief.get("registration_checklist") or []) if _clean_text(x)]
@@ -533,9 +791,13 @@ def render_minimal_premium_pdf(
         story.append(Spacer(1, 10))
 
     # 5) Agencies & resources (fixed from city pack)
-    story.append(_section_title("Agencies and resources", styles))
-    story.append(Paragraph("Curated starting points for Belgium/Brussels.", styles["Small"]))
-    story.append(Spacer(1, 6))
+    # Avoid orphan section headers at the bottom of a page.
+    story.append(CondPageBreak(180))
+    resources_intro: List[Any] = [
+        _section_title("Agencies and resources", styles),
+        Paragraph("Curated starting points for Belgium/Brussels.", styles["Small"]),
+        Spacer(1, 6),
+    ]
 
     def _link_line(item: Dict[str, Any]) -> str:
         name = _clean_text(item.get("name", "—"))
@@ -553,12 +815,16 @@ def render_minimal_premium_pdf(
     websites = brief.get("real_estate_sites") or []
 
     left_block: List[Any] = [Paragraph("<b>Agencies</b>", styles["Body"])]
-    left_block.append(_numbered([_link_line(x) for x in agencies[:5] if isinstance(x, dict)], styles["Bullet"]))
+    left_block.append(_numbered_table([_link_line(x) for x in agencies[:5] if isinstance(x, dict)], styles, width=col_w-16))
 
     right_block: List[Any] = [Paragraph("<b>Websites</b>", styles["Body"])]
-    right_block.append(_numbered([_link_line(x) for x in websites[:3] if isinstance(x, dict)], styles["Bullet"]))
+    right_block.append(_numbered_table([_link_line(x) for x in websites[:3] if isinstance(x, dict)], styles, width=col_w-16))
 
-    story.append(_two_col_grid(_card(left_block, padding=10, width=col_w), _card(right_block, padding=10, width=col_w), gap=col_gap))
+    resources_intro.append(_two_col_grid(_card(left_block, padding=8, width=col_w), _card(right_block, padding=8, width=col_w), gap=col_gap))
+    # Avoid LayoutError: keep only the section header together; allow body to split.
+    story.append(CondPageBreak(120))
+    story.append(KeepTogether(resources_intro[:3]))
+    story.extend(resources_intro[3:])
 
     # Clarifying questions (should normally be empty by the time user downloads)
     clar = [_clean_text(x) for x in (brief.get("clarifying_questions") or []) if _clean_text(x)]

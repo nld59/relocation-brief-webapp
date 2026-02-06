@@ -1,127 +1,105 @@
 {
-  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 725000–1325000 EUR. Priorities include cafes & brunch, restaurants, a premium feel, and a residential environment.",
-  "must_have": [
-    "2+ rooms available",
-    "Premium feel throughout",
-    "Residential and quiet atmosphere"
-  ],
-  "nice_to_have": [
-    "Access to good transit options",
-    "Local cafes and restaurants nearby"
-  ],
-  "red_flags": [
-    "High competition for premium listings",
-    "Potentially long commute from some districts"
-  ],
-  "contradictions": [
-    "Premium feel may conflict with budget limits",
-    "Desire for quiet areas may limit access to restaurants"
-  ],
-  "top_districts": [
-    {
-      "name": "Ixelles",
-      "micro_anchors": [
-        "Châtelain",
-        "Flagey",
-        "Cimetiere d'Ixelles"
-      ],
-      "microhoods": [
+    "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 610000–1135000 EUR. Priorities include cafes, restaurants, and local markets.",
+    "must_have": [
+        "One or more bedrooms in the apartment.",
+        "Access to local cafes and vibrant restaurants.",
+        "Proximity to markets and local shops."
+    ],
+    "nice_to_have": [
+        "Green spaces or parks nearby.",
+        "Strong public transport connectivity.",
+        "Cultural venues within walking distance."
+    ],
+    "red_flags": [
+        "High traffic noise in busy areas.",
+        "Rising property prices impacting budget.",
+        "Long commute times for remote work."
+    ],
+    "contradictions": [
+        "Central areas may be noisy but vibrant.",
+        "Quieter districts could lack dining options.",
+        "Prices in popular areas can exceed budget."
+    ],
+    "top_districts": [
         {
-          "name": "Boondael",
-          "why": "Offers a green environment and lively scene with parks.",
-          "watch_out": "Popular streets can experience significant noise and tight parking."
+            "name": "Ixelles",
+            "micro_anchors": [
+                "Châtelain",
+                "Flagey",
+                "Cimetiere d'Ixelles"
+            ],
+            "microhoods": [
+                {
+                    "name": "Boondael",
+                    "why": "Boondael offers lively cafes and transit access at Flagey.",
+                    "watch_out": "Popular streets get noisy on weekends; parking is tight."
+                },
+                {
+                    "name": "Brugmann - Lepoutre",
+                    "why": "Brugmann features local shops and green spaces transitioning towards quieter zones.",
+                    "watch_out": "Expect traffic during rush hours; plan accordingly."
+                },
+                {
+                    "name": "Universite",
+                    "why": "Universite is known for vibrant nightlife and diverse dining options.",
+                    "watch_out": "Some streets may be too lively and noisy at night."
+                }
+            ],
+            "why": [
+                "Rich cultural scene with local markets and cafes mixed with parks.",
+                "Strong transport links make commuting easy from the area."
+            ],
+            "watch_out": [
+                "Noise levels can be high in busy environments, especially nightlife zones."
+            ],
+            "scores": {
+                "Safety": 3,
+                "Family": 4,
+                "Commute": 4,
+                "Lifestyle": 5,
+                "BudgetFit": 3,
+                "Overall": 4
+            }
         },
         {
-          "name": "Universite",
-          "why": "Known for lively atmosphere, good transit, and vibrant cafes.",
-          "watch_out": "Can be expensive, especially for premium apartments."
+            "name": "City of Brussels",
+            "micro_anchors": [
+                "Sablon",
+                "Sainte-Catherine / Dansaert",
+                "Royal Palace / Park area"
+            ],
+            "microhoods": [
+                {
+                    "name": "Domaine Royal Laeken",
+                    "why": "Domaine offers a quieter vibe while accessing major attractions easily.",
+                    "watch_out": "Can feel touristy and crowded during weekends."
+                },
+                {
+                    "name": "Haren",
+                    "why": "Haren provides numerous cafes alongside vibrant community markets.",
+                    "watch_out": "Traffic can be heavy on main roads during peak hours."
+                },
+                {
+                    "name": "Heembeek",
+                    "why": "Heembeek is quieter and close to green spaces yet retains good access.",
+                    "watch_out": "Limited dining options in the immediate vicinity."
+                }
+            ],
+            "why": [
+                "Cafes and restaurants abound, along with cultural sites like museums.",
+                "Central parks enhance the living experience amidst urban life."
+            ],
+            "watch_out": [
+                "Touristy pockets can feel noisy and congested, especially on weekends."
+            ],
+            "scores": {
+                "Safety": 3,
+                "Family": 4,
+                "Commute": 5,
+                "Lifestyle": 5,
+                "BudgetFit": 2,
+                "Overall": 4
+            }
         }
-      ],
-      "why": [
-        "Vibrant area with access to parks like Flagey.",
-        "Diverse dining options attract both locals and tourists."
-      ],
-      "watch_out": [
-        "Expect some street noise on weekends due to nightlife."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 3,
-        "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Saint-Gilles",
-      "micro_anchors": [
-        "Parvis de Saint-Gilles",
-        "Barriere",
-        "Hotel des Monnaies"
-      ],
-      "microhoods": [
-        {
-          "name": "Haut Saint - Gilles",
-          "why": "Greener and quieter area with good access to amenities.",
-          "watch_out": "Some streets are lively and noisy late at night."
-        },
-        {
-          "name": "Chatelain",
-          "why": "Offers a lively vibe with lots of cafes and restaurants.",
-          "watch_out": "Traffic noise can be an issue on busy streets."
-        }
-      ],
-      "why": [
-        "Charming streets lined with cafes close to Parvis.",
-        "Excellent blend of residential and vibrant cultural life."
-      ],
-      "watch_out": [
-        "Choose quieter side streets to avoid night noise."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 3,
-        "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 4,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Etterbeek",
-      "micro_anchors": [
-        "Jourdan",
-        "La Chasse",
-        "Cinquantenaire edge"
-      ],
-      "microhoods": [
-        {
-          "name": "Chasse",
-          "why": "Lively neighborhood with good transit connections.",
-          "watch_out": "Higher rents closer to EU quarter and busy roads."
-        },
-        {
-          "name": "Saint - Pierre",
-          "why": "Offers access to green spaces and community vibe.",
-          "watch_out": "Traffic can be congested during peak hours."
-        }
-      ],
-      "why": [
-        "Access to parks and cultural venues, appealing for families.",
-        "Balanced atmosphere between urban and suburban lifestyle."
-      ],
-      "watch_out": [
-        "Some areas can feel crowded, particularly during events."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 4,
-        "Overall": 4
-      }
-    }
-  ]
+    ]
 }

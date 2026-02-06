@@ -108,55 +108,21 @@
         "Parc Josaphat",
         "Helmet"
       ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
       "microhoods": [
         {
           "name": "Dailly",
-          "why": "Dailly features vibrant cafes and nearby parks conducive to family life.",
-          "watch_out": "Noise levels can vary on different streets; check specific blocks."
+          "why": "",
+          "watch_out": ""
         },
         {
           "name": "Collignon",
-          "why": "Collignon enjoys good transit alongside local dining and shopping options.",
-          "watch_out": "Potentially higher property prices near the tram stations."
-        },
-        {
-          "name": "Helmet",
-          "why": "Helmet offers community-centric cafes and market experiences weekly.",
-          "watch_out": "Watch for fluctuating prices, especially in demand areas."
+          "why": "",
+          "watch_out": ""
         }
-      ],
-      "why": [
-        "Local market atmosphere enhances the community feel and access to amenities.",
-        "Dynamic food scene caters to various tastes and preferences."
-      ],
-      "watch_out": [
-        "Very street-by-street; check safety and quietness around your exact block."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 4,
-        "Commute": 3,
-        "Lifestyle": 4,
-        "BudgetFit": 4,
-        "Overall": 4
-      }
-    }
-  ],
-  "real_estate_sites": [
-    {
-      "name": "Immoweb",
-      "url": "https://www.immoweb.be",
-      "note": "Largest Belgian property portal."
-    },
-    {
-      "name": "Zimmo",
-      "url": "https://www.zimmo.be",
-      "note": "Very popular portal; broad coverage."
-    },
-    {
-      "name": "Immoscoop",
-      "url": "https://www.immoscoop.be",
-      "note": "Strong listings."
+      ]
     }
   ]
 }

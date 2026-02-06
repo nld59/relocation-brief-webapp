@@ -1221,7 +1221,8 @@
       "micro_anchors": [
         "Fort Jaco",
         "Prince d'Orange",
-        "Vivier d'Oie"
+        "Vivier d'Oie",
+        "Foret de Soignes"
       ],
       "tags": [
         "car_friendly",
@@ -1255,36 +1256,6 @@
       },
       "tag_confidence": {},
       "microhoods": [
-        {
-          "id": 906,
-          "monitoring_id": 906,
-          "name": "Foret de Soignes",
-          "metrics": {
-            "area_km2": 17.87501782113516,
-            "cafes": 0,
-            "bars": 1,
-            "restaurants": 3,
-            "schools": 2,
-            "childcare": 0,
-            "metro": 0,
-            "tram": 6,
-            "train": 0,
-            "parks_km2": 4.604190012922058,
-            "cafes_density": 0.0,
-            "bars_density": 0.05594400016863841,
-            "restaurant_density": 0.16783200050591524,
-            "schools_density": 0.11188800033727682,
-            "childcare_density": 0.0,
-            "metro_station_density": 0.0,
-            "tram_stop_density": 0.33566400101183047,
-            "train_station_density": 0.0,
-            "parks_share": 0.2575768068593549
-          },
-          "tag_confidence": {
-            "green_parks": "medium",
-            "childcare_strong": "medium"
-          }
-        },
         {
           "id": 111,
           "monitoring_id": 111,
@@ -5918,8 +5889,8 @@
       "watch_out": "Less dense retail/cafés; public transport convenience varies by pocket."
     },
     "Stockel": {
-      "why": "Well-known family-friendly hub with metro access and everyday services; practical base for the east side.",
-      "watch_out": "Demand is consistently high; compare total cost and be ready to move quickly on good listings."
+      "why": "Residential hub with shops and day-to-day convenience; good base for families wanting calm streets and services nearby.",
+      "watch_out": "Competitive in prime pockets; check parking availability and the exact walk time to metro/tram."
     },
     "Montgomery": {
       "why": "Excellent connectivity (tram/metro links) and quick access to central corridors; convenient for commuters.",
@@ -5936,6 +5907,34 @@
     "Koekelberg Centre": {
       "why": "Practical, local-feel center with everyday amenities and relatively good value.",
       "watch_out": "Quality varies by building; pay attention to condition, charges, and renovation plans."
+    },
+    "Fort Jaco": {
+      "why": "Leafy, upscale pocket with a village feel and quick access to green space; popular for families looking for calm streets.",
+      "watch_out": "Public transport can be limited depending on the street; test school/run commute and check parking/traffic at peak hours."
+    },
+    "Vivier D’oie": {
+      "why": "Quiet residential area near the city edge with a more 'suburban' feel and easy access to green paths.",
+      "watch_out": "Check access to daily shops without a car and confirm transit options for your exact address."
+    },
+    "Saint - Job Kauwberg": {
+      "why": "Residential village-style pocket with access to green trails and a calmer pace; good for families prioritizing space.",
+      "watch_out": "Street-by-street variation: check evening noise, parking permit rules, and commute time to your daily destinations."
+    },
+    "Kalevoet - Moensberg": {
+      "why": "Well-served by tram corridors with practical local amenities; often good value versus prime Ixelles/Uccle pockets.",
+      "watch_out": "Verify noise near tram/arteries and confirm building charges (syndic) and insulation (EPC)."
+    },
+    "Observatoire": {
+      "why": "Green-adjacent pocket with a residential feel and convenient links towards Louise/Ixelles.",
+      "watch_out": "Availability can be tight; verify traffic/noise near main roads and parking options if you rely on a car."
+    },
+    "Churchill": {
+      "why": "Premium residential zone with parks nearby and quick tram connections; attractive for families and many expats.",
+      "watch_out": "Prices can be high; validate total ownership cost and check street noise near main arteries."
+    },
+    "Roodebeek": {
+      "why": "Practical, well-connected area around metro/tram corridors; strong commute option with nearby services.",
+      "watch_out": "Some streets are busier—do a peak-hour walk-through and check building noise/insulation."
     }
   }
 }

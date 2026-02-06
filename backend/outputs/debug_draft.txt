@@ -1,52 +1,56 @@
 {
-  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 725000–1325000 EUR. Priorities include cafes & brunch, restaurants, a premium feel, and a residential environment.",
+  "client_profile": "A couple looking to buy an apartment in Brussels. Budget is 610000–1135000 EUR. Priorities include cafes, restaurants, and local markets.",
   "must_have": [
-    "2+ rooms available",
-    "Premium feel throughout",
-    "Residential and quiet atmosphere"
+    "One or more bedrooms in the apartment.",
+    "Access to local cafes and vibrant restaurants.",
+    "Proximity to markets and local shops."
   ],
   "nice_to_have": [
-    "Access to good transit options",
-    "Local cafes and restaurants nearby"
+    "Green spaces or parks nearby.",
+    "Strong public transport connectivity.",
+    "Cultural venues within walking distance."
   ],
   "red_flags": [
-    "High competition for premium listings",
-    "Potentially long commute from some districts"
+    "High traffic noise in busy areas.",
+    "Rising property prices impacting budget.",
+    "Long commute times for remote work."
   ],
   "contradictions": [
-    "Premium feel may conflict with budget limits",
-    "Desire for quiet areas may limit access to restaurants"
+    "Central areas may be noisy but vibrant.",
+    "Quieter districts could lack dining options.",
+    "Prices in popular areas can exceed budget."
   ],
   "top_districts": [
     {
       "name": "Ixelles",
-      "micro_anchors": [
-        "Châtelain",
-        "Flagey",
-        "Cimetiere d'Ixelles"
-      ],
+      "micro_anchors": ["Châtelain", "Flagey", "Cimetiere d'Ixelles"],
       "microhoods": [
         {
           "name": "Boondael",
-          "why": "Offers a green environment and lively scene with parks.",
-          "watch_out": "Popular streets can experience significant noise and tight parking."
+          "why": "Boondael offers lively cafes and transit access at Flagey.",
+          "watch_out": "Popular streets get noisy on weekends; parking is tight."
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "Brugmann features local shops and green spaces transitioning towards quieter zones.",
+          "watch_out": "Expect traffic during rush hours; plan accordingly."
         },
         {
           "name": "Universite",
-          "why": "Known for lively atmosphere, good transit, and vibrant cafes.",
-          "watch_out": "Can be expensive, especially for premium apartments."
+          "why": "Universite is known for vibrant nightlife and diverse dining options.",
+          "watch_out": "Some streets may be too lively and noisy at night."
         }
       ],
       "why": [
-        "Vibrant area with access to parks like Flagey.",
-        "Diverse dining options attract both locals and tourists."
+        "Rich cultural scene with local markets and cafes mixed with parks.",
+        "Strong transport links make commuting easy from the area."
       ],
       "watch_out": [
-        "Expect some street noise on weekends due to nightlife."
+        "Noise levels can be high in busy environments, especially nightlife zones."
       ],
       "scores": {
-        "Safety": 4,
-        "Family": 3,
+        "Safety": 3,
+        "Family": 4,
         "Commute": 4,
         "Lifestyle": 5,
         "BudgetFit": 3,
@@ -54,72 +58,74 @@
       }
     },
     {
-      "name": "Saint-Gilles",
-      "micro_anchors": [
-        "Parvis de Saint-Gilles",
-        "Barriere",
-        "Hotel des Monnaies"
-      ],
+      "name": "City of Brussels",
+      "micro_anchors": ["Sablon", "Sainte-Catherine / Dansaert", "Royal Palace / Park area"],
       "microhoods": [
         {
-          "name": "Haut Saint - Gilles",
-          "why": "Greener and quieter area with good access to amenities.",
-          "watch_out": "Some streets are lively and noisy late at night."
+          "name": "Domaine Royal Laeken",
+          "why": "Domaine offers a quieter vibe while accessing major attractions easily.",
+          "watch_out": "Can feel touristy and crowded during weekends."
         },
         {
-          "name": "Chatelain",
-          "why": "Offers a lively vibe with lots of cafes and restaurants.",
-          "watch_out": "Traffic noise can be an issue on busy streets."
+          "name": "Haren",
+          "why": "Haren provides numerous cafes alongside vibrant community markets.",
+          "watch_out": "Traffic can be heavy on main roads during peak hours."
+        },
+        {
+          "name": "Heembeek",
+          "why": "Heembeek is quieter and close to green spaces yet retains good access.",
+          "watch_out": "Limited dining options in the immediate vicinity."
         }
       ],
       "why": [
-        "Charming streets lined with cafes close to Parvis.",
-        "Excellent blend of residential and vibrant cultural life."
+        "Cafes and restaurants abound, along with cultural sites like museums.",
+        "Central parks enhance the living experience amidst urban life."
       ],
       "watch_out": [
-        "Choose quieter side streets to avoid night noise."
+        "Touristy pockets can feel noisy and congested, especially on weekends."
       ],
       "scores": {
-        "Safety": 4,
-        "Family": 3,
-        "Commute": 4,
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
         "Lifestyle": 5,
-        "BudgetFit": 4,
+        "BudgetFit": 2,
         "Overall": 4
       }
     },
     {
-      "name": "Etterbeek",
-      "micro_anchors": [
-        "Jourdan",
-        "La Chasse",
-        "Cinquantenaire edge"
-      ],
+      "name": "Schaerbeek",
+      "micro_anchors": ["Plasky", "Parc Josaphat", "Helmet"],
       "microhoods": [
         {
-          "name": "Chasse",
-          "why": "Lively neighborhood with good transit connections.",
-          "watch_out": "Higher rents closer to EU quarter and busy roads."
+          "name": "Dailly",
+          "why": "Dailly features vibrant cafes and nearby parks conducive to family life.",
+          "watch_out": "Noise levels can vary on different streets; check specific blocks."
         },
         {
-          "name": "Saint - Pierre",
-          "why": "Offers access to green spaces and community vibe.",
-          "watch_out": "Traffic can be congested during peak hours."
+          "name": "Collignon",
+          "why": "Collignon enjoys good transit alongside local dining and shopping options.",
+          "watch_out": "Potentially higher property prices near the tram stations."
+        },
+        {
+          "name": "Helmet",
+          "why": "Helmet offers community-centric cafes and market experiences weekly.",
+          "watch_out": "Watch for fluctuating prices, especially in demand areas."
         }
       ],
       "why": [
-        "Access to parks and a residential, community vibe.",
-        "Good dining options with a bustling local market feel."
+        "Local market atmosphere enhances the community feel and access to amenities.",
+        "Dynamic food scene caters to various tastes and preferences."
       ],
       "watch_out": [
-        "Traffic around main roads can be a significant concern."
+        "Very street-by-street; check safety and quietness around your exact block."
       ],
       "scores": {
         "Safety": 4,
         "Family": 4,
-        "Commute": 4,
+        "Commute": 3,
         "Lifestyle": 4,
-        "BudgetFit": 3,
+        "BudgetFit": 4,
         "Overall": 4
       }
     }
@@ -138,30 +144,4 @@
     {
       "name": "Immoscoop",
       "url": "https://www.immoscoop.be",
-      "note": "Strong listings; many agent exclusives."
-    }
-  ],
-  "agencies": [
-    {
-      "name": "ERA Belgium",
-      "url": "https://www.era.be",
-      "note": "National network (100+ offices)."
-    },
-    {
-      "name": "CENTURY 21 Belgium",
-      "url": "https://www.century21.be",
-      "note": "National network (130+ branches)."
-    },
-    {
-      "name": "TREVI",
-      "url": "https://www.trevi.be",
-      "note": "Large Belgian network (35+ agencies)."
-    },
-    {
-      "name": "Dewaele",
-      "url": "https://www.dewaele.com",
-      "note": "Large network in Flanders & Brussels."
-    },
-    {
-      "name": "Immo Francois",
-      "url": "https://
+      "note": "Strong listings

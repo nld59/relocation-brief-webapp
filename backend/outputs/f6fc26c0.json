@@ -1,4 +1,3 @@
-```json
 {
   "client_profile": "A couple looking to buy an apartment in Brussels. Budget is EUR 610,000–1,135,000. Priorities include cafes, restaurants, and local markets.",
   "must_have": [
@@ -106,4 +105,23 @@
       "name": "City of Brussels",
       "micro_anchors": [
         "Sablon",
-        "Sainte
+        "Sainte"
+      ],
+      "microhoods": [
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Haren",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {}
+    }
+  ]
+}

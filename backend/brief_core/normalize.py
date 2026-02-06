@@ -448,6 +448,128 @@ def _derive_strengths_tradeoffs(
     return strengths, tradeoffs
 
 
+def _uniqueize_shortlist_copy(
+    districts: List[Dict[str, Any]],
+    *,
+    answers: Optional[Dict[str, Any]] = None,
+) -> None:
+    """Reduce copy/paste feel across the 3-commune shortlist.
+
+    We keep the content deterministic (no LLM calls) but ensure:
+    - strengths/tradeoffs are not identical across communes
+    - first strength is a clear, commune-specific driver (family/commute/lifestyle/budget)
+    """
+    answers = answers or {}
+
+    # Rank districts by key dimensions so we can write "best for X" lines without inventing facts.
+    dims = ["Family", "Commute", "Lifestyle", "BudgetFit", "Safety"]
+    scores_by_dim: Dict[str, List[int]] = {d: [] for d in dims}
+    for d in districts:
+        sc = d.get("scores") or {}
+        for dim in dims:
+            try:
+                scores_by_dim[dim].append(int(sc.get(dim, 0)))
+            except Exception:
+                scores_by_dim[dim].append(0)
+
+    # Helper: rank index (0 = best)
+    def _rank_indices(vals: List[int]) -> List[int]:
+        # Higher is better. Stable tie-break by original order.
+        order = sorted(range(len(vals)), key=lambda i: (-vals[i], i))
+        rank = [0] * len(vals)
+        for r, i in enumerate(order):
+            rank[i] = r
+        return rank
+
+    ranks = {dim: _rank_indices(scores_by_dim[dim]) for dim in dims}
+
+    commute_to = _as_str(
+        answers.get("commute_to") or answers.get("commute_destination") or answers.get("work_location") or ""
+    ).strip()
+    commute_to = commute_to[:60]
+
+    used_strength_keys: set[str] = set()
+    used_tradeoff_keys: set[str] = set()
+
+    for i, d in enumerate(districts):
+        anchors = d.get("micro_anchors") or d.get("anchors") or []
+        anchor_hint = anchors[0] if anchors else d.get("name") or "key hubs"
+        sc = d.get("scores") or {}
+
+        # Candidate first-strength lines (ordered by what usually sells best for families).
+        cand: List[str] = []
+        if ranks.get("Family", [99])[i] == 0 and int(sc.get("Family", 0)) >= 4:
+            cand.append(f"Best family fit in the shortlist: calmer pockets near {anchor_hint} and good parks/schools access.")
+        if ranks.get("Commute", [99])[i] == 0 and int(sc.get("Commute", 0)) >= 4:
+            if commute_to:
+                cand.append(f"Strongest commute option: often the easiest access to {commute_to} from around {anchor_hint}.")
+            else:
+                cand.append(f"Strongest commute option: above-average connectivity around {anchor_hint} via metro/tram corridors.")
+        if ranks.get("Lifestyle", [99])[i] == 0 and int(sc.get("Lifestyle", 0)) >= 4:
+            cand.append(f"Most lifestyle-dense option: cafés/amenities cluster more strongly around {anchor_hint}.")
+        if ranks.get("BudgetFit", [99])[i] == 0 and int(sc.get("BudgetFit", 0)) >= 4:
+            cand.append(f"Best value fit: more options within budget compared with the other shortlisted communes.")
+        if not cand:
+            # Fallback that still reads specific
+            cand.append(f"Balanced option around {anchor_hint} with a clear trade-off between space, commute and amenities.")
+
+        strengths = [s for s in (d.get("strengths") or []) if isinstance(s, str) and s.strip()]
+        tradeoffs = [t for t in (d.get("tradeoffs") or []) if isinstance(t, str) and t.strip()]
+
+        # Replace generic repeated starters.
+        if strengths:
+            first_key = _norm_label(strengths[0])
+            if first_key in used_strength_keys or strengths[0].lower().startswith("plenty of day-to-day") or strengths[0].lower().startswith("good access to"):
+                strengths[0] = cand[0]
+        else:
+            strengths = [cand[0]]
+
+        # De-dupe across districts by replacing duplicates with specific alternatives.
+        def _push_unique(items: List[str], used: set[str], alts: List[str]) -> List[str]:
+            out: List[str] = []
+            for x in items:
+                k = _norm_label(x)
+                if k in used:
+                    continue
+                used.add(k)
+                out.append(x)
+            # Fill up to original length (max 4/3) with alternatives that are not yet used.
+            for a in alts:
+                if len(out) >= len(items):
+                    break
+                k = _norm_label(a)
+                if k in used:
+                    continue
+                used.add(k)
+                out.append(a)
+            return out
+
+        # Strength alternatives to reduce templating feel
+        alt_strengths: List[str] = []
+        if int(sc.get("Safety", 0)) >= 4:
+            alt_strengths.append("Generally calmer residential feel compared with central nightlife hubs.")
+        if int(sc.get("BudgetFit", 0)) <= 2:
+            alt_strengths.append("Prime pockets can be competitive; widen the search radius within the commune to keep options.")
+
+        strengths = _push_unique(strengths, used_strength_keys, alt_strengths)[:4]
+
+        # Trade-off alternatives
+        alt_trade: List[str] = []
+        if int(sc.get("BudgetFit", 0)) <= 2:
+            alt_trade.append("Competition can be high in prime pockets; be ready to move quickly on good listings.")
+        if int(sc.get("Commute", 0)) <= 2:
+            alt_trade.append("Commute convenience varies; test your door-to-door route at peak hours before committing.")
+        alt_trade.append("Check building charges (syndic), EPC, and noise insulation — these vary street-by-street.")
+
+        tradeoffs = _push_unique(tradeoffs, used_tradeoff_keys, alt_trade)[:3]
+
+        d["strengths"] = strengths
+        d["tradeoffs"] = tradeoffs
+
+
+
+
+
 def _build_commune_score_index(pack: Dict[str, Any]) -> Tuple[Dict[str, Dict[str, float]], Dict[str, List[float]]]:
     """Precompute raw feature scores and distributions for scaling across communes.
 
@@ -883,6 +1005,9 @@ def _enforce_communes_and_microhoods(
                     gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
                     why_s = why_s or gen_why
                     watch_s = watch_s or gen_watch
+                # Make the copy actionable (what to check), not just descriptive.
+                if watch_s and not any(v in watch_s.lower() for v in ["check", "verify", "confirm", "test", "walk-through", "walkthrough"]):
+                    watch_s = f"Check: {watch_s}"
                 out_mh.append({"name": nm, "why": why_s[:160], "watch_out": watch_s[:160]})
 
         # Fill missing microhoods deterministically
@@ -900,6 +1025,9 @@ def _enforce_communes_and_microhoods(
                     gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
                     why_s = why_s or gen_why
                     watch_s = watch_s or gen_watch
+                # Make the copy actionable (what to check), not just descriptive.
+                if watch_s and not any(v in watch_s.lower() for v in ["check", "verify", "confirm", "test", "walk-through", "walkthrough"]):
+                    watch_s = f"Check: {watch_s}"
                 out_mh.append({"name": nm, "why": why_s[:160], "watch_out": watch_s[:160]})
 
         out_mh = out_mh[: LIMITS["microhoods"]]
@@ -1236,6 +1364,13 @@ def normalize_brief(
             "Set up local services: bank, insurance, parking permit (if needed), and subscriptions.",
         ],
     }
+
+
+    # Reduce copy/paste feel across the shortlist (UX/Copy).
+    try:
+        _uniqueize_shortlist_copy(out.get("top_districts") or [], answers=answers)
+    except Exception:
+        pass
 
     # Executive summary lines for quick scanning.
     out["executive_summary"] = []
