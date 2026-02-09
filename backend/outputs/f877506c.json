@@ -1,0 +1,162 @@
+{
+  "client_profile": "A couple seeking to buy an apartment in Brussels. Budget: EUR 490,000–1,020,000. Priorities include cafes, restaurants, and central access.",
+  "must_have": [
+    "At least 2 bedrooms in an apartment",
+    "Location with central access to public transport",
+    "Proximity to cafes and restaurants"
+  ],
+  "nice_to_have": [
+    "Green spaces nearby for relaxation",
+    "Modern amenities in the apartment",
+    "Good reputation of the neighborhood"
+  ],
+  "red_flags": [
+    "High noise levels in tourist areas",
+    "Over budget due to competitive market",
+    "Property with pending legal issues"
+  ],
+  "contradictions": [
+    "Desiring both affordability and central location",
+    "Wanting quiet community within a busy district",
+    "Preference for modern living in historic buildings"
+  ],
+  "questions_for_agent_landlord": [
+    "What are the forthcoming developments in the area?",
+    "What is the average time properties stay on the market?",
+    "Are there any upcoming changes in local transport plans?",
+    "What is the neighborhood's crime rate?",
+    "How are the property taxes structured in the region?"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect competitive prices near tourist attractions.",
+        "How to validate: Compare listings on major property portals."
+      ],
+      "microhoods": [
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Palace",
+            "Park area"
+          ],
+          "portal_keywords": [
+            "apartment",
+            "two bedrooms",
+            "central access"
+          ],
+          "street_hints": [
+            "Check Rue de la Loi",
+            "Look near Parc du Cinquantenaire"
+          ],
+          "avoid_verify": "noise",
+          "why": "Features beautiful parks and strong transit options for commuters.",
+          "watch_out": "Traffic can be heavy during tourist seasons."
+        },
+        {
+          "name": "Haren",
+          "anchors": [
+            "Sainte-Catherine Square",
+            "Central Brussels"
+          ],
+          "portal_keywords": [
+            "cafe",
+            "restaurant",
+            "urban dense"
+          ],
+          "street_hints": [
+            "Focus on Rue de la Bourse",
+            "Explore Rue des Chapeliers"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Home to numerous cafes and vibrant street life year-round.",
+          "watch_out": "Noise levels may rise during weekends."
+        },
+        {
+          "name": "Quartier Nord",
+          "anchors": [
+            "Brussels North Station",
+            "Central Business District"
+          ],
+          "portal_keywords": [
+            "apartment",
+            "commute",
+            "restaurants"
+          ],
+          "street_hints": [
+            "Investigate Rue de la Loi",
+            "Seek properties near Botanique"
+          ],
+          "avoid_verify": "charges",
+          "why": "Close to major transport links and business centers, enhancing accessibility.",
+          "watch_out": "Higher living costs due to proximity to business hubs."
+        }
+      ],
+      "why": [
+        "Area offers strong transport links and vibrant street life.",
+        "Proximity to central attractions enhances lifestyle options."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 0
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

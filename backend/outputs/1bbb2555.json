@@ -1,0 +1,167 @@
+{
+  "client_profile": "Couple looking to buy a 2+ room apartment in Brussels. Budget is 490000–1110000 EUR, with priorities on cafes, restaurants, and central access.",
+  "must_have": [
+    "2+ room apartment",
+    "Central location",
+    "Strong public transport access",
+    "Proximity to cafes",
+    "Proximity to restaurants"
+  ],
+  "nice_to_have": [
+    "Balcony or outdoor space",
+    "Parking option",
+    "Newer building",
+    "Nearby parks"
+  ],
+  "red_flags": [
+    "High traffic in tourist areas",
+    "Increased cost for newer properties",
+    "Limited parking in busy districts",
+    "Noise disturbances from nightlife"
+  ],
+  "contradictions": [
+    "Busy areas may offer fewer quiet options",
+    "Higher costs can limit living space",
+    "Central access may mean noise"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices near tourist attractions.",
+        "How to validate: Compare listings on major property portals."
+      ],
+      "microhoods": [
+        {
+          "name": "Squares",
+          "anchors": [
+            "Royal Palace",
+            "Place du Sablon"
+          ],
+          "portal_keywords": [
+            "central",
+            "urban",
+            "restaurants"
+          ],
+          "street_hints": [
+            "Rue de la Régence",
+            "Avenue Louise"
+          ],
+          "avoid_verify": "traffic",
+          "why": [
+            "Squares is a cultural hub with diverse restaurants and cafes nearby.",
+            "It offers a vibrant atmosphere."
+          ],
+          "watch_out": [
+            "Busy traffic during weekends can create noise and congestion."
+          ]
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Park",
+            "Brussels Canal"
+          ],
+          "portal_keywords": [
+            "green",
+            "transit",
+            "quiet"
+          ],
+          "street_hints": [
+            "Chaussee de Laeken",
+            "Avenue de Stalingrad"
+          ],
+          "avoid_verify": "parking",
+          "why": "Laeken offers green spaces and a peaceful environment for families.",
+          "watch_out": "Limited parking options may pose a challenge."
+        }
+      ],
+      "why": [
+        "City's cultural center located near historic parks and attractions.",
+        "Great access to many cafes and restaurants within walking distance."
+      ],
+      "watch_out": [
+        "Tourist traffic can overwhelm local streets, especially on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are competitive, but premium in hot spots.",
+        "How to validate: Assess rental prices to gauge market trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "anchors": [
+            "Boondael Park",
+            "Flagey Square"
+          ],
+          "portal_keywords": [
+            "lively",
+            "cafes",
+            "endearing"
+          ],
+          "street_hints": [
+            "Avenue Boondael",
+            "Avenue du Flagey"
+          ],
+          "avoid_verify": "crowds",
+          "why": [
+            "Boondael is known for its friendly atmosphere and community vibe.",
+            "It's a great spot for families and young couples."
+          ],
+          "watch_out": [
+            "Crowds during weekends can make parking difficult."
+          ]
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

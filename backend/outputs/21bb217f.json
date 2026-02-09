@@ -1,4 +1,3 @@
-```json
 {
   "client_profile": "Couple looking to buy an apartment in Brussels. Budget is 490000-1020000 EUR. Priorities include cafes & brunch, restaurants, and central access.",
   "must_have": [
@@ -114,4 +113,41 @@
           ],
           "street_hints": [
             "Focus on streets adjacent to parks.",
-            "Consider proximity to popular
+            "Consider proximity to popular"
+          ],
+          "avoid_verify": "noise",
+          "why": "Known for vibrant community and accessibility.",
+          "watch_out": "Can be crowded during events."
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

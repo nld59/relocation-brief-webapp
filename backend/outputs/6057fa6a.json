@@ -1,0 +1,175 @@
+{
+  "client_profile": "Couple seeking to buy an apartment in Brussels, budget 605000–1120000 EUR. Priorities include cafes, restaurants, culture, and museums.",
+  "must_have": [
+    "Minimum 2 rooms",
+    "Proximity to cafes and restaurants",
+    "School access within 20 min walk"
+  ],
+  "nice_to_have": [
+    "Art and design proximity",
+    "Local cultural attractions",
+    "Good transit access"
+  ],
+  "red_flags": [
+    "High tourist traffic causing noise",
+    "Potential budget stretch in popular areas",
+    "Limited parking availability"
+  ],
+  "contradictions": [
+    "Preference for vibrant areas vs. noise levels",
+    "Café culture vs. family-friendly environment",
+    "Budget vs. desirable neighborhood location"
+  ],
+  "questions_for_agent_landlord": [
+    "What are the average monthly costs including utilities?",
+    "How long has the property been on the market?",
+    "Are there any upcoming developments in the area?",
+    "What is the community like during weekdays?",
+    "Is there a history of complaints regarding noise or safety?"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Royal Palace / Park area",
+        "Sablon",
+        "Sainte-Catherine / Dansaert"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices in City of Brussels can exceed budget for prime locations.",
+        "How to validate: Monitor listings regularly for realistic apartment pricing."
+      ],
+      "microhoods": [
+        {
+          "name": "Haren",
+          "anchors": [
+            "good transit",
+            "lively"
+          ],
+          "portal_keywords": [
+            "apartments Brussels",
+            "Haren listings",
+            "buy Haren"
+          ],
+          "street_hints": [
+            "near main transport lines",
+            "local cafes nearby"
+          ],
+          "avoid_verify": "noise",
+          "why": "Haren features parks and good transit connections to the city.",
+          "watch_out": "Some areas have potential noise from trains nearby."
+        },
+        {
+          "name": "Bois de la Cambre",
+          "anchors": [
+            "greener",
+            "lively"
+          ],
+          "portal_keywords": [
+            "apartments woods",
+            "Bois de la Cambre",
+            "nature nearby"
+          ],
+          "street_hints": [
+            "quiet residential streets",
+            "park views"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Offers green spaces alongside access to cafes and shops.",
+          "watch_out": "Traffic can increase during weekends due to park visitors."
+        }
+      ],
+      "why": [
+        "Central location with parks like Royal Park nearby.",
+        "Active cafe and restaurant scene contributing to social life."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Flagey",
+        "Châtelain",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Ixelles generally maintains higher price points than surrounding areas.",
+        "How to validate: Assess average home prices in local listings."
+      ],
+      "microhoods": [
+        {
+          "name": "Boondael",
+          "anchors": [
+            "greener",
+            "lively"
+          ],
+          "portal_keywords": [
+            "apartments Ixelles",
+            "Boondael listings",
+            "buy Boondael"
+          ],
+          "street_hints": [
+            "near parks and cafes",
+            "easy access to public transport"
+          ],
+          "avoid_verify": "crowds",
+          "why": "Offers a vibrant community with green spaces.",
+          "watch_out": "Popular areas can get busy."
+        },
+        {
+          "name": "Brugmann - Lepoutre",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Diverse community with rich cultural offerings.",
+        "Many cafes and restaurants contributing to lively atmosphere."
+      ],
+      "watch_out": [
+        "Popular spots can lead to noise and traffic."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Bas Forest",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

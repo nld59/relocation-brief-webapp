@@ -103,10 +103,21 @@ Questions section:
   - RENT: deposit/fees, utilities, lease term/termination, rules/noise, indexation/registration
   - BUY: total costs, legal compliance, building charges/works, condition/inspection, timeline/negotiation
 
+
 For each of the 3 top_districts include:
 - name (string)
 - micro_anchors (list of 2-3 strings from city pack micro_anchors)
-- microhoods (list of 2-3 objects): each has name (must be from that commune's microhoods shortlist), why (1 sentence), watch_out (1 sentence).
+- budget_reality (list of exactly 2 bullets):
+  - Bullet 1 starts with "Rule of thumb:" and is COMMUNE-SPECIFIC (1 sentence).
+  - Bullet 2 starts with "How to validate:" and is COMMUNE-SPECIFIC (1 sentence).
+- microhoods (list of 2-3 objects): each object MUST include:
+  - name (string; must be from that commune's microhoods shortlist)
+  - anchors (list of exactly 2 strings; place/park/metro/known node; NEVER "Near ...")
+  - portal_keywords (list of 3-4 unique strings; real portal search tokens; no duplicates)
+  - street_hints (list of exactly 2 distinct strings; street-level hints; no copy-paste templates)
+  - avoid_verify (string; 1 concrete risk to verify: noise/traffic/parking/charges/renovation)
+  - why (1 sentence)
+  - watch_out (1 sentence)
 - why (list of 2 strings)
 - watch_out (list of 1 string)
 - scores (object with 1-5 ints): Safety, Family, Commute, Lifestyle, BudgetFit, Overall (ALL REQUIRED).

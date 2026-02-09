@@ -1,129 +1,125 @@
 {
-  "client_profile": "Family of three looking to buy a home in Brussels. Budget of 785,000–1,140,000 EUR, prioritizing residential peace, family-friendly locations, and premium feel.",
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget is 490000-1020000 EUR. Priorities include cafes & brunch, restaurants, and central access.",
   "must_have": [
-    "3+ rooms",
-    "Safe neighborhood",
-    "Access to good schools",
-    "Quiet surroundings"
+    "2+ rooms for comfortable living.",
+    "Proximity to cafes and restaurants.",
+    "Strong central access for commuting."
   ],
   "nice_to_have": [
-    "Cafes within walking distance",
-    "Nearby parks",
-    "Public transport access",
-    "Community activities"
+    "Green spaces for relaxation.",
+    "Good public transport options.",
+    "Modern amenities in the apartment."
   ],
   "red_flags": [
-    "High noise levels nearby",
-    "Limited school options",
-    "Budget exceedance in certain areas",
-    "Transit commute challenges"
+    "High noise levels in touristy areas.",
+    "Potential budget constraints near popular spots.",
+    "Market competition leading to fast offers."
   ],
   "contradictions": [
-    "Quiet areas may lack vibrant cafes",
-    "Premium feel can stretch budget",
-    "Family-friendly may mean longer commute"
+    "Central access vs. residential quiet may conflict.",
+    "Desire for cafes yet needing a quiet space.",
+    "Budget limits may reduce available options."
   ],
   "top_districts": [
     {
-      "name": "Uccle",
+      "name": "City of Brussels",
       "micro_anchors": [
-        "Fort Jaco",
-        "Prince d'Orange"
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect prices to be high near central attractions.",
+        "How to validate: Compare listings across multiple platforms regularly."
       ],
       "microhoods": [
         {
-          "name": "Vivier D’oie",
-          "why": "Vivier D'oie provides local parks for family outings and a quiet residential feel.",
-          "watch_out": "Commute can be slower without a car; some pockets stretch budgets."
+          "name": "Squares",
+          "anchors": [
+            "Place des Martyrs",
+            "Place de la Bourse"
+          ],
+          "portal_keywords": [
+            "central apartments",
+            "cultural hotspots",
+            "busy cafes"
+          ],
+          "street_hints": [
+            "Look for quieter side streets.",
+            "Avoid heavy traffic routes."
+          ],
+          "avoid_verify": "noise",
+          "why": "Known for vibrant atmospheres and cultural events near the place.",
+          "watch_out": "Busy weekends can lead to high noise levels throughout the area."
         },
         {
-          "name": "Saint - Job Kauwberg",
-          "why": "Saint-Job offers good transit and access to family amenities in a quieter setting.",
-          "watch_out": "Certain homes may require renovation, impacting your budget."
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Park",
+            "Brussels Royal Palace"
+          ],
+          "portal_keywords": [
+            "green spaces",
+            "family-friendly",
+            "light traffic"
+          ],
+          "street_hints": [
+            "Explore streets bordering the park.",
+            "Check for properties facing quieter gardens."
+          ],
+          "avoid_verify": "traffic",
+          "why": "Offers tranquility near green spaces and cultural landmarks.",
+          "watch_out": "Evenings can see traffic increase as visitors leave events."
         }
       ],
       "why": [
-        "Strong family-oriented community with parks like Fort Jaco for recreational fun.",
-        "Access to quality schools within a 20-minute walk enhances family convenience."
+        "Offers rich cultural attractions like parks and restaurants nearby.",
+        "Ideal for young professionals seeking vibrant lifestyles."
       ],
       "watch_out": [
-        "Some areas can exceed budget expectations due to demand."
+        "Touristy pockets and traffic can feel noisy on weekends."
       ],
       "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 3,
-        "Lifestyle": 4,
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Woluwe-Saint-Lambert",
+      "name": "Ixelles",
       "micro_anchors": [
-        "Roodebeek",
-        "Tomberg"
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices can spike around popular cafes and bars.",
+        "How to validate: Check recent sales to understand market fluctuations."
       ],
       "microhoods": [
         {
-          "name": "Kapelleveld",
-          "why": "Kapelleveld features a blend of green spaces and lively local cafes for families.",
-          "watch_out": "Popular family areas book fast; prices can be above average."
-        },
-        {
-          "name": "Roodebeek - Constellations",
-          "why": "Offers lively community with ample green areas and great school access.",
-          "watch_out": "Higher demand can lead to competitive pricing."
+          "name": "Boondael",
+          "anchors": [
+            "Boondael Park",
+            "Flagey Square"
+          ],
+          "portal_keywords": [
+            "lively neighborhoods",
+            "good transit",
+            "young professionals"
+          ],
+          "street_hints": [
+            "Focus on streets adjacent to parks.",
+            "Consider proximity to popular"
+          ],
+          "avoid_verify": "noise",
+          "why": "Known for vibrant community and accessibility.",
+          "watch_out": "Can be crowded during events."
         }
-      ],
-      "why": [
-        "Lively cafes and parks like Roodebeek create a welcoming atmosphere for families.",
-        "Strong school presence supports educational needs within close proximity."
-      ],
-      "watch_out": [
-        "Prices can be higher due to popularity among families."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Woluwe-Saint-Pierre",
-      "micro_anchors": [
-        "Stockel",
-        "Montgomery area"
-      ],
-      "microhoods": [
-        {
-          "name": "Saint - Paul",
-          "why": "Saint-Paul neighborhood provides ample green spaces for family activities.",
-          "watch_out": "House-focused pockets are pricey; consider budget limitations."
-        },
-        {
-          "name": "Montgomery - Avenue du Diamant",
-          "why": "This area balances residential charm with family-friendly amenities.",
-          "watch_out": "Competition for homes may drive prices higher."
-        }
-      ],
-      "why": [
-        "Green spaces and good schools make it ideal for families."
-      ],
-      "watch_out": [
-        "Can be pricey in certain pockets."
-      ],
-      "scores": {
-        "Safety": 5,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 2,
-        "Overall": 4
-      }
+      ]
     }
   ]
 }

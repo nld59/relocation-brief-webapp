@@ -1,0 +1,160 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels, budget 605000–1120000 EUR. Priorities: Cafes & brunch, Restaurants, Culture & museums.",
+  "must_have": [
+    "Minimum 2 rooms in the apartment",
+    "Schools within a 20 min walk",
+    "Proximity to cafes and restaurants"
+  ],
+  "nice_to_have": [
+    "Art & design venues nearby",
+    "Outdoor spaces or parks",
+    "Access to public transport"
+  ],
+  "red_flags": [
+    "High noise levels in tourist areas",
+    "Limited availability of larger apartments",
+    "Potential commute challenges in busy areas"
+  ],
+  "contradictions": [
+    "Affordable housing in trendy districts",
+    "Peaceful living vs. lively neighborhoods",
+    "Walkability vs. parking availability"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices tend to be higher near the Royal Palace.",
+        "How to validate: Check recent sale prices in central areas."
+      ],
+      "microhoods": [
+        {
+          "name": "Squares",
+          "anchors": [
+            "Grand Place",
+            "Bourse"
+          ],
+          "portal_keywords": [
+            "central apartments",
+            "urban lifestyle",
+            "cafe districts"
+          ],
+          "street_hints": [
+            "Vibrant avenues",
+            "Cafes lining the streets"
+          ],
+          "avoid_verify": "noise",
+          "why": "Squares is a lively area close to the Grand Place, offering many cafes.",
+          "watch_out": "Touristy pockets can experience noise, particularly on weekends."
+        },
+        {
+          "name": "Heembeek",
+          "anchors": [
+            "Metro station",
+            "local markets"
+          ],
+          "portal_keywords": [
+            "apartments near transit",
+            "market access",
+            "urban living"
+          ],
+          "street_hints": [
+            "Good metro access",
+            "Local shops abound"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Heembeek features good transit options and a local market vibe.",
+          "watch_out": "Traffic can get congested during peak hours, affecting commutes."
+        }
+      ],
+      "why": [
+        "Rich culture and history around Sablon and Royal Palace.",
+        "Strong metro connectivity ensures easy access to other parts."
+      ],
+      "watch_out": [
+        "High foot traffic can lead to weekend disturbances and noise."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are competitive yet rising due to demand.",
+        "How to validate: Review listings near notable cafes and schools."
+      ],
+      "microhoods": [
+        {
+          "name": "Flagey - Malibran",
+          "anchors": [
+            "Flagey Square",
+            "local cinemas"
+          ],
+          "portal_keywords": [
+            "cafe culture",
+            "young professionals",
+            "nightlife"
+          ],
+          "street_hints": [
+            "Trendy cafes",
+            "Cinemas showing indie films"
+          ],
+          "avoid_verify": "parking",
+          "why": "Flagey is lively and well-known for its cafes and cultural scene.",
+          "watch_out": "Parking is often tight due to high local traffic."
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "anchors": [
+            "Lakeside park",
+            "public transport"
+          ],
+          "portal_keywords": [
+            "apartments near water",
+            "public parks",
+            "transport access"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Bas Forest",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

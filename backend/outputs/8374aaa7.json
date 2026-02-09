@@ -1,0 +1,156 @@
+{
+  "client_profile": "Family of three based in Brussels looking to buy a home. Budget of 490000–1240000 EUR, prioritizing family-friendly areas, access to cafes, and residential quiet.",
+  "must_have": [
+    "3+ rooms",
+    "Family-friendly environment",
+    "Good schools within 20 min walk"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch options nearby",
+    "Residential area with parks",
+    "Modern amenities and premium feel"
+  ],
+  "red_flags": [
+    "High property prices in popular areas",
+    "Limited public transport options in some districts",
+    "Potential noise from busy roads"
+  ],
+  "contradictions": [
+    "Premium feel may limit budget options",
+    "Quiet neighborhoods can lack vibrant cafes",
+    "Commute may lengthen in suburban areas"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Foret de Soignes"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices near Fort Jaco.",
+        "How to validate: Research recent sales in Uccle."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Fort Jaco",
+            "Parcs",
+            "bus stops"
+          ],
+          "portal_keywords": [
+            "3-bedroom",
+            "family home",
+            "quiet street"
+          ],
+          "street_hints": [
+            "Local shops nearby",
+            "Good parks for children"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to Fort Jaco provides access to parks and green spaces.",
+          "watch_out": "Commute can be slower without a car in some areas."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "anchors": [
+            "good transit",
+            "local market",
+            "schools"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "quiet area",
+            "good schools"
+          ],
+          "street_hints": [
+            "Lively community",
+            "Near cafes"
+          ],
+          "avoid_verify": "noise",
+          "why": "Good school access and vibrant local markets enhance family lifestyle.",
+          "watch_out": "Property values can stretch the upper budget limit."
+        }
+      ],
+      "why": [
+        "Uccle offers excellent family amenities near Fort Jaco park.",
+        "Green spaces and cafes create a premium living experience."
+      ],
+      "watch_out": [
+        "Popular family areas can be pricey; budget accordingly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices near shopping areas can be higher.",
+        "How to validate: Check listings around Roodebeek for pricing."
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "anchors": [
+            "greener",
+            "shopping area",
+            "parks"
+          ],
+          "portal_keywords": [
+            "apartments",
+            "family homes",
+            "quiet streets"
+          ],
+          "street_hints": [
+            "Family-friendly vibe",
+            "Nice local shops"
+          ],
+          "avoid_verify": "noise",
+          "why": "Convenient access to amenities in nearby shopping area.",
+          "watch_out": "Property prices can vary widely based on proximity to shops."
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

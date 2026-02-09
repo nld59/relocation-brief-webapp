@@ -742,81 +742,6 @@
           "id": 907,
           "monitoring_id": 907,
           "name": "Bois de la Cambre"
-        },
-        {
-          "id": 106,
-          "monitoring_id": 106,
-          "name": "Boondael"
-        },
-        {
-          "id": 43,
-          "monitoring_id": 43,
-          "name": "Brugmann - Lepoutre"
-        },
-        {
-          "id": 42,
-          "monitoring_id": 42,
-          "name": "Chatelain"
-        },
-        {
-          "id": 903,
-          "monitoring_id": 903,
-          "name": "Cinquantenaire"
-        },
-        {
-          "id": 105,
-          "monitoring_id": 105,
-          "name": "Dries"
-        },
-        {
-          "id": 39,
-          "monitoring_id": 39,
-          "name": "Etangs d’Ixelles"
-        },
-        {
-          "id": 110,
-          "monitoring_id": 110,
-          "name": "Fort Jaco"
-        },
-        {
-          "id": 74,
-          "monitoring_id": 74,
-          "name": "Heysel"
-        },
-        {
-          "id": 75,
-          "monitoring_id": 75,
-          "name": "Houba"
-        },
-        {
-          "id": 800,
-          "monitoring_id": 800,
-          "name": "Industrie Nord"
-        },
-        {
-          "id": 801,
-          "monitoring_id": 801,
-          "name": "Industrie Otan"
-        },
-        {
-          "id": 40,
-          "monitoring_id": 40,
-          "name": "Louise - Longue Haie"
-        },
-        {
-          "id": 30,
-          "monitoring_id": 30,
-          "name": "Porte Tervueren"
-        },
-        {
-          "id": 35,
-          "monitoring_id": 35,
-          "name": "Quartier Europeen"
-        },
-        {
-          "id": 18,
-          "monitoring_id": 18,
-          "name": "Quartier Maritime"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -1255,7 +1180,7 @@
         {
           "id": 39,
           "monitoring_id": 39,
-          "name": "Etangs d’Ixelles"
+          "name": "Etangs D’ixelles"
         },
         {
           "id": 40,
@@ -1285,12 +1210,7 @@
         {
           "id": 701,
           "monitoring_id": 701,
-          "name": "Cimetiere d’Ixelles"
-        },
-        {
-          "id": 42,
-          "monitoring_id": 42,
-          "name": "Chatelain"
+          "name": "Cimetiere D’ixelles"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -1708,7 +1628,7 @@
         {
           "id": 111,
           "monitoring_id": 111,
-          "name": "Vivier d’Oie"
+          "name": "Vivier D’oie"
         },
         {
           "id": 112,
@@ -1987,16 +1907,6 @@
           "id": 903,
           "monitoring_id": 903,
           "name": "Cinquantenaire"
-        },
-        {
-          "id": 30,
-          "monitoring_id": 30,
-          "name": "Porte Tervueren"
-        },
-        {
-          "id": 34,
-          "monitoring_id": 34,
-          "name": "Jourdan"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -2305,7 +2215,7 @@
         {
           "id": 91,
           "monitoring_id": 91,
-          "name": "Val d’Or"
+          "name": "Val D’or"
         },
         {
           "id": 92,
@@ -2440,51 +2350,6 @@
           "id": 96,
           "monitoring_id": 96,
           "name": "Saint - Paul"
-        },
-        {
-          "id": 99,
-          "monitoring_id": 99,
-          "name": "Chant d’Oiseau"
-        },
-        {
-          "id": 906,
-          "monitoring_id": 906,
-          "name": "Foret de Soignes"
-        },
-        {
-          "id": 905,
-          "monitoring_id": 905,
-          "name": "Parc de la Woluwe"
-        },
-        {
-          "id": 97,
-          "monitoring_id": 97,
-          "name": "Putdaal"
-        },
-        {
-          "id": 31,
-          "monitoring_id": 31,
-          "name": "Saint - Michel"
-        },
-        {
-          "id": 93,
-          "monitoring_id": 93,
-          "name": "Boulevard de la Woluwe"
-        },
-        {
-          "id": 89,
-          "monitoring_id": 89,
-          "name": "Gribaumont"
-        },
-        {
-          "id": 92,
-          "monitoring_id": 92,
-          "name": "Kapelleveld"
-        },
-        {
-          "id": 94,
-          "monitoring_id": 94,
-          "name": "Stockel"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -2729,7 +2594,7 @@
         {
           "id": 99,
           "monitoring_id": 99,
-          "name": "Chant d’Oiseau"
+          "name": "Chant D’oiseau"
         },
         {
           "id": 102,
@@ -2745,26 +2610,6 @@
           "id": 905,
           "monitoring_id": 905,
           "name": "Parc de la Woluwe"
-        },
-        {
-          "id": 100,
-          "monitoring_id": 100,
-          "name": "Chaussee de Wavre - Saint - Julien"
-        },
-        {
-          "id": 906,
-          "monitoring_id": 906,
-          "name": "Foret de Soignes"
-        },
-        {
-          "id": 101,
-          "monitoring_id": 101,
-          "name": "Trois Tilleuls"
-        },
-        {
-          "id": 104,
-          "monitoring_id": 104,
-          "name": "Watermael Centre"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -2914,21 +2759,6 @@
           "id": 104,
           "monitoring_id": 104,
           "name": "Watermael Centre"
-        },
-        {
-          "id": 906,
-          "monitoring_id": 906,
-          "name": "Foret de Soignes"
-        },
-        {
-          "id": 106,
-          "monitoring_id": 106,
-          "name": "Boondael"
-        },
-        {
-          "id": 105,
-          "monitoring_id": 105,
-          "name": "Dries"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -3424,41 +3254,6 @@
           "id": 909,
           "monitoring_id": 909,
           "name": "Parc Duden - Parc de Forest"
-        },
-        {
-          "id": 803,
-          "monitoring_id": 803,
-          "name": "Industrie Sud"
-        },
-        {
-          "id": 43,
-          "monitoring_id": 43,
-          "name": "Brugmann - Lepoutre"
-        },
-        {
-          "id": 46,
-          "monitoring_id": 46,
-          "name": "Altitude 100"
-        },
-        {
-          "id": 50,
-          "monitoring_id": 50,
-          "name": "Bas Forest"
-        },
-        {
-          "id": 47,
-          "monitoring_id": 47,
-          "name": "Haut Saint - Gilles"
-        },
-        {
-          "id": 45,
-          "monitoring_id": 45,
-          "name": "Moliere - Longchamp"
-        },
-        {
-          "id": 117,
-          "monitoring_id": 117,
-          "name": "Vossegat - Roosendaal"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -3865,31 +3660,6 @@
           "id": 901,
           "monitoring_id": 901,
           "name": "Parc Josaphat"
-        },
-        {
-          "id": 30,
-          "monitoring_id": 30,
-          "name": "Porte Tervueren"
-        },
-        {
-          "id": 21,
-          "monitoring_id": 21,
-          "name": "Quartier Nord"
-        },
-        {
-          "id": 24,
-          "monitoring_id": 24,
-          "name": "Chaussee de Haecht"
-        },
-        {
-          "id": 22,
-          "monitoring_id": 22,
-          "name": "Quartier Brabant"
-        },
-        {
-          "id": 88,
-          "monitoring_id": 88,
-          "name": "Georges Henri"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -4093,11 +3863,6 @@
           "id": 902,
           "monitoring_id": 902,
           "name": "Botanique"
-        },
-        {
-          "id": 21,
-          "monitoring_id": 21,
-          "name": "Quartier Nord"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -4488,7 +4253,7 @@
         {
           "id": 15,
           "monitoring_id": 15,
-          "name": "Gare de l’Ouest"
+          "name": "Gare de L’ouest"
         },
         {
           "id": 16,
@@ -4529,11 +4294,6 @@
           "id": 914,
           "monitoring_id": 914,
           "name": "Scheutbos"
-        },
-        {
-          "id": 64,
-          "monitoring_id": 64,
-          "name": "Hopital Francais"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -5019,26 +4779,6 @@
           "id": 912,
           "monitoring_id": 912,
           "name": "Parc Forestier"
-        },
-        {
-          "id": 11,
-          "monitoring_id": 11,
-          "name": "Cureghem Bara"
-        },
-        {
-          "id": 13,
-          "monitoring_id": 13,
-          "name": "Cureghem Rosee"
-        },
-        {
-          "id": 62,
-          "monitoring_id": 62,
-          "name": "Machtens"
-        },
-        {
-          "id": 61,
-          "monitoring_id": 61,
-          "name": "Moortebeek - Peterbos"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -5563,21 +5303,6 @@
           "id": 917,
           "monitoring_id": 917,
           "name": "Parc Baudouin - Dielegembos"
-        },
-        {
-          "id": 70,
-          "monitoring_id": 70,
-          "name": "Basilique"
-        },
-        {
-          "id": 916,
-          "monitoring_id": 916,
-          "name": "Bois du Laarbeek - Poelbos"
-        },
-        {
-          "id": 72,
-          "monitoring_id": 72,
-          "name": "Jette Centre"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -5703,16 +5428,6 @@
           "id": 64,
           "monitoring_id": 64,
           "name": "Hopital Francais"
-        },
-        {
-          "id": 70,
-          "monitoring_id": 70,
-          "name": "Basilique"
-        },
-        {
-          "id": 915,
-          "monitoring_id": 915,
-          "name": "Parc Elisabeth"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"
@@ -6055,16 +5770,6 @@
           "id": 67,
           "monitoring_id": 67,
           "name": "Berchem Sainte - Agathe Centre"
-        },
-        {
-          "id": 64,
-          "monitoring_id": 64,
-          "name": "Hopital Francais"
-        },
-        {
-          "id": 65,
-          "monitoring_id": 65,
-          "name": "Korenbeek"
         }
       ],
       "microhoods_source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx"

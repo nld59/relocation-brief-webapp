@@ -37,17 +37,29 @@ BG_SOFT = colors.HexColor("#F7F9FF")
 BG_CARD = colors.HexColor("#FFFFFF")
 STROKE = colors.HexColor("#E5E7EB")
 TEXT_MUTED = colors.HexColor("#6B7280")
+TEXT = colors.HexColor('#111827')
 
 # Displayed in footer for easier iteration and client support.
 REPORT_VERSION = "v11.0"
 
 
 def _truncate(text: Any, max_chars: int) -> str:
-    """Hard truncate to keep summary tables scannable in auto-generated PDFs."""
+    """Truncate for summary tables, preferring sentence/phrase boundaries."""
     t = _clean_text(text)
     if len(t) <= max_chars:
         return t
-    # Avoid breaking words too aggressively.
+
+    # Prefer cutting on a sentence boundary ('.' or '•' or '—') within range.
+    window = t[: max_chars].rstrip()
+    # Find a nice breakpoint close to the end.
+    for sep in (".", "•", "—", ";"):
+        idx = window.rfind(sep)
+        if idx >= max(0, len(window) - 45):  # near the end
+            candidate = window[: idx + (1 if sep == "." else 0)].rstrip()
+            if len(candidate) >= 20:
+                return candidate.rstrip(" ,.;:") + "…"
+
+    # Fallback: word boundary.
     cut = t[: max_chars - 1].rstrip()
     if " " in cut:
         cut = cut.rsplit(" ", 1)[0]
@@ -179,8 +191,8 @@ def _chips(scores: Dict[str, Any], styles: Dict[str, ParagraphStyle], keys: List
                 ("BACKGROUND", (0, 0), (-1, -1), BG_SOFT),
                 ("BOX", (0, 0), (-1, -1), 0.6, STROKE),
                 ("INNERGRID", (0, 0), (-1, -1), 0.4, STROKE),
-                ("LEFTPADDING", (0, 0), (-1, -1), 4),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
                 ("TOPPADDING", (0, 0), (-1, -1), 2),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
                 ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
@@ -342,6 +354,39 @@ def _header_footer(canvas, doc, title: str):
     canvas.restoreState()
 
 
+def _compact_price_for_summary(price_text: str) -> str:
+    """Compact long numeric ranges specifically for the Executive summary table.
+    Keeps tokens together to reduce ugly wraps in narrow cells.
+    Examples:
+      €490,000–€1,240,000 -> €490k–€1.24m
+    """
+    if not price_text:
+        return ""
+    t = str(price_text)
+    # normalize dash variants
+    t = t.replace("—", "–").replace("-", "–")
+    # compact common Euro ranges: €490,000–€1,240,000  ->  €490k–€1.24m
+    import re
+    def _fmt_num(n: str) -> str:
+        try:
+            val = float(n.replace(",", ""))
+        except Exception:
+            return n
+        if val >= 1_000_000:
+            return f"{val/1_000_000:.2f}".rstrip("0").rstrip(".") + "m"
+        if val >= 1_000:
+            return f"{val/1_000:.0f}" + "k"
+        return str(int(val))
+    # replace sequences like €490,000–€1,240,000
+    def repl(m):
+        a, b = m.group(1), m.group(2)
+        return f"€{_fmt_num(a)}–€{_fmt_num(b)}"
+    t = re.sub(r"€\s*([0-9][0-9,]*)\s*–\s*€\s*([0-9][0-9,]*)", repl, t)
+    # prevent splitting currency token: add NBSP after €
+    t = t.replace("€", "€\u00A0")
+    return t
+
+
 def render_minimal_premium_pdf(
     out_path: str,
     city: str,
@@ -359,80 +404,76 @@ def render_minimal_premium_pdf(
     answers = answers or {}
     city_clean = _clean_text(city) or "—"
 
+    def _household_label(a: Dict[str, Any]) -> str:
+        # Accept multiple intake schemas (household, family, children_count, etc.)
+        h = _clean_text(str(a.get('household') or a.get('household_type') or a.get('family') or '')).lower()
+        kids_raw = a.get('children_count', a.get('kids_count', a.get('children', a.get('kids', 0))))
+        try:
+            kids_n = int(kids_raw) if str(kids_raw).strip() else 0
+        except Exception:
+            kids_n = 0
+
+        if 'family' in h or kids_n > 0:
+            return f"Family ({kids_n} child{'ren' if kids_n != 1 else ''})" if kids_n else 'Family'
+        if 'couple' in h or 'partner' in h:
+            return 'Couple'
+        if 'single' in h:
+            return 'Single'
+        return 'Household'
+
+    household_label = _household_label(answers)
+    audience_fit_line = f"Audience fit: built for your current household ({household_label})."
+
+
+    # ---------- Styles ----------
     styles_src = getSampleStyleSheet()
-    # More compact typography vs v8 (designer feedback: -5–10% density).
+    base_normal = styles_src['Normal']
+    base_h1 = styles_src['Heading1'] if 'Heading1' in styles_src else styles_src['Title']
+    base_h2 = styles_src['Heading2'] if 'Heading2' in styles_src else styles_src['Heading1']
+
     styles: Dict[str, ParagraphStyle] = {
-        "Title": ParagraphStyle(
-            "Title",
-            parent=styles_src["Title"],
-            fontName="Helvetica-Bold",
-            fontSize=18,
-            leading=22,
-            textColor=colors.black,
-            spaceAfter=8,
+        'Normal': ParagraphStyle(
+            'Normal', parent=base_normal, fontName='Helvetica', fontSize=10, leading=12, textColor=TEXT
         ),
-        "Subtitle": ParagraphStyle(
-            "Subtitle",
-            parent=styles_src["BodyText"],
-            fontName="Helvetica",
-            fontSize=10.0,
-            leading=12.5,
-            textColor=TEXT_MUTED,
-            spaceAfter=10,
+        'Small': ParagraphStyle(
+            'Small', parent=base_normal, fontName='Helvetica', fontSize=9, leading=11, textColor=TEXT
         ),
-        "H2": ParagraphStyle(
-            "H2",
-            parent=styles_src["Heading2"],
-            fontName="Helvetica-Bold",
-            fontSize=10.8,
-            leading=12.8,
-            textColor=ACCENT,
-            spaceBefore=2,
-            spaceAfter=3,
+        'Muted': ParagraphStyle(
+            'Muted', parent=base_normal, fontName='Helvetica', fontSize=9, leading=11, textColor=TEXT_MUTED
         ),
-        "H3": ParagraphStyle(
-            "H3",
-            parent=styles_src["Heading3"],
-            fontName="Helvetica-Bold",
-            fontSize=8.2,
-            leading=10.2,
-            textColor=colors.black,
-            spaceBefore=3,
-            spaceAfter=2,
+        'H1': ParagraphStyle(
+            'H1', parent=base_h1, fontName='Helvetica-Bold', fontSize=18, leading=22, textColor=TEXT
         ),
-        "Body": ParagraphStyle(
-            "Body",
-            parent=styles_src["BodyText"],
-            fontName="Helvetica",
-            fontSize=7.5,
-            leading=9.4,
-            spaceAfter=2,
+        'H2': ParagraphStyle(
+            'H2', parent=base_h2, fontName='Helvetica-Bold', fontSize=13, leading=16, spaceBefore=10, spaceAfter=6, textColor=TEXT
         ),
-        "Small": ParagraphStyle(
-            "Small",
-            parent=styles_src["BodyText"],
-            fontName="Helvetica",
-            fontSize=7.2,
-            leading=9.0,
-            textColor=TEXT_MUTED,
-            spaceAfter=1,
+        'CardTitle': ParagraphStyle(
+            'CardTitle', parent=base_normal, fontName='Helvetica-Bold', fontSize=12, leading=14, textColor=TEXT, spaceAfter=2
         ),
-        "Bullet": ParagraphStyle(
-            "Bullet",
-            parent=styles_src["BodyText"],
-            fontName="Helvetica",
-            fontSize=7.5,
-            leading=9.4,
+        'CardSub': ParagraphStyle(
+            'CardSub', parent=base_normal, fontName='Helvetica', fontSize=9.5, leading=11.5, textColor=TEXT_MUTED, spaceAfter=4
         ),
-        "Link": ParagraphStyle(
-            "Link",
-            parent=styles_src["BodyText"],
-            fontName="Helvetica",
-            fontSize=7.5,
-            leading=9.4,
-            textColor=ACCENT,
+        'Bullet': ParagraphStyle(
+            'Bullet', parent=base_normal, fontName='Helvetica', fontSize=10, leading=12, leftIndent=12, bulletIndent=0, spaceBefore=2, spaceAfter=2, textColor=TEXT
+        ),
+        'ExecHdr': ParagraphStyle(
+            'ExecHdr', parent=base_normal, fontName='Helvetica-Bold', fontSize=9, leading=10.5, textColor=TEXT, alignment=1, spaceAfter=0
+        ),
+        'ExecCell': ParagraphStyle(
+            'ExecCell', parent=base_normal, fontName='Helvetica', fontSize=9, leading=10.5, textColor=TEXT, spaceAfter=0
+        ),
+        'ExecCellMuted': ParagraphStyle(
+            'ExecCellMuted', parent=base_normal, fontName='Helvetica', fontSize=9, leading=10.5, textColor=TEXT_MUTED, spaceAfter=0
         ),
     }
+    # Backwards-compatible aliases used across the file
+    styles['Title'] = styles['H1']
+    styles['Subtitle'] = ParagraphStyle(
+        'Subtitle', parent=styles['Muted'], fontName='Helvetica', fontSize=11, leading=14, textColor=TEXT_MUTED
+    )
+    styles['Body'] = styles['Normal']
+
+
 
     doc = SimpleDocTemplate(
         out_path,
@@ -572,14 +613,14 @@ def render_minimal_premium_pdf(
         story.append(_section_title("Client profile (snapshot)", styles))
         story.append(_card([
             _kv_table(snapshot_pairs, styles, col_widths=[3.0 * cm, page_w - 3.0 * cm - 16]),
-            Paragraph("Audience fit: built for your current household (Couple) with an optional family lens (schools/childcare) if needed.", styles["Small"]),
+            Paragraph(audience_fit_line, styles["Small"]),
         ], padding=8))
         story.append(Spacer(1, 6))
 
     story.append(_section_title("What you get in this report (in 60 seconds)", styles))
     what_you_get = [
         "Top-3 communes (with microhood “search zones” you can use on portals immediately).",
-        "A 7–10 day viewing plan + a scorecard to make decisions faster.",
+        "A 7–10 day viewing plan + a simple note template to make decisions faster.",
         "Copy-paste templates (messages + questions) for agents and viewings.",
         "Brussels-specific pitfalls & due diligence checklist (buying basics).",
     ]
@@ -589,7 +630,7 @@ def render_minimal_premium_pdf(
     story.append(_section_title("How to use this report (7-day plan)", styles))
     plan = [
         "<b>Day 1 — Setup (60–90 min):</b> create 3 portal searches, save 12 listings, send the message template.",
-        "<b>Days 2–5 — Viewings:</b> aim 4–6 viewings; fill the scorecard after each (3–5 min).",
+        "<b>Days 2–5 — Viewings:</b> aim 4–6 viewings; write quick notes after each (3–5 min).",
         "<b>Days 6–7 — Decision:</b> 2 final viewings in top pockets; request documents early; prep offer with agent/notary.",
     ]
     story.append(_card([_bullets(plan, styles["Bullet"])], padding=8))
@@ -637,7 +678,7 @@ def render_minimal_premium_pdf(
         "Pick 12 candidates (4 per commune) and tag: Must-see / Maybe / Reject.",
         "Send the pre-viewing message template to all Must-see listings.",
         "Book 3–5 viewings (aim for 8 total across the week).",
-        "After each viewing: fill the scorecard (3–5 minutes).",
+        "After each viewing: write quick notes (3–5 minutes).",
     ]
     left = _card([Paragraph("<b>Tomorrow checklist (30–90 minutes)</b>", styles["Body"]), _numbered_table(tomorrow_steps, styles, width=col_w - 16)], padding=8, width=col_w)
     links = [_format_link(x) if isinstance(x, dict) else _clean_text(x) for x in _portal_links()]
@@ -689,6 +730,7 @@ def render_minimal_premium_pdf(
     # PAGE 3 — Executive summary (smarter table)
     # ----------------------------
     story.append(_section_title("Executive summary (quick scan)", styles))
+
     exec_rows: List[List[Any]] = []
     for d in top3:
         name = _clean_text(d.get("name", "—"))
@@ -723,37 +765,36 @@ def render_minimal_premium_pdf(
         anchors_txt = "<br/>".join([_clean_text(a) for a in anchors]) if anchors else "—"
 
 
-        price_line = ""
-        br = _split_budget_reality(_clean_text(d.get("budget_reality", "")))
-        if br:
-            price_line = _truncate(br[0].replace("Rule of thumb:", "").strip(), 85)
-        price_line = price_line or "Validate price & charges street-by-street."
-
         exec_rows.append([
-            Paragraph(f"<b>{name}</b>", styles["Body"]),
-            Paragraph(best_for, styles["Body"]),
-            Paragraph(watch, styles["Body"]),
-            Paragraph(anchors_txt, styles["Body"]),
-            Paragraph(price_line, styles["Body"]),
+            Paragraph(f"<b>{name}</b>", styles["ExecCell"]),
+            Paragraph(best_for, styles["ExecCell"]),
+            Paragraph(watch, styles["ExecCell"]),
+            Paragraph(anchors_txt, styles["ExecCell"]),
         ])
 
     hdr = [
-        Paragraph("<b>Commune</b>", styles["Small"]),
-        Paragraph("<b>Best for</b>", styles["Small"]),
-        Paragraph("<b>Watch-outs</b>", styles["Small"]),
-        Paragraph("<b>Microhood anchors</b>", styles["Small"]),
-        Paragraph("<b>Price reality</b>", styles["Small"]),
+        Paragraph("<b>Commune</b>", styles["ExecHdr"]),
+        Paragraph("<b>Best for</b>", styles["ExecHdr"]),
+        Paragraph("<b>Watch-outs</b>", styles["ExecHdr"]),
+        Paragraph("<b>Microhood anchors</b>", styles["ExecHdr"]),
     ]
-    col_ws = [80, 150, 135, 135, max(60, page_w - 80 - 150 - 135 - 135 - 16)]
+    usable_w = page_w - 16  # account for card padding
+    col_ws = [
+        usable_w * 0.16,
+        usable_w * 0.22,
+        usable_w * 0.22,
+        usable_w * 0.40,
+    ]
     tbl = Table([hdr] + exec_rows, colWidths=col_ws, hAlign="LEFT", splitByRow=1)
     tbl.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), BG_SOFT),
+        ("BACKGROUND", (0, 1), (-1, -1), colors.white),
         ("INNERGRID", (0, 0), (-1, -1), 0.5, STROKE),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 4),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-        ("TOPPADDING", (0, 0), (-1, -1), 4),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
     ]))
     story.append(_card([tbl], padding=8))
     story.append(PageBreak())
@@ -792,6 +833,18 @@ def render_minimal_premium_pdf(
                 return [_clean_text(x) for x in val if _clean_text(x)]
             return []
 
+
+        def _dedupe_preserve(items: List[str]) -> List[str]:
+            seen = set()
+            out: List[str] = []
+            for it in items:
+                key = it.strip().lower()
+                if not key or key in seen:
+                    continue
+                seen.add(key)
+                out.append(it)
+            return out
+
         cards: List[List[Any]] = []
         for mh in (microhoods or [])[:4]:
             if not isinstance(mh, dict):
@@ -815,7 +868,15 @@ def render_minimal_premium_pdf(
             anchors = _ensure_list(mh.get("anchors") or mh.get("anchor_points"))
             if len(anchors) < 2:
                 # try to infer from name/nearby
-                anchors = anchors[:1] + [f"Near {base}"] if base else (anchors + ["—"])
+                anchors = anchors[:1]
+                if len(anchors) < 2:
+                    anchors.append("Nearest metro/tram stop")
+                if len(anchors) < 2:
+                    anchors.append("Nearest park/square")
+                if not anchors:
+                    anchors = ["Nearest metro/tram stop", "Nearest park/square"]
+            anchors = [re.sub(r'^Near\s+', '', a, flags=re.IGNORECASE).strip() for a in anchors]
+            anchors = _dedupe_preserve([a for a in anchors if a])
             anchors = anchors[:2]
 
             hints = _ensure_list(mh.get("street_hints"))
@@ -903,10 +964,6 @@ def render_minimal_premium_pdf(
         commune_blocks.append(Paragraph("<b>Why this commune</b>", styles["Body"]))
         commune_blocks.append(_bullets([_truncate(x, 150) for x in why_bullets], styles["Bullet"]))
         commune_blocks.append(Spacer(1, 3))
-        if budget_lines:
-            commune_blocks.append(Paragraph("<b>Price reality</b>", styles["Body"]))
-            commune_blocks.append(_bullets(budget_lines, styles["Bullet"]))
-            commune_blocks.append(Spacer(1, 3))
 
         commune_blocks.append(Paragraph("<b>Microhood shortlist (search zones)</b>", styles["Body"]))
         microhoods_raw = [mh for mh in (d.get("microhoods") or []) if isinstance(mh, dict)]
@@ -930,47 +987,11 @@ def render_minimal_premium_pdf(
             story.append(PageBreak())
 
     # ----------------------------
-    # PAGE 7 — Viewing plan + Scorecard
+    
+
+# PAGE 8 — Questions to ask
     # ----------------------------
     story.append(PageBreak())
-    story.append(_section_title("Viewing plan + scorecard", styles))
-    story.append(Paragraph("<b>Property / address:</b> _________&nbsp;&nbsp;&nbsp;&nbsp; <b>Microhood / commune:</b> _________", styles["Body"]))
-    story.append(Spacer(1, 4))
-
-    plan_lines = [
-        "Aim: 8 viewings total (3 + 3 + 2 across the communes).",
-        "Fill the scorecard right after each viewing (3–5 minutes).",
-        "Shortlist 1–3 properties for a second visit in your top pocket(s).",
-    ]
-    story.append(_card([_bullets(plan_lines, styles["Bullet"])], padding=8))
-    story.append(Spacer(1, 6))
-
-    # Scorecard table (1–5 fields + notes)
-    headers = ["Viewing", "Noise", "Light", "EPC", "Charges", "Parking", "Commute", "Kids", "Resale", "Gut"]
-    rows = [headers]
-    for r in range(1, 9):
-        rows.append([str(r), "□", "□", "□", "□", "□", "□", "□", "□", "□"])
-
-    score_tbl = Table(rows, hAlign="LEFT", colWidths=[1.2*cm] + [ (page_w-1.2*cm-16)/9.0 ]*9)
-    score_tbl.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), BG_SOFT),
-        ("INNERGRID", (0, 0), (-1, -1), 0.45, STROKE),
-        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("ALIGN", (0, 1), (0, -1), "CENTER"),
-        ("ALIGN", (1, 1), (-1, -1), "CENTER"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 3),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 3),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-    ]))
-    story.append(_card([Paragraph("<b>Scorecard (1–5 or tick boxes)</b>", styles["Body"]), score_tbl,
-                        Paragraph("<font color='{0}'>Tip:</font> 5 = excellent, 3 = mixed, 1 = poor. Resale = ease of selling later (street quality + building health + liquidity). Add a short note in your own doc after each viewing.".format(TEXT_MUTED.hexval()), styles["Small"])],
-                       padding=8))
-    story.append(PageBreak())
-
-    # ----------------------------
-    # PAGE 8 — Questions to ask
-    # ----------------------------
     story.append(_section_title("Questions to ask (copy-paste)", styles))
 
     before = [
@@ -1001,6 +1022,20 @@ def render_minimal_premium_pdf(
     ))
     story.append(Spacer(1, 6))
     story.append(_card([Paragraph("<b>Offer stage (Belgium specifics)</b>", styles["Body"]), _bullets(offer, styles["Bullet"])], padding=8))
+    
+    # Second viewing checklist (for shortlisted properties)
+    second_view = [
+        "Confirm charges breakdown (syndic/HOA) + reserve fund + planned works; get minutes and budget in writing.",
+        "Verify heating system, insulation, and any moisture issues (cellar/bathroom corners, ventilation).",
+        "Check noise at different times (street, neighbors) and window quality; ask about recent complaints.",
+        "Validate parking reality (permit rules, availability, private spots) and storage (bikes/strollers).",
+        "Review legal/urbanism points (permits, co-ownership rules) if you plan renovations or terraces.",
+        "Ask for a clear inventory of included fixtures/appliances and estimated move-in timeline.",
+        "If possible: bring a contractor/inspector for a quick sanity-check of hidden costs.",
+    ]
+    story.append(Spacer(1, 6))
+    story.append(_card([Paragraph("<b>Second viewing checklist (5–10 min)</b>", styles['Body']), _bullets(second_view, styles['Bullet'])], padding=8))
+
     story.append(PageBreak())
 
     # ----------------------------
