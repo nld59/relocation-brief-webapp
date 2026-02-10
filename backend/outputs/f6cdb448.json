@@ -1,0 +1,151 @@
+{
+  "client_profile": "Family of three relocating to Brussels, looking to buy a home in the budget of 630,000–1,130,000 EUR. Priorities include family-friendly amenities, nightlife, and parks.",
+  "must_have": [
+    "Minimum 2 rooms for family comfort",
+    "Proximity to schools within 20 min walk",
+    "Access to parks and green areas",
+    "Residential and quiet community environment"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch options nearby",
+    "Vibrant nightlife for family outings",
+    "Public transport access for convenience",
+    "Dining and shopping options in walking distance"
+  ],
+  "red_flags": [
+    "High property prices in central areas",
+    "Limited parking options in popular neighborhoods",
+    "Potential noise issues in nightlife districts",
+    "Budget stretches in sought-after family areas"
+  ],
+  "contradictions": [
+    "Desire for nightlife vs quiet residential areas",
+    "Preference for premium feel vs budget constraints",
+    "Convenience of urban amenities vs suburban space"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices start above 630,000 EUR for decent homes.",
+        "How to validate: Check listings on major real estate platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Stockel Square"
+          ],
+          "portal_keywords": [
+            "family houses",
+            "quiet community",
+            "green parks"
+          ],
+          "street_hints": [
+            "Near local schools",
+            "Close to shops"
+          ],
+          "avoid_verify": "noise",
+          "why": [
+            "Family-friendly area with excellent schools near Parc de Woluwe."
+          ],
+          "watch_out": [
+            "Property prices can be significantly higher closer to schools."
+          ]
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery",
+            "Parc de Woluwe"
+          ],
+          "portal_keywords": [
+            "spacious apartments",
+            "quiet streets",
+            "green spaces"
+          ],
+          "street_hints": [
+            "Bus stop access",
+            "Community parks"
+          ],
+          "avoid_verify": "traffic",
+          "why": [
+            "Centrally located, offers convenient access to green spaces and transport."
+          ],
+          "watch_out": [
+            "Some homes may require renovations based on age."
+          ]
+        }
+      ],
+      "why": [
+        "Offers family-friendly amenities around Parc de Woluwe.",
+        "Diverse dining and shopping options at Stockel Square."
+      ],
+      "watch_out": [
+        "Prices can spike in desirable residential pockets."
+      ],
+      "scores": {}
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: 2-bedroom homes start around 700,000 EUR.",
+        "How to validate: Monitor local real estate trends in Uccle."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Foret de Soignes",
+            "Vivier D'oie Park"
+          ],
+          "portal_keywords": [
+            "family houses",
+            "quiet area",
+            "good schools"
+          ],
+          "street_hints": []
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

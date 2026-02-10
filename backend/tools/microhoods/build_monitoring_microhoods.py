@@ -372,14 +372,47 @@ def main() -> None:
         msg = "\n".join(errors[:20])
         raise RuntimeError(f"Could not match some Excel rows to GPKG quarters:\n{msg}")
 
-    # Determine commune for each quarter id (mode if duplicates)
-    qid_to_comm: Dict[int, str] = {}
-    tmp = defaultdict(list)
+    # Build mapping from Excel: quarter id -> communes (can belong to multiple communes)
+    qid_to_communes: Dict[int, List[str]] = defaultdict(list)
+    commune_to_ids: Dict[str, List[int]] = defaultdict(list)
     for qid, comm, mq in rows:
-        tmp[qid].append(comm)
-    for qid, comms in tmp.items():
-        comm = max(set(comms), key=comms.count)
-        qid_to_comm[qid] = comm
+        if comm:
+            qid_to_communes[qid].append(comm)
+            commune_to_ids[comm].append(qid)
+
+    # Deduplicate while preserving order
+    for comm, ids in list(commune_to_ids.items()):
+        seen = set()
+        dedup = []
+        for qid in ids:
+            if qid in seen:
+                continue
+            seen.add(qid)
+            dedup.append(qid)
+        commune_to_ids[comm] = dedup
+
+    for qid, comms in list(qid_to_communes.items()):
+        # Unique, stable order
+        seen=set()
+        out=[]
+        for c in comms:
+            if c in seen: 
+                continue
+            seen.add(c)
+            out.append(c)
+        qid_to_communes[qid]=out
+
+    # For convenience we keep a primary commune (most frequent in Excel) for GeoJSON properties only
+    qid_to_primary_comm: Dict[int, str] = {}
+    for qid, comms in qid_to_communes.items():
+        if not comms:
+            continue
+        # most frequent based on original rows order/count
+        counts = defaultdict(int)
+        for _qid, _comm, _mq in rows:
+            if _qid == qid:
+                counts[_comm] += 1
+        qid_to_primary_comm[qid] = max(counts.keys(), key=lambda k: counts[k])
 
     # Determine best display name for each quarter id (longest string from Excel rows)
     qid_to_name: Dict[int, str] = {}
@@ -396,10 +429,11 @@ def main() -> None:
     for q in quarters:
         area_km2, lon, lat = _area_km2_and_centroid(q.geom)
         meta[q.mdrc] = {"area_km2": area_km2, "lon": lon, "lat": lat}
-        comm = qid_to_comm.get(q.mdrc)
+        comm = qid_to_primary_comm.get(q.mdrc)
         props = {
             "mdrc": q.mdrc,
             "commune_en": comm,
+            "communes_en": qid_to_communes.get(q.mdrc, []),
             "name_fr": q.name_fr,
             "name_nl": q.name_nl,
             "name_bil": q.name_bil,
@@ -433,13 +467,26 @@ def main() -> None:
     if verbose:
         print(f"[write] cache geojson: {args.cache_geojson}")
 
-    # Update pack communes: microhoods_all + microhoods selection
-    commune_to_ids: Dict[str, List[int]] = defaultdict(list)
-    for qid, comm in qid_to_comm.items():
-        if comm:
-            commune_to_ids[comm].append(qid)
 
-    # Validate commune names
+    # Build a canonical microhood catalog (unique polygons, 145) keyed by monitoring_id.
+    # This is the "source of truth" for metrics/profiles; communes may reference the same id multiple times.
+    microhood_catalog = []
+    for q in quarters:
+        qid = int(q.mdrc)
+        display = _display_name(qid_to_name.get(qid, q.name_fr))
+        microhood_catalog.append({
+            "id": qid,
+            "monitoring_id": qid,
+            "name": display,
+            "communes_en": qid_to_communes.get(qid, []),
+            "meta": meta.get(qid, {}),
+            "source": "urbadm_md.gpkg + brussels_communes_microquarters.xlsx",
+        })
+    pack["microhood_catalog"] = sorted(microhood_catalog, key=lambda x: int(x.get("id", 0)))
+
+    # Update pack communes: microhoods_all + microhoods selection
+    # commune_to_ids already computed from Excel (supports many-to-many)
+# Validate commune names
     unknown = sorted(set(commune_to_ids.keys()) - set(commune_names))
     if unknown:
         raise RuntimeError(

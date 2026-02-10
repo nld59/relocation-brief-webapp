@@ -1,0 +1,157 @@
+{
+  "client_profile": "Family with 1 child in Brussels looking to buy a home. Budget between 630000 and 1130000 EUR. Priorities include family-friendly environment, nightlife, and access to parks.",
+  "must_have": [
+    "2+ rooms minimum",
+    "Good schools within a 20 min walk",
+    "Family-friendly amenities",
+    "Quiet residential areas",
+    "Access to parks and green spaces"
+  ],
+  "nice_to_have": [
+    "Vibrant nightlife options",
+    "Cafes and brunch spots nearby",
+    "Premium feel of the neighborhood",
+    "Public transport accessibility"
+  ],
+  "red_flags": [
+    "High noise levels near major roads",
+    "Limited parking availability",
+    "Over budget for preferred districts",
+    "Long commute times in specific areas"
+  ],
+  "contradictions": [
+    "Desire for quiet residential but nightlife access",
+    "Parks needed, but must remain budget-friendly",
+    "Family-friendly areas may sacrifice nightlife options"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices for family houses can start high.",
+        "How to validate: Check recent sales data for family-friendly homes."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Stockel"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "quiet streets",
+            "green areas"
+          ],
+          "street_hints": [
+            "Check around Stockel for amenities",
+            "Explore Saint-Paul for quiet residential"
+          ],
+          "avoid_verify": "noise",
+          "why": "Proximity to Parc de Woluwe offers ample green space for families.",
+          "watch_out": "House-focused areas may exceed budget limits, especially new builds."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery area",
+            "local markets"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "quiet neighborhoods",
+            "premium"
+          ],
+          "street_hints": [
+            "Look near Montgomery for cafes",
+            "Explore local schools' proximity"
+          ],
+          "avoid_verify": "charging",
+          "why": "Montgomery area hosts excellent schools and family amenities.",
+          "watch_out": "House values may rise rapidly due to demand."
+        }
+      ],
+      "why": [
+        "Family-oriented location near Parc de Woluwe park for outdoor activities.",
+        "Excellent access to shops and cafes within walking distance."
+      ],
+      "watch_out": [
+        "Prices can be above average; verify recent sales data."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Family homes often range from mid to upper budget.",
+        "How to validate: Look at recent listings for Uccle."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Fort Jaco",
+            "local parks"
+          ],
+          "portal_keywords": [
+            "quiet streets",
+            "family-friendly",
+            "green spaces"
+          ],
+          "street_hints": [
+            "Investigate nearby parks for recreational activities",
+            "Look for local shops and markets for convenience"
+          ],
+          "avoid_verify": "traffic noise",
+          "why": "Access to local parks enhances family-friendly living.",
+          "watch_out": "Be aware of potential traffic during peak hours."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,30 +1,97 @@
 {
-  "client_profile": "Family relocating to Brussels, looking to buy a premium property. Budget 680,000–1,155,000 EUR with priorities on family-friendly areas, shopping, and quiet residential neighborhoods.",
+  "client_profile": "Family of three relocating to Brussels, looking to buy a home in the budget of 630,000–1,130,000 EUR. Priorities include family-friendly amenities, nightlife, and parks.",
   "must_have": [
-    "Minimum 2 bedrooms",
-    "Family-friendly environment",
-    "Close to schools",
-    "Shopping options nearby"
+    "Minimum 2 rooms for family comfort",
+    "Proximity to schools within 20 min walk",
+    "Access to parks and green areas",
+    "Residential and quiet community environment"
   ],
   "nice_to_have": [
-    "Cafes and brunch spots nearby",
-    "Green parks for children",
-    "Easy public transport access",
-    "Lively local markets"
+    "Cafes and brunch options nearby",
+    "Vibrant nightlife for family outings",
+    "Public transport access for convenience",
+    "Dining and shopping options in walking distance"
   ],
   "red_flags": [
-    "Higher prices in premium areas",
-    "Limited parking options",
-    "Long commute times in some districts",
-    "Noisy areas during weekends"
+    "High property prices in central areas",
+    "Limited parking options in popular neighborhoods",
+    "Potential noise issues in nightlife districts",
+    "Budget stretches in sought-after family areas"
   ],
   "contradictions": [
-    "Premium feel may limit available options",
-    "Budget stretch could affect size or amenities",
-    "Family-friendly may reduce luxury finishes",
-    "Quiet areas might lack lively activities"
+    "Desire for nightlife vs quiet residential areas",
+    "Preference for premium feel vs budget constraints",
+    "Convenience of urban amenities vs suburban space"
   ],
   "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices start above 630,000 EUR for decent homes.",
+        "How to validate: Check listings on major real estate platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Stockel Square"
+          ],
+          "portal_keywords": [
+            "family houses",
+            "quiet community",
+            "green parks"
+          ],
+          "street_hints": [
+            "Near local schools",
+            "Close to shops"
+          ],
+          "avoid_verify": "noise",
+          "why": [
+            "Family-friendly area with excellent schools near Parc de Woluwe."
+          ],
+          "watch_out": [
+            "Property prices can be significantly higher closer to schools."
+          ]
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery",
+            "Parc de Woluwe"
+          ],
+          "portal_keywords": [
+            "spacious apartments",
+            "quiet streets",
+            "green spaces"
+          ],
+          "street_hints": [
+            "Bus stop access",
+            "Community parks"
+          ],
+          "avoid_verify": "traffic",
+          "why": [
+            "Centrally located, offers convenient access to green spaces and transport."
+          ],
+          "watch_out": [
+            "Some homes may require renovations based on age."
+          ]
+        }
+      ],
+      "why": [
+        "Offers family-friendly amenities around Parc de Woluwe.",
+        "Diverse dining and shopping options at Stockel Square."
+      ],
+      "watch_out": [
+        "Prices can spike in desirable residential pockets."
+      ],
+      "scores": {}
+    },
     {
       "name": "Uccle",
       "micro_anchors": [
@@ -33,88 +100,23 @@
         "Vivier d'Oie"
       ],
       "budget_reality": [
-        "Rule of thumb: Properties average around 4,500 EUR/m2.",
-        "How to validate: Check recent listings and sales data online."
+        "Rule of thumb: 2-bedroom homes start around 700,000 EUR.",
+        "How to validate: Monitor local real estate trends in Uccle."
       ],
       "microhoods": [
         {
           "name": "Vivier D’oie",
           "anchors": [
-            "Vivier D’oie park",
-            "good transit"
+            "Foret de Soignes",
+            "Vivier D'oie Park"
           ],
           "portal_keywords": [
-            "family-friendly",
-            "quiet streets",
-            "green parks"
+            "family houses",
+            "quiet area",
+            "good schools"
           ],
-          "street_hints": [
-            "Residential streets",
-            "Local shops nearby"
-          ],
-          "avoid_verify": "traffic",
-          "why": "Vivier D’oie offers serene environments with parks and close access to transit.",
-          "watch_out": "Commute times may vary depending on destination and time."
-        },
-        {
-          "name": "Saint - Job Kauwberg",
-          "anchors": [
-            "good transit",
-            "lively shops"
-          ],
-          "portal_keywords": [
-            "shopping",
-            "school access",
-            "community feel"
-          ],
-          "street_hints": [
-            "Paved pedestrian paths",
-            "Family-friendly cafes"
-          ],
-          "avoid_verify": "noise",
-          "why": "This area is known for its vibrant community and access to essential services.",
-          "watch_out": "Higher family demand can drive prices up quickly."
-        },
-        {
-          "name": "Observatoire",
-          "anchors": [
-            "Observatoire park",
-            "good transit"
-          ],
-          "portal_keywords": [
-            "green areas",
-            "quiet living",
-            "schools nearby"
-          ],
-          "street_hints": [
-            "Tree-lined avenues",
-            "Close-knit neighborhoods"
-          ],
-          "avoid_verify": "traffic",
-          "why": "Offers tranquil parks and easy access to local amenities within walking distance.",
-          "watch_out": "Properties here can be pricier due to demand."
+          "street_hints": []
         }
-      ],
-      "why": [
-        "Uccle features family-friendly parks and excellent local schools.",
-        "Diverse shopping options nearby cater to various needs."
-      ],
-      "watch_out": [
-        "Competitively priced properties may attract multiple offers quickly."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Woluwe-Saint-Lambert",
-      "micro_anchors": [
-        "Roodebeek"
       ]
     }
   ]

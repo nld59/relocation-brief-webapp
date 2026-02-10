@@ -677,99 +677,172 @@ def ensure_microhoods_in_pack(
     monitoring_index = {"geometry_by_id": geom_by_id, "area_km2_by_id": area_km2_by_id, "cache_path": cache_path}
     return out, monitoring_index
 
-def compute_microhood_metrics(city_pack: Dict[str, Any], monitoring_index: Dict[str, Any], verbose: bool = False, sleep_s: float = 0.0) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+def build_monitoring_index(cache_path: str = ".tools_cache/monitoring_quarters.geojson", verbose: bool = False) -> Dict[str, Any]:
+    """Load Monitoring quarters cache and build geometry/area index (offline)."""
+    geo = load_monitoring_quarters_geojson(cache_path=cache_path, verbose=verbose)
+    microhoods = parse_monitoring_quarters(geo)
+
+    geom_by_id: Dict[str, Any] = {}
+    area_km2_by_id: Dict[str, float] = {}
+    for mh in microhoods:
+        mid = str(mh["monitoring_id"])
+        geom = mh.get("geometry")
+        if geom:
+            geom_by_id[mid] = geom
+            try:
+                poly = shape(geom)
+                poly_proj, _ = ox.projection.project_geometry(poly)
+                area_km2_by_id[mid] = float(poly_proj.area) / 1e6
+            except Exception:
+                area_km2_by_id[mid] = 0.0
+        else:
+            area_km2_by_id[mid] = 0.0
+    return {"geometry_by_id": geom_by_id, "area_km2_by_id": area_km2_by_id, "cache_path": cache_path}
+
+
+def _iter_microhood_refs(city_pack: Dict[str, Any], scope: str) -> List[Tuple[str, Dict[str, Any]]]:
+    """Return list of (commune_name, microhood_dict) references."""
+    out: List[Tuple[str, Dict[str, Any]]] = []
+    for c in city_pack.get("communes", []) or []:
+        cname = c.get("name") or ""
+        if scope == "all":
+            mhs = c.get("microhoods_all") or []
+        else:
+            mhs = c.get("microhoods") or []
+        for mh in mhs:
+            if isinstance(mh, dict):
+                out.append((cname, mh))
+    return out
+
+
+def compute_microhood_metrics(
+    city_pack: Dict[str, Any],
+    monitoring_index: Dict[str, Any],
+    scope: str = "shortlist",
+    verbose: bool = False,
+    sleep_s: float = 0.0,
+) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    """Compute OSM metrics for microhoods.
+
+    Important: metrics are computed ONCE per unique monitoring_id (145 polygons),
+    then attached to every commune reference (can be many-to-many; e.g., 204 links).
+    """
     out = json.loads(json.dumps(city_pack))
     geom_by_id = monitoring_index.get("geometry_by_id", {})
     area_by_id = monitoring_index.get("area_km2_by_id", {})
 
-    rows = []
-    communes = out.get("communes", [])
-    for ci, c in enumerate(communes, start=1):
-        cname = c.get("name") or ""
-        microhoods = c.get("microhoods") or []
-        if not microhoods:
+    refs = _iter_microhood_refs(out, scope=scope)
+    if not refs:
+        return pd.DataFrame([]), out
+
+    # Unique ids to compute
+    unique_ids: List[str] = []
+    seen = set()
+    for cname, mh in refs:
+        mid = str(mh.get("monitoring_id", mh.get("id", ""))).strip()
+        if not mid:
             continue
+        if mid in seen:
+            continue
+        seen.add(mid)
+        unique_ids.append(mid)
+
+    if verbose:
+        print(f"[microhoods] scope={scope} refs={len(refs)} unique_ids={len(unique_ids)}")
+
+    # Compute metrics once per id
+    metrics_by_id: Dict[str, Dict[str, Any]] = {}
+    for i, mid in enumerate(unique_ids, start=1):
+        geom = geom_by_id.get(mid)
+        if not geom:
+            if verbose:
+                print(f"ERROR missing geometry for monitoring_id={mid}")
+            continue
+        try:
+            poly = shape(geom)
+        except Exception as e:
+            if verbose:
+                print(f"ERROR invalid geometry for {mid}: {e}")
+            continue
+
         if verbose:
-            print(f"--- {cname}: microhoods ({len(microhoods)}) [{ci}/{len(communes)}] ---")
+            print(f"--- microhood {mid} [{i}/{len(unique_ids)}] ---")
 
-        for mh in microhoods:
-            mid = str(mh.get("monitoring_id", mh.get("id","")))
-            mname = str(mh.get("name","")).strip()
-            geom = geom_by_id.get(mid)
-            if not geom:
-                if verbose:
-                    print(f"ERROR {mname}: missing geometry for monitoring_id={mid}")
+        try:
+            area_km2 = float(area_by_id.get(mid, 0.0))
+            cafes = count_features(poly, {"amenity": "cafe"}, sleep_s=sleep_s)
+            bars = count_features(poly, {"amenity": ["bar", "pub", "nightclub"]}, sleep_s=sleep_s)
+            restaurants = count_features(poly, {"amenity": "restaurant"}, sleep_s=sleep_s)
+            schools = count_features(poly, {"amenity": ["school", "kindergarten"]}, sleep_s=sleep_s)
+            childcare = count_features(poly, {"amenity": ["childcare"]}, sleep_s=sleep_s)
+            metro = count_features(poly, {"railway": "station", "station": "subway"}, sleep_s=sleep_s)
+            tram = count_features(poly, {"railway": "tram_stop"}, sleep_s=sleep_s)
+            train = count_features(poly, {"railway": "station"}, sleep_s=sleep_s)
+            parks_km2 = parks_area_km2(poly, sleep_s=sleep_s)
+        except Exception as e:
+            if verbose:
+                print(f"ERROR {mid}: metric computation failed: {e}")
+            continue
+
+        # derived densities / shares
+        denom = max(area_km2, 1e-6)
+        metrics_by_id[mid] = {
+            "monitoring_id": mid,
+            "area_km2": area_km2,
+            "cafes": int(cafes),
+            "bars": int(bars),
+            "restaurants": int(restaurants),
+            "schools": int(schools),
+            "childcare": int(childcare),
+            "metro": int(metro),
+            "tram": int(tram),
+            "train": int(train),
+            "parks_km2": float(parks_km2),
+            "cafes_density": float(cafes) / denom,
+            "bars_density": float(bars) / denom,
+            "restaurants_density": float(restaurants) / denom,
+            "schools_density": float(schools) / denom,
+            "childcare_density": float(childcare) / denom,
+            "metro_density": float(metro) / denom,
+            "tram_density": float(tram) / denom,
+            "train_density": float(train) / denom,
+            "parks_share": float(parks_km2) / denom,
+        }
+
+    # Attach metrics to every reference and build output rows (expanded per commune mapping)
+    rows: List[Dict[str, Any]] = []
+    for cname, mh in refs:
+        mid = str(mh.get("monitoring_id", mh.get("id", ""))).strip()
+        mname = str(mh.get("name", "")).strip()
+        m = metrics_by_id.get(mid)
+        if not m:
+            continue
+        mh["metrics"] = {k: v for k, v in m.items() if k not in {"monitoring_id"}}
+        row = {"commune": cname, "monitoring_id": mid, "name": mname}
+        for k, v in m.items():
+            if k == "monitoring_id":
                 continue
-            try:
-                poly = shape(geom)
-            except Exception as e:
-                if verbose:
-                    print(f"ERROR {mname}: invalid geometry: {e}")
-                continue
+            row[k] = v
+        rows.append(row)
 
-            try:
-                area_km2 = float(area_by_id.get(mid, 0.0))
-                cafes = count_features(poly, {"amenity": "cafe"}, sleep_s=sleep_s)
-                bars = count_features(poly, {"amenity": ["bar", "pub", "nightclub"]}, sleep_s=sleep_s)
-                restaurants = count_features(poly, {"amenity": "restaurant"}, sleep_s=sleep_s)
-                schools = count_features(poly, {"amenity": ["school", "kindergarten"]}, sleep_s=sleep_s)
-                childcare = count_features(poly, {"amenity": ["childcare"]}, sleep_s=sleep_s)
-                metro = count_features(poly, {"railway": "station", "station": "subway"}, sleep_s=sleep_s)
-                tram = count_features(poly, {"railway": "tram_stop"}, sleep_s=sleep_s)
-                train = count_features(poly, {"railway": "station"}, sleep_s=sleep_s)
-                parks_km2 = parks_area_km2(poly, sleep_s=sleep_s)
-            except Exception as e:
-                if verbose:
-                    print(f"ERROR {mname}: {e}")
-                continue
-
-            def _safe_div(a,b):
-                return a/b if b else 0.0
-
-            metrics = {
-                "area_km2": area_km2,
-                "cafes": cafes,
-                "bars": bars,
-                "restaurants": restaurants,
-                "schools": schools,
-                "childcare": childcare,
-                "metro": metro,
-                "tram": tram,
-                "train": train,
-                "parks_km2": parks_km2,
-                "cafes_density": _safe_div(cafes, area_km2),
-                "bars_density": _safe_div(bars, area_km2),
-                "restaurant_density": _safe_div(restaurants, area_km2),
-                "schools_density": _safe_div(schools, area_km2),
-                "childcare_density": _safe_div(childcare, area_km2),
-                "metro_station_density": _safe_div(metro, area_km2),
-                "tram_stop_density": _safe_div(tram, area_km2),
-                "train_station_density": _safe_div(train, area_km2),
-                "parks_share": _safe_div(parks_km2, area_km2),
-            }
-            mh["metrics"] = metrics
-
-            rows.append({
-                "commune": cname,
-                "monitoring_id": mid,
-                "microhood": mname,
-                **{k: metrics[k] for k in [
-                    "cafes_density","bars_density","restaurant_density","parks_share",
-                    "metro_station_density","tram_stop_density","train_station_density",
-                    "schools_density","childcare_density"
-                ]}
-            })
+    # Also attach metrics to canonical catalog if present
+    cat = out.get("microhood_catalog")
+    if isinstance(cat, list):
+        for entry in cat:
+            mid = str(entry.get("monitoring_id", entry.get("id", ""))).strip()
+            if mid in metrics_by_id:
+                entry["metrics"] = {k: v for k, v in metrics_by_id[mid].items() if k not in {"monitoring_id"}}
 
     return pd.DataFrame(rows), out
 
-def assign_tags_to_microhoods(city_pack: Dict[str, Any], df_micro: pd.DataFrame, rules: List[TagRule], high_pct: int, medium_pct: int) -> Dict[str, Any]:
+def assign_tags_to_microhoods(city_pack: Dict[str, Any], df_micro: pd.DataFrame, rules: List[TagRule], high_pct: int, medium_pct: int, scope: str = "shortlist") -> Dict[str, Any]:
     out = json.loads(json.dumps(city_pack))
     if df_micro is None or df_micro.empty:
         return out
 
     for c in out.get("communes", []):
         cname = c.get("name") or ""
-        microhoods = c.get("microhoods") or []
+        microhoods = (c.get("microhoods_all") or []) if scope == "all" else (c.get("microhoods") or [])
         sub = df_micro[df_micro["commune"] == cname]
         if sub.empty:
             continue
@@ -805,6 +878,78 @@ def assign_tags_to_microhoods(city_pack: Dict[str, Any], df_micro: pd.DataFrame,
                     mh["tag_confidence"][r.tag] = conf
     return out
 
+
+def _profile_from_metrics(row: Dict[str, Any]) -> Tuple[str, str]:
+    """Deterministic microhood profile (why/watch_out) from computed metrics."""
+    # Simple heuristic based on densities/shares
+    parks = float(row.get("parks_share", 0.0))
+    metro = float(row.get("metro_density", 0.0))
+    tram = float(row.get("tram_density", 0.0))
+    schools = float(row.get("schools_density", 0.0))
+    cafes = float(row.get("cafes_density", 0.0))
+    bars = float(row.get("bars_density", 0.0))
+
+    why_parts = []
+    if parks >= 0.08:
+        why_parts.append("more green space and park access")
+    if metro >= 1.0:
+        why_parts.append("strong metro connectivity")
+    elif tram >= 1.0:
+        why_parts.append("good tram coverage")
+    if schools >= 0.8:
+        why_parts.append("solid schools/childcare density")
+    if cafes >= 3.0:
+        why_parts.append("good café and brunch scene")
+
+    if not why_parts:
+        why_parts.append("balanced everyday amenities")
+
+    # watch out
+    watch_parts = []
+    if bars >= 2.0:
+        watch_parts.append("busier evenings in lively pockets")
+    if parks < 0.02:
+        watch_parts.append("less greenery; check streets close to parks")
+    if metro < 0.2 and tram < 0.2:
+        watch_parts.append("transit access varies street-to-street")
+
+    if not watch_parts:
+        watch_parts.append("street-to-street variation—validate exact address")
+
+    why = "Good starting point with " + ", ".join(why_parts) + "."
+    watch = "Watch for " + "; ".join(watch_parts) + "."
+    return why, watch
+
+
+def fill_microhood_profiles(city_pack: Dict[str, Any], df_micro: pd.DataFrame, scope: str = "all", verbose: bool = False) -> Dict[str, Any]:
+    """Fill missing entries in city_pack['microhood_profiles'] deterministically from computed metrics."""
+    out = json.loads(json.dumps(city_pack))
+    profiles = out.get("microhood_profiles") or {}
+    if not isinstance(profiles, dict):
+        profiles = {}
+
+    if df_micro is None or df_micro.empty:
+        out["microhood_profiles"] = profiles
+        return out
+
+    # Build canonical row per (monitoring_id, name) using first occurrence
+    seen = set()
+    for _, r in df_micro.iterrows():
+        mid = str(r.get("monitoring_id", "")).strip()
+        name = str(r.get("name", "")).strip()
+        if not name or (mid, name) in seen:
+            continue
+        seen.add((mid, name))
+        if name in profiles and isinstance(profiles[name], dict) and profiles[name].get("why") and profiles[name].get("watch_out"):
+            continue
+        why, watch = _profile_from_metrics(r.to_dict())
+        profiles[name] = {"why": why, "watch_out": watch, "source": "auto_from_metrics"}
+
+    out["microhood_profiles"] = profiles
+    if verbose:
+        print(f"[profiles] filled/ensured: {len(profiles)}")
+    return out
+
 # ----------------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
@@ -824,6 +969,9 @@ def main():
     ap.add_argument("--include-microhoods", action="store_true", help="Compute metrics + tags for microhoods as well (uses Monitoring polygons + OSM)")
     ap.add_argument("--microhoods-min", type=int, default=8, help="Minimum microhoods per commune (default: 8)")
     ap.add_argument("--microhoods-max", type=int, default=12, help="Maximum microhoods per commune (default: 12)")
+    ap.add_argument("--microhoods-scope", choices=["shortlist","all"], default="shortlist",
+                    help="Which microhood list to use: shortlist=communes[].microhoods (default), all=communes[].microhoods_all (full catalog per commune)")
+    ap.add_argument("--fill-microhood-profiles", action="store_true", help="Fill missing microhood_profiles entries deterministically from computed metrics (no LLM).")
     args = ap.parse_args()
 
     # Validate required paths after parsing so aliases are supported.
@@ -867,9 +1015,12 @@ def main():
 
     if args.include_microhoods:
         if monitoring_index is None:
-            raise RuntimeError("include-microhoods requires Monitoring index (run with --ensure-microhoods).")
-        df_micro, updated = compute_microhood_metrics(updated, monitoring_index, verbose=args.verbose, sleep_s=args.sleep)
-        updated = assign_tags_to_microhoods(updated, df_micro, rules, high_pct=args.high_pct, medium_pct=args.medium_pct)
+            # Allow computing microhood metrics as long as the Monitoring cache GeoJSON exists.
+            monitoring_index = build_monitoring_index(cache_path=".tools_cache/monitoring_quarters.geojson", verbose=args.verbose)
+        df_micro, updated = compute_microhood_metrics(updated, monitoring_index, scope=args.microhoods_scope, verbose=args.verbose, sleep_s=args.sleep)
+        updated = assign_tags_to_microhoods(updated, df_micro, rules, high_pct=args.high_pct, medium_pct=args.medium_pct, scope=args.microhoods_scope)
+        if args.fill_microhood_profiles:
+            updated = fill_microhood_profiles(updated, df_micro, scope=args.microhoods_scope, verbose=args.verbose)
         # Save microhood CSV next to output
         mh_csv = out_path.with_suffix("").with_name(out_path.stem + "_microhoods_metrics.csv")
         if not df_micro.empty:
