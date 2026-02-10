@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-import { useQuiz } from '../../components/quizState'
+import { useQuiz, resetQuiz } from '../../components/quizState'
 
 const ALL_TAGS = [
   { id:'cafes_brunch', title:'Cafes & brunch', sub:'Coffee spots, local vibe, weekend brunch' },
@@ -87,7 +87,10 @@ export default function Step4(){
       subtitle={`Pick 1–${MAX_SELECT}. First 3 selected are treated as the strongest signal.`}
       actions={(
         <div className="btnRow">
-          <button className="linkBtn" onClick={() => router.push('/quiz/3')}>Back</button>
+          <div className="btnLeft">
+            <button className="linkBtn" onClick={() => router.push('/quiz/3')}>Back</button>
+            <button className="linkBtn" onClick={() => { resetQuiz(setState); router.push('/quiz/1'); }}>Reset</button>
+          </div>
           <button className="btn" disabled={!can} onClick={() => router.push('/quiz/5')}>Continue</button>
         </div>
       )}

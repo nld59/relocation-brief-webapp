@@ -7,6 +7,11 @@ def _clean(s: str) -> str:
     return (
         str(s)
         .replace("\u00A0", " ")
+        .replace("\u202F", " ")
+        .replace("\u2007", " ")
+        .replace("\u2060", "")
+        .replace("\u200B", "")
+        .replace("\ufeff", "")
         .replace("’", "'")
         .replace("“", '"')
         .replace("”", '"')
@@ -64,6 +69,26 @@ def _score_line(scores: Dict[str, Any]) -> str:
 
 
 def render_md(b: Dict[str, Any], city: str) -> str:
+    # Executive summary (quick scan)
+    exec_lines: List[str] = []
+    exec_rows = b.get("executive_summary") or []
+    if isinstance(exec_rows, list) and exec_rows:
+        exec_lines.append("| Commune | Best for | Watch-outs | Top microhoods |")
+        exec_lines.append("|---|---|---|---|")
+        for row in exec_rows[:3]:
+            if not isinstance(row, dict):
+                continue
+            name = _clean(row.get("name", "—"))
+            best = _clean(row.get("best_for", "—")).replace("…", "")
+            watch = _clean(row.get("watch_out", "—")).replace("…", "")
+            mhs = [
+                _clean(x)
+                for x in (row.get("top_microhoods") or [])
+                if _clean(x)
+            ][:3]
+            mh_txt = " · ".join(mhs) if mhs else "—"
+            exec_lines.append(f"| {name} | {best} | {watch} | {mh_txt} |")
+    exec_section = "\n".join(exec_lines) if exec_lines else "—"
     districts = []
     for i, d in enumerate(b.get("top_districts", []), 1):
         why = d.get("why", []) or []
@@ -86,14 +111,26 @@ def render_md(b: Dict[str, Any], city: str) -> str:
             if not isinstance(mh, dict):
                 continue
             name = _clean(mh.get("name", "—"))
-            w = _clean(mh.get("why", ""))
-            wo = _clean(mh.get("watch_out", ""))
-            line = f"**{name}**"
-            if w:
-                line += f" — {w}"
-            if wo:
-                line += f" (_watch-out_: {wo})"
-            microhoods.append(line)
+            kws = mh.get("portal_keywords") or mh.get("keywords") or []
+            if isinstance(kws, str):
+                kws = [kws]
+            if not isinstance(kws, list):
+                kws = []
+            kws = [k for k in [_clean(x) for x in kws] if k][:6]
+            kw_txt = ", ".join(kws) if kws else "—"
+
+            hl = _clean(mh.get("highlights") or "")
+            if not hl:
+                # Backwards compatibility: some datasets still have why/watch_out.
+                why = _clean(mh.get("why") or "")
+                wo = _clean(mh.get("watch_out") or "")
+                hl = " ".join([p for p in [why, wo] if p]).strip()
+            if not hl:
+                hl = "—"
+
+            microhoods.append(
+                f"**{name}**\n  - Portal keywords: {kw_txt}\n  - Highlights: {hl}"
+            )
         districts.append(
             f"### {i}) {_clean(d.get('name','—'))}\n"
             f"**Scorecard (1–5):** {_score_line(d.get('scores',{}))}\n\n"
@@ -107,6 +144,9 @@ def render_md(b: Dict[str, Any], city: str) -> str:
 
 ## Client profile
 {_clean(b.get('client_profile',''))}
+
+## Executive summary (quick scan)
+{exec_section}
 
 ## Must-have
 {_bullets(b.get('must_have', []))}

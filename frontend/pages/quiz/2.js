@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-import { useQuiz } from '../../components/quizState'
+import { useQuiz, resetQuiz } from '../../components/quizState'
 
 function Choice({title, sub, selected, onClick}){
   return (
@@ -58,7 +58,10 @@ export default function Step2(){
       subtitle="Select solo, couple, or family. If family, add children ages."
       actions={
         <div className="btnRow">
-          <button className="linkBtn" onClick={() => router.push('/quiz/1')}>Back</button>
+          <div className="btnLeft">
+            <button className="linkBtn" onClick={() => router.push('/quiz/1')}>Back</button>
+            <button className="linkBtn" onClick={() => { resetQuiz(setState); router.push('/quiz/1'); }}>Reset</button>
+          </div>
           <button className="btn" disabled={!can} onClick={() => router.push('/quiz/3')}>Continue</button>
         </div>
       }

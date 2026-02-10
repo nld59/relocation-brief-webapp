@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-import { useQuiz } from '../../components/quizState'
+import { useQuiz, resetQuiz } from '../../components/quizState'
 
 function Pill({text, selected, onClick}){
   return <div className={selected ? 'pill selected' : 'pill'} onClick={onClick} role="button" tabIndex={0}>{text}</div>
@@ -32,7 +32,10 @@ export default function Step6(){
       subtitle={familyHint}
       actions={
         <div className="btnRow">
-          <button className="linkBtn" onClick={() => router.push('/quiz/5')}>Back</button>
+          <div className="btnLeft">
+            <button className="linkBtn" onClick={() => router.push('/quiz/5')}>Back</button>
+            <button className="linkBtn" onClick={() => { resetQuiz(setState); router.push('/quiz/1'); }}>Reset</button>
+          </div>
           <button className="btn" disabled={!can} onClick={goNext}>Continue</button>
         </div>
       }

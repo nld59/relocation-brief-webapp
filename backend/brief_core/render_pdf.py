@@ -18,6 +18,8 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -38,6 +40,36 @@ BG_CARD = colors.HexColor("#FFFFFF")
 STROKE = colors.HexColor("#E5E7EB")
 TEXT_MUTED = colors.HexColor("#6B7280")
 TEXT = colors.HexColor('#111827')
+
+
+def _ensure_fonts_registered() -> None:
+    """Register a Unicode-capable font.
+
+    We rely on a non-breaking hyphen (U+2011) to avoid ugly one-letter wraps in
+    hyphenated microhood names. Base PDF fonts (Helvetica) often don't support
+    this glyph, which shows up as black squares.
+    """
+    try:
+        pdfmetrics.getFont("DejaVuSans")
+        return
+    except Exception:
+        pass
+
+    # DejaVu is available on most Linux distros.
+    try:
+        pdfmetrics.registerFont(TTFont("DejaVuSans", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
+        pdfmetrics.registerFont(TTFont("DejaVuSans-Bold", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"))
+        # Ensure ReportLab can resolve <b> tags to the correct bold face.
+        pdfmetrics.registerFontFamily(
+            "DejaVuSans",
+            normal="DejaVuSans",
+            bold="DejaVuSans-Bold",
+            italic="DejaVuSans",
+            boldItalic="DejaVuSans-Bold",
+        )
+    except Exception:
+        # Fallback: keep built-in fonts. In this case, we must not emit U+2011.
+        return
 
 # Displayed in footer for easier iteration and client support.
 REPORT_VERSION = "v11.0"
@@ -66,13 +98,29 @@ def _truncate(text: Any, max_chars: int) -> str:
     return cut.rstrip(" ,.;:") + "…"
 
 
+def _nb_hyphen(s: str) -> str:
+    """Prevent ugly wraps in hyphenated names.
+
+    Replace ASCII hyphens between word characters with a non-breaking hyphen.
+    Example: "Brugmann-Lepoutre" will not wrap as "Brugmann-Lepoutr / e".
+    """
+    s = _clean_text(s)
+    return re.sub(r"(?<=\w)-(?=\w)", "\u2011", s)
+
+
 def _clean_text(s: Any) -> str:
     if s is None:
         return ""
     s = str(s)
     # Keep the PDF stable (avoid curly quotes / NBSP) and common punctuation artifacts.
+    # Normalize weird no-break spaces / joiners that can render as black squares.
     s = (
-        s.replace("\u00A0", " ")
+        s.replace("\u00A0", " ")  # nbsp
+        .replace("\u202F", " ")  # narrow nbsp
+        .replace("\u2007", " ")  # figure space
+        .replace("\u2060", "")   # word-joiner
+        .replace("\u200B", "")   # zero-width space
+        .replace("\ufeff", "")   # BOM
         .replace("’", "'")
         .replace("“", '"')
         .replace("”", '"')
@@ -425,6 +473,29 @@ def render_minimal_premium_pdf(
     audience_fit_line = f"Audience fit: built for your current household ({household_label})."
 
 
+    # ---------- Fonts (Unicode-safe) ----------
+    # We use Unicode characters (e.g., non-breaking hyphen \u2011) to prevent
+    # ugly wraps in hyphenated names. Base Helvetica may render those as boxes,
+    # so we register DejaVuSans which covers the needed glyphs.
+    try:
+        pdfmetrics.registerFont(TTFont("DejaVuSans", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
+        pdfmetrics.registerFont(TTFont("DejaVuSans-Bold", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"))
+        # Ensure <b> resolves to our bold face (otherwise ReportLab may fall back
+        # to Helvetica-Bold, which can render some unicode as □).
+        pdfmetrics.registerFontFamily(
+            "DejaVuSans",
+            normal="DejaVuSans",
+            bold="DejaVuSans-Bold",
+            italic="DejaVuSans",
+            boldItalic="DejaVuSans-Bold",
+        )
+        FONT_REGULAR = "DejaVuSans"
+        FONT_BOLD = "DejaVuSans-Bold"
+    except Exception:
+        # Fallback for environments without those fonts.
+        FONT_REGULAR = "Helvetica"
+        FONT_BOLD = "Helvetica-Bold"
+
     # ---------- Styles ----------
     styles_src = getSampleStyleSheet()
     base_normal = styles_src['Normal']
@@ -433,43 +504,54 @@ def render_minimal_premium_pdf(
 
     styles: Dict[str, ParagraphStyle] = {
         'Normal': ParagraphStyle(
-            'Normal', parent=base_normal, fontName='Helvetica', fontSize=10, leading=12, textColor=TEXT
+            'Normal', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=10, leading=12, textColor=TEXT
         ),
         'Small': ParagraphStyle(
-            'Small', parent=base_normal, fontName='Helvetica', fontSize=9, leading=11, textColor=TEXT
+            'Small', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=9, leading=11, textColor=TEXT
         ),
         'Muted': ParagraphStyle(
-            'Muted', parent=base_normal, fontName='Helvetica', fontSize=9, leading=11, textColor=TEXT_MUTED
+            'Muted', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=9, leading=11, textColor=TEXT_MUTED
         ),
         'H1': ParagraphStyle(
-            'H1', parent=base_h1, fontName='Helvetica-Bold', fontSize=18, leading=22, textColor=TEXT
+            'H1', parent=base_h1, fontName=FONT_BOLD, boldFontName=FONT_BOLD,
+            fontSize=18, leading=22, textColor=TEXT
         ),
         'H2': ParagraphStyle(
-            'H2', parent=base_h2, fontName='Helvetica-Bold', fontSize=13, leading=16, spaceBefore=10, spaceAfter=6, textColor=TEXT
+            'H2', parent=base_h2, fontName=FONT_BOLD, boldFontName=FONT_BOLD,
+            fontSize=13, leading=16, spaceBefore=10, spaceAfter=6, textColor=TEXT
         ),
         'CardTitle': ParagraphStyle(
-            'CardTitle', parent=base_normal, fontName='Helvetica-Bold', fontSize=12, leading=14, textColor=TEXT, spaceAfter=2
+            'CardTitle', parent=base_normal, fontName=FONT_BOLD, boldFontName=FONT_BOLD,
+            fontSize=12, leading=14, textColor=TEXT, spaceAfter=2
         ),
         'CardSub': ParagraphStyle(
-            'CardSub', parent=base_normal, fontName='Helvetica', fontSize=9.5, leading=11.5, textColor=TEXT_MUTED, spaceAfter=4
+            'CardSub', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=9.5, leading=11.5, textColor=TEXT_MUTED, spaceAfter=4
         ),
         'Bullet': ParagraphStyle(
-            'Bullet', parent=base_normal, fontName='Helvetica', fontSize=10, leading=12, leftIndent=12, bulletIndent=0, spaceBefore=2, spaceAfter=2, textColor=TEXT
+            'Bullet', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=10, leading=12, leftIndent=12, bulletIndent=0, spaceBefore=2, spaceAfter=2, textColor=TEXT
         ),
         'ExecHdr': ParagraphStyle(
-            'ExecHdr', parent=base_normal, fontName='Helvetica-Bold', fontSize=9, leading=10.5, textColor=TEXT, alignment=1, spaceAfter=0
+            'ExecHdr', parent=base_normal, fontName=FONT_BOLD, boldFontName=FONT_BOLD,
+            fontSize=9, leading=10.5, textColor=TEXT, alignment=1, spaceAfter=0
         ),
         'ExecCell': ParagraphStyle(
-            'ExecCell', parent=base_normal, fontName='Helvetica', fontSize=9, leading=10.5, textColor=TEXT, spaceAfter=0
+            'ExecCell', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=9, leading=10.5, textColor=TEXT, spaceAfter=0
         ),
         'ExecCellMuted': ParagraphStyle(
-            'ExecCellMuted', parent=base_normal, fontName='Helvetica', fontSize=9, leading=10.5, textColor=TEXT_MUTED, spaceAfter=0
+            'ExecCellMuted', parent=base_normal, fontName=FONT_REGULAR, boldFontName=FONT_BOLD,
+            fontSize=9, leading=10.5, textColor=TEXT_MUTED, spaceAfter=0
         ),
     }
     # Backwards-compatible aliases used across the file
     styles['Title'] = styles['H1']
     styles['Subtitle'] = ParagraphStyle(
-        'Subtitle', parent=styles['Muted'], fontName='Helvetica', fontSize=11, leading=14, textColor=TEXT_MUTED
+        'Subtitle', parent=styles['Muted'], fontName=FONT_REGULAR, fontSize=11, leading=14, textColor=TEXT_MUTED
     )
     styles['Body'] = styles['Normal']
 
@@ -691,101 +773,110 @@ def render_minimal_premium_pdf(
     story.append(PageBreak())
 
     # ----------------------------
-    # PAGE 2 — Trust & Method
-    # ----------------------------
-    story.append(_section_title("Trust & method", styles))
-
-    trust_blocks: List[Any] = []
-    trust_blocks.append(Paragraph("<b>Sources & freshness</b>", styles["Body"]))
-    trust_blocks.append(_bullets(_sources_block() + [f"Last updated: {date.today().strftime('%d %b %Y')}"], styles["Bullet"]))
-    trust_blocks.append(Spacer(1, 4))
-    trust_blocks.append(Paragraph("<b>What is a “microhood” here?</b>", styles["Body"]))
-    trust_blocks.append(Paragraph(
-        "A microhood is a search zone around anchors / commonly used area labels on portals — not an administrative boundary. "
-        "Names and boundaries may vary by portal and locals.", styles["Body"]
-    ))
-    trust_blocks.append(Spacer(1, 4))
-    trust_blocks.append(Paragraph("<b>Scoring explained</b>", styles["Body"]))
-    trust_blocks.append(_bullets([
-        "5/5 = consistently strong across most pockets; 3/5 = mixed; 1/5 = rarely fits.",
-        "Scores are directional: always validate street-by-street and building-by-building.",
-    ], styles["Bullet"]))
-    trust_blocks.append(Paragraph("<b>What can be wrong (limitations)</b>", styles["Body"]))
-    trust_blocks.append(_bullets([
-        "Street feel and noise are highly street-dependent; validate in person (day + evening).",
-        "Listings can hide humidity/insulation issues; rely on EPC + window quality + smell checks.",
-        "Supply changes weekly; treat this shortlist as a weekly-refreshed starting point.",
-    ], styles["Bullet"]))
-    trust_blocks.append(Spacer(1, 4))
-    trust_blocks.append(Paragraph("Microhood names are search labels; always cross-check using portal keywords + anchors.", styles["Body"]))
-    trust_blocks.append(Spacer(1, 4))
-
-    trust_blocks.append(Paragraph("<b>Assumptions used for this run</b>", styles["Body"]))
-    trust_blocks.extend(_assumptions_block())
-
-    story.append(_card(trust_blocks, padding=8))
-    story.append(PageBreak())
-
-    # ----------------------------
-    # PAGE 3 — Executive summary (smarter table)
+    # PAGE 2 — Executive summary (quick scan)
     # ----------------------------
     story.append(_section_title("Executive summary (quick scan)", styles))
 
+    usable_w = page_w - 16  # account for card padding
+    col_ws = [
+        usable_w * 0.18,
+        usable_w * 0.26,
+        usable_w * 0.24,
+        usable_w * 0.32,
+    ]
+
+    # NOTE: Executive summary must never cut sentences mid-way.
+    # We let cells grow vertically and compute row heights from Paragraph wraps.
+    def _fit_exec_sentence(text: str, *, width: float, max_lines: int = 5) -> str:
+        """Ensure executive-summary copy is short AND complete, without ellipsis.
+
+        We try to keep a full clause/sentence. If the provided text is too long
+        (wraps into more than `max_lines`), we shorten by taking the first
+        sentence / clause, stripping parentheticals, etc.
+        """
+        t0 = _clean_text(text).replace("…", "").strip()
+        if not t0:
+            return "—"
+
+        candidates: List[str] = []
+        # Original
+        candidates.append(t0)
+        # Remove parentheticals
+        candidates.append(re.sub(r"\s*\([^)]*\)", "", t0).strip())
+        # First sentence
+        for sep in [".", ";", ":"]:
+            if sep in t0:
+                candidates.append(t0.split(sep, 1)[0].strip().rstrip(" ,;:") + ".")
+        # First comma-clause
+        if "," in t0:
+            candidates.append(t0.split(",", 1)[0].strip().rstrip(" ,;:") + ".")
+
+        # De-duplicate while preserving order
+        seen = set()
+        uniq: List[str] = []
+        for c in candidates:
+            c = c.strip()
+            if not c:
+                continue
+            if not c.endswith((".", "!", "?")):
+                c = c.rstrip(" ,;:") + "."
+            key = c.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            uniq.append(c)
+
+        for c in uniq:
+            p = Paragraph(c, styles["ExecCell"])
+            _, h = p.wrap(width - 8, 10_000)
+            # Convert height to approximate number of lines.
+            lines = int(round(h / max(styles["ExecCell"].leading, 1)))
+            if lines <= max_lines:
+                return c
+
+        # Last resort: keep the shortest complete candidate.
+        return min(uniq, key=len) if uniq else "—"
     exec_rows: List[List[Any]] = []
-    for d in top3:
-        name = _clean_text(d.get("name", "—"))
-        best_for_raw = " · ".join(_safe_list(d.get("strengths") or d.get("why") or [], max_n=2))
-        watch_raw = " · ".join(_safe_list(d.get("tradeoffs") or d.get("watch_out") or [], max_n=2))
-        best_for = _truncate(best_for_raw, 105) or "—"
-        watch = _truncate(watch_raw, 95) or "—"
-
-        # Anchors with hints (standardised for quick scan)
-        anchors: List[str] = []
-        microhoods_raw = [mh for mh in (d.get("microhoods") or []) if isinstance(mh, dict)]
-
-        # Enforce City of Brussels consistency (Option A: centre/Sablon-compatible)
-        if re.search(r"\b(city of brussels|brussels city)\b", name.lower()):
-            has_north = any(re.search(r"\b(laeken|mutsaard|domaine)\b", _clean_text(m.get("name","")).lower()) for m in microhoods_raw)
-            if has_north or not microhoods_raw:
-                microhoods_raw = [
-                    {"name": "Sablon / Royal Quarter", "why": "boutique streets, parks, museums; strong central resale"},
-                    {"name": "Sainte-Catherine / Dansaert", "why": "dining + canal vibe; walkable core"},
-                    {"name": "Royal Quarter / Parc de Bruxelles", "why": "green pocket by institutions; calmer evenings"},
-                ]
-
-        for mh in microhoods_raw[:3]:
-            nm = _clean_text(mh.get("name", ""))
-            hint = _clean_text(mh.get("why", ""))
-            if nm:
-                if hint:
-                    anchors.append(f"{_truncate(nm, 32)} — {_truncate(hint, 52)}")
-                else:
-                    anchors.append(_truncate(nm, 40))
-
-        anchors_txt = "<br/>".join([_clean_text(a) for a in anchors]) if anchors else "—"
-
+    for row in (brief.get("executive_summary") or [])[:3]:
+        if not isinstance(row, dict):
+            continue
+        name = _clean_text(row.get("name", "—"))
+        best_for = _fit_exec_sentence(row.get("best_for", "—"), width=col_ws[1])
+        watch = _fit_exec_sentence(row.get("watch_out", "—"), width=col_ws[2])
+        mhs = [_nb_hyphen(_clean_text(x)) for x in (row.get("top_microhoods") or []) if _clean_text(x)][:2]
+        # Top microhoods column must contain only microhood names (no keywords here).
+        mh_txt = " · ".join(mhs) if mhs else "—"
 
         exec_rows.append([
             Paragraph(f"<b>{name}</b>", styles["ExecCell"]),
             Paragraph(best_for, styles["ExecCell"]),
             Paragraph(watch, styles["ExecCell"]),
-            Paragraph(anchors_txt, styles["ExecCell"]),
+            Paragraph(mh_txt, styles["ExecCell"]),
         ])
 
     hdr = [
         Paragraph("<b>Commune</b>", styles["ExecHdr"]),
         Paragraph("<b>Best for</b>", styles["ExecHdr"]),
         Paragraph("<b>Watch-outs</b>", styles["ExecHdr"]),
-        Paragraph("<b>Microhood anchors</b>", styles["ExecHdr"]),
+        Paragraph("<b>Top microhoods</b>", styles["ExecHdr"]),
     ]
-    usable_w = page_w - 16  # account for card padding
-    col_ws = [
-        usable_w * 0.16,
-        usable_w * 0.22,
-        usable_w * 0.22,
-        usable_w * 0.40,
-    ]
-    tbl = Table([hdr] + exec_rows, colWidths=col_ws, hAlign="LEFT", splitByRow=1)
+    # Dynamic row heights: measure Paragraph wraps so text never truncates.
+    data = [hdr] + exec_rows
+
+    def _row_height(r: List[Any], is_header: bool = False) -> float:
+        heights = []
+        for j, cell in enumerate(r):
+            if hasattr(cell, "wrap"):
+                _, h = cell.wrap(col_ws[j] - 8, 10_000)  # subtract padding
+                heights.append(h)
+            else:
+                heights.append(styles["ExecCell"].leading)
+        base = max(heights) if heights else styles["ExecCell"].leading
+        pad = 10 if is_header else 8
+        return base + pad
+
+    row_heights = [_row_height(data[0], is_header=True)] + [_row_height(r) for r in data[1:]]
+    tbl = Table(data, colWidths=col_ws, rowHeights=row_heights, hAlign="LEFT", splitByRow=1)
     tbl.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), BG_SOFT),
         ("BACKGROUND", (0, 1), (-1, -1), colors.white),
@@ -800,16 +891,48 @@ def render_minimal_premium_pdf(
     story.append(PageBreak())
 
     # ----------------------------
+    # PAGE 3 — Trust & Method
+    # ----------------------------
+    story.append(_section_title("Trust & method", styles))
+
+    trust_blocks: List[Any] = []
+    trust_blocks.append(Paragraph("<b>Sources & freshness</b>", styles["Body"]))
+    trust_blocks.append(_bullets(_sources_block() + [f"Last updated: {date.today().strftime('%d %b %Y')}"], styles["Bullet"]))
+    trust_blocks.append(Spacer(1, 4))
+    trust_blocks.append(Paragraph("<b>What is a microhood here?</b>", styles["Body"]))
+    trust_blocks.append(Paragraph(
+        "A microhood is a practical search zone *inside a commune* (e.g., City of Brussels / Sablon). "
+        "Names follow the city-pack microhood list and may differ slightly from portal labels.",
+        styles["Body"],
+    ))
+    trust_blocks.append(Spacer(1, 4))
+    trust_blocks.append(Paragraph("<b>Transparent scoring</b>", styles["Body"]))
+    trust_blocks.append(_bullets([
+        "We compute five scores (Safety, Family, Commute, Lifestyle, BudgetFit) using city-pack signals and your stated budget.",
+        "Overall is the rounded average of these five scores, so you can compare communes on one simple number.",
+    ], styles["Bullet"]))
+    trust_blocks.append(Paragraph("<b>What can be wrong (limitations)</b>", styles["Body"]))
+    trust_blocks.append(_bullets([
+        "Street feel and noise are highly street-dependent; validate in person (day + evening).",
+        "Listings can hide humidity/insulation issues; rely on EPC + window quality + smell checks.",
+        "Supply changes weekly; treat this shortlist as a refreshed starting point.",
+    ], styles["Bullet"]))
+    trust_blocks.append(Spacer(1, 4))
+    trust_blocks.append(Paragraph("<b>Assumptions used for this run</b>", styles["Body"]))
+    trust_blocks.extend(_assumptions_block())
+
+    story.append(_card(trust_blocks, padding=8))
+    story.append(PageBreak())
+
+    # ----------------------------
     # PAGES 4–6 — Commune cards (1 page each, stable caps)
     # ----------------------------
     def _microhood_mini_cards(microhoods: List[Dict[str, Any]]) -> Any:
-        """Render microhoods as mini-cards: name + keywords/anchors/hints/avoid.
+        """Render microhoods as mini-cards.
 
-        Enforces a stable schema for auto-generated content:
-        - portal_keywords: list, len>=2
-        - anchors: list, len>=2
-        - street_hints: exactly 2 short bullets
-        - avoid_verify: 1 specific bullet
+        Sprint-2+ schema:
+        - portal_keywords: up to 4 tokens (optional, for portal searching)
+        - highlights: 2–3 sentences describing what is specific/valuable about this microhood
         """
         def _norm_name(n: str) -> str:
             n = _clean_text(n)
@@ -817,12 +940,9 @@ def render_minimal_premium_pdf(
             n = re.sub(r"\s*-\s*", "-", n)
             return n
 
-        def _one_line(n: str, max_len: int = 34) -> str:
-            n = _norm_name(n)
-            if len(n) > max_len:
-                n = n[: max_len - 1].rstrip() + "…"
-            # Prevent internal wraps inside the name
-            return f"<nobr>{n}</nobr>"
+        def _display_name(n: str) -> str:
+            # Keep it readable and avoid one-letter wraps for hyphenated names.
+            return _nb_hyphen(_norm_name(n))
 
         def _ensure_list(val: Any) -> List[str]:
             if val is None:
@@ -851,7 +971,7 @@ def render_minimal_premium_pdf(
                 continue
 
             name_raw = mh.get("name", "") or "—"
-            name = _one_line(name_raw)
+            name = _display_name(name_raw)
 
             # --- Schema upgrade / fallbacks ---
             pkw = _ensure_list(mh.get("portal_keywords") or mh.get("keywords"))
@@ -865,59 +985,16 @@ def render_minimal_premium_pdf(
             if len(pkw) < 2 and base:
                 pkw = [base, base.replace("-", " ")]
 
-            anchors = _ensure_list(mh.get("anchors") or mh.get("anchor_points"))
-            if len(anchors) < 2:
-                # try to infer from name/nearby
-                anchors = anchors[:1]
-                if len(anchors) < 2:
-                    anchors.append("Nearest metro/tram stop")
-                if len(anchors) < 2:
-                    anchors.append("Nearest park/square")
-                if not anchors:
-                    anchors = ["Nearest metro/tram stop", "Nearest park/square"]
-            anchors = [re.sub(r'^Near\s+', '', a, flags=re.IGNORECASE).strip() for a in anchors]
-            anchors = _dedupe_preserve([a for a in anchors if a])
-            anchors = anchors[:2]
+            highlights = _clean_text(mh.get("highlights") or mh.get("why") or "")
+            if not highlights:
+                highlights = "Good starting point with balanced everyday amenities."  # safe fallback
 
-            hints = _ensure_list(mh.get("street_hints"))
-            if len(hints) < 2:
-                why = _clean_text(mh.get("why", "")) or ""
-                # Split long why into two hints if possible
-                if why and (";" in why or "." in why):
-                    parts = re.split(r"[.;]\s+", why)
-                    parts = [p.strip() for p in parts if p.strip()]
-                    hints = (parts + hints)[:2]
-                elif why:
-                    hints = [why, "Prefer calm side streets 1–2 blocks off major axes."]
-                else:
-                    hints = ["Prefer calm side streets 1–2 blocks off major axes.", "Validate evening noise and delivery traffic."]
-
-            hints = [_truncate(h, 80) for h in hints[:2]]
-            # Defensive: ensure we always have exactly 2 hints (auto-generated content can be incomplete)
-            if len(hints) < 2:
-                defaults = [
-                    "Prefer calm side streets 1–2 blocks off major axes.",
-                    "Validate evening noise and delivery traffic.",
-                ]
-                for d in defaults:
-                    if len(hints) >= 2:
-                        break
-                    if d not in hints:
-                        hints.append(_truncate(d, 80))
-
-            avoid = _clean_text(mh.get("avoid_verify") or mh.get("avoid") or mh.get("watch_out") or mh.get("risk") or "")
-            avoid = re.sub(r"^What to check:\s*", "", avoid, flags=re.I)
-            avoid = re.sub(r"^Check:\s*", "", avoid, flags=re.I)
-            if not avoid:
-                avoid = "Direct frontage on main arteries; verify window quality and night noise."
-            avoid = _truncate(avoid, 110)
-
-            details = "<br/>".join([
-                f"<font color='{TEXT_MUTED.hexval()}'>Portal keywords:</font> {', '.join([_truncate(x, 26) for x in pkw])}",
-                f"<font color='{TEXT_MUTED.hexval()}'>Anchors:</font> {'; '.join([_truncate(x, 34) for x in anchors if x])}",
-                f"<font color='{TEXT_MUTED.hexval()}'>Street hints:</font> • {hints[0]} • {hints[1]}",
-                f"<font color='{TEXT_MUTED.hexval()}'>Avoid/verify:</font> • {avoid}",
-            ])
+            # Do not truncate portal keywords with ellipses; allow natural wrapping.
+            details_lines = [
+                f"<font color='{TEXT_MUTED.hexval()}'>Portal keywords:</font> {', '.join(pkw)}",
+                f"<font color='{TEXT_MUTED.hexval()}'>Highlights:</font> {highlights}",
+            ]
+            details = "<br/>".join(details_lines)
 
             cards.append([
                 Paragraph(f"<b>{name}</b>", styles["Body"]),
@@ -927,7 +1004,9 @@ def render_minimal_premium_pdf(
         if not cards:
             return Paragraph("—", styles["Body"])
 
-        t = Table(cards, colWidths=[3.8 * cm, page_w - 3.8 * cm - 16], hAlign="LEFT", splitByRow=1)
+        # Make name column slightly wider to avoid ugly wraps on hyphenated names.
+        name_w = 4.6 * cm
+        t = Table(cards, colWidths=[name_w, page_w - name_w - 16], hAlign="LEFT", splitByRow=1)
         t.setStyle(TableStyle([
             ("VALIGN", (0, 0), (-1, -1), "TOP"),
             ("INNERGRID", (0, 0), (-1, -1), 0.45, STROKE),
@@ -942,10 +1021,10 @@ def render_minimal_premium_pdf(
     for i, d in enumerate(top3, 1):
         name = _clean_text(d.get("name", "—"))
         story.append(_section_title(f"{i}. {name}", styles))
-        # A compact "profile" line: anchors + chips
-        anchors = ", ".join([_clean_text(a) for a in (d.get("micro_anchors") or [])[:3] if _clean_text(a)])
-        if anchors:
-            story.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Anchors:</font> {anchors}", styles["Small"]))
+        # A compact "profile" line: top microhoods + chips
+        top_mh = [ _nb_hyphen(_clean_text(x)) for x in (d.get("top_microhoods") or []) if _clean_text(x) ][:2]
+        if top_mh:
+            story.append(Paragraph(f"<font color='{TEXT_MUTED.hexval()}'>Top microhoods:</font> {' · '.join(top_mh)}", styles["Small"]))
         chips = _chips(d.get("scores") or {}, styles, ["Family", "Commute", "Lifestyle", "BudgetFit", "Overall"])
         if chips:
             story.append(chips)
@@ -967,14 +1046,6 @@ def render_minimal_premium_pdf(
 
         commune_blocks.append(Paragraph("<b>Microhood shortlist (search zones)</b>", styles["Body"]))
         microhoods_raw = [mh for mh in (d.get("microhoods") or []) if isinstance(mh, dict)]
-        if re.search(r"\b(city of brussels|brussels city)\b", _clean_text(d.get("name","")).lower()):
-            has_north = any(re.search(r"\b(laeken|mutsaard|domaine)\b", _clean_text(m.get("name","")).lower()) for m in microhoods_raw)
-            if has_north or not microhoods_raw:
-                microhoods_raw = [
-                    {"name": "Sablon / Royal Quarter", "why": "boutique streets, parks, museums; strong central resale"},
-                    {"name": "Sainte-Catherine / Dansaert", "why": "dining + canal vibe; walkable core"},
-                    {"name": "Royal Quarter / Parc de Bruxelles", "why": "green pocket by institutions; calmer evenings"},
-                ]
         commune_blocks.append(_microhood_mini_cards(microhoods_raw))
         commune_blocks.append(Spacer(1, 3))
 

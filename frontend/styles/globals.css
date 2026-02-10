@@ -50,6 +50,7 @@ a{color:inherit;text-decoration:none}
 .input:focus{border-color:#3c6cff}
 
 .btnRow{display:flex;align-items:center;justify-content:space-between;margin-top:22px;gap:12px;flex-wrap:wrap}
+.btnLeft{display:flex;align-items:center;gap:12px}
 .btn{
   padding:12px 18px;
   border-radius:12px;
@@ -142,4 +143,23 @@ a{color:inherit;text-decoration:none}
   background:#0c152a;
   color:var(--muted);
   font-size:13px;
+}
+
+/* --- Landing preview (sample screenshot) --- */
+.previewWrap{margin-top:18px}
+.previewFrame{
+  position:relative;
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  overflow:hidden;
+  background:#0c152a;
+}
+.previewImg{display:block;width:100%;height:auto}
+/* Fade/blur at the bottom to mimic "preview" gating */
+.previewFade{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:42%;
+  backdrop-filter: blur(7px);
+  background: linear-gradient(to bottom, rgba(11,18,32,0), rgba(11,18,32,.92));
 }

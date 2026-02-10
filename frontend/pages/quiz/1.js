@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/router'
-import Layout from '../../components/Layout'
-import { useQuiz, resetQuiz } from '../../components/quizState'
+import QuizLayout from '../../components/QuizLayout'
+import { useQuiz } from '../../components/quizState'
 
 export default function Step1(){
   const router = useRouter()
@@ -20,16 +20,11 @@ export default function Step1(){
   const can = supportedLocations.some(x => x.toLowerCase() === cityRaw.toLowerCase())
 
   return (
-    <Layout
+    <QuizLayout
       step={1}
       title="Which city/metro area are you relocating to?"
       subtitle="Start typing your city. Choose from the suggested list. Continue becomes active once a supported city is selected."
-      actions={
-        <div className="btnRow">
-          <button className="linkBtn" onClick={() => { resetQuiz(setState); }}>Reset</button>
-          <button className="btn" disabled={!can} onClick={() => router.push('/quiz/2')}>Continue</button>
-        </div>
-      }
+      actions={<button className="btn" disabled={!can} onClick={() => router.push('/quiz/2')}>Continue</button>}
     >
       <input
         className="input"
@@ -53,6 +48,6 @@ export default function Step1(){
           Please select a supported city from the dropdown. Currently available: Brussels, Belgium.
         </div>
       )}
-    </Layout>
+    </QuizLayout>
   )
 }

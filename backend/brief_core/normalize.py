@@ -16,6 +16,38 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from .city_packs import load_city_pack
+from .quality_gate import run_quality_gate
+
+# --- Scoring model (used for Trust & method copy + debug output) ---
+SCORE_MODEL: Dict[str, Any] = {
+    "dimensions": {
+        "Safety": {
+            "signals": ["safety_index (city-pack)", "quiet/residential tags", "nightlife/traffic penalties"],
+        },
+        "Family": {
+            "signals": ["family_index (city-pack)", "parks/schools/childcare tags", "household with kids boost"],
+        },
+        "Commute": {
+            "signals": ["commute_index (city-pack)", "metro/tram/train tags", "traffic penalty when not car-friendly"],
+        },
+        "Lifestyle": {
+            "signals": ["lifestyle_index (city-pack)", "cafes/restaurants/culture tags"],
+        },
+        "BudgetFit": {
+            "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)",
+            ],
+        },
+    },
+    "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+    "scale": {
+        "5": "consistently strong across most pockets",
+        "3": "mixed; street-by-street variation",
+        "2": "often requires trade-offs",
+    },
+}
 
 
 # High-level caps (multi-page report, so keep them generous)
@@ -75,6 +107,19 @@ def _clean_text(s: object) -> str:
         return ""
     if not isinstance(s, str):
         s = str(s)
+    # Normalize problematic Unicode spaces/joiners that can render as black squares
+    # in some PDF fonts/viewers.
+    s = (
+        s.replace("\u00A0", " ")  # nbsp
+        .replace("\u202F", " ")  # narrow nbsp
+        .replace("\u2007", " ")  # figure space
+        .replace("\u2060", "")   # word joiner
+        .replace("\u200B", "")   # zero width space
+        .replace("\ufeff", "")   # BOM
+        .replace("’", "'")
+        .replace("“", '"')
+        .replace("”", '"')
+    )
     s = _normalize_dashes(s)
     # Collapse whitespace
     s = re.sub(r"\s+", " ", s).strip()
@@ -151,52 +196,32 @@ def _postprocess_brief(out: dict) -> dict:
         d["scores"] = norm_scores
 
         # microhoods schema normalization
+        # Sprint-2+ update: remove generic Street hints / Avoid blocks (they were identical
+        # everywhere and not valuable). Keep portal keywords + a microhood-specific
+        # 2-3 sentence "highlights" blurb.
         mh_out = []
         for mh in d.get("microhoods", []) or []:
             name = _normalize_dashes((mh.get("name") or "").strip())
             if not name:
                 continue
-            anchors = _dedupe_str_list(mh.get("anchors") or [])
-            # strip 'Near ' prefix if it sneaks in
-            anchors = [re.sub(r"^Near\s+", "", a, flags=re.I).strip() for a in anchors]
             portal_keywords = _dedupe_str_list(mh.get("portal_keywords") or mh.get("keywords") or [])
-            street_hints = _dedupe_str_list(mh.get("street_hints") or [])
-            avoid_verify = _normalize_dashes((mh.get("avoid_verify") or mh.get("avoid") or mh.get("verify") or "").strip())
-
-            # Fallbacks if LLM returned legacy shape
-            if not anchors:
-                # try commune-level anchors
-                anchors = _dedupe_str_list(d.get("micro_anchors") or [])[:2]
-            anchors = anchors[:2]
+            highlights = _normalize_dashes((mh.get("highlights") or mh.get("why") or "").strip())
 
             if not portal_keywords:
                 # build minimal useful keywords
                 base = [name, "Brussels"]
-                if anchors:
-                    base.append(anchors[0])
                 portal_keywords = _dedupe_str_list(base)
             portal_keywords = portal_keywords[:4]
 
-            if len(street_hints) < 2:
-                # minimal but not identical everywhere
-                extra = [
-                    "Search street-by-street; check noise/traffic on main arteries",
-                    "Verify parking rules/permits and building charges (syndic)",
-                ]
-                street_hints = _dedupe_str_list(list(street_hints) + extra)[:2]
-
-            if not avoid_verify:
-                avoid_verify = "Verify noise/traffic, parking constraints, and building charges."
+            if not highlights:
+                # Fallback to a short, non-generic sentence. (Prefer deterministic profile-based
+                # highlights populated later in the pipeline.)
+                highlights = "Good starting point with balanced everyday amenities."
 
             mh_out.append({
                 "name": name,
-                "anchors": anchors,
                 "portal_keywords": portal_keywords,
-                "street_hints": street_hints,
-                "avoid_verify": avoid_verify,
-                # keep any legacy fields for backwards compatibility
-                "why": _trim(_as_list(mh.get("why")), LIMITS["microhood_why"]),
-                "watch_out": _trim(_as_list(mh.get("watch_out")), LIMITS["microhood_watch"]),
+                "highlights": highlights,
             })
         d["microhoods"] = mh_out
 
@@ -809,7 +834,8 @@ def _compute_budget_fit(
     commune: Optional[Dict[str, Any]] = None,
     score_index: Optional[Dict[str, Dict[str, float]]] = None,
     score_dists: Optional[Dict[str, List[float]]] = None,
-) -> int:
+    return_debug: bool = False,
+) -> Any:
     """Budget fit heuristic (2-5) based on budget *and* commune cost pressure.
 
     We do not have official pricing data in the pack. To avoid misleading
@@ -826,7 +852,7 @@ def _compute_budget_fit(
     buy = buy_hi
 
     if not rent and not buy:
-        return 3
+        return (3, {"reason": "no_budget"}) if return_debug else 3
 
     premium = "premium_feel" in tags
     central = "central_access" in tags
@@ -843,6 +869,15 @@ def _compute_budget_fit(
     # Convert pressure percentile to an integer penalty (0..2)
     pressure_pen = 2 if pressure_p >= 0.8 else (1 if pressure_p >= 0.55 else 0)
 
+    debug = {
+        "rent_hi": rent_hi,
+        "buy_hi": buy_hi,
+        "premium": bool(premium),
+        "central": bool(central),
+        "pressure_percentile": pressure_p,
+        "pressure_penalty": pressure_pen,
+    }
+
     # Very rough tiers (Brussels): rent in EUR/mo, buy in EUR
     if rent and not buy:
         # Baseline per preference
@@ -850,16 +885,24 @@ def _compute_budget_fit(
             base = 4 if rent >= 2800 else (3 if rent >= 2200 else 2)
         else:
             base = 4 if rent >= 2000 else (3 if rent >= 1500 else 2)
-        return max(2, min(5, base - pressure_pen))
+        score = max(2, min(5, base - pressure_pen))
+        if return_debug:
+            debug.update({"mode": "rent", "base": base, "final": score})
+            return score, debug
+        return score
 
     if buy:
         if premium or central:
             base = 4 if buy >= 850_000 else (3 if buy >= 650_000 else 2)
         else:
             base = 4 if buy >= 650_000 else (3 if buy >= 450_000 else 2)
-        return max(2, min(5, base - pressure_pen))
+        score = max(2, min(5, base - pressure_pen))
+        if return_debug:
+            debug.update({"mode": "buy", "base": base, "final": score})
+            return score, debug
+        return score
 
-    return 3
+    return (3, {"reason": "fallback"}) if return_debug else 3
 
 
 def _fmt_eur_range(lo: Optional[int], hi: Optional[int], *, per_month: bool = False) -> str:
@@ -968,7 +1011,8 @@ def _compute_scores_for_commune(
     score_dists: Dict[str, List[float]],
     *,
     answers: Optional[Dict[str, Any]] = None,
-) -> Dict[str, int]:
+    return_debug: bool = False,
+) -> Any:
     name = commune.get("name")
     tags = commune.get("tags") or []
     base = score_index.get(name or "", {})
@@ -1027,10 +1071,17 @@ def _compute_scores_for_commune(
     commute = _clamp_2_5(_p_to_score(c_p) + (1 if commute_bonus > 0 else 0) - (1 if commute_pen > 0 else 0))
     lifestyle = _clamp_2_5(_p_to_score(l_p) + (1 if lifestyle_bonus > 0 else 0))
 
-    budget = _compute_budget_fit(tags, answers=answers, commune=commune, score_index=score_index, score_dists=score_dists)
+    budget, budget_debug = _compute_budget_fit(
+        tags,
+        answers=answers,
+        commune=commune,
+        score_index=score_index,
+        score_dists=score_dists,
+        return_debug=True,
+    )
 
     overall = int(round((safety + family + commute + lifestyle + budget) / 5.0))
-    return {
+    scores = {
         "Safety": safety,
         "Family": family,
         "Commute": commute,
@@ -1038,6 +1089,31 @@ def _compute_scores_for_commune(
         "BudgetFit": budget,
         "Overall": overall,
     }
+
+    if not return_debug:
+        return scores
+
+    debug = {
+        "name": name,
+        "percentiles": {
+            "Safety": s_p,
+            "Family": f_p,
+            "Commute": c_p,
+            "Lifestyle": l_p,
+        },
+        "tag_adjustments": {
+            "safety_bonus": safety_bonus,
+            "safety_pen": safety_pen,
+            "commute_bonus": commute_bonus,
+            "commute_pen": commute_pen,
+            "lifestyle_bonus": lifestyle_bonus,
+            "family_bonus": family_bonus,
+        },
+        "budget": budget_debug,
+        "scores": scores,
+        "model": SCORE_MODEL,
+    }
+    return scores, debug
 
 
 def _enforce_communes_and_microhoods(
@@ -1069,6 +1145,42 @@ def _enforce_communes_and_microhoods(
     # If a microhood name looks like it belongs to a different commune (e.g. "Jette Centre"),
     # drop it to avoid perception issues even when the geojson doesn't provide a mapping.
     commune_tokens = {c: set(_norm_label(c).split()) for c in allowed}
+
+    def _sent_end(t: str) -> str:
+        t = _as_str(t).strip()
+        if not t:
+            return ""
+        if t.endswith((".", "!", "?")):
+            return t
+        return t + "."
+
+    def _microhood_highlights_for(nm: str, commune_obj: Dict[str, Any]) -> str:
+        """Return a microhood-specific 2–3 sentence blurb.
+
+        We prefer curated microhood profiles from the city-pack (deterministic and unique).
+        If a profile is missing, we fall back to metrics-based heuristics.
+        """
+        prof = microhood_profiles_norm.get(_norm_label(nm)) or {}
+        why_p = _sent_end(prof.get("why", ""))
+        watch_p = _sent_end(prof.get("watch_out", ""))
+        if why_p or watch_p:
+            return " ".join([b for b in [why_p, watch_p] if b][:3]).strip()
+
+        mh_obj = next(
+            (m for m in (commune_obj.get("microhoods") or []) if isinstance(m, dict) and _norm_label(_as_str(m.get("name"))) == _norm_label(nm)),
+            {},
+        )
+        why_m, watch_m = _microhood_sentence_from_metrics(mh_obj if isinstance(mh_obj, dict) else {})
+        return f"{_sent_end(why_m)} {_sent_end(watch_m)}".strip()
+
+    def _mk_microhood_entry(nm: str, commune_obj: Dict[str, Any], city_label: str) -> Dict[str, Any]:
+        kw_raw = [nm, nm.replace(" / ", " "), nm.replace("-", " "), city_label]
+        portal_keywords = _dedupe_str_list(kw_raw)[:4]
+        return {
+            "name": nm,
+            "portal_keywords": portal_keywords,
+            "highlights": _microhood_highlights_for(nm, commune_obj),
+        }
 
     def _belongs_to_other_commune(mh_name: str, current_commune: str) -> bool:
         mh_norm = _norm_label(mh_name)
@@ -1142,80 +1254,78 @@ def _enforce_communes_and_microhoods(
         tags = commune.get("tags") or []
         # Always compute scores deterministically from city-pack metrics + budget.
         # This prevents "everything is 5/5" and improves trust.
-        scores = _compute_scores_for_commune(commune, score_index, score_dists, answers=answers)
+        scores, score_debug = _compute_scores_for_commune(
+            commune,
+            score_index,
+            score_dists,
+            answers=answers,
+            return_debug=True,
+        )
 
         # Why / watch-out lists
         why = _trim(_as_list(it.get("why")), LIMITS["district_why"])
         watch = _trim(_as_list(it.get("watch_out")), LIMITS["district_watch"])
         if len(why) < 2:
             # Keep at least two bullets
-            anchors = commune.get("micro_anchors") or []
-            anchor = anchors[0] if anchors else "key local hubs"
+            first_mh = None
+            for mh in (commune.get("microhoods") or []):
+                if isinstance(mh, dict) and mh.get("name"):
+                    first_mh = _as_str(mh.get("name")).strip()
+                    break
+            anchor = first_mh or "key local hubs"
             why = (why + [f"Strong fit for your priorities around {anchor}.", "Balanced trade-off between lifestyle and commute."])[:2]
         if len(watch) < 1:
             hint = _as_str(commune.get("watch_out_hint"))
             watch = [hint or "Verify street-level noise/parking before shortlisting."]
 
-                # Microhoods: use the commune's own anchor-neighbourhoods as the shortlist.
-        # This avoids confusing output like "Anchors: Sablon ..." but microhood shortlist "Squares/Heembeek".
-        micro_anchors = [a for a in (commune.get("micro_anchors") or []) if _as_str(a).strip()]
-        desired_names: List[str] = [a.strip() for a in micro_anchors[:2]]
+        # Microhoods: strictly two-level hierarchy Commune → Microhood.
+        # We only recommend microhoods from the city pack (monitoring zones), no separate "anchors" layer.
+        mh_candidates: List[str] = []
+        for mh in (commune.get("microhoods") or []):
+            if not isinstance(mh, dict) or not mh.get("name"):
+                continue
+            if _is_landmark_like_microhood(mh):
+                continue
+            nm = _as_str(mh.get("name")).strip()
+            if not nm:
+                continue
+            # Validate commune ownership (geojson) when possible
+            mapped = microhood_commune.get(_norm_label(nm))
+            if mapped and mapped != name:
+                continue
+            if _belongs_to_other_commune(nm, name):
+                continue
+            if nm not in mh_candidates:
+                mh_candidates.append(nm)
+            if len(mh_candidates) >= 3:
+                break
 
-        # Fallback: if anchors are missing, use the first 2 monitoring microhoods (if any).
-        if len(desired_names) < 2:
-            for nm in (commune.get("microhoods") or []):
-                nm = _as_str(nm).strip()
-                if nm and nm not in desired_names:
-                    desired_names.append(nm)
-                if len(desired_names) >= 2:
+        # Ensure at least 2
+        if len(mh_candidates) < 2:
+            for mh in (commune.get("microhoods_all") or []):
+                if not isinstance(mh, dict) or not mh.get("name"):
+                    continue
+                if _is_landmark_like_microhood(mh):
+                    continue
+                nm = _as_str(mh.get("name")).strip()
+                if not nm or nm in mh_candidates:
+                    continue
+                mapped = microhood_commune.get(_norm_label(nm))
+                if mapped and mapped != name:
+                    continue
+                if _belongs_to_other_commune(nm, name):
+                    continue
+                mh_candidates.append(nm)
+                if len(mh_candidates) >= 2:
                     break
 
-        # City label for portal keyword combos
         city_label = _as_str(pack.get("city_name") or pack.get("city") or answers.get("city") or "Brussels").strip()
 
-        def _mk_microhood(name: str, idx: int) -> Dict[str, Any]:
-            # 2 anchors: the microhood name itself + a second known node (best-effort)
-            a2 = micro_anchors[1] if len(micro_anchors) > 1 else "Nearest metro/tram stop"
-            anchors2 = _dedupe_str_list([name, a2])
-            anchors2 = [a for a in anchors2 if not a.lower().startswith("near ")]
-            if len(anchors2) < 2:
-                anchors2 = _dedupe_str_list(anchors2 + ["Nearest park/square"])
-            anchors2 = anchors2[:2]
-
-            # 3–4 portal keywords: include variants + city label
-            kw_raw = [
-                name,
-                name.replace(" / ", " "),
-                name.replace("-", " "),
-                city_label,
-                "2–3BR",
-            ]
-            portal_keywords = _dedupe_str_list(kw_raw)[:4]
-
-            street_hints = [
-                "Check the quieter side streets 1–2 blocks off main roads.",
-                "Validate parking rules, noise and foot-traffic at peak hours.",
-            ]
-
-            avoid_verify = "Noise/traffic/parking can vary street-by-street; verify charges and renovation status."
-
-            return {
-                "name": name,
-                "why": f"Good starting point around {name} for viewings and local fit checks.",
-                "watch_out": "Validate street-level noise, parking rules and recurring charges before shortlisting.",
-                "portal_keywords": portal_keywords,
-                "anchors": anchors2,
-                "street_hints": street_hints,
-                "avoid_verify": avoid_verify,
-            }
-
-        out_mh: List[Dict[str, Any]] = []
-        for i, nm in enumerate(desired_names[:2]):
-            out_mh.append(_mk_microhood(nm, i))
-
-        # Worst-case fallback: always provide 2 compact microhood cards.
+        out_mh = [_mk_microhood_entry(nm, commune, city_label) for nm in mh_candidates[:2]]
         while len(out_mh) < 2:
-            out_mh.append(_mk_microhood(f"Area {len(out_mh)+1}", len(out_mh)))
+            out_mh.append(_mk_microhood_entry(f"Area {len(out_mh)+1}", commune, city_label))
+
+        top_microhoods = [m.get("name") for m in out_mh if isinstance(m, dict) and m.get("name")][:2]
 
         # Derive short, user-facing helpers used by the PDF renderer.
         # These MUST be computed before we append; otherwise missing optional
@@ -1235,7 +1345,7 @@ def _enforce_communes_and_microhoods(
         strengths, tradeoffs = _derive_strengths_tradeoffs(
             tags=tags,
             snapshot=commune.get("snapshot", {}) or {},
-            anchors=micro_anchors,
+            anchors=top_microhoods,
             scores=scores,
             tenure=tenure,
         )
@@ -1243,8 +1353,8 @@ def _enforce_communes_and_microhoods(
         fixed.append(
             {
                 "name": name,
-                "micro_anchors": micro_anchors,
                 "scores": scores,
+                "score_debug": score_debug,
                 "why": why,
                 "watch_out": watch,
                 "strengths": strengths,
@@ -1252,6 +1362,7 @@ def _enforce_communes_and_microhoods(
                 "matched_priorities": _priority_match(tags, priority_ids, top3_ids),
                 "priority_snapshot": snapshot,
                 "budget_reality": budget_reality,
+                "top_microhoods": top_microhoods,
                 "microhoods": out_mh,
             }
         )
@@ -1262,58 +1373,66 @@ def _enforce_communes_and_microhoods(
             break
         if n in used:
             continue
+
         commune = commune_by_name.get(n, {})
         tags = commune.get("tags") or []
-        scores = _compute_scores_for_commune(commune, score_index, score_dists, answers=answers)
+        scores, score_debug = _compute_scores_for_commune(
+            commune,
+            score_index,
+            score_dists,
+            answers=answers,
+            return_debug=True,
+        )
         why = ["Strong fit for your stated priorities.", "Balanced trade-off between lifestyle and commute."]
         hint = _as_str(commune.get("watch_out_hint"))
         watch = [hint or "Verify street-level noise/parking before shortlisting."]
-        micro_anchors = (commune.get("micro_anchors") or [])[:3]
-        allowed_mh = []
+
+        mh_candidates: List[str] = []
         for mh in (commune.get("microhoods") or []):
             if not isinstance(mh, dict) or not mh.get("name"):
                 continue
             if _is_landmark_like_microhood(mh):
                 continue
-            nm = _as_str(mh.get("name"))
-            owner = microhood_commune.get(_norm_label(nm))
-            if owner and owner != n:
+            nm = _as_str(mh.get("name")).strip()
+            if not nm:
                 continue
-            if not owner and _belongs_to_other_commune(nm, n):
+            mapped = microhood_commune.get(_norm_label(nm))
+            if mapped and mapped != n:
                 continue
-            allowed_mh.append(mh)
-        out_mh = []
-        for mh_obj in allowed_mh[:2]:
-            nm = _as_str(mh_obj.get("name"))
-            prof = microhood_profiles.get(nm) or microhood_profiles_norm.get(_norm_label(nm)) or {}
-            why_s = _as_str(prof.get("why"))
-            watch_s = _as_str(prof.get("watch_out"))
-            if not why_s or not watch_s:
-                gen_why, gen_watch = _microhood_sentence_from_metrics(mh_obj)
-                why_s = why_s or gen_why
-                watch_s = watch_s or gen_watch
-            out_mh.append({"name": nm or mh_obj.get("name"), "why": why_s[:160], "watch_out": watch_s[:160]})
+            if _belongs_to_other_commune(nm, n):
+                continue
+            if nm not in mh_candidates:
+                mh_candidates.append(nm)
+            if len(mh_candidates) >= 2:
+                break
+
+        city_label = _as_str(pack.get("city_name") or pack.get("city") or answers.get("city") or "Brussels").strip()
+
+        out_mh = [_mk_microhood_entry(nm, commune, city_label) for nm in mh_candidates[:2]]
+        while len(out_mh) < 2:
+            out_mh.append(_mk_microhood_entry(f"Area {len(out_mh)+1}", commune, city_label))
+
+        top_microhoods = [m.get("name") for m in out_mh if isinstance(m, dict) and m.get("name")][:2]
         snapshot = _priority_snapshot(tags, scores, metrics=commune.get("metrics") or {})
         budget_reality = _budget_reality_check(
-            tags,
-            scores,
+            tags=tags,
+            scores=scores,
             answers=answers,
             commune=commune,
             score_index=score_index,
-            score_dists=score_dists,
         )
         strengths, tradeoffs = _derive_strengths_tradeoffs(
-            tags,
-            snapshot,
-            anchors=[str(x).strip() for x in micro_anchors if str(x).strip()],
+            tags=tags,
+            snapshot=commune.get("snapshot", {}) or {},
+            anchors=top_microhoods,
             scores=scores,
             tenure=tenure,
         )
         fixed.append(
             {
                 "name": n,
-                "micro_anchors": [str(x).strip() for x in micro_anchors if str(x).strip()],
                 "scores": scores,
+                "score_debug": score_debug,
                 "why": why,
                 "watch_out": watch,
                 "strengths": strengths,
@@ -1321,21 +1440,23 @@ def _enforce_communes_and_microhoods(
                 "matched_priorities": _priority_match(tags, priority_ids, top3_ids),
                 "priority_snapshot": snapshot,
                 "budget_reality": budget_reality,
+                "top_microhoods": top_microhoods,
                 "microhoods": out_mh,
             }
         )
 
-    
+
     fixed_sorted = sorted(
-    fixed,
-    key=lambda d: (
-    int(d.get("scores", {}).get("Overall", 0)),
-    int(d.get("scores", {}).get("Family", 0)),
-    int(d.get("scores", {}).get("BudgetFit", 0)),
-    ),
-    reverse=True,
+        fixed,
+        key=lambda d: (
+            int(d.get("scores", {}).get("Overall", 0)),
+            int(d.get("scores", {}).get("Family", 0)),
+            int(d.get("scores", {}).get("BudgetFit", 0)),
+        ),
+        reverse=True,
     )
-    brief["top_districts"] = fixed_sorted[:3]  # guarantee top-3 sorted by Overall (tie-break Family, BudgetFit)
+    # Guarantee top-3 sorted by Overall (tie-break Family, BudgetFit)
+    brief["top_districts"] = fixed_sorted[:3]
     return brief
 
 
@@ -1551,45 +1672,81 @@ def normalize_brief(
         ],
     }
 
-    # Relocation essentials: action plan beyond real estate (first 72h / 2w / 2m).
-    out["relocation_essentials"] = {
-        "first_72h": [
-            "Book temporary accommodation if needed and confirm the first viewing schedule.",
-            "Prepare document scans (IDs, visas/residence, payslips/employer letter).",
-            "Pick 1–2 communes for administrative steps (registration timing depends on your move date).",
-        ],
-        "first_2_weeks": [
-            "Register at the commune (if applicable) and start the resident file (appointment-based).",
-            "Choose a GP and check insurance coverage / mutuelle requirements.",
-            "If family: shortlist schools/childcare and request availability/registration steps.",
-            "Set up a Belgian phone plan and confirm internet availability at shortlisted addresses.",
-        ],
-        "first_2_months": [
-            "Finalize utilities (energy/water) and update contracts after moving in.",
-            "If buying: schedule notary steps, financing, and property checks (EPC, urbanism, syndic docs).",
-            "Set up local services: bank, insurance, parking permit (if needed), and subscriptions.",
-        ],
-    }
-
-
     # Reduce copy/paste feel across the shortlist (UX/Copy).
     try:
         _uniqueize_shortlist_copy(out.get("top_districts") or [], answers=answers)
     except Exception:
         pass
 
-    # Executive summary lines for quick scanning.
+    def _strip_ellipsis(text: str) -> str:
+        # Executive summary must never show literal ellipsis characters.
+        # If upstream copy contains them, strip and re-punctuate.
+        t = _as_str(text).replace("…", "").strip()
+        return t
+
+    def _first_clause(text: str) -> str:
+        """Return a short, complete clause.
+
+        We prefer ending at strong punctuation (.) or (;), then (,).
+        We NEVER append an ellipsis.
+        """
+        t = _strip_ellipsis(text)
+        if not t:
+            return "—"
+
+        # Remove parenthetical noise which often makes phrases too long.
+        t = re.sub(r"\s*\([^)]*\)", "", t).strip()
+
+        # Prefer a full first sentence if available.
+        for sep in [".", ";", ":"]:
+            if sep in t:
+                chunk = t.split(sep, 1)[0].strip()
+                if chunk:
+                    return chunk.rstrip(" ,;") + "."
+
+        # Else, cut at the first comma (still a complete clause).
+        if "," in t:
+            chunk = t.split(",", 1)[0].strip()
+            if chunk:
+                return chunk.rstrip(" ,;") + "."
+
+        # Already short-ish; ensure it ends cleanly.
+        return t.rstrip(" ,;") + ("." if not t.endswith((".", "!", "?")) else "")
+
+    # Executive summary lines for quick scanning (no copy/paste from cards).
     out["executive_summary"] = []
     for d in (out.get("top_districts") or [])[:3]:
         if not isinstance(d, dict):
             continue
+        name = _as_str(d.get("name"))
+        strengths = _as_list(d.get("strengths"))
+        tradeoffs = _as_list(d.get("tradeoffs"))
+        microhoods = [
+            _as_str(x) for x in (d.get("top_microhoods") or []) if _as_str(x)
+        ][:2]
+        keywords = []
+        mp = d.get("matched_priorities") or {}
+        if isinstance(mp, dict):
+            keywords = _dedupe_str_list((mp.get("strong") or []) + (mp.get("medium") or []))[:4]
+
+        # Executive summary: MUST be short, complete, and never truncated with "…".
+        # We derive a single complete clause for each column.
+        best_for = _first_clause(strengths[0] if strengths else "—")
+        watch_out = _first_clause(tradeoffs[0] if tradeoffs else "—")
+
         out["executive_summary"].append(
             {
-                "name": d.get("name"),
-                "best_for": (d.get("strengths") or [])[:2],
-                "watch": (d.get("tradeoffs") or [])[:1],
-                "microhoods": [m.get("name") for m in (d.get("microhoods") or []) if isinstance(m, dict) and m.get("name")][:3],
+                "name": name,
+                "best_for": best_for,
+                "watch_out": watch_out,
+                "top_microhoods": microhoods,
+                "keywords": keywords,
             }
         )
+
+    # Final consistency + lint
+    out = _postprocess_brief(out)
+    out, warnings = run_quality_gate(out)
+    out["quality_warnings"] = warnings
 
     return out

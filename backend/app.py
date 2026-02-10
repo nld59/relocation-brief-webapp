@@ -222,8 +222,9 @@ def _render_all(
     """
     md = render_md(norm, city=answers.get("city") or "Relocation")
 
-    # json (debug) is always saved, helpful for troubleshooting
+    # Debug JSON is always saved, helpful for troubleshooting
     (OUT_DIR / f"{brief_id}.json").write_text(json.dumps(raw, ensure_ascii=False, indent=2), encoding="utf-8")
+    (OUT_DIR / f"{brief_id}.norm.json").write_text(json.dumps(norm, ensure_ascii=False, indent=2), encoding="utf-8")
 
     pdf_ms = None
     if render_files:
@@ -319,13 +320,23 @@ def brief_download(brief_id: str, format: str = "pdf"):
     if not brief_id:
         raise HTTPException(status_code=400, detail="brief_id is required")
     fmt = (format or "pdf").lower()
-    if fmt not in ("pdf", "md"):
-        raise HTTPException(status_code=400, detail="format must be pdf or md")
+    if fmt not in ("pdf", "md", "json", "norm"):
+        raise HTTPException(status_code=400, detail="format must be pdf, md, json, or norm")
 
-    path = OUT_DIR / f"{brief_id}.{fmt}"
+    if fmt == "norm":
+        path = OUT_DIR / f"{brief_id}.norm.json"
+    else:
+        path = OUT_DIR / f"{brief_id}.{fmt}"
     if not path.exists():
         raise HTTPException(status_code=404, detail="file not found")
 
-    media = "application/pdf" if fmt == "pdf" else "text/markdown"
-    filename = f"relocation-brief-{brief_id}.{fmt}"
+    if fmt == "pdf":
+        media = "application/pdf"
+        filename = f"relocation-brief-{brief_id}.pdf"
+    elif fmt == "md":
+        media = "text/markdown"
+        filename = f"relocation-brief-{brief_id}.md"
+    else:
+        media = "application/json"
+        filename = f"relocation-brief-{brief_id}.{ 'norm.json' if fmt=='norm' else 'json'}"
     return FileResponse(str(path), media_type=media, filename=filename)

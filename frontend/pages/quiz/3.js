@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-import { useQuiz } from '../../components/quizState'
+import { useQuiz, resetQuiz } from '../../components/quizState'
 
 const BUY = { min: 150000, max: 1500000, step: 5000, label: 'EUR (purchase)' }
 const RENT = { min: 700, max: 6000, step: 50, label: 'EUR/month (rent)' }
@@ -65,7 +65,10 @@ export default function Step3(){
       subtitle="Choose bedrooms, property type, and budget range. Default mode is Buy (switch to Rent if needed)."
       actions={
         <div className="btnRow">
-          <button className="linkBtn" onClick={() => router.push('/quiz/2')}>Back</button>
+          <div className="btnLeft">
+            <button className="linkBtn" onClick={() => router.push('/quiz/2')}>Back</button>
+            <button className="linkBtn" onClick={() => { resetQuiz(setState); router.push('/quiz/1'); }}>Reset</button>
+          </div>
           <button className="btn" disabled={!can} onClick={() => router.push('/quiz/4')}>Continue</button>
         </div>
       }
