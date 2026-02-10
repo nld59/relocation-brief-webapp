@@ -1,0 +1,150 @@
+{
+  "client_profile": "Family of three in Brussels seeking to buy a home. Budget of 680,000–1,155,000 EUR with priorities on family-friendly, premium feel, and quiet neighborhoods.",
+  "must_have": [
+    "Min 2 bedrooms",
+    "Walking distance to schools",
+    "Access to parks",
+    "Quiet streets",
+    "Good shopping options"
+  ],
+  "nice_to_have": [
+    "Cafes within 15-min",
+    "Public transport access",
+    "Local markets nearby",
+    "Childcare within 15-min"
+  ],
+  "red_flags": [
+    "High property prices in some areas",
+    "Limited parking options",
+    "Long commutes in certain districts",
+    "Noisy streets near commercial areas"
+  ],
+  "contradictions": [
+    "Quiet neighborhoods may lack vibrant shops",
+    "Premium feel may exceed budget in some areas",
+    "Family-friendly areas might have longer commutes"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect to pay over 800,000 EUR for quality homes.",
+        "How to validate: Check recent sales on local property websites."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Foret de Soignes",
+            "Walking paths"
+          ],
+          "portal_keywords": [
+            "2 bedroom house",
+            "family-friendly",
+            "quiet streets"
+          ],
+          "street_hints": [
+            "Check around the main park",
+            "Explore nearby local shops"
+          ],
+          "avoid_verify": "noise",
+          "why": "Close to Foret de Soignes offers greenery and recreational paths.",
+          "watch_out": "Some pockets may stretch your budget significantly."
+        },
+        {
+          "name": "Fort Jaco",
+          "anchors": [
+            "Cafes",
+            "Local shops"
+          ],
+          "portal_keywords": [
+            "premium feel",
+            "family homes",
+            "quiet living"
+          ],
+          "street_hints": [
+            "Look around lively cafe areas",
+            "Visit parks during weekends"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Cafes and shops provide a vibrant yet family-friendly atmosphere.",
+          "watch_out": "Popular spots can get crowded, especially on weekends."
+        }
+      ],
+      "why": [
+        "Great family parks like Foret de Soignes provide outdoor space.",
+        "Local shops and cafes enhance the community feel."
+      ],
+      "watch_out": [
+        "Traffic during peak hours can slow commutes significantly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Homes start around 600,000 EUR up to 900,000 EUR.",
+        "How to validate: Research listings on major Belgian real estate sites."
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "anchors": [
+            "Park areas",
+            "Good transit"
+          ],
+          "portal_keywords": [
+            "2+ bedrooms",
+            "family homes",
+            "quiet living"
+          ]
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Sainte - Alix - Joli Bois",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

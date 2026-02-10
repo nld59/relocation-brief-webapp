@@ -1,0 +1,629 @@
+{
+  "client_profile": "Family of three in Brussels seeking to buy a home. Budget of 680,000–1,155,000 EUR with priorities on family-friendly, premium feel, and quiet neighborhoods.",
+  "must_have": [
+    "Min 2 bedrooms",
+    "Walking distance to schools",
+    "Access to parks",
+    "Quiet streets",
+    "Good shopping options"
+  ],
+  "nice_to_have": [
+    "Cafes within 15-min",
+    "Public transport access",
+    "Local markets nearby",
+    "Childcare within 15-min"
+  ],
+  "red_flags": [
+    "High property prices in some areas",
+    "Limited parking options",
+    "Long commutes in certain districts",
+    "Noisy streets near commercial areas"
+  ],
+  "contradictions": [
+    "Quiet neighborhoods may lack vibrant shops",
+    "Premium feel may exceed budget in some areas",
+    "Family-friendly areas might have longer commutes"
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 3,
+        "BudgetFit": 4,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Woluwe-Saint-Pierre",
+        "percentiles": {
+          "Safety": 0.7894736842105263,
+          "Family": 0.34210526315789475,
+          "Commute": 0.2894736842105263,
+          "Lifestyle": 0.39473684210526316
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.4,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.0,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.0,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1155000,
+          "premium": true,
+          "central": false,
+          "pressure_percentile": 0.34210526315789475,
+          "pressure_penalty": 0,
+          "mode": "buy",
+          "base": 4,
+          "final": 4
+        },
+        "scores": {
+          "Safety": 4,
+          "Family": 4,
+          "Commute": 3,
+          "Lifestyle": 3,
+          "BudgetFit": 4,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "Strong fit for your priorities around Saint - Paul.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "House-focused pockets are pricey; fewer nightlife options nearby."
+      ],
+      "strengths": [
+        "Stronger green pockets around Saint - Paul (parks and calmer streets).",
+        "Family-oriented pockets around Saint - Paul with parks/schools within reach.",
+        "Often preferred by families due to parks/schools access and calmer pockets."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges)."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "families",
+          "premium_feel"
+        ],
+        "medium": [
+          "residential_quiet"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €680,000–€1,155,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is generally workable with more options; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Saint - Paul",
+        "Sainte - Alix - Joli Bois"
+      ],
+      "microhoods": [
+        {
+          "name": "Saint-Paul",
+          "portal_keywords": [
+            "Saint-Paul",
+            "Saint Paul",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space, good tram coverage. Watch for less greenery."
+        },
+        {
+          "name": "Sainte-Alix-Joli Bois",
+          "portal_keywords": [
+            "Sainte-Alix-Joli Bois",
+            "Sainte Alix Joli Bois",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with balanced everyday amenities. Watch for less greenery."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 5,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Woluwe-Saint-Lambert",
+        "percentiles": {
+          "Safety": 0.7894736842105263,
+          "Family": 0.4473684210526316,
+          "Commute": 0.7631578947368421,
+          "Lifestyle": 0.6052631578947368
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.4,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.0,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1155000,
+          "premium": true,
+          "central": false,
+          "pressure_percentile": 0.6052631578947368,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 4,
+          "Family": 4,
+          "Commute": 5,
+          "Lifestyle": 4,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "Strong fit for your priorities around Kapelleveld.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Popular family areas book fast; prices can be above average."
+      ],
+      "strengths": [
+        "Calmer, more residential pockets around Kapelleveld compared with busier hubs.",
+        "Family-oriented pockets around Kapelleveld with parks/schools within reach.",
+        "Reliable public transport coverage for everyday commuting.",
+        "Above-average connectivity for commuting across Brussels."
+      ],
+      "tradeoffs": [
+        "Check building charges (syndic), EPC, and noise insulation — these vary street-by-street."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "families",
+          "premium_feel"
+        ],
+        "medium": [
+          "residential_quiet"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €680,000–€1,155,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Kapelleveld",
+        "Val D’or"
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "portal_keywords": [
+            "Kapelleveld",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space, good metro access. Watch for street-to-street variation."
+        },
+        {
+          "name": "Val D’or",
+          "portal_keywords": [
+            "Val D’or",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with balanced everyday amenities. Watch for street-to-street variation."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Uccle",
+      "scores": {
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 2,
+        "Lifestyle": 2,
+        "BudgetFit": 4,
+        "Overall": 3
+      },
+      "score_debug": {
+        "name": "Uccle",
+        "percentiles": {
+          "Safety": 0.7894736842105263,
+          "Family": 0.13157894736842105,
+          "Commute": 0.18421052631578946,
+          "Lifestyle": 0.13157894736842105
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.4,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.0,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.0,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1155000,
+          "premium": true,
+          "central": false,
+          "pressure_percentile": 0.13157894736842105,
+          "pressure_penalty": 0,
+          "mode": "buy",
+          "base": 4,
+          "final": 4
+        },
+        "scores": {
+          "Safety": 4,
+          "Family": 4,
+          "Commute": 2,
+          "Lifestyle": 2,
+          "BudgetFit": 4,
+          "Overall": 3
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "Great family parks like Foret de Soignes provide outdoor space.",
+        "Local shops and cafes enhance the community feel."
+      ],
+      "watch_out": [
+        "Traffic during peak hours can slow commutes significantly."
+      ],
+      "strengths": [
+        "Calmer, more residential pockets around Vivier D’oie compared with busier hubs.",
+        "Family-oriented pockets around Vivier D’oie with parks/schools within reach.",
+        "Generally calmer residential feel compared with central nightlife hubs."
+      ],
+      "tradeoffs": [
+        "Commute convenience varies; test your door-to-door route at peak hours before committing."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "families",
+          "premium_feel"
+        ],
+        "medium": [
+          "residential_quiet"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "tram coverage",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €680,000–€1,155,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is generally workable with more options; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Vivier D’oie",
+        "Saint - Job Kauwberg"
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "portal_keywords": [
+            "Vivier D’oie",
+            "Brussels"
+          ],
+          "highlights": "Quiet residential area near the city edge with a more 'suburban' feel and easy access to green paths. Check access to daily shops without a car and confirm transit options for your exact address."
+        },
+        {
+          "name": "Saint-Job Kauwberg",
+          "portal_keywords": [
+            "Saint-Job Kauwberg",
+            "Saint Job Kauwberg",
+            "Brussels"
+          ],
+          "highlights": "Residential village-style pocket with access to green trails and a calmer pace; good for families prioritizing space. Street-by-street variation: check evening noise, parking permit rules, and commute time to your daily destinations."
+        }
+      ],
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Not sure; mode: buy",
+      "Budget (buy): 680000–1155000 EUR purchase",
+      "School commute: walk, max 30 min"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: families, premium_feel, shopping.",
+      "Shortlist produced: Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Uccle."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "best_for": "Stronger green pockets around Saint - Paul.",
+      "watch_out": "Prime pockets can be pricey; validate the full purchase cost.",
+      "top_microhoods": [
+        "Saint - Paul",
+        "Sainte - Alix - Joli Bois"
+      ],
+      "keywords": [
+        "families",
+        "premium_feel",
+        "residential_quiet"
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "best_for": "Calmer, more residential pockets around Kapelleveld compared with busier hubs.",
+      "watch_out": "Check building charges, EPC, and noise insulation — these vary street-by-street.",
+      "top_microhoods": [
+        "Kapelleveld",
+        "Val D’or"
+      ],
+      "keywords": [
+        "families",
+        "premium_feel",
+        "residential_quiet"
+      ]
+    },
+    {
+      "name": "Uccle",
+      "best_for": "Calmer, more residential pockets around Vivier D’oie compared with busier hubs.",
+      "watch_out": "Commute convenience varies; test your door-to-door route at peak hours before committing.",
+      "top_microhoods": [
+        "Vivier D’oie",
+        "Saint - Job Kauwberg"
+      ],
+      "keywords": [
+        "families",
+        "premium_feel",
+        "residential_quiet"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

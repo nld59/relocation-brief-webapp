@@ -99,31 +99,42 @@ def _dedupe_str_list(items):
 def _clean_text(s: object) -> str:
     """Basic sanitizer for free-form text fields.
 
-    - Coerces None to empty string
-    - Normalizes dash spacing ("Saint - Job" -> "Saint-Job")
-    - Collapses multiple spaces
+    Goals:
+    - Remove invisible Unicode joiners / no-break spaces that some PDF fonts/viewers
+      show as black squares.
+    - Normalize hyphen variants to plain ASCII '-'.
+    - Collapse multiple spaces.
     """
     if s is None:
         return ""
     if not isinstance(s, str):
         s = str(s)
-    # Normalize problematic Unicode spaces/joiners that can render as black squares
-    # in some PDF fonts/viewers.
-    s = (
-        s.replace("\u00A0", " ")  # nbsp
-        .replace("\u202F", " ")  # narrow nbsp
-        .replace("\u2007", " ")  # figure space
-        .replace("\u2060", "")   # word joiner
-        .replace("\u200B", "")   # zero width space
-        .replace("\ufeff", "")   # BOM
-        .replace("’", "'")
-        .replace("“", '"')
-        .replace("”", '"')
+
+    # Normalize whitespace / joiners
+    for ch in (" ", " ", " "):
+        s = s.replace(ch, " ")
+    for ch in ("⁠", "​", "﻿"):
+        s = s.replace(ch, "")
+
+    # Normalize punctuation / hyphens
+    s = (s
+         .replace("’", "'")
+         .replace("“", '"')
+         .replace("”", '"')
+         .replace("‑", "-")  # non-breaking hyphen
+         .replace("‐", "-")  # hyphen
+         .replace("–", "-")  # en dash
+         .replace("—", "-")  # em dash
+         .replace("■", "-")
+         .replace("□", "-")
+         .replace("▪", "-")
+         .replace("▫", "-")
     )
+
     s = _normalize_dashes(s)
-    # Collapse whitespace
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
 
 def _clean_bullets(items):
     """Remove empty bullets + normalize dashes + dedupe."""

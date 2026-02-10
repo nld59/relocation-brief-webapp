@@ -45,9 +45,10 @@ TEXT = colors.HexColor('#111827')
 def _ensure_fonts_registered() -> None:
     """Register a Unicode-capable font.
 
-    We rely on a non-breaking hyphen (U+2011) to avoid ugly one-letter wraps in
-    hyphenated microhood names. Base PDF fonts (Helvetica) often don't support
-    this glyph, which shows up as black squares.
+    Some inputs may contain uncommon Unicode joiners / no-break characters.
+    If the active PDF font cannot render them, they may appear as black squares.
+    We register DejaVu Sans when available for broader Unicode coverage, and we also
+    sanitize text before rendering.
     """
     try:
         pdfmetrics.getFont("DejaVuSans")
@@ -68,7 +69,7 @@ def _ensure_fonts_registered() -> None:
             boldItalic="DejaVuSans-Bold",
         )
     except Exception:
-        # Fallback: keep built-in fonts. In this case, we must not emit U+2011.
+        # Fallback: keep built-in fonts. We still sanitize text to avoid unsupported glyphs.
         return
 
 # Displayed in footer for easier iteration and client support.
@@ -99,43 +100,60 @@ def _truncate(text: Any, max_chars: int) -> str:
 
 
 def _nb_hyphen(s: str) -> str:
-    """Prevent ugly wraps in hyphenated names.
+    """Normalize hyphenated display names.
 
-    Replace ASCII hyphens between word characters with a non-breaking hyphen.
-    Example: "Brugmann-Lepoutre" will not wrap as "Brugmann-Lepoutr / e".
+    Previous iterations used a non‑breaking hyphen (U+2011) to avoid awkward wraps.
+    On some systems/PDF viewers this renders as a black square. To guarantee
+    portability we keep ASCII '-' and instead rely on normal word wrapping.
     """
-    s = _clean_text(s)
-    return re.sub(r"(?<=\w)-(?=\w)", "\u2011", s)
+    return _clean_text(s).replace("‑", "-")
 
 
 def _clean_text(s: Any) -> str:
+    """Normalize text for stable PDF rendering.
+
+    Key goals:
+    - Remove invisible Unicode joiners / no-break spaces that some PDF viewers
+      render as black squares.
+    - Normalize hyphen variants to plain ASCII '-'.
+    - Collapse whitespace and common LLM artifacts.
+    """
     if s is None:
         return ""
     s = str(s)
-    # Keep the PDF stable (avoid curly quotes / NBSP) and common punctuation artifacts.
-    # Normalize weird no-break spaces / joiners that can render as black squares.
-    s = (
-        s.replace("\u00A0", " ")  # nbsp
-        .replace("\u202F", " ")  # narrow nbsp
-        .replace("\u2007", " ")  # figure space
-        .replace("\u2060", "")   # word-joiner
-        .replace("\u200B", "")   # zero-width space
-        .replace("\ufeff", "")   # BOM
-        .replace("’", "'")
-        .replace("“", '"')
-        .replace("”", '"')
+
+    # Normalize whitespace / joiners
+    for ch in (" ", " ", " "):
+        s = s.replace(ch, " ")
+    for ch in ("⁠", "​", "﻿"):
+        s = s.replace(ch, "")
+
+    # Normalize punctuation / hyphens
+    s = (s
+         .replace("’", "'")
+         .replace("“", '"')
+         .replace("”", '"')
+         .replace("‑", "-")  # non-breaking hyphen
+         .replace("‐", "-")  # hyphen
+         .replace("–", "-")  # en dash
+         .replace("—", "-")  # em dash
+         .replace("■", "-")
+         .replace("□", "-")
+         .replace("▪", "-")
+         .replace("▫", "-")
     )
+
     # Remove odd ".;" / ";." artifacts which look unprofessional in tables.
     s = s.replace(".;", ".").replace(";.", ".").replace("..", ".")
+
     # Fix common LLM copy artifacts
-    s = s.replace("What to check: Check:", "What to check:").replace("Check: Check:", "Check:")
+    s = s.replace("What to check: Check:", "What to check:")
+    s = s.replace("Check: Check:", "Check:")
     s = re.sub(r"\bRule of thumb:\s*Rule of thumb\b", "Rule of thumb", s)
 
     # Collapse excessive whitespace
-    s = re.sub(r"\s+", " ", s)
-    return s.strip()
-
-
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 def _format_link(item: Any) -> str:
     """Format an agency/website/link item as rich text.
 
