@@ -15,6 +15,7 @@ from brief_core.llm import draft_brief, finalize_brief
 from brief_core.normalize import normalize_brief
 from brief_core.render_md import render_md
 from brief_core.render_pdf import render_minimal_premium_pdf
+from brief_core.qa import answer_question, persist_verified_log
 
 load_dotenv()
 
@@ -226,9 +227,11 @@ def _render_all(
     (OUT_DIR / f"{brief_id}.json").write_text(json.dumps(raw, ensure_ascii=False, indent=2), encoding="utf-8")
     (OUT_DIR / f"{brief_id}.norm.json").write_text(json.dumps(norm, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    # Markdown is the source of truth for Q&A; persist it even before PDF is unlocked
+    (OUT_DIR / f"{brief_id}.md").write_text(md, encoding="utf-8")
+
     pdf_ms = None
     if render_files:
-        (OUT_DIR / f"{brief_id}.md").write_text(md, encoding="utf-8")
 
         pdf_path = OUT_DIR / f"{brief_id}.pdf"
         t0 = time.perf_counter()
@@ -313,6 +316,62 @@ def brief_final(payload: Dict[str, Any]):
         "total_ms": total_ms,
         "can_download": can_download,
     }
+
+
+
+@app.post("/brief/qa")
+def brief_qa(payload: Dict[str, Any]):
+    brief_id = (payload.get("brief_id") or "").strip()
+    question = (payload.get("question") or "").strip()
+    mode = (payload.get("mode") or "report_only").strip().lower()
+
+    if not brief_id:
+        raise HTTPException(status_code=400, detail="brief_id is required")
+    if not question:
+        raise HTTPException(status_code=400, detail="question is required")
+
+    md_path = OUT_DIR / f"{brief_id}.md"
+    norm_path = OUT_DIR / f"{brief_id}.norm.json"
+    if not md_path.exists() or not norm_path.exists():
+        raise HTTPException(status_code=404, detail="brief artifacts not found for this brief_id")
+
+    md_text = md_path.read_text(encoding="utf-8")
+    try:
+        norm = json.loads(norm_path.read_text(encoding="utf-8"))
+    except Exception:
+        norm = {}
+
+    try:
+        data = answer_question(
+            brief_id=brief_id,
+            question=question,
+            md_text=md_text,
+            norm=norm,
+            mode=mode,
+        )
+    except RuntimeError as e:
+        # missing API keys etc.
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"qa_failed: {e}")
+
+    # Persist verified audits (only in verified mode)
+    if (data.get("mode") or "") == "verified":
+        persist_verified_log(
+            brief_id,
+            {
+                "ts": int(time.time()),
+                "brief_id": brief_id,
+                "question": question,
+                "answer": data.get("answer"),
+                "citations": data.get("citations"),
+                "confidence": data.get("confidence"),
+            },
+            OUT_DIR,
+        )
+
+    return data
+
 
 
 @app.get("/brief/download")

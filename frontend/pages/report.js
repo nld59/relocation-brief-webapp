@@ -109,6 +109,7 @@ export default function Report(){
         <div className="btnRow">
           <button className="linkBtn" onClick={() => router.push('/quiz/6')}>Back</button>
           <div style={{display:'flex', gap:10, flexWrap:'wrap'}}>
+            <button className="btn" disabled={!briefId || loading} onClick={()=>router.push(`/ask?brief_id=${encodeURIComponent(briefId)}`)}>Ask more</button>
             <button className="btn" disabled={!briefId || loading || !canDownload} onClick={()=>download('pdf')}>Download PDF</button>
             <button className="btn" disabled={!briefId || loading || !canDownload} onClick={()=>download('md')}>Download Markdown</button>
           </div>

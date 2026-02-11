@@ -1,0 +1,151 @@
+{
+  "client_profile": "Family of 3 looking to buy a 2+ room home in Brussels. Budget is EUR 720,000–1,195,000. Priorities include family-friendly, quiet areas, premium feel, and nightlife options.",
+  "must_have": [
+    "Minimum 2 bedrooms",
+    "Family-friendly amenities",
+    "Near schools within 25 min walking"
+  ],
+  "nice_to_have": [
+    "Green spaces nearby",
+    "Cafes and restaurants",
+    "Public transport access"
+  ],
+  "red_flags": [
+    "High noise levels",
+    "Limited parking options",
+    "Poor condition properties"
+  ],
+  "contradictions": [
+    "Premium feel vs budget restraint",
+    "Quiet areas vs nightlife access",
+    "Commute time vs location desirability"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect prices to start at EUR 800,000.",
+        "How to validate: Check recent sales in Stockel area."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Stockel metro"
+          ],
+          "portal_keywords": [
+            "premium",
+            "family-friendly",
+            "quiet"
+          ],
+          "street_hints": [
+            "Rue des Combattants",
+            "Avenue de l'Université"
+          ],
+          "avoid_verify": "noise",
+          "why": "Proximity to Parc de Woluwe offers outdoor family activities.",
+          "watch_out": "High demand may stretch your budget quickly."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery area",
+            "local shops"
+          ],
+          "portal_keywords": [
+            "green parks",
+            "residential",
+            "good schools"
+          ],
+          "street_hints": [
+            "Avenue des Combattants",
+            "Avenue du Chant D'Oiseau"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Family-friendly atmosphere, close to schools and parks.",
+          "watch_out": "Commute can be longer during peak hours."
+        }
+      ],
+      "why": [
+        "Great access to Parks de Woluwe for family activities.",
+        "Stockel metro station provides strong transport links."
+      ],
+      "watch_out": [
+        "Some pockets experience higher traffic during weekdays."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Woluwe Shopping area",
+        "Tomberg"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices often start around EUR 750,000.",
+        "How to validate: Look at listings near Woluwe Shopping."
+      ],
+      "microhoods": [
+        {
+          "name": "Stockel",
+          "anchors": [
+            "Woluwe Shopping",
+            "Roodebeek metro"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "shopping access",
+            "quiet streets"
+          ],
+          "street_hints": [
+            "Avenue de Tervuren",
+            "Avenue Charles Thielemans"
+          ],
+          "avoid_verify": "commute"
+        },
+        {
+          "name": "Kapelleveld",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

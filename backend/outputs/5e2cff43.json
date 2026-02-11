@@ -1,0 +1,146 @@
+{
+  "client_profile": "Family with 1 child, looking to buy in Brussels. Budget of 720,000–1,195,000 EUR, prioritizing family-friendly areas, residential quiet, premium feel, and nightlife.",
+  "must_have": [
+    "2+ rooms in residential areas",
+    "Family-friendly amenities within walking distance",
+    "Quiet neighborhoods for children"
+  ],
+  "nice_to_have": [
+    "Proximity to parks and recreational areas",
+    "Access to nightlife options for adults",
+    "Good public transport links"
+  ],
+  "red_flags": [
+    "High noise levels in certain districts",
+    "Commute times longer than 25 minutes",
+    "Limited school options nearby"
+  ],
+  "contradictions": [
+    "Premium feel may limit options in quieter areas",
+    "Family-friendly districts might have fewer nightlife options",
+    "Budget limitations could restrict premium locations"
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect 3,500–5,000 EUR per m2.",
+        "How to validate: Check local listings for accurate pricing."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Vivier d'Oie Park",
+            "Cafes at Fort Jaco"
+          ],
+          "portal_keywords": [
+            "quiet residential",
+            "family housing",
+            "premium living"
+          ],
+          "street_hints": [
+            "Consider avenues parallel to Parc de Soignes",
+            "Focus on streets leading to local shops"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Vivier d'Oie Park offers ample green space for families.",
+          "watch_out": "Commute can be slower without a car."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "anchors": [
+            "Trams at Saint Job",
+            "Markets at local square"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "quiet areas",
+            "good schools"
+          ],
+          "street_hints": [
+            "Explore streets around Saint Job square",
+            "Look for amenities on main boulevard"
+          ],
+          "avoid_verify": "charges",
+          "why": "Access to good schools and family amenities enhances community feel.",
+          "watch_out": "Budget-friendly housing options may sell quickly."
+        }
+      ],
+      "why": [
+        "Uccle offers calm residential areas with various parks and schools.",
+        "Strong public transport links ease commuting to central Brussels."
+      ],
+      "watch_out": [
+        "Expect some areas to be pricier due to demand."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Average price is around 3,800–5,500 EUR per m2.",
+        "How to validate: Use local real estate websites to compare listings."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Nearby Parc de Woluwe",
+            "Cafes on Boulevard de la Woluwe"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "quiet areas",
+            "good schools"
+          ]
+        },
+        {
+          "name": "Chant D’oiseau",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "client_profile": "Couple buying an apartment in Brussels with a budget of 490,000 to 1,165,000 EUR. Priorities include cafes, restaurants, premium feel, urban density, and nightlife.",
+  "must_have": [
+    "2+ rooms in an apartment",
+    "Proximity to cafes and brunch spots",
+    "Access to restaurants and dining options"
+  ],
+  "nice_to_have": [
+    "Vibrant nightlife scene",
+    "Market and local feel",
+    "Urban and dense environment"
+  ],
+  "red_flags": [
+    "High competition for premium properties",
+    "Potential for noisy locations",
+    "Budget may be stretched in prime areas"
+  ],
+  "contradictions": [
+    "Balancing premium feel with budget limits",
+    "Urban density may lead to noise issues",
+    "Desire for a quiet lifestyle vs. nightlife access"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices near tourist areas.",
+        "How to validate: Check listings around Sablon and Dansaert."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "metro station",
+            "local cafes"
+          ],
+          "portal_keywords": [
+            "2+ rooms",
+            "premium feel",
+            "urban lifestyle"
+          ],
+          "street_hints": [
+            "Near the main square",
+            "Close to public transport"
+          ],
+          "avoid_verify": "noise",
+          "why": "Close to local cafes and public transport, ideal for urban living.",
+          "watch_out": "Weekends can be crowded and noisy due to tourism."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Park",
+            "public transport hub"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "green spaces",
+            "apartments"
+          ],
+          "street_hints": [
+            "Around the park",
+            "Quiet side streets"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Offers parks and a family-friendly atmosphere near the Royal Palace.",
+          "watch_out": "Traffic can be heavy during peak hours."
+        }
+      ],
+      "why": [
+        "Central location with vibrant restaurants and cafes around Sablon.",
+        "Good public transport connections enhance accessibility to the city."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are competitive due to popular dining options.",
+        "How to validate: Look for recent sale prices on local listings."
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "anchors": [
+            "university campus",
+            "local parks"
+          ],
+          "portal_keywords": [
+            "vibrant area",
+            "cultural scene",
+            "restaurants"
+          ],
+          "street_hints": [
+            "Near the university",
+            "Close to public transport"
+          ]
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Porte de Hal",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

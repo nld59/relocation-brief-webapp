@@ -1,0 +1,150 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget is 490000–1165000 EUR. Priorities include cafes, restaurants, premium feel, urban density, and vibrant nightlife.",
+  "must_have": [
+    "2+ bedroom apartment",
+    "Access to cafes and restaurants",
+    "Premium feel in the area"
+  ],
+  "nice_to_have": [
+    "Proximity to local markets",
+    "Urban atmosphere",
+    "Vibrant nightlife options"
+  ],
+  "red_flags": [
+    "High noise levels in tourist areas",
+    "Potentially high renovation costs",
+    "Long commute times in certain neighborhoods"
+  ],
+  "contradictions": [
+    "Premium feel vs. budget constraints",
+    "Urban density vs. need for quiet",
+    "Vibrant nightlife vs. family-friendly environment"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Top properties may exceed your budget.",
+        "How to validate: Research market trends and recent sales."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "Metro station",
+            "Local parks"
+          ],
+          "portal_keywords": [
+            "2 bedroom apartment",
+            "city center apartments",
+            "luxury listings"
+          ],
+          "street_hints": [
+            "Close to major transport links",
+            "Lively weekend market nearby"
+          ],
+          "avoid_verify": "noise",
+          "why": "Great access to the metro station and local parks enriches lifestyle options.",
+          "watch_out": "Tourist traffic can cause noise, especially on weekends."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Park",
+            "Local amenities"
+          ],
+          "portal_keywords": [
+            "spacious apartments",
+            "near parks",
+            "luxury living"
+          ],
+          "street_hints": [
+            "Residential yet vibrant area",
+            "Elegant architecture and greenery"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Proximity to Royal Park enhances overall ambiance and community feel.",
+          "watch_out": "Traffic around the park can get congested during events."
+        }
+      ],
+      "why": [
+        "Central location providing excellent cultural access via nearby metro.",
+        "Vibrant lifestyle with abundant cafes and restaurants along main streets."
+      ],
+      "watch_out": [
+        "Watch for tourist crowds impacting weekend tranquility and accessibility."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices vary widely; research is vital.",
+        "How to validate: Compare listings in various locales of Ixelles."
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "anchors": [
+            "University entrance",
+            "Lively cafes"
+          ],
+          "portal_keywords": [
+            "well-priced apartments",
+            "cultural hubs",
+            "vibrant area"
+          ],
+          "street_hints": [
+            "Energetic student vibe",
+            "Multiple public transport options"
+          ]
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Porte de Hal",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

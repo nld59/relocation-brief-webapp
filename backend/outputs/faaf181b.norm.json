@@ -1,0 +1,633 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget is 490000–1165000 EUR. Priorities include cafes, restaurants, urban density, and a premium feel.",
+  "must_have": [
+    "2+ rooms apartment",
+    "Proximity to cafes and restaurants",
+    "Vibrant local market presence",
+    "Urban feel and lifestyle"
+  ],
+  "nice_to_have": [
+    "Sustainable living options",
+    "Outdoor spaces or parks nearby",
+    "Access to public transportation",
+    "Community activities and events"
+  ],
+  "red_flags": [
+    "High noise levels during weekends",
+    "High costs for parking in urban areas",
+    "Long commute times in certain districts"
+  ],
+  "contradictions": [
+    "Premium feel may conflict with budget limits",
+    "Desire for urban density may lead to noise",
+    "Cafes and restaurants can increase living costs"
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "City of Brussels",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5526315789473685,
+          "Commute": 0.7105263157894737,
+          "Lifestyle": 0.7631578947368421
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1165000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.7631578947368421,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 4,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "A blend of cultural landmarks and modern living spaces.",
+        "Strong public transport connections across the city."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "strengths": [
+        "Stronger green pockets around Industrie Nord (parks and calmer streets).",
+        "Family-oriented pockets around Industrie Nord with parks/schools within reach.",
+        "Plenty of day-to-day amenities (cafés, restaurants) within walking distance.",
+        "Reliable public transport coverage for everyday commuting."
+      ],
+      "tradeoffs": [
+        "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+        "Busier evenings in hotspots; confirm noise levels during a late walk-through."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": [
+          "urban_dense",
+          "nightlife"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Mid-range pricing; specific streets vary a lot.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €490,000–€1,165,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Industrie Nord",
+        "Domaine Royal Laeken"
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "portal_keywords": [
+            "Industrie Nord",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage. Watch for street-to-street variation-validate exact address."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "portal_keywords": [
+            "Domaine Royal Laeken",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage. Watch for street-to-street variation-validate exact address."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Saint-Gilles",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Saint-Gilles",
+        "percentiles": {
+          "Safety": 0.05263157894736842,
+          "Family": 0.9210526315789473,
+          "Commute": 0.9210526315789473,
+          "Lifestyle": 0.9736842105263158
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1165000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.9736842105263158,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "Strong fit for your priorities around Bas Forest.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Some streets are lively and noisy late; choose quieter side streets."
+      ],
+      "strengths": [
+        "Strongest commute option: above-average connectivity around Saint-Gilles via metro/tram corridors.",
+        "Above-average connectivity for commuting across Brussels.",
+        "Stronger lifestyle density (cafés/amenities) compared with quieter communes.",
+        "Prime pockets can be competitive; widen the search radius within the commune to keep options."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges).",
+        "Competition can be high in prime pockets; be ready to move quickly on good listings.",
+        "Check building charges (syndic), EPC, and noise insulation — these vary street-by-street."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": [
+          "urban_dense",
+          "nightlife"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €490,000–€1,165,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Haut Saint - Gilles",
+        "Porte de Hal"
+      ],
+      "microhoods": [
+        {
+          "name": "Haut Saint-Gilles",
+          "portal_keywords": [
+            "Haut Saint-Gilles",
+            "Haut Saint Gilles",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Porte de Hal",
+          "portal_keywords": [
+            "Porte de Hal",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Ixelles",
+      "scores": {
+        "Safety": 2,
+        "Family": 4,
+        "Commute": 2,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 3
+      },
+      "score_debug": {
+        "name": "Ixelles",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5,
+          "Commute": 0.34210526315789475,
+          "Lifestyle": 0.9210526315789473
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.0,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1165000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.868421052631579,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 4,
+          "Commute": 2,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 3
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "why": [
+        "Strong fit for your priorities around Boondael.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Popular streets get noisy on weekends; parking is often tight."
+      ],
+      "strengths": [
+        "Strong international / expat ecosystem and services.",
+        "Often preferred by families due to parks/schools access and calmer pockets."
+      ],
+      "tradeoffs": [
+        "Commute convenience varies; test your door-to-door route at peak hours before committing."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": [
+          "urban_dense",
+          "nightlife"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €490,000–€1,165,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Universite",
+        "Etangs D’ixelles"
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "portal_keywords": [
+            "Universite",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "portal_keywords": [
+            "Etangs D’ixelles",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Apartment; mode: buy",
+      "Budget (buy): 490000–1165000 EUR purchase"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: cafes_brunch, restaurants, premium_feel.",
+      "Shortlist produced: City of Brussels, Saint-Gilles, Ixelles."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "City of Brussels",
+      "best_for": "Stronger green pockets around Industrie Nord.",
+      "watch_out": "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+      "top_microhoods": [
+        "Industrie Nord",
+        "Domaine Royal Laeken"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "restaurants",
+        "urban_dense",
+        "nightlife"
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "best_for": "Strongest commute option: above-average connectivity around Saint-Gilles via metro/tram corridors.",
+      "watch_out": "Prime pockets can be pricey; validate the full purchase cost.",
+      "top_microhoods": [
+        "Haut Saint - Gilles",
+        "Porte de Hal"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "restaurants",
+        "urban_dense",
+        "nightlife"
+      ]
+    },
+    {
+      "name": "Ixelles",
+      "best_for": "Strong international / expat ecosystem and services.",
+      "watch_out": "Commute convenience varies; test your door-to-door route at peak hours before committing.",
+      "top_microhoods": [
+        "Universite",
+        "Etangs D’ixelles"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "restaurants",
+        "urban_dense",
+        "nightlife"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

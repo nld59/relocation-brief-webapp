@@ -1,121 +1,123 @@
 {
-  "client_profile": "Family of three relocating to Brussels, looking to buy a home in the budget of 630,000–1,130,000 EUR. Priorities include family-friendly amenities, nightlife, and parks.",
+  "client_profile": "Couple looking to buy an apartment in Brussels. Budget between 490000 and 1165000 EUR. Priorities include cafes, premium feel, and nightlife.",
   "must_have": [
-    "Minimum 2 rooms for family comfort",
-    "Proximity to schools within 20 min walk",
-    "Access to parks and green areas",
-    "Residential and quiet community environment"
+    "Minimum 2 rooms in apartment.",
+    "Proximity to cafes and restaurants.",
+    "Urban and dense atmosphere."
   ],
   "nice_to_have": [
-    "Cafes and brunch options nearby",
-    "Vibrant nightlife for family outings",
-    "Public transport access for convenience",
-    "Dining and shopping options in walking distance"
+    "Access to markets and local experiences.",
+    "Vibrant nightlife options.",
+    "Green spaces nearby."
   ],
   "red_flags": [
-    "High property prices in central areas",
-    "Limited parking options in popular neighborhoods",
-    "Potential noise issues in nightlife districts",
-    "Budget stretches in sought-after family areas"
+    "Higher property taxes in popular areas.",
+    "Noisy environments during weekends.",
+    "Traffic congestion during peak hours."
   ],
   "contradictions": [
-    "Desire for nightlife vs quiet residential areas",
-    "Preference for premium feel vs budget constraints",
-    "Convenience of urban amenities vs suburban space"
+    "Urban density vs. quiet neighborhoods.",
+    "Premium feel vs. budget constraints.",
+    "Nightlife access vs. safety concerns."
   ],
   "top_districts": [
     {
-      "name": "Woluwe-Saint-Pierre",
+      "name": "City of Brussels",
       "micro_anchors": [
-        "Stockel",
-        "Montgomery area",
-        "Parc de Woluwe edge"
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
       ],
       "budget_reality": [
-        "Rule of thumb: Prices start above 630,000 EUR for decent homes.",
-        "How to validate: Check listings on major real estate platforms."
+        "Rule of thumb: Prices range significantly near tourist hotspots.",
+        "How to validate: Check listings around central parks and museums."
       ],
       "microhoods": [
         {
-          "name": "Saint - Paul",
+          "name": "Industrie Nord",
           "anchors": [
-            "Parc de Woluwe",
-            "Stockel Square"
+            "Metro station",
+            "Local cafes"
           ],
           "portal_keywords": [
-            "family houses",
-            "quiet community",
-            "green parks"
+            "apartment",
+            "cafe area",
+            "central location"
           ],
           "street_hints": [
-            "Near local schools",
-            "Close to shops"
+            "Avoid busy streets",
+            "Seek quieter back lanes"
           ],
           "avoid_verify": "noise",
-          "why": [
-            "Family-friendly area with excellent schools near Parc de Woluwe."
-          ],
-          "watch_out": [
-            "Property prices can be significantly higher closer to schools."
-          ]
+          "why": "Close to the Royal Palace and numerous cultural attractions.",
+          "watch_out": "High tourist foot traffic can elevate noise levels."
         },
         {
-          "name": "Chant D’oiseau",
+          "name": "Domaine Royal Laeken",
           "anchors": [
-            "Montgomery",
-            "Parc de Woluwe"
+            "Royal Park",
+            "Brussels Aquarium"
           ],
           "portal_keywords": [
-            "spacious apartments",
-            "quiet streets",
-            "green spaces"
+            "quiet residential",
+            "park access",
+            "cultural venues"
           ],
           "street_hints": [
-            "Bus stop access",
-            "Community parks"
+            "Look for side streets",
+            "Check access to bus lines"
           ],
           "avoid_verify": "traffic",
-          "why": [
-            "Centrally located, offers convenient access to green spaces and transport."
-          ],
-          "watch_out": [
-            "Some homes may require renovations based on age."
-          ]
+          "why": "Offers a green and peaceful ambiance near the Royal Park.",
+          "watch_out": "Traffic can be heavy during peak visiting hours."
         }
       ],
       "why": [
-        "Offers family-friendly amenities around Parc de Woluwe.",
-        "Diverse dining and shopping options at Stockel Square."
+        "Vibrant atmosphere near cafes and attractions.",
+        "Strong metro access facilitates easy commutes."
       ],
       "watch_out": [
-        "Prices can spike in desirable residential pockets."
+        "Touristy pockets and traffic can feel noisy on weekends."
       ],
-      "scores": {}
+      "scores": {
+        "Safety": 3,
+        "Family": 2,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
     },
     {
-      "name": "Uccle",
+      "name": "Ixelles",
       "micro_anchors": [
-        "Fort Jaco",
-        "Prince d'Orange",
-        "Vivier d'Oie"
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
       ],
       "budget_reality": [
-        "Rule of thumb: 2-bedroom homes start around 700,000 EUR.",
-        "How to validate: Monitor local real estate trends in Uccle."
+        "Rule of thumb: Popular areas have higher rental prices.",
+        "How to validate: Explore recent sales around Flagey market."
       ],
       "microhoods": [
         {
-          "name": "Vivier D’oie",
+          "name": "Universite",
           "anchors": [
-            "Foret de Soignes",
-            "Vivier D'oie Park"
+            "University campus",
+            "Châtelain area"
           ],
           "portal_keywords": [
-            "family houses",
-            "quiet area",
-            "good schools"
+            "student-friendly",
+            "market access",
+            "urban vibes"
           ],
-          "street_hints": []
+          "street_hints": [
+            "Avoid major thoroughfares",
+            "Focus on residential passages"
+          ],
+          "avoid_verify": "noise",
+          "why": "Close to lively markets and university life.",
+          "watch_out": "Potential for noise during university events."
         }
       ]
     }
