@@ -1,0 +1,144 @@
+{
+  "client_profile": "Family with 1 child seeking to buy in Brussels. Budget between 705000 and 1440000 EUR. Priorities include premium feel, parks access, and childcare.",
+  "must_have": [
+    "2+ rooms minimum",
+    "Access to childcare facilities",
+    "Proximity to parks and green areas",
+    "Commute to school within 25 min walk"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots nearby",
+    "Good public transport access",
+    "Community-oriented neighborhoods",
+    "Family-friendly amenities available"
+  ],
+  "red_flags": [
+    "High noise levels in busy areas",
+    "Limited parking in some neighborhoods",
+    "Potential for budget overruns in premium districts",
+    "Commute challenges in specific locations"
+  ],
+  "contradictions": [
+    "Premium feel often means higher rents",
+    "Parks may not always have nearby schools",
+    "Cafes might attract more foot traffic",
+    "Childcare access can vary by neighborhood"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect average prices starting at 500000 EUR for a family apartment.",
+        "How to validate: Compare listings on local real estate websites."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Montgomery metro"
+          ],
+          "portal_keywords": [
+            "family apartments",
+            "green parks",
+            "childcare access"
+          ],
+          "street_hints": [
+            "Check Rue de l'Eglise",
+            "Look for nearby schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Proximity to Parc de Woluwe provides expansive green space for families.",
+          "watch_out": "Some streets experience heavier traffic during peak hours."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery station",
+            "Parc de Woluwe"
+          ],
+          "portal_keywords": [
+            "family friendly",
+            "quiet neighborhoods",
+            "expensive rent"
+          ],
+          "street_hints": [
+            "Explore Avenue de la Reine",
+            "Street level near schools"
+          ],
+          "avoid_verify": "renovation",
+          "why": "Access to the Montgomery metro enhances connectivity to Brussels.",
+          "watch_out": "Expect higher rental prices in sought-after locations."
+        }
+      ],
+      "why": [
+        "Home to multiple parks such as Parc de Woluwe ideal for outdoor activities.",
+        "Excellent childcare services available nearby with access to schools."
+      ],
+      "watch_out": [
+        "Charming areas may attract higher budgets, stretching your limits."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Properties here start around 600000 EUR for quality housing.",
+        "How to validate: Research recent sales to assess market trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Cinquantenaire"
+          ]
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

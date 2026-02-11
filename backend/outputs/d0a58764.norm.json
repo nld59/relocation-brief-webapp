@@ -1,0 +1,1397 @@
+{
+  "client_profile": "Couple seeking to buy an apartment in Brussels, budget 610,000-1,125,000 EUR. Priorities include cafes & brunch, nightlife, and premium feel.",
+  "must_have": [
+    "2+ rooms apartment",
+    "Cafes and brunch options nearby",
+    "Vibrant nightlife access",
+    "Premium feel in the neighborhood",
+    "Local markets and shopping"
+  ],
+  "nice_to_have": [
+    "Green spaces or parks",
+    "Good public transportation access",
+    "Proximity to cultural sites",
+    "Family-friendly environment"
+  ],
+  "red_flags": [
+    "High noise levels from nightlife",
+    "Price volatility in premium areas",
+    "Limited parking in popular districts",
+    "Traffic congestion during weekends"
+  ],
+  "contradictions": [
+    "High demand may reduce negotiating power",
+    "Premium districts could overshoot budget",
+    "Noisy nightlife vs. peaceful living"
+  ],
+  "questions_for_agent_landlord": [
+    "Is the property in a quiet area despite proximity to nightlife?",
+    "What are the average utility costs in this area?",
+    "How easy is it to find parking?",
+    "Are there any upcoming developments affecting the area?",
+    "What is the average time properties stay on the market?"
+  ],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "City of Brussels",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5526315789473685,
+          "Commute": 0.7105263157894737,
+          "Lifestyle": 0.7631578947368421
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1125000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.7631578947368421,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 4,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel",
+          "local_market_vibe",
+          "shopping"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel"
+        ],
+        "candidates": 33,
+        "selected": [
+          {
+            "name": "Grand Place",
+            "score": 4.117121212121212,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 214.8023048082272,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.9788,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 5.1759591520054755,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.6455,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.023378643898766156,
+                    "percentile": 0.1364
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.9697,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 5.1759591520054755,
+                    "percentile": 0.9545
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Stalingrad",
+            "score": 3.8459696969696977,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 49.342381298188286,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 0.9785,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 64.52465246686161,
+                    "percentile": 0.9242
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 91.09362701203992,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.8758,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 91.09362701203992,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 49.342381298188286,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 3.7955677921683297,
+                    "percentile": 0.8636
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.5909,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 49.342381298188286,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.004523285032100373,
+                    "percentile": 0.0455
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.8485,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 91.09362701203992,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 3.7955677921683297,
+                    "percentile": 0.8636
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Vibrant cultural scene with easy access to cafes and nightlife.",
+        "Well-connected public transport culture with a strong metro network."
+      ],
+      "watch_out": [
+        "Expect high tourist foot traffic during weekends."
+      ],
+      "strengths": [
+        "Stronger green pockets around Grand Place (parks and calmer streets).",
+        "Family-oriented pockets around Grand Place with parks/schools within reach.",
+        "Plenty of day-to-day amenities (cafés, restaurants) within walking distance.",
+        "Reliable public transport coverage for everyday commuting."
+      ],
+      "tradeoffs": [
+        "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+        "Busier evenings in hotspots; confirm noise levels during a late walk-through."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "nightlife"
+        ],
+        "medium": [
+          "shopping"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Mid-range pricing; specific streets vary a lot.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €610,000–€1,125,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Grand Place",
+        "Stalingrad"
+      ],
+      "microhoods": [
+        {
+          "name": "Grand Place",
+          "portal_keywords": [
+            "Grand Place",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Stalingrad",
+          "portal_keywords": [
+            "Stalingrad",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; less greenery; check streets close to parks."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Saint-Gilles",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Saint-Gilles",
+        "percentiles": {
+          "Safety": 0.05263157894736842,
+          "Family": 0.9210526315789473,
+          "Commute": 0.9210526315789473,
+          "Lifestyle": 0.9736842105263158
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1125000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.9736842105263158,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel",
+          "local_market_vibe",
+          "shopping"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel"
+        ],
+        "candidates": 5,
+        "selected": [
+          {
+            "name": "Porte de Hal",
+            "score": 3.4048,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.756,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 30.066276367534957,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 0.9288,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 31.945418640505892,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 54.49512591615711,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.7,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 54.49512591615711,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 30.066276367534957,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 3.7582845459418697,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.7,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 30.066276367534957,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.13027942375639018,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.7,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 54.49512591615711,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 3.7582845459418697,
+                    "percentile": 0.7
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Bosnie",
+            "score": 2.3105000000000007,
+            "coverage_hits": 2,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 34.94941216105618,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 0.3,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 4.992773165865168,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 39.94218532692135,
+                    "percentile": 0.3
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.46,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 39.94218532692135,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 34.94941216105618,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.62,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 34.94941216105618,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.25,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 39.94218532692135,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your priorities around Bas Forest.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Some streets are lively and noisy late; choose quieter side streets."
+      ],
+      "strengths": [
+        "Strongest commute option: above-average connectivity around Saint-Gilles via metro/tram corridors.",
+        "Above-average connectivity for commuting across Brussels.",
+        "Stronger lifestyle density (cafés/amenities) compared with quieter communes.",
+        "Prime pockets can be competitive; widen the search radius within the commune to keep options."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges).",
+        "Competition can be high in prime pockets; be ready to move quickly on good listings.",
+        "Check building charges (syndic), EPC, and noise insulation — these vary street-by-street."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "nightlife"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €610,000–€1,125,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Porte de Hal",
+        "Bosnie"
+      ],
+      "microhoods": [
+        {
+          "name": "Porte de Hal",
+          "portal_keywords": [
+            "Porte de Hal",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Bosnie",
+          "portal_keywords": [
+            "Bosnie",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; less greenery; check streets close to parks."
+        }
+      ],
+      "commune": ""
+    },
+    {
+      "name": "Ixelles",
+      "scores": {
+        "Safety": 2,
+        "Family": 4,
+        "Commute": 2,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 3
+      },
+      "score_debug": {
+        "name": "Ixelles",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5,
+          "Commute": 0.34210526315789475,
+          "Lifestyle": 0.9210526315789473
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.0,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1125000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.868421052631579,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 4,
+          "Commute": 2,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 3
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel",
+          "local_market_vibe",
+          "shopping"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "nightlife",
+          "premium_feel"
+        ],
+        "candidates": 4,
+        "selected": [
+          {
+            "name": "Matonge",
+            "score": 3.685,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.945,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 30.779943925712672,
+                    "percentile": 0.875
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 0.945,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 43.09192149599774,
+                    "percentile": 0.875
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 172.36768598399095,
+                    "percentile": 0.875
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.775,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 172.36768598399095,
+                    "percentile": 0.875
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 30.779943925712672,
+                    "percentile": 0.875
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.375
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.775,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 30.779943925712672,
+                    "percentile": 0.875
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.049357433600887,
+                    "percentile": 0.625
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.625,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 172.36768598399095,
+                    "percentile": 0.875
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 0.0,
+                    "percentile": 0.375
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Flagey - Malibran",
+            "score": 2.5075000000000003,
+            "coverage_hits": 2,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.625,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 9.356858602232867,
+                    "percentile": 0.625
+                  }
+                ]
+              },
+              {
+                "tag": "nightlife",
+                "weight": 1.0,
+                "affinity": 0.6438,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "high",
+                    "weight": 0.8,
+                    "raw": 29.63005224040408,
+                    "percentile": 0.625
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 68.61696308304103,
+                    "percentile": 0.625
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.575,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 68.61696308304103,
+                    "percentile": 0.625
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 9.356858602232867,
+                    "percentile": 0.625
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.375
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 0.55,
+                "affinity": 0.525,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 9.356858602232867,
+                    "percentile": 0.625
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.03310091196296591,
+                    "percentile": 0.375
+                  }
+                ]
+              },
+              {
+                "tag": "shopping",
+                "weight": 0.55,
+                "affinity": 0.5,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 68.61696308304103,
+                    "percentile": 0.625
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 0.0,
+                    "percentile": 0.375
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your priorities around Boondael.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Popular streets get noisy on weekends; parking is often tight."
+      ],
+      "strengths": [
+        "Strong international / expat ecosystem and services.",
+        "Often preferred by families due to parks/schools access and calmer pockets."
+      ],
+      "tradeoffs": [
+        "Commute convenience varies; test your door-to-door route at peak hours before committing."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "nightlife"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €610,000–€1,125,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Matonge",
+        "Flagey - Malibran"
+      ],
+      "microhoods": [
+        {
+          "name": "Matonge",
+          "portal_keywords": [
+            "Matonge",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; transit access varies street-to-street."
+        },
+        {
+          "name": "Flagey-Malibran",
+          "portal_keywords": [
+            "Flagey-Malibran",
+            "Flagey Malibran",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Apartment; mode: buy",
+      "Budget (buy): 610000–1125000 EUR purchase"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: cafes_brunch, nightlife, premium_feel.",
+      "Shortlist produced: City of Brussels, Saint-Gilles, Ixelles."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "City of Brussels",
+      "best_for": "Stronger green pockets around Grand Place.",
+      "watch_out": "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+      "top_microhoods": [
+        "Grand Place",
+        "Stalingrad"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "nightlife",
+        "shopping"
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "best_for": "Strongest commute option: above-average connectivity around Saint-Gilles via metro/tram corridors.",
+      "watch_out": "Prime pockets can be pricey; validate the full purchase cost.",
+      "top_microhoods": [
+        "Porte de Hal",
+        "Bosnie"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "nightlife"
+      ]
+    },
+    {
+      "name": "Ixelles",
+      "best_for": "Strong international / expat ecosystem and services.",
+      "watch_out": "Commute convenience varies; test your door-to-door route at peak hours before committing.",
+      "top_microhoods": [
+        "Matonge",
+        "Flagey - Malibran"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "nightlife"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

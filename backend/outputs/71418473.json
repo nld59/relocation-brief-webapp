@@ -1,0 +1,159 @@
+{
+  "client_profile": "Couple looking to buy an apartment in Brussels with a budget of 610,000–1,125,000 EUR. Top priorities include cafes, nightlife, and a premium feel.",
+  "must_have": [
+    "2+ rooms in an apartment",
+    "Proximity to cafes and brunch spots",
+    "Access to nightlife activities"
+  ],
+  "nice_to_have": [
+    "Shopping options nearby",
+    "Local market atmosphere",
+    "Modern apartment features",
+    "Resident amenities"
+  ],
+  "red_flags": [
+    "High noise levels in busy areas",
+    "Traffic congestion during peak hours",
+    "High maintenance costs in older buildings"
+  ],
+  "contradictions": [
+    "Expensive neighborhoods may offer less local market vibe",
+    "Desirable locations can mean higher noise"
+  ],
+  "questions_for_agent_landlord": [
+    "What is the average price per square meter in this area?",
+    "How long do properties typically stay on the market?",
+    "What are the zoning regulations for this district?",
+    "Are there any planned developments in the area?",
+    "What are the average utility costs for apartments here?"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Royal Palace / Park area",
+        "Sainte-Catherine / Dansaert"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect to pay above average for premium locations.",
+        "How to validate: Check property prices in central areas."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "Business hub",
+            "Public transport"
+          ],
+          "portal_keywords": [
+            "central apartments",
+            "premium feel",
+            "nightlife access"
+          ],
+          "street_hints": [
+            "Rue de la Loi",
+            "Avenue de la Toison d'Or"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to the Royal Palace and vibrant cafes enhancing lifestyle.",
+          "watch_out": "Busy streets can lead to high noise levels during weekends."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Laeken Park",
+            "Royal Castle"
+          ],
+          "portal_keywords": [
+            "green spaces",
+            "quiet apartments",
+            "family-friendly"
+          ],
+          "street_hints": [
+            "Avenue du Parc",
+            "Rue de Laeken"
+          ],
+          "avoid_verify": "noise",
+          "why": "Access to green areas and upscale cafes enhances living quality.",
+          "watch_out": "Homes close to parks may attract weekend crowds."
+        }
+      ],
+      "why": [
+        "Central location provides abundant cafes and restaurants.",
+        "Access to vibrant nightlife and cultural venues like museums."
+      ],
+      "watch_out": [
+        "Touristy spots can lead to higher living costs, especially on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 2,
+        "Commute": 4,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are reasonable compared to downtown options.",
+        "How to validate: Compare listings in expat-friendly areas."
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "anchors": [
+            "Université Libre",
+            "Cafes"
+          ],
+          "portal_keywords": [
+            "student-friendly",
+            "affordable"
+          ],
+          "street_hints": [
+            "Rue de l'Université",
+            "Avenue des Arts"
+          ],
+          "avoid_verify": "noise",
+          "why": "Close to university creates vibrant environment.",
+          "watch_out": "Students can lead to busier streets during the school year."
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Saint-Gilles",
+      "micro_anchors": [
+        "Parvis de Saint-Gilles",
+        "Barriere",
+        "Hotel des Monnaies"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Haut Saint - Gilles",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Porte de Hal",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

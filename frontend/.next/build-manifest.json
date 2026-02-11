@@ -27,11 +27,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/ask": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/ask.js"
-    ],
     "/quiz/1": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

@@ -1,121 +1,109 @@
 ```json
 {
-  "client_profile": "Couple looking to buy an apartment in Brussels. Budget between 490000 and 1165000 EUR. Priorities include cafes, premium feel, and nightlife.",
+  "client_profile": "A family with one child aged 2 seeks to buy a premium home in Brussels. Budget of 705,000 to 1,440,000 EUR, prioritizing parks, childcare access, and cafes.",
   "must_have": [
-    "Minimum 2 rooms in apartment.",
-    "Proximity to cafes and restaurants.",
-    "Urban and dense atmosphere."
+    "2+ rooms for a family",
+    "Childcare access within walking distance",
+    "Proximity to green parks",
+    "Cafes and brunch spots nearby"
   ],
   "nice_to_have": [
-    "Access to markets and local experiences.",
-    "Vibrant nightlife options.",
-    "Green spaces nearby."
+    "Quiet residential area",
+    "Access to public transport",
+    "Family-friendly community",
+    "Shopping options within 15 min"
   ],
   "red_flags": [
-    "Higher property taxes in popular areas.",
-    "Noisy environments during weekends.",
-    "Traffic congestion during peak hours."
+    "High property taxes in certain areas",
+    "Properties may need renovations",
+    "Market competition can inflate prices",
+    "Commute can be tricky if budget is tight"
   ],
   "contradictions": [
-    "Urban density vs. quiet neighborhoods.",
-    "Premium feel vs. budget constraints.",
-    "Nightlife access vs. safety concerns."
+    "Premium feel may limit family-friendly spaces",
+    "Parks can be limited in urban areas",
+    "Childcare centers are popular but may be costly",
+    "Cafes may impact neighborhood serenity"
   ],
   "top_districts": [
     {
-      "name": "City of Brussels",
+      "name": "Etterbeek",
       "micro_anchors": [
-        "Sablon",
-        "Sainte-Catherine / Dansaert",
-        "Royal Palace / Park area"
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
       ],
       "budget_reality": [
-        "Rule of thumb: Prices range significantly near tourist hotspots.",
-        "How to validate: Check listings around central parks and museums."
+        "Rule of thumb: Expect prices to average around 3,800 EUR/m2.",
+        "How to validate: Check listings on Immoweb and local agents."
       ],
       "microhoods": [
         {
-          "name": "Industrie Nord",
+          "name": "Chaussee de Wavre - Saint - Julien",
           "anchors": [
-            "Metro station",
-            "Local cafes"
+            "Cinquantenaire Park",
+            "Jourdan Square"
           ],
           "portal_keywords": [
-            "apartment",
-            "cafe area",
-            "central location"
+            "Etterbeek family homes",
+            "2+ bedrooms",
+            "parks near school"
           ],
           "street_hints": [
-            "Avoid busy streets",
-            "Seek quieter back lanes"
-          ],
-          "avoid_verify": "noise",
-          "why": "Close to the Royal Palace and numerous cultural attractions.",
-          "watch_out": "High tourist foot traffic can elevate noise levels."
-        },
-        {
-          "name": "Domaine Royal Laeken",
-          "anchors": [
-            "Royal Park",
-            "Brussels Aquarium"
-          ],
-          "portal_keywords": [
-            "quiet residential",
-            "park access",
-            "cultural venues"
-          ],
-          "street_hints": [
-            "Look for side streets",
-            "Check access to bus lines"
+            "Closer to parks for a quieter feel",
+            "Check street level noise before visiting"
           ],
           "avoid_verify": "traffic",
-          "why": "Offers a green and peaceful ambiance near the Royal Park.",
-          "watch_out": "Traffic can be heavy during peak visiting hours."
+          "why": "Close to Cinquantenaire Park, offering green spaces for families.",
+          "watch_out": "Rents near EU quarter can be higher due to demand."
+        },
+        {
+          "name": "Saint - Pierre",
+          "anchors": [
+            "Parc du Cinquantenaire",
+            "Saint-Pierre Church"
+          ],
+          "portal_keywords": [
+            "family homes Etterbeek",
+            "childcare access",
+            "cafes nearby"
+          ],
+          "street_hints": [
+            "Seek quieter side streets added serenity",
+            "Look for areas with good park access"
+          ],
+          "avoid_verify": "noise",
+          "why": "Family-friendly environment with parks and childcare facilities nearby.",
+          "watch_out": "Traffic can be busy during rush hours around main streets."
+        },
+        {
+          "name": "New Microhood 3",
+          "anchors": [
+            "Anchor 1",
+            "Anchor 2"
+          ],
+          "portal_keywords": [
+            "Keyword 1",
+            "Keyword 2"
+          ],
+          "street_hints": [
+            "Hint 1",
+            "Hint 2"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Family-oriented area with good access to amenities.",
+          "watch_out": "Potentially high rent fluctuations."
         }
       ],
       "why": [
-        "Vibrant atmosphere near cafes and attractions.",
-        "Strong metro access facilitates easy commutes."
+        "Etterbeek features excellent parks like Parc du Cinquantenaire, ideal for families.",
+        "Strong metro access connects to the city center in 15 min."
       ],
       "watch_out": [
-        "Touristy pockets and traffic can feel noisy on weekends."
+        "Expect possible higher property prices near EU institutions."
       ],
       "scores": {
-        "Safety": 3,
-        "Family": 2,
-        "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
-    },
-    {
-      "name": "Ixelles",
-      "micro_anchors": [
-        "Châtelain",
-        "Flagey",
-        "Cimetiere d'Ixelles"
-      ],
-      "budget_reality": [
-        "Rule of thumb: Popular areas have higher rental prices.",
-        "How to validate: Explore recent sales around Flagey market."
-      ],
-      "microhoods": [
-        {
-          "name": "Universite",
-          "anchors": [
-            "University campus",
-            "Châtelain area"
-          ],
-          "portal_keywords": [
-            "student-friendly",
-            "market access",
-            "urban vibes"
-          ],
-          "street_hints": [
-            "Avoid major thoroughfares",
-            "Focus on residential passages"
-          ],
-          "avoid_verify": "noise",
-          "why": "Close to lively markets and university life.",
-          "watch
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle":

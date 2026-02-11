@@ -1,131 +1,171 @@
 {
-  "client_profile": "Couple looking to buy an apartment in Brussels. Budget between 490000 and 1165000 EUR. Priorities include cafes, premium feel, and nightlife.",
+  "client_profile": "Family with 1 child seeking to buy in Brussels. Budget between 705000 and 1440000 EUR. Priorities include premium feel, parks access, and childcare.",
   "must_have": [
-    "Minimum 2 rooms in apartment.",
-    "Proximity to cafes and restaurants.",
-    "Urban and dense atmosphere."
+    "2+ rooms minimum",
+    "Access to childcare facilities",
+    "Proximity to parks and green areas",
+    "Commute to school within 25 min walk"
   ],
   "nice_to_have": [
-    "Access to markets and local experiences.",
-    "Vibrant nightlife options.",
-    "Green spaces nearby."
+    "Cafes and brunch spots nearby",
+    "Good public transport access",
+    "Community-oriented neighborhoods",
+    "Family-friendly amenities available"
   ],
   "red_flags": [
-    "Higher property taxes in popular areas.",
-    "Noisy environments during weekends.",
-    "Traffic congestion during peak hours."
+    "High noise levels in busy areas",
+    "Limited parking in some neighborhoods",
+    "Potential for budget overruns in premium districts",
+    "Commute challenges in specific locations"
   ],
   "contradictions": [
-    "Urban density vs. quiet neighborhoods.",
-    "Premium feel vs. budget constraints.",
-    "Nightlife access vs. safety concerns."
+    "Premium feel often means higher rents",
+    "Parks may not always have nearby schools",
+    "Cafes might attract more foot traffic",
+    "Childcare access can vary by neighborhood"
   ],
   "top_districts": [
     {
-      "name": "City of Brussels",
-      "micro_anchors": ["Sablon", "Sainte-Catherine / Dansaert", "Royal Palace / Park area"],
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
       "budget_reality": [
-        "Rule of thumb: Prices range significantly near tourist hotspots.",
-        "How to validate: Check listings around central parks and museums."
+        "Rule of thumb: Expect average prices starting at 500000 EUR for a family apartment.",
+        "How to validate: Compare listings on local real estate websites."
       ],
       "microhoods": [
         {
-          "name": "Industrie Nord",
-          "anchors": ["Metro station", "Local cafes"],
-          "portal_keywords": ["apartment", "cafe area", "central location"],
-          "street_hints": ["Avoid busy streets", "Seek quieter back lanes"],
-          "avoid_verify": "noise",
-          "why": "Close to the Royal Palace and numerous cultural attractions.",
-          "watch_out": "High tourist foot traffic can elevate noise levels."
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Montgomery metro"
+          ],
+          "portal_keywords": [
+            "family apartments",
+            "green parks",
+            "childcare access"
+          ],
+          "street_hints": [
+            "Check Rue de l'Eglise",
+            "Look for nearby schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Proximity to Parc de Woluwe provides expansive green space for families.",
+          "watch_out": "Some streets experience heavier traffic during peak hours."
         },
         {
-          "name": "Domaine Royal Laeken",
-          "anchors": ["Royal Park", "Brussels Aquarium"],
-          "portal_keywords": ["quiet residential", "park access", "cultural venues"],
-          "street_hints": ["Look for side streets", "Check access to bus lines"],
-          "avoid_verify": "traffic",
-          "why": "Offers a green and peaceful ambiance near the Royal Park.",
-          "watch_out": "Traffic can be heavy during peak visiting hours."
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Montgomery station",
+            "Parc de Woluwe"
+          ],
+          "portal_keywords": [
+            "family friendly",
+            "quiet neighborhoods",
+            "expensive rent"
+          ],
+          "street_hints": [
+            "Explore Avenue de la Reine",
+            "Street level near schools"
+          ],
+          "avoid_verify": "renovation",
+          "why": "Access to the Montgomery metro enhances connectivity to Brussels.",
+          "watch_out": "Expect higher rental prices in sought-after locations."
         }
       ],
       "why": [
-        "Vibrant atmosphere near cafes and attractions.",
-        "Strong metro access facilitates easy commutes."
+        "Home to multiple parks such as Parc de Woluwe ideal for outdoor activities.",
+        "Excellent childcare services available nearby with access to schools."
       ],
       "watch_out": [
-        "Touristy pockets and traffic can feel noisy on weekends."
+        "Charming areas may attract higher budgets, stretching your limits."
       ],
       "scores": {
-        "Safety": 3,
-        "Family": 2,
+        "Safety": 4,
+        "Family": 5,
         "Commute": 4,
-        "Lifestyle": 5,
+        "Lifestyle": 4,
         "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Ixelles",
-      "micro_anchors": ["Châtelain", "Flagey", "Cimetiere d'Ixelles"],
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
       "budget_reality": [
-        "Rule of thumb: Popular areas have higher rental prices.",
-        "How to validate: Explore recent sales around Flagey market."
+        "Rule of thumb: Properties here start around 600000 EUR for quality housing.",
+        "How to validate: Research recent sales to assess market trends."
       ],
       "microhoods": [
         {
-          "name": "Universite",
-          "anchors": ["University campus", "Châtelain area"],
-          "portal_keywords": ["student-friendly", "market access", "urban vibes"],
-          "street_hints": ["Avoid major thoroughfares", "Focus on residential passages"],
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Cinquantenaire park",
+            "Public transport access"
+          ],
+          "portal_keywords": [
+            "modern apartments",
+            "child-friendly",
+            "cafes nearby"
+          ],
+          "street_hints": [
+            "Near Avenue des Nerviens",
+            "Close to parks"
+          ],
           "avoid_verify": "noise",
-          "why": "Close to lively markets and university life.",
-          "watch_out": "Noise levels increase dramatically during events."
+          "why": "Proximity to Cinquantenaire park offers excellent outdoor space.",
+          "watch_out": "Busy streets can lead to noise disturbances."
         },
         {
-          "name": "Etangs D’ixelles",
-          "anchors": ["Ixelles ponds", "Local parks"],
-          "portal_keywords": ["bicycle friendly", "canal views", "urban greenery"],
-          "street_hints": ["Check pedestrian paths", "Seek apartments facing the ponds"],
+          "name": "Chasse",
+          "anchors": [
+            "Public transport options",
+            "Nearby parks"
+          ],
+          "portal_keywords": [
+            "school proximity",
+            "childcare services",
+            "cafes within walking distance"
+          ],
+          "street_hints": [
+            "Explore Rue de la Chasse",
+            "Check nearby playgrounds"
+          ],
           "avoid_verify": "traffic",
-          "why": "Offers a serene living environment with beautiful views.",
-          "watch_out": "Traffic congestion can impact access during rush hours."
+          "why": "Access to a variety of cafes and parks suits family lifestyles.",
+          "watch_out": "Traffic can be congested during rush hours."
         }
       ],
       "why": [
-        "Artistic community with vibrant local markets.",
-        "Excellent dining and cultural experiences available."
+        "Well-connected with excellent metro access for easy commuting.",
+        "Various parks and playgrounds make it great for families."
       ],
       "watch_out": [
-        "Popular streets get noisy on weekends; parking is often tight."
+        "Premium properties can lead to budget challenges."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 3,
+        "Family": 5,
         "Commute": 4,
-        "Lifestyle": 5,
-        "BudgetFit": 2,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
         "Overall": 4
       }
     },
     {
-      "name": "Saint-Gilles",
-      "micro_anchors": ["Parvis de Saint-Gilles", "Barriere", "Hotel des Monnaies"],
-      "budget_reality": [
-        "Rule of thumb: Look for solid investment opportunities near transport hubs.",
-        "How to validate: Analyze recent trends in property values."
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
       ],
-      "microhoods": [
-        {
-          "name": "Haut Saint - Gilles",
-          "anchors": ["Sonian Forest", "Tram line"],
-          "portal_keywords": ["parks", "tranquility", "family-friendly"],
-          "street_hints": ["Check proximity to parks", "Focus on tram connections"],
-          "avoid_verify": "renovation",
-          "why": "Close to parks, making it family-friendly and serene.",
-          "watch_out": "Renovations can cause noise during working hours."
-        },
-        {
-          "name": "Berckmans - Hotel des Monnaies",
-          "anchors": ["Cafes", "Local shops"],
-          "portal_keywords": ["cultural feel", "central part", "community life"],
-          "street_hints": ["Look near main squares
+      "budget_reality": [
+        "Rule of thumb: Expect listings starting around 700000 EUR for quality homes.",
+        "How to validate:

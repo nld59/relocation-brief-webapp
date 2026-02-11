@@ -1,0 +1,158 @@
+{
+  "client_profile": "A family with one child aged 2 seeks to buy a premium home in Brussels. Budget of 705,000 to 1,440,000 EUR, prioritizing parks, childcare access, and cafes.",
+  "must_have": [
+    "2+ rooms for a family",
+    "Childcare access within walking distance",
+    "Proximity to green parks",
+    "Cafes and brunch spots nearby"
+  ],
+  "nice_to_have": [
+    "Quiet residential area",
+    "Access to public transport",
+    "Family-friendly community",
+    "Shopping options within 15 min"
+  ],
+  "red_flags": [
+    "High property taxes in certain areas",
+    "Properties may need renovations",
+    "Market competition can inflate prices",
+    "Commute can be tricky if budget is tight"
+  ],
+  "contradictions": [
+    "Premium feel may limit family-friendly spaces",
+    "Parks can be limited in urban areas",
+    "Childcare centers are popular but may be costly",
+    "Cafes may impact neighborhood serenity"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect prices to average around 3,800 EUR/m2.",
+        "How to validate: Check listings on Immoweb and local agents."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Cinquantenaire Park",
+            "Jourdan Square"
+          ],
+          "portal_keywords": [
+            "Etterbeek family homes",
+            "2+ bedrooms",
+            "parks near school"
+          ],
+          "street_hints": [
+            "Closer to parks for a quieter feel",
+            "Check street level noise before visiting"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to Cinquantenaire Park, offering green spaces for families.",
+          "watch_out": "Rents near EU quarter can be higher due to demand."
+        },
+        {
+          "name": "Saint - Pierre",
+          "anchors": [
+            "Parc du Cinquantenaire",
+            "Saint-Pierre Church"
+          ],
+          "portal_keywords": [
+            "family homes Etterbeek",
+            "childcare access",
+            "cafes nearby"
+          ],
+          "street_hints": [
+            "Seek quieter side streets added serenity",
+            "Look for areas with good park access"
+          ],
+          "avoid_verify": "noise",
+          "why": "Family-friendly environment with parks and childcare facilities nearby.",
+          "watch_out": "Traffic can be busy during rush hours around main streets."
+        },
+        {
+          "name": "Chasse",
+          "anchors": [
+            "Anchor 1",
+            "Anchor 2"
+          ],
+          "portal_keywords": [
+            "Keyword 1",
+            "Keyword 2"
+          ],
+          "street_hints": [
+            "Hint 1",
+            "Hint 2"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Family-oriented area with good access to amenities.",
+          "watch_out": "Potentially high rent fluctuations."
+        }
+      ],
+      "why": [
+        "Etterbeek features excellent parks like Parc du Cinquantenaire, ideal for families.",
+        "Strong metro access connects to the city center in 15 min."
+      ],
+      "watch_out": [
+        "Expect possible higher property prices near EU institutions."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": null
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chant D’oiseau",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

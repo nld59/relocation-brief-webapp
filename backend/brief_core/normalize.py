@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from .city_packs import load_city_pack
 from .quality_gate import run_quality_gate
+from .microhood_ranker import rank_microhoods_for_commune
 
 # --- Scoring model (used for Trust & method copy + debug output) ---
 SCORE_MODEL: Dict[str, Any] = {
@@ -1177,10 +1178,24 @@ def _enforce_communes_and_microhoods(
         if why_p or watch_p:
             return " ".join([b for b in [why_p, watch_p] if b][:3]).strip()
 
+        # Prefer microhoods_all (it contains metrics + tag_confidence).
         mh_obj = next(
-            (m for m in (commune_obj.get("microhoods") or []) if isinstance(m, dict) and _norm_label(_as_str(m.get("name"))) == _norm_label(nm)),
-            {},
+            (
+                m
+                for m in (commune_obj.get("microhoods_all") or [])
+                if isinstance(m, dict) and _norm_label(_as_str(m.get("name"))) == _norm_label(nm)
+            ),
+            None,
         )
+        if not isinstance(mh_obj, dict):
+            mh_obj = next(
+                (
+                    m
+                    for m in (commune_obj.get("microhoods") or [])
+                    if isinstance(m, dict) and _norm_label(_as_str(m.get("name"))) == _norm_label(nm)
+                ),
+                {},
+            )
         why_m, watch_m = _microhood_sentence_from_metrics(mh_obj if isinstance(mh_obj, dict) else {})
         return f"{_sent_end(why_m)} {_sent_end(watch_m)}".strip()
 
@@ -1290,9 +1305,9 @@ def _enforce_communes_and_microhoods(
             watch = [hint or "Verify street-level noise/parking before shortlisting."]
 
         # Microhoods: strictly two-level hierarchy Commune → Microhood.
-        # We only recommend microhoods from the city pack (monitoring zones), no separate "anchors" layer.
-        mh_candidates: List[str] = []
-        for mh in (commune.get("microhoods") or []):
+        # Use a deterministic ranking based on *all* user-selected priority tags.
+        filtered_all: List[Dict[str, Any]] = []
+        for mh in (commune.get("microhoods_all") or []):
             if not isinstance(mh, dict) or not mh.get("name"):
                 continue
             if _is_landmark_like_microhood(mh):
@@ -1300,33 +1315,48 @@ def _enforce_communes_and_microhoods(
             nm = _as_str(mh.get("name")).strip()
             if not nm:
                 continue
-            # Validate commune ownership (geojson) when possible
             mapped = microhood_commune.get(_norm_label(nm))
             if mapped and mapped != name:
                 continue
             if _belongs_to_other_commune(nm, name):
                 continue
-            if nm not in mh_candidates:
-                mh_candidates.append(nm)
-            if len(mh_candidates) >= 3:
-                break
+            filtered_all.append(mh)
 
-        # Ensure at least 2
-        if len(mh_candidates) < 2:
-            for mh in (commune.get("microhoods_all") or []):
+        # Fallback if pack doesn't contain microhoods_all
+        if not filtered_all:
+            for mh in (commune.get("microhoods") or []):
                 if not isinstance(mh, dict) or not mh.get("name"):
                     continue
                 if _is_landmark_like_microhood(mh):
                     continue
                 nm = _as_str(mh.get("name")).strip()
-                if not nm or nm in mh_candidates:
+                if not nm:
                     continue
                 mapped = microhood_commune.get(_norm_label(nm))
                 if mapped and mapped != name:
                     continue
                 if _belongs_to_other_commune(nm, name):
                     continue
-                mh_candidates.append(nm)
+                filtered_all.append(mh)
+
+        # Rank using tag registry. All selected tags influence the score.
+        commune_for_rank = dict(commune)
+        commune_for_rank["microhoods_all"] = filtered_all
+        ranked_names, microhood_debug = rank_microhoods_for_commune(
+            commune_for_rank,
+            priority_tag_ids=priority_ids,
+            priority_top3_ids=top3_ids,
+            limit=2,
+            diversity=True,
+        )
+
+        # Safety fallback: if ranking yields fewer than 2, pad deterministically from filtered list.
+        mh_candidates: List[str] = [n for n in ranked_names if isinstance(n, str) and n]
+        if len(mh_candidates) < 2:
+            for mh in filtered_all:
+                nm = _as_str(mh.get("name")).strip()
+                if nm and nm not in mh_candidates:
+                    mh_candidates.append(nm)
                 if len(mh_candidates) >= 2:
                     break
 
@@ -1366,6 +1396,7 @@ def _enforce_communes_and_microhoods(
                 "name": name,
                 "scores": scores,
                 "score_debug": score_debug,
+                "microhood_score_debug": microhood_debug,
                 "why": why,
                 "watch_out": watch,
                 "strengths": strengths,
