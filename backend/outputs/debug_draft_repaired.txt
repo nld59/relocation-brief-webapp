@@ -1,200 +1,130 @@
 {
-  "client_profile": "Family of four looking to buy an apartment in Brussels. Budget of 705,000 to 1,295,000 EUR. Priorities include parks, family-friendliness, and a premium feel.",
+  "client_profile": "Family of three looking to buy an apartment in Barcelona. Budget is 1–700 EUR. Priorities include family-friendly areas and access to cafes.",
   "must_have": [
-    "3+ room apartment",
-    "Proximity to parks",
-    "Family-friendly amenities",
-    "Strong tram access",
-    "Good school options within walk",
-    "Cafes and brunch spots nearby",
-    "Cultural attractions nearby"
+    "2+ rooms",
+    "Family-friendly environment",
+    "Close to schools"
   ],
   "nice_to_have": [
-    "Mixed vibe district",
-    "Community events",
-    "Quiet surroundings",
-    "Access to public libraries",
-    "Local markets",
-    "Family-friendly restaurants",
-    "Safe walking paths"
+    "Access to parks",
+    "Cafes nearby",
+    "Community of expats"
   ],
   "red_flags": [
-    "Commercial noise from busy streets",
-    "Long commutes could impact family time",
-    "House pricing variance in sought areas",
-    "Limited parking options",
-    "Potentially high property taxes",
-    "Quickly booked popular school spots",
-    "Higher costs during peak buying seasons"
+    "High property taxes",
+    "Safety concerns in some areas",
+    "Limited public transport options"
   ],
   "contradictions": [
-    "Urban districts may have noise but better amenities",
-    "Suburb-focused areas offer space yet longer commutes",
-    "Mix of lifestyles could vary tranquility levels"
+    "Budget may limit school options",
+    "Desire for cafes vs. safety concerns",
+    "Proximity to schools vs. affordability"
   ],
   "top_districts": [
     {
-      "name": "Woluwe-Saint-Pierre",
-      "micro_anchors": [
-        "Stockel",
-        "Montgomery area",
-        "Parc de Woluwe edge"
-      ],
+      "name": "Gracia",
+      "micro_anchors": ["Plaza Diamant", "Vila de Gracia", "Joanic Metro"],
       "budget_reality": [
-        "Rule of thumb: Expect higher prices near Parc de Woluwe.",
-        "How to validate: Use local listings for fair market value."
+        "Rule of thumb: Expect prices around 1,000 EUR/sqm.",
+        "How to validate: Check listings on local real estate platforms."
       ],
       "microhoods": [
         {
-          "name": "Saint - Paul",
-          "anchors": [
-            "Parc de Woluwe",
-            "School gate"
-          ],
-          "portal_keywords": [
-            "family apartment",
-            "green spaces",
-            "quiet living"
-          ],
-          "street_hints": [
-            "Avoid main roads",
-            "Look for cul-de-sacs"
-          ],
-          "avoid_verify": "commute",
-          "why": "Family-friendly with spacious parks like Parc de Woluwe for recreation.",
-          "watch_out": "Pricing spikes can occur due to high demand in family areas."
+          "name": "Vila de Gracia",
+          "anchors": ["Plaza del Sol", "Casa Ramos"],
+          "portal_keywords": ["cafes", "expat community", "family parks"],
+          "street_hints": ["Look for quieter stretches", "Check near local schools"],
+          "avoid_verify": "noise",
+          "why": "Vila de Gracia offers a vibrant atmosphere and community parks.",
+          "watch_out": "Expect some areas to be noisy during weekends and holidays."
         },
         {
-          "name": "Chant D'oiseau",
-          "anchors": [
-            "Nearby kindergarten",
-            "Park access"
-          ],
-          "portal_keywords": [
-            "spacious living",
-            "child-friendly",
-            "walkable zones"
-          ],
-          "street_hints": [
-            "Search for tree-lined streets",
-            "Check proximity to schools"
-          ],
+          "name": "Ronda de Dalt",
+          "anchors": ["Carrer Gran de Gracia", "Gracia Metro"],
+          "portal_keywords": ["family apartments", "expat friendly", "central location"],
+          "street_hints": ["Explore side streets for hidden gems", "Check public transport routes"],
           "avoid_verify": "traffic",
-          "why": "Safe and quiet locale offering easy park access for kids.",
-          "watch_out": "Potential traffic congestion during school drop-off times."
+          "why": "Ronda de Dalt is well-connected and rich in cafes and restaurants.",
+          "watch_out": "Heavy traffic during rush hours can impact commuting."
         }
       ],
       "why": [
-        "Highly regarded for its family-friendly parks and green areas.",
-        "Proximity to strong tram lines enhances commuting options."
+        "Easy access to parks like Parque de la Creueta del Coll.",
+        "Vibrant expat community and numerous cafes along Gran de Gracia."
       ],
       "watch_out": [
-        "Pricey pockets exist, so budget wisely to avoid overspending."
+        "Property prices can be above budget in popular pockets."
       ],
       "scores": {
         "Safety": 4,
         "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 3,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
         "Overall": 4
       }
     },
     {
-      "name": "Koekelberg",
-      "micro_anchors": [
-        "Basilica area",
-        "Simonis edge",
-        "Parc Elisabeth edge"
-      ],
+      "name": "Eixample",
+      "micro_anchors": ["Plaza Catalunya", "Passeig de Gracia", "Diagonal Metro"],
       "budget_reality": [
-        "Rule of thumb: Prices are moderate, good for city proximity.",
-        "How to validate: Research recent sales data for trends."
+        "Rule of thumb: Expect higher prices at 1,200 EUR/sqm.",
+        "How to validate: Use recent sales data for comparison."
       ],
       "microhoods": [
         {
-          "name": "Koekelberg",
-          "anchors": [
-            "Parc Elisabeth",
-            "Basilica entrance"
-          ],
-          "portal_keywords": [
-            "affordable living",
-            "green parks",
-            "family space"
-          ],
-          "street_hints": [
-            "Choose streets adjacent to parks",
-            "Focus on quieter areas"
-          ],
+          "name": "Dreta de l'Eixample",
+          "anchors": ["Casa Batlló", "Passeig de Gracia"],
+          "portal_keywords": ["luxury apartments", "metro access", "family homes"],
+          "street_hints": ["Focus on streets away from main avenues", "Look for corner apartments"],
+          "avoid_verify": "parking",
+          "why": "Dreta de l'Eixample features major architectural landmarks and boutiques.",
+          "watch_out": "Parking availability can be extremely challenging."
+        },
+        {
+          "name": "Esquerra de l'Eixample",
+          "anchors": ["Plaza Universitat", "Hospital Clinic"],
+          "portal_keywords": ["cultural facilities", "family-friendly", "cafes"],
+          "street_hints": ["Check closed streets for calmness", "Explore local shops"],
           "avoid_verify": "noise",
-          "why": "Attractive green spaces and cultural sites make it vibrant.",
-          "watch_out": "Busy nodes can attract noise; seek calmer blocks."
+          "why": "Esquerra offers a blend of culture, parks, and cafes for families.",
+          "watch_out": "Busy streets can increase noise levels, especially at night."
         }
       ],
       "why": [
-        "Offers a mixed vibe with ample family facilities and parks.",
-        "Easy access to metro and tram services simplifies city travel."
+        "Excellent public transport and vibrant atmosphere across key avenues.",
+        "Various family-friendly parks nearby, including Parc de Joan Miró."
       ],
       "watch_out": [
-        "Public places may become crowded during events, affecting peace."
+        "Prices can spike near popular tourist destinations."
       ],
       "scores": {
-        "Safety": 3,
+        "Safety": 4,
         "Family": 4,
-        "Commute": 3,
-        "Lifestyle": 4,
-        "BudgetFit": 4,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
         "Overall": 4
       }
     },
     {
-      "name": "Uccle",
-      "micro_anchors": [
-        "Fort Jaco",
-        "Prince d'Orange",
-        "Vivier d'Oie"
-      ],
+      "name": "Sant Marti",
+      "micro_anchors": ["Playa de la Mar Bella", "Parc del Forum", "Poblenou Metro"],
       "budget_reality": [
-        "Rule of thumb: Budget stretch in beloved areas like Fort Jaco.",
-        "How to validate: Research price trends in preferred streets."
+        "Rule of thumb: Buy around 2,500 EUR/sqm for beach proximity.",
+        "How to validate: Research recent sale prices and trends."
       ],
       "microhoods": [
         {
-          "name": "Vivier D'oie",
-          "anchors": [
-            "Nearby school",
-            "Park edge"
-          ],
-          "portal_keywords": [
-            "family homes",
-            "spacious living",
-            "quiet streets"
-          ],
-          "street_hints": [
-            "Explore streets with playgrounds",
-            "Look for low-traffic areas"
-          ],
+          "name": "Poblenou",
+          "anchors": ["Parc del Poblenou", "Carrer de Pujades"],
+          "portal_keywords": ["beach proximity", "community feel", "family spaces"],
+          "street_hints": ["Seek out buildings with balconies", "Walk towards the beach to explore"],
           "avoid_verify": "commute",
-          "why": "Family-friendly with good school options nearby.",
-          "watch_out": "Some areas may have higher pricing due to demand."
+          "why": "Poblenou is known for its innovative spaces and beach lifestyle.",
+          "watch_out": "Some areas can be far from central amenities."
         }
-      ],
-      "why": [
-        "Known for its quiet residential areas and accessibility to amenities.",
-        "Extensive green spaces enhance family living."
-      ],
-      "watch_out": [
-        "Parking might be limited in certain busy spots."
-      ],
-      "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 4,
-        "BudgetFit": 3,
-        "Overall": 4
-      }
+      ]
     }
   ]
 }

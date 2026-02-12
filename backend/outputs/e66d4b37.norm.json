@@ -1,0 +1,189 @@
+{
+  "client_profile": "Family of three looking to buy an apartment in Barcelona. Budget is 1–700 EUR. Priorities include family-friendly areas and access to cafes.",
+  "must_have": [
+    "2+ rooms",
+    "Family-friendly environment",
+    "Close to schools"
+  ],
+  "nice_to_have": [
+    "Access to parks",
+    "Cafes nearby",
+    "Community of expats"
+  ],
+  "red_flags": [
+    "High property taxes",
+    "Safety concerns in some areas",
+    "Limited public transport options"
+  ],
+  "contradictions": [
+    "Budget may limit school options",
+    "Desire for cafes vs. safety concerns",
+    "Proximity to schools vs. affordability"
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "Gracia",
+      "budget_reality": [
+        "Rule of thumb: Expect prices around 1,000 EUR/sqm.",
+        "How to validate: Check listings on local real estate platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Vila de Gracia",
+          "portal_keywords": [
+            "cafes",
+            "expat community",
+            "family parks"
+          ],
+          "highlights": "Vila de Gracia offers a vibrant atmosphere and community parks."
+        },
+        {
+          "name": "Ronda de Dalt",
+          "portal_keywords": [
+            "family apartments",
+            "expat friendly",
+            "central location"
+          ],
+          "highlights": "Ronda de Dalt is well-connected and rich in cafes and restaurants."
+        }
+      ],
+      "why": [
+        "Easy access to parks like Parque de la Creueta del Coll.",
+        "Vibrant expat community and numerous cafes along Gran de Gracia."
+      ],
+      "watch_out": [
+        "Property prices can be above budget in popular pockets."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "strengths": [
+        "Best family fit in the shortlist: calmer pockets near Plaza Diamant and good parks/schools access."
+      ],
+      "tradeoffs": [],
+      "commune": ""
+    },
+    {
+      "name": "Eixample",
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices at 1,200 EUR/sqm.",
+        "How to validate: Use recent sales data for comparison."
+      ],
+      "microhoods": [
+        {
+          "name": "Dreta de l'Eixample",
+          "portal_keywords": [
+            "luxury apartments",
+            "metro access",
+            "family homes"
+          ],
+          "highlights": "Dreta de l'Eixample offers upscale living with access to cultural landmarks."
+        }
+      ],
+      "strengths": [
+        "Balanced option around Plaza Catalunya with a clear trade-off between space, commute and amenities."
+      ],
+      "tradeoffs": [],
+      "commune": "",
+      "scores": {
+        "Overall": 0
+      }
+    }
+  ],
+  "real_estate_sites": [],
+  "agencies": [],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Apartment; mode: buy",
+      "Budget (buy): 1–700 EUR purchase",
+      "School commute: walk, max 10 min"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: families, cafes_brunch, expats_international.",
+      "Shortlist produced: Gracia, Eixample."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "Gracia",
+      "best_for": "Best family fit in the shortlist: calmer pockets near Plaza Diamant and good parks/schools access.",
+      "watch_out": "—.",
+      "top_microhoods": [],
+      "keywords": []
+    },
+    {
+      "name": "Eixample",
+      "best_for": "Balanced option around Plaza Catalunya with a clear trade-off between space, commute and amenities.",
+      "watch_out": "—.",
+      "top_microhoods": [],
+      "keywords": []
+    }
+  ],
+  "quality_warnings": []
+}

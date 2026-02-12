@@ -1,30 +1,26 @@
 {
-  "city": "Brussels, Belgium",
+  "city": "Barcelona",
   "householdType": "family",
-  "childrenCount": 2,
+  "childrenCount": 1,
   "childrenAges": [
-    "2",
-    "5"
+    1
   ],
   "mode": "buy",
-  "bedrooms": "3",
+  "bedrooms": "2",
   "propertyType": "apartment",
-  "budgetMin": 705000,
-  "budgetMax": 1295000,
+  "budgetMin": 1,
+  "budgetMax": 700,
   "priorities": [
-    "green_parks",
     "families",
-    "premium_feel",
-    "tram_strong",
-    "mixed_vibes",
-    "culture_museums",
-    "cafes_brunch"
+    "cafes_brunch",
+    "expats_international"
   ],
-  "includeWorkCommute": true,
-  "workTransport": "car",
-  "workMinutes": 40,
-  "workAddress": "Wavre",
+  "includeWorkCommute": false,
+  "workTransport": "public_transport",
+  "workMinutes": 35,
+  "workAddress": "",
   "includeSchoolCommute": true,
   "schoolTransport": "walk",
-  "schoolMinutes": 25
+  "schoolMinutes": 10,
+  "qualityMode": "fast"
 }

@@ -1,16 +1,16 @@
 {
-  "city": "Brussels, Belgium",
-  "family": "Family with 2 children (ages: 2, 5)",
+  "city": "Barcelona",
+  "family": "Family with 1 children (ages: 1)",
   "budget_rent": "",
-  "budget_buy": "705000–1295000 EUR purchase",
-  "housing_type": "3+ rooms; type: Apartment; mode: buy",
-  "lifestyle": "Priorities: Parks & green areas, Family-friendly, Premium feel, Strong tram, Mixed vibe, Culture & museums, Cafes & brunch",
-  "priorities": "Parks & green areas, Family-friendly, Premium feel, Strong tram, Mixed vibe, Culture & museums, Cafes & brunch",
-  "priority_tag_ids": "green_parks,families,premium_feel,tram_strong,mixed_vibes,culture_museums,cafes_brunch",
-  "priority_top3_ids": "green_parks,families,premium_feel",
+  "budget_buy": "1–700 EUR purchase",
+  "housing_type": "2+ rooms; type: Apartment; mode: buy",
+  "lifestyle": "Priorities: Family-friendly, Cafes & brunch, Expats & international",
+  "priorities": "Family-friendly, Cafes & brunch, Expats & international",
+  "priority_tag_ids": "families,cafes_brunch,expats_international",
+  "priority_top3_ids": "families,cafes_brunch,expats_international",
   "school_need": "Yes (commute preferences provided)",
-  "school_commute": "walk, max 25 min",
-  "work_mode": "office/hybrid (commute preferences provided)",
-  "office_location": "Wavre",
-  "office_commute": "car, max 40 min"
+  "school_commute": "walk, max 10 min",
+  "work_mode": "remote or not specified",
+  "office_location": "",
+  "office_commute": ""
 }

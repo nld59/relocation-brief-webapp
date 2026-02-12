@@ -1,0 +1,98 @@
+{
+  "client_profile": "Family of three looking to buy an apartment in Barcelona. Budget is 1–700 EUR. Priorities include family-friendly areas and access to cafes.",
+  "must_have": [
+    "2+ rooms",
+    "Family-friendly environment",
+    "Close to schools"
+  ],
+  "nice_to_have": [
+    "Access to parks",
+    "Cafes nearby",
+    "Community of expats"
+  ],
+  "red_flags": [
+    "High property taxes",
+    "Safety concerns in some areas",
+    "Limited public transport options"
+  ],
+  "contradictions": [
+    "Budget may limit school options",
+    "Desire for cafes vs. safety concerns",
+    "Proximity to schools vs. affordability"
+  ],
+  "top_districts": [
+    {
+      "name": "Gracia",
+      "budget_reality": [
+        "Rule of thumb: Expect prices around 1,000 EUR/sqm.",
+        "How to validate: Check listings on local real estate platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Vila de Gracia",
+          "portal_keywords": [
+            "cafes",
+            "expat community",
+            "family parks"
+          ],
+          "highlights": "Vila de Gracia offers a vibrant atmosphere and community parks."
+        },
+        {
+          "name": "Ronda de Dalt",
+          "portal_keywords": [
+            "family apartments",
+            "expat friendly",
+            "central location"
+          ],
+          "highlights": "Ronda de Dalt is well-connected and rich in cafes and restaurants."
+        }
+      ],
+      "why": [
+        "Easy access to parks like Parque de la Creueta del Coll.",
+        "Vibrant expat community and numerous cafes along Gran de Gracia."
+      ],
+      "watch_out": [
+        "Property prices can be above budget in popular pockets."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "strengths": [
+        "Best family fit in the shortlist: calmer pockets near Plaza Diamant and good parks/schools access."
+      ],
+      "tradeoffs": [],
+      "commune": ""
+    },
+    {
+      "name": "Eixample",
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices at 1,200 EUR/sqm.",
+        "How to validate: Use recent sales data for comparison."
+      ],
+      "microhoods": [
+        {
+          "name": "Dreta de l'Eixample",
+          "portal_keywords": [
+            "luxury apartments",
+            "metro access",
+            "family homes"
+          ],
+          "highlights": "Dreta de l'Eixample offers upscale living with access to cultural landmarks."
+        }
+      ],
+      "strengths": [
+        "Balanced option around Plaza Catalunya with a clear trade-off between space, commute and amenities."
+      ],
+      "tradeoffs": [],
+      "commune": "",
+      "scores": {
+        "Overall": 0
+      }
+    }
+  ]
+}

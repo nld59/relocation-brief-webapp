@@ -12,6 +12,11 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -22,30 +27,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/quiz/3": [
+    "/ask": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/quiz/3.js"
+      "static/chunks/pages/ask.js"
     ],
-    "/quiz/4": [
+    "/chat": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/quiz/4.js"
-    ],
-    "/quiz/5": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/quiz/5.js"
-    ],
-    "/quiz/6": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/quiz/6.js"
-    ],
-    "/report": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/report.js"
+      "static/chunks/pages/chat.js"
     ]
   },
   "ampFirstPages": []
