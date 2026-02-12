@@ -291,6 +291,11 @@ def brief_draft(payload: Dict[str, Any]):
     if not answers.get("city"):
         raise HTTPException(status_code=400, detail="city is required")
 
+    # MVP safety: only Brussels is supported for now (city-pack availability).
+    city_norm = str(answers.get("city") or "").strip().lower()
+    if "brussels" not in city_norm:
+        raise HTTPException(status_code=400, detail="Only Brussels is supported for now. More cities coming soon.")
+
     quality_mode = str(payload.get("qualityMode") or payload.get("quality_mode") or payload.get("quality") or "fast").lower().strip()
     quality = quality_mode in ("quality", "true", "1", "yes")
 
