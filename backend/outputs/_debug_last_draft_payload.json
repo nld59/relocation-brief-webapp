@@ -1,0 +1,30 @@
+{
+  "city": "Brussels, Belgium",
+  "householdType": "family",
+  "childrenCount": 2,
+  "childrenAges": [
+    "2",
+    "5"
+  ],
+  "mode": "buy",
+  "bedrooms": "3",
+  "propertyType": "apartment",
+  "budgetMin": 705000,
+  "budgetMax": 1295000,
+  "priorities": [
+    "green_parks",
+    "families",
+    "premium_feel",
+    "tram_strong",
+    "mixed_vibes",
+    "culture_museums",
+    "cafes_brunch"
+  ],
+  "includeWorkCommute": true,
+  "workTransport": "car",
+  "workMinutes": 40,
+  "workAddress": "Wavre",
+  "includeSchoolCommute": true,
+  "schoolTransport": "walk",
+  "schoolMinutes": 25
+}

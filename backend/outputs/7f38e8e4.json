@@ -1,0 +1,171 @@
+{
+  "client_profile": "Couple looking to rent in Brussels. Budget is 2050–3600 EUR/month. Priorities include cafes, restaurants, parks, and central access.",
+  "must_have": [
+    "2+ rooms",
+    "Access to parks",
+    "Nearby cafes and restaurants",
+    "Strong public transport"
+  ],
+  "nice_to_have": [
+    "Bike-friendly options",
+    "Family-friendly amenities",
+    "Local markets",
+    "Cultural activities"
+  ],
+  "red_flags": [
+    "High traffic noise in tourist areas",
+    "Increased rents near central locations",
+    "Limited availability of large rentals",
+    "Potential delays in lease negotiations"
+  ],
+  "contradictions": [
+    "Central access may come with higher costs",
+    "Parks may lead to noise during weekends",
+    "Cafes and restaurants may increase foot traffic",
+    "Tighter budgets may limit ideal locations"
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Royal Palace / Park area",
+        "Sablon",
+        "Sainte-Catherine / Dansaert"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher rents near popular tourist spots.",
+        "How to validate: Check listings on popular rental websites."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "Metro station",
+            "Local park"
+          ],
+          "portal_keywords": [
+            "2+ rooms",
+            "central location",
+            "cafe options"
+          ],
+          "street_hints": [
+            "Look near metro lines",
+            "Check for nearby cafes"
+          ],
+          "avoid_verify": "Traffic",
+          "why": "Industrie Nord offers proximity to metro stations and local cafés.",
+          "watch_out": "Expect busy traffic during rush hour."
+        },
+        {
+          "name": "Quartier Maritime",
+          "anchors": [
+            "Parks",
+            "Museums"
+          ],
+          "portal_keywords": [
+            "restaurants",
+            "green spaces",
+            "urban living"
+          ],
+          "street_hints": [
+            "Explore near park edges",
+            "Focus on quieter streets"
+          ],
+          "avoid_verify": "Noise",
+          "why": "Restaurants and parks create a vibrant atmosphere in Quartier Maritime.",
+          "watch_out": "Touristy areas can get congested."
+        }
+      ],
+      "why": [
+        "The mix of parks and cafes near the Royal Palace enhances lifestyle options.",
+        "Central access aids commuting and social activities in the City center."
+      ],
+      "watch_out": [
+        "Touristy pockets may cause extra noise on weekends."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "Cinquantenaire edge",
+        "La Chasse"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Central areas may have higher rents.",
+        "How to validate: Explore listings on key rental platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Pierre",
+          "anchors": [
+            "Cafes",
+            "Metro station"
+          ],
+          "portal_keywords": [
+            "2+ rooms",
+            "proximity parks",
+            "cafe culture"
+          ],
+          "street_hints": [
+            "Explore side streets",
+            "Look for cafe-lined avenues"
+          ],
+          "avoid_verify": "Parking",
+          "why": "Saint - Pierre combines green spaces and local dining for families.",
+          "watch_out": "Limited parking in busy areas can complicate access."
+        },
+        {
+          "name": "Chasse",
+          "anchors": [
+            "Public gardens",
+            "Metro access"
+          ],
+          "portal_keywords": [
+            "restaurants",
+            "green areas",
+            "commute efficiency"
+          ],
+          "street_hints": [
+            "Check nearby gardens",
+            "Stay close to transport hubs"
+          ],
+          "avoid_verify": "Parking",
+          "why": "Chasse offers a balance of green spaces and convenient transportation.",
+          "watch_out": "Busy public gardens can be crowded during weekends."
+        }
+      ]
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Universite",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

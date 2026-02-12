@@ -1,0 +1,1664 @@
+{
+  "client_profile": "Family looking to buy in Brussels, budget 625,000–1,140,000 EUR. Priorities include family-friendly areas, parks, premium feel, and access to schools.",
+  "must_have": [
+    "Minimum 2 rooms",
+    "Family-friendly environment",
+    "Nearby parks and green areas"
+  ],
+  "nice_to_have": [
+    "Access to childcare",
+    "Quality local schools",
+    "Cafes and brunch options nearby",
+    "Quiet residential streets"
+  ],
+  "red_flags": [
+    "High property prices in desired areas",
+    "Potential noise from busy streets",
+    "Limited public transport options"
+  ],
+  "contradictions": [
+    "Family-friendly areas may stretch budget",
+    "Premium feel homes can compromise space",
+    "Green areas may lack urban amenities"
+  ],
+  "questions_for_agent_landlord": [
+    "What amenities are nearby?",
+    "How long has the property been on the market?",
+    "Are there any upcoming developments in the area?",
+    "What's the average time properties stay on the market?",
+    "Can you provide details about property taxes?"
+  ],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "Schaerbeek",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Schaerbeek",
+        "percentiles": {
+          "Safety": 0.23684210526315788,
+          "Family": 0.7105263157894737,
+          "Commute": 0.6052631578947368,
+          "Lifestyle": 0.7105263157894737
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1140000,
+          "premium": false,
+          "central": false,
+          "pressure_percentile": 0.6578947368421053,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "families",
+          "green_parks",
+          "premium_feel",
+          "childcare_strong",
+          "schools_strong",
+          "cafes_brunch"
+        ],
+        "priority_top3": [
+          "families",
+          "green_parks",
+          "premium_feel"
+        ],
+        "candidates": 11,
+        "selected": [
+          {
+            "name": "Collignon",
+            "score": 3.7065151515151515,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.7091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.7959,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.069907807091678,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.7182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.6818
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.4545
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 0.3182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 0.0,
+                    "percentile": 0.3182
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Dailly",
+            "score": 3.3348484848484845,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.6364,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 5.662923555590235,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 3.397754133354141,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.059733903752833335,
+                    "percentile": 0.5
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.5273,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.059733903752833335,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0527412238276342,
+                    "percentile": 0.5909
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.7545,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 23.784278933478987,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.4545
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 3.397754133354141,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 0.5,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 5.662923555590235,
+                    "percentile": 0.5
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 0.7727,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Very street-by-street; check safety/quietness around your exact block."
+      ],
+      "strengths": [
+        "Best family fit in the shortlist: calmer pockets near Schaerbeek and good parks/schools access.",
+        "Reliable public transport coverage for everyday commuting.",
+        "Above-average connectivity for commuting across Brussels.",
+        "Stronger lifestyle density (cafés/amenities) compared with quieter communes."
+      ],
+      "tradeoffs": [
+        "Busier evenings in hotspots; confirm noise levels during a late walk-through."
+      ],
+      "matched_priorities": {
+        "strong": [],
+        "medium": [
+          "cafes_brunch",
+          "schools_strong",
+          "childcare_strong"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Better value vs central premium areas; more space for the budget.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €625,000–€1,140,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Collignon",
+        "Dailly"
+      ],
+      "microhoods": [
+        {
+          "name": "Collignon",
+          "portal_keywords": [
+            "Collignon",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Dailly",
+          "portal_keywords": [
+            "Dailly",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.81299672744273,
+      "rank": 1,
+      "rank_debug": {
+        "profile_score": 4.81299672744273,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "families",
+            "green_parks",
+            "premium_feel",
+            "childcare_strong",
+            "schools_strong",
+            "cafes_brunch"
+          ],
+          "top3_tags": [
+            "families",
+            "green_parks",
+            "premium_feel"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 3.0999999999999996,
+            "Commute": 0.08695652173913043,
+            "Lifestyle": 1.0282608695652173,
+            "BudgetFit": 0.4347826086956521
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.6666666666666666,
+            "Commute": 0.018700327255726977,
+            "Lifestyle": 0.2211313697989715,
+            "BudgetFit": 0.09350163627863488
+          },
+          "per_tag_contrib": {
+            "families": {
+              "Family": 1.0
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "premium_feel": {
+              "Lifestyle": 0.47826086956521735,
+              "Commute": 0.08695652173913043,
+              "BudgetFit": 0.4347826086956521
+            },
+            "childcare_strong": {
+              "Family": 0.55
+            },
+            "schools_strong": {
+              "Family": 0.55
+            },
+            "cafes_brunch": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "City of Brussels",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "City of Brussels",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5526315789473685,
+          "Commute": 0.7105263157894737,
+          "Lifestyle": 0.7631578947368421
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1140000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.7631578947368421,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 4,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "families",
+          "green_parks",
+          "premium_feel",
+          "childcare_strong",
+          "schools_strong",
+          "cafes_brunch"
+        ],
+        "priority_top3": [
+          "families",
+          "green_parks",
+          "premium_feel"
+        ],
+        "candidates": 33,
+        "selected": [
+          {
+            "name": "Marolles",
+            "score": 3.471265151515152,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.7182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 15.947375795085382,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 1.5947375795085381,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.13907509422897782,
+                    "percentile": 0.4091
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.4091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.13907509422897782,
+                    "percentile": 0.4091
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.08720876463689882,
+                    "percentile": 0.4091
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.7242,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 39.86843948771345,
+                    "percentile": 0.6515
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 15.947375795085382,
+                    "percentile": 0.7121
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 4.784212738525615,
+                    "percentile": 0.9242
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 0.9,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 1.5947375795085381,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 0.9327,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 15.947375795085382,
+                    "percentile": 0.8636
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 0.7335,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 15.947375795085382,
+                    "percentile": 0.7121
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Brugmann - Lepoutre",
+            "score": 3.433719696969697,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.6667,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 5.3443605579854845,
+                    "percentile": 0.4394
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.763480079712212,
+                    "percentile": 0.7121
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 2.4727188361564707,
+                    "percentile": 0.9242
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 2.4727188361564707,
+                    "percentile": 0.9242
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 3.2387470241378704,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.6303,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 44.281844623308295,
+                    "percentile": 0.6818
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 9.161760956546544,
+                    "percentile": 0.5909
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.763480079712212,
+                    "percentile": 0.5606
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 0.7335,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 0.763480079712212,
+                    "percentile": 0.7121
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 0.4394,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 5.3443605579854845,
+                    "percentile": 0.4394
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 0.5909,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 9.161760956546544,
+                    "percentile": 0.5909
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "strengths": [
+        "Stronger green pockets around Marolles (parks and calmer streets).",
+        "Family-oriented pockets around Marolles with parks/schools within reach.",
+        "Plenty of day-to-day amenities (cafés, restaurants) within walking distance."
+      ],
+      "tradeoffs": [
+        "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+        "Check building charges (syndic), EPC, and noise insulation — these vary street-by-street."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "green_parks"
+        ],
+        "medium": [
+          "cafes_brunch"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Mid-range pricing; specific streets vary a lot.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €625,000–€1,140,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Marolles",
+        "Brugmann - Lepoutre"
+      ],
+      "microhoods": [
+        {
+          "name": "Marolles",
+          "portal_keywords": [
+            "Marolles",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Brugmann-Lepoutre",
+          "portal_keywords": [
+            "Brugmann-Lepoutre",
+            "Brugmann Lepoutre",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.794296400187004,
+      "rank": 2,
+      "rank_debug": {
+        "profile_score": 4.794296400187004,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "families",
+            "green_parks",
+            "premium_feel",
+            "childcare_strong",
+            "schools_strong",
+            "cafes_brunch"
+          ],
+          "top3_tags": [
+            "families",
+            "green_parks",
+            "premium_feel"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 3.0999999999999996,
+            "Commute": 0.08695652173913043,
+            "Lifestyle": 1.0282608695652173,
+            "BudgetFit": 0.4347826086956521
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.6666666666666666,
+            "Commute": 0.018700327255726977,
+            "Lifestyle": 0.2211313697989715,
+            "BudgetFit": 0.09350163627863488
+          },
+          "per_tag_contrib": {
+            "families": {
+              "Family": 1.0
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "premium_feel": {
+              "Lifestyle": 0.47826086956521735,
+              "Commute": 0.08695652173913043,
+              "BudgetFit": 0.4347826086956521
+            },
+            "childcare_strong": {
+              "Family": 0.55
+            },
+            "schools_strong": {
+              "Family": 0.55
+            },
+            "cafes_brunch": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "Etterbeek",
+      "scores": {
+        "Safety": 3,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Etterbeek",
+        "percentiles": {
+          "Safety": 0.5,
+          "Family": 0.9736842105263158,
+          "Commute": 0.8157894736842105,
+          "Lifestyle": 0.8157894736842105
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 1140000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.8157894736842105,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 3,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "families",
+          "green_parks",
+          "premium_feel",
+          "childcare_strong",
+          "schools_strong",
+          "cafes_brunch"
+        ],
+        "priority_top3": [
+          "families",
+          "green_parks",
+          "premium_feel"
+        ],
+        "candidates": 5,
+        "selected": [
+          {
+            "name": "Jourdan",
+            "score": 4.485800000000001,
+            "coverage_hits": 6,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.9,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 5.383612445563427,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.2607211174168198,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.76,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 5.383612445563427,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Saint - Pierre",
+            "score": 2.9348166666666664,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "families",
+                "weight": 1.0,
+                "affinity": 0.58,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 17.475788691498504,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 1.248270620821322,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.06950499277603843,
+                    "percentile": 0.3
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.3,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.06950499277603843,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.055681029110743935,
+                    "percentile": 0.3
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 1.0,
+                "affinity": 0.66,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 21.22060055396247,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 1.248270620821322,
+                    "percentile": 0.5
+                  }
+                ]
+              },
+              {
+                "tag": "childcare_strong",
+                "weight": 0.55,
+                "affinity": 0.756,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 1.248270620821322,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "schools_strong",
+                "weight": 0.55,
+                "affinity": 0.756,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 17.475788691498504,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "cafes_brunch",
+                "weight": 0.55,
+                "affinity": 0.721,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "strengths": [
+        "Strong international / expat ecosystem and services.",
+        "Very convenient access to the EU Quarter and central corridors.",
+        "Stronger green pockets around Jourdan (parks and calmer streets).",
+        "Prime pockets can be competitive; widen the search radius within the commune to keep options."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges)."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "green_parks"
+        ],
+        "medium": [
+          "cafes_brunch",
+          "schools_strong",
+          "childcare_strong"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center, EU quarter",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €625,000–€1,140,000 purchase in this commune: target 2–3BR (sometimes 4BR) depending on condition/building type. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Pierre"
+      ],
+      "microhoods": [
+        {
+          "name": "Jourdan",
+          "portal_keywords": [
+            "Jourdan",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; transit access varies street-to-street."
+        },
+        {
+          "name": "Saint-Pierre",
+          "portal_keywords": [
+            "Saint-Pierre",
+            "Saint Pierre",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.719495091164095,
+      "rank": 3,
+      "rank_debug": {
+        "profile_score": 4.719495091164095,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "families",
+            "green_parks",
+            "premium_feel",
+            "childcare_strong",
+            "schools_strong",
+            "cafes_brunch"
+          ],
+          "top3_tags": [
+            "families",
+            "green_parks",
+            "premium_feel"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 3.0999999999999996,
+            "Commute": 0.08695652173913043,
+            "Lifestyle": 1.0282608695652173,
+            "BudgetFit": 0.4347826086956521
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.6666666666666666,
+            "Commute": 0.018700327255726977,
+            "Lifestyle": 0.2211313697989715,
+            "BudgetFit": 0.09350163627863488
+          },
+          "per_tag_contrib": {
+            "families": {
+              "Family": 1.0
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "premium_feel": {
+              "Lifestyle": 0.47826086956521735,
+              "Commute": 0.08695652173913043,
+              "BudgetFit": 0.4347826086956521
+            },
+            "childcare_strong": {
+              "Family": 0.55
+            },
+            "schools_strong": {
+              "Family": 0.55
+            },
+            "cafes_brunch": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Not sure; mode: buy",
+      "Budget (buy): 625000–1140000 EUR purchase",
+      "School commute: walk, max 25 min"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: families, green_parks, premium_feel.",
+      "Shortlist produced: Schaerbeek, City of Brussels, Etterbeek."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "Schaerbeek",
+      "best_for": "Best family fit in the shortlist: calmer pockets near Schaerbeek and good parks/schools access.",
+      "watch_out": "Busier evenings in hotspots; confirm noise levels during a late walk-through.",
+      "top_microhoods": [
+        "Collignon",
+        "Dailly"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "schools_strong",
+        "childcare_strong"
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "best_for": "Stronger green pockets around Marolles.",
+      "watch_out": "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+      "top_microhoods": [
+        "Marolles",
+        "Brugmann - Lepoutre"
+      ],
+      "keywords": [
+        "green_parks",
+        "cafes_brunch"
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "best_for": "Strong international / expat ecosystem and services.",
+      "watch_out": "Prime pockets can be pricey; validate the full purchase cost.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Pierre"
+      ],
+      "keywords": [
+        "green_parks",
+        "cafes_brunch",
+        "schools_strong",
+        "childcare_strong"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

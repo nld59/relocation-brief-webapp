@@ -1,0 +1,146 @@
+{
+  "client_profile": "Couple moving to Brussels. Renting a 2+ room property with a budget of 2050-3600 EUR/month. Priorities include cafes, restaurants, parks, and central access.",
+  "must_have": [
+    "2+ rooms for comfortable living.",
+    "Proximity to cafes and restaurants.",
+    "Access to parks and green areas.",
+    "Strong public transport options.",
+    "Nearby cultural attractions."
+  ],
+  "nice_to_have": [
+    "Newer buildings for modern amenities.",
+    "Balcony or outdoor space for leisure.",
+    "Nearby cultural attractions for weekend activities.",
+    "Family-friendly areas with childcare access."
+  ],
+  "red_flags": [
+    "High noise levels in busy districts.",
+    "Limited parking options in central areas.",
+    "Potential for higher rents near EU quarter.",
+    "Traffic congestion during peak commute hours."
+  ],
+  "contradictions": [
+    "Desire for central access may lead to noise.",
+    "Higher rent may conflict with budget limits.",
+    "Trendy areas may lack family-oriented features."
+  ],
+  "top_districts": [
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Average rent is high due to central location.",
+        "How to validate: Check listings across multiple sources to gauge prices."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "Metro station",
+            "Local cafes"
+          ],
+          "portal_keywords": [
+            "2+ rooms",
+            "cafe access",
+            "parks nearby"
+          ],
+          "street_hints": [
+            "Quiet side streets",
+            "Close to main amenities"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to metro and popular cafes like Sablon, offering vibrant street life.",
+          "watch_out": "Touristy areas can be noisy, especially weekends."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "anchors": [
+            "Royal Park",
+            "Cafes nearby"
+          ],
+          "portal_keywords": [
+            "green parks",
+            "cafe lifestyle",
+            "family areas"
+          ],
+          "street_hints": [
+            "Wide avenues",
+            "Paved walking paths"
+          ],
+          "avoid_verify": "noise",
+          "why": "Features Royal Park, providing a tranquil escape in the city hub.",
+          "watch_out": "High tourist traffic can increase weekend noise levels."
+        }
+      ],
+      "why": [
+        "Offers vibrant cafes and a bustling atmosphere near the Royal Park.",
+        "Great access to public transport and cultural sites across the city."
+      ],
+      "watch_out": [
+        "Touristy pockets and traffic can feel noisy on weekends."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 2,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Rents are competitive due to proximity to EU institutions.",
+        "How to validate: Monitor local listings and neighborhood trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Public transport hub",
+            "Rooftop cafes"
+          ],
+          "portal_keywords": [
+            "central access"
+          ]
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Universite",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

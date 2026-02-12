@@ -1,112 +1,127 @@
 {
-  "client_profile": "A family with one child aged 2 seeks to buy a premium home in Brussels. Budget of 705,000 to 1,440,000 EUR, prioritizing parks, childcare access, and cafes.",
+  "client_profile": "Family of four looking to buy an apartment in Brussels. Budget of 705,000 to 1,295,000 EUR. Priorities include parks, family-friendliness, and a premium feel.",
   "must_have": [
-    "2+ rooms for a family",
-    "Childcare access within walking distance",
-    "Proximity to green parks",
-    "Cafes and brunch spots nearby"
+    "3+ room apartment",
+    "Proximity to parks",
+    "Family-friendly amenities",
+    "Strong tram access",
+    "Good school options within walk"
   ],
   "nice_to_have": [
-    "Quiet residential area",
-    "Access to public transport",
-    "Family-friendly community",
-    "Shopping options within 15 min"
+    "Mixed vibe district",
+    "Community events",
+    "Quiet surroundings",
+    "Access to public libraries",
+    "Safe walking paths"
   ],
   "red_flags": [
-    "High property taxes in certain areas",
-    "Properties may need renovations",
-    "Market competition can inflate prices",
-    "Commute can be tricky if budget is tight"
+    "Commercial noise from busy streets",
+    "Long commutes could impact family time",
+    "House pricing variance in sought areas",
+    "Limited parking options",
+    "Quickly booked popular school spots"
+  ],
+  "questions_for_agent_landlord": [
+    "What are the average property taxes here?",
+    "How long do homes typically stay on the market?",
+    "What is the local school reputation?",
+    "Are there any planned developments nearby?",
+    "How is public transport access in this area?"
   ],
   "contradictions": [
-    "Premium feel may limit family-friendly spaces",
-    "Parks can be limited in urban areas",
-    "Childcare centers are popular but may be costly",
-    "Cafes may impact neighborhood serenity"
+    "Urban districts may have noise but better amenities",
+    "Suburb-focused areas offer space yet longer commutes",
+    "Mix of lifestyles could vary tranquility levels"
   ],
   "top_districts": [
     {
-      "name": "Etterbeek",
+      "name": "Woluwe-Saint-Pierre",
       "micro_anchors": [
-        "Jourdan",
-        "La Chasse",
-        "Cinquantenaire edge"
+        "Stockel",
+        "Montgomery area"
       ],
       "budget_reality": [
-        "Rule of thumb: Expect prices to average around 3,800 EUR/m2.",
-        "How to validate: Check listings on Immoweb and local agents."
+        "Rule of thumb: Expect higher prices near Parc de Woluwe.",
+        "How to validate: Use local listings for fair market value."
       ],
       "microhoods": [
         {
-          "name": "Chaussee de Wavre - Saint - Julien",
+          "name": "Saint - Paul",
           "anchors": [
-            "Cinquantenaire Park",
-            "Jourdan Square"
+            "Parc de Woluwe",
+            "School gate"
           ],
           "portal_keywords": [
-            "Etterbeek family homes",
-            "2+ bedrooms",
-            "parks near school"
+            "family apartment",
+            "green spaces",
+            "quiet living"
           ],
           "street_hints": [
-            "Closer to parks for a quieter feel",
-            "Check street level noise before visiting"
+            "Avoid main roads",
+            "Look for cul-de-sacs"
           ],
-          "avoid_verify": "traffic",
-          "why": "Close to Cinquantenaire Park, offering green spaces for families.",
-          "watch_out": "Rents near EU quarter can be higher due to demand."
+          "avoid_verify": "commute",
+          "why": "Family-friendly with spacious parks like Parc de Woluwe for recreation.",
+          "watch_out": "Pricing spikes can occur due to high demand in family areas."
         },
         {
-          "name": "Saint - Pierre",
+          "name": "Chant D'oiseau",
           "anchors": [
-            "Parc du Cinquantenaire",
-            "Saint-Pierre Church"
+            "Nearby kindergarten",
+            "Park access"
           ],
           "portal_keywords": [
-            "family homes Etterbeek",
-            "childcare access",
-            "cafes nearby"
+            "spacious living",
+            "child-friendly",
+            "walkable zones"
           ],
           "street_hints": [
-            "Seek quieter side streets added serenity",
-            "Look for areas with good park access"
-          ],
-          "avoid_verify": "noise",
-          "why": "Family-friendly environment with parks and childcare facilities nearby.",
-          "watch_out": "Traffic can be busy during rush hours around main streets."
-        },
-        {
-          "name": "New Microhood 3",
-          "anchors": [
-            "Anchor 1",
-            "Anchor 2"
-          ],
-          "portal_keywords": [
-            "Keyword 1",
-            "Keyword 2"
-          ],
-          "street_hints": [
-            "Hint 1",
-            "Hint 2"
+            "Search for tree-lined streets",
+            "Check proximity to schools"
           ],
           "avoid_verify": "traffic",
-          "why": "Family-oriented area with good access to amenities.",
-          "watch_out": "Potentially high rent fluctuations."
+          "why": "Safe and quiet locale offering easy park access for kids.",
+          "watch_out": "Potential traffic congestion during school drop-off times."
         }
       ],
       "why": [
-        "Etterbeek features excellent parks like Parc du Cinquantenaire, ideal for families.",
-        "Strong metro access connects to the city center in 15 min."
+        "Highly regarded for its family-friendly parks and green areas.",
+        "Proximity to strong tram lines enhances commuting options."
       ],
       "watch_out": [
-        "Expect possible higher property prices near EU institutions."
+        "Pricey pockets exist, so budget wisely to avoid overspending."
       ],
       "scores": {
         "Safety": 4,
         "Family": 5,
-        "Commute": 5,
-        "Lifestyle": null
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
       }
+    },
+    {
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are moderate, good for city proximity.",
+        "How to validate: Research recent sales data for trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Koekelberg",
+          "anchors": [
+            "Parc Elisabeth",
+            "Basilica entrance"
+          ],
+          "portal_keywords": [
+            "affordable living"
+          ]
+        }
+      ]
     }
   ]
 }

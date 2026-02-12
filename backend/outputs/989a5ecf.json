@@ -1,0 +1,155 @@
+{
+  "client_profile": "Family of four looking to buy an apartment in Brussels. Budget of 705,000 to 1,295,000 EUR. Priorities include parks, family-friendliness, and a premium feel.",
+  "must_have": [
+    "3+ room apartment",
+    "Proximity to parks",
+    "Family-friendly amenities",
+    "Strong tram access",
+    "Good school options within walk"
+  ],
+  "nice_to_have": [
+    "Mixed vibe district",
+    "Community events",
+    "Quiet surroundings",
+    "Access to public libraries",
+    "Safe walking paths"
+  ],
+  "red_flags": [
+    "Commercial noise from busy streets",
+    "Long commutes could impact family time",
+    "House pricing variance in sought areas",
+    "Limited parking options",
+    "Quickly booked popular school spots"
+  ],
+  "questions_for_agent_landlord": [
+    "What are the average property taxes here?",
+    "How long do homes typically stay on the market?",
+    "What is the local school reputation?",
+    "Are there any planned developments nearby?",
+    "How is public transport access in this area?"
+  ],
+  "contradictions": [
+    "Urban districts may have noise but better amenities",
+    "Suburb-focused areas offer space yet longer commutes",
+    "Mix of lifestyles could vary tranquility levels"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices near Parc de Woluwe.",
+        "How to validate: Use local listings for fair market value."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "School gate"
+          ],
+          "portal_keywords": [
+            "family apartment",
+            "green spaces",
+            "quiet living"
+          ],
+          "street_hints": [
+            "Avoid main roads",
+            "Look for cul-de-sacs"
+          ],
+          "avoid_verify": "commute",
+          "why": "Family-friendly with spacious parks like Parc de Woluwe for recreation.",
+          "watch_out": "Pricing spikes can occur due to high demand in family areas."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Nearby kindergarten",
+            "Park access"
+          ],
+          "portal_keywords": [
+            "spacious living",
+            "child-friendly",
+            "walkable zones"
+          ],
+          "street_hints": [
+            "Search for tree-lined streets",
+            "Check proximity to schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Safe and quiet locale offering easy park access for kids.",
+          "watch_out": "Potential traffic congestion during school drop-off times."
+        }
+      ],
+      "why": [
+        "Highly regarded for its family-friendly parks and green areas.",
+        "Proximity to strong tram lines enhances commuting options."
+      ],
+      "watch_out": [
+        "Pricey pockets exist, so budget wisely to avoid overspending."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are moderate, good for city proximity.",
+        "How to validate: Research recent sales data for trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Koekelberg",
+          "anchors": [
+            "Parc Elisabeth",
+            "Basilica entrance"
+          ],
+          "portal_keywords": [
+            "affordable living"
+          ]
+        },
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

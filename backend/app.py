@@ -79,10 +79,9 @@ def _priorities_to_text(ids):
         "cafes": "Cafes & brunch",
         "safety": "Residential & quiet",
         "transit": "Strong metro",
-        "family": "Family-friendly"
+        "family": "Family-friendly",
     }
     return ", ".join([mapping.get(x, x) for x in (ids or [])])
-
 
 
 def _preview_lines(md: str, n: int = 10):
@@ -97,6 +96,39 @@ def _preview_lines(md: str, n: int = 10):
         if len(lines) >= n:
             break
     return lines
+
+
+def _redact(obj: Any) -> Any:
+    """Mask likely sensitive keys in arbitrary json-like structures."""
+    SENSITIVE_KEYS = {"api_key", "apikey", "token", "secret", "password", "authorization", "auth"}
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            if str(k).lower() in SENSITIVE_KEYS:
+                out[k] = "***REDACTED***"
+            else:
+                out[k] = _redact(v)
+        return out
+    if isinstance(obj, list):
+        return [_redact(x) for x in obj]
+    return obj
+
+
+def _debug_dump(name: str, data: Any):
+    """Print + persist a debug json file in outputs/."""
+    safe = _redact(data)
+    try:
+        print(f"\n[DEBUG] {name}:\n{json.dumps(safe, ensure_ascii=False, indent=2)}\n")
+    except Exception:
+        print(f"\n[DEBUG] {name}: <non-serializable>\n")
+
+    try:
+        (OUT_DIR / f"_debug_last_{name}.json").write_text(
+            json.dumps(safe, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    except Exception as e:
+        print(f"[DEBUG] Failed to write _debug_last_{name}.json: {e}")
 
 
 def ui_to_answers(payload: Dict[str, Any]) -> Dict[str, str]:
@@ -163,7 +195,6 @@ def ui_to_answers(payload: Dict[str, Any]) -> Dict[str, str]:
     top3_ids = priority_ids_ordered[:3]
     priority_tag_ids = ",".join(priority_ids_ordered)
     priority_top3_ids = ",".join(top3_ids)
-
 
     include_work = payload.get("includeWorkCommute")
     if include_work is True:
@@ -232,7 +263,6 @@ def _render_all(
 
     pdf_ms = None
     if render_files:
-
         pdf_path = OUT_DIR / f"{brief_id}.pdf"
         t0 = time.perf_counter()
         render_minimal_premium_pdf(
@@ -250,12 +280,19 @@ def _render_all(
 def brief_draft(payload: Dict[str, Any]):
     total_t0 = time.perf_counter()
 
+    # ---- DEBUG: capture incoming request payload (what frontend sends)
+    _debug_dump("draft_payload", payload)
+
     answers = ui_to_answers(payload)
+
+    # ---- DEBUG: capture derived answers (what actually drives LLM + ranking)
+    _debug_dump("draft_answers", answers)
+
     if not answers.get("city"):
         raise HTTPException(status_code=400, detail="city is required")
 
-    quality_mode = str(payload.get('qualityMode') or payload.get('quality_mode') or payload.get('quality') or 'fast').lower().strip()
-    quality = quality_mode in ('quality','true','1','yes')
+    quality_mode = str(payload.get("qualityMode") or payload.get("quality_mode") or payload.get("quality") or "fast").lower().strip()
+    quality = quality_mode in ("quality", "true", "1", "yes")
 
     llm_t0 = time.perf_counter()
     raw = draft_brief(answers, quality=quality)
@@ -286,6 +323,9 @@ def brief_draft(payload: Dict[str, Any]):
 def brief_final(payload: Dict[str, Any]):
     total_t0 = time.perf_counter()
 
+    # ---- DEBUG: capture incoming final request payload
+    _debug_dump("final_payload", payload)
+
     brief_id = payload.get("brief_id")
     clar = payload.get("clarifying_answers") or {}
     if not brief_id or brief_id not in STORE:
@@ -294,6 +334,10 @@ def brief_final(payload: Dict[str, Any]):
     saved = STORE[brief_id]
     answers = saved["answers"]
     current_raw = saved["raw"]
+
+    # ---- DEBUG: capture clarifying answers and base answers
+    _debug_dump("final_clarifying_answers", clar)
+    _debug_dump("final_base_answers", answers)
 
     llm_t0 = time.perf_counter()
     updated_raw = finalize_brief(answers, current_raw, clar)
@@ -316,7 +360,6 @@ def brief_final(payload: Dict[str, Any]):
         "total_ms": total_ms,
         "can_download": can_download,
     }
-
 
 
 @app.post("/brief/qa")
@@ -350,12 +393,10 @@ def brief_qa(payload: Dict[str, Any]):
             mode=mode,
         )
     except RuntimeError as e:
-        # missing API keys etc.
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"qa_failed: {e}")
 
-    # Persist verified audits (only in verified mode)
     if (data.get("mode") or "") == "verified":
         persist_verified_log(
             brief_id,
@@ -371,7 +412,6 @@ def brief_qa(payload: Dict[str, Any]):
         )
 
     return data
-
 
 
 @app.get("/brief/download")

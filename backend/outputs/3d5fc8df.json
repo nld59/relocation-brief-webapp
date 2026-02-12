@@ -1,0 +1,156 @@
+{
+  "client_profile": "Family of 3 in Brussels looking to buy a family-friendly home. Budget of EUR 625,000–1,140,000 prioritizing parks, childcare access, schools, and premium feel.",
+  "must_have": [
+    "2+ rooms for family comfort",
+    "Close to parks and green spaces",
+    "Access to quality childcare options",
+    "Proximity to good schools"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots nearby",
+    "Low-traffic residential streets",
+    "Walking distance to local markets",
+    "Community activities or clubs"
+  ],
+  "red_flags": [
+    "Higher demand areas can stretch budget",
+    "Limited availability in family-friendly zones",
+    "Longer commute times in outer districts",
+    "Quality of schools may vary significantly"
+  ],
+  "contradictions": [
+    "Premium neighborhoods might lack affordable options",
+    "Green spaces may come with higher costs",
+    "Kid-friendly areas often have high demand"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices exceed the average for family homes.",
+        "How to validate: Check listings in Stockel and Montgomery."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Stockel metro station"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "green parks",
+            "childcare access"
+          ],
+          "street_hints": [
+            "Quiet residential avenues",
+            "Tree-lined streets ideal for kids"
+          ],
+          "avoid_verify": "budget stretch",
+          "why": "Enjoy family-friendly parks like Parc de Woluwe.",
+          "watch_out": "House-focused pockets are pricey; fewer nightlife options."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Stockel area",
+            "Woluwe Shopping center"
+          ],
+          "portal_keywords": [
+            "family apartments",
+            "green areas",
+            "childcare facilities"
+          ],
+          "street_hints": [
+            "Family-oriented neighborhoods",
+            "Safe areas for children"
+          ],
+          "avoid_verify": "commute concerns",
+          "why": "Close to parks and shopping facilities.",
+          "watch_out": "Prices can spike during peak seasons."
+        }
+      ],
+      "why": [
+        "In walking distance to Parc de Woluwe for family outings.",
+        "Strong community vibe with schools and parks."
+      ],
+      "watch_out": [
+        "Potential for high competition in desirable locations."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 2,
+        "BudgetFit": 3,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices can be higher than nearby communes.",
+        "How to validate: Monitor listings around Fort Jaco."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Foret de Soignes",
+            "Local schools"
+          ],
+          "portal_keywords": [
+            "premium properties",
+            "quiet neighborhoods",
+            "parks access"
+          ],
+          "street_hints": [
+            "Well-maintained streets suited for families",
+            "Access to local community services"
+          ],
+          "avoid_verify": "price fluctuations",
+          "why": "Offers tranquility close to nature.",
+          "watch_out": "Limited options in certain seasons."
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

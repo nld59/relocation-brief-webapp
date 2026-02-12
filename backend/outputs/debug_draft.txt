@@ -1,28 +1,36 @@
 {
-  "client_profile": "Family with 1 child seeking to buy in Brussels. Budget between 705000 and 1440000 EUR. Priorities include premium feel, parks access, and childcare.",
+  "client_profile": "Family of four looking to buy an apartment in Brussels. Budget of 705,000 to 1,295,000 EUR. Priorities include parks, family-friendliness, and a premium feel.",
   "must_have": [
-    "2+ rooms minimum",
-    "Access to childcare facilities",
-    "Proximity to parks and green areas",
-    "Commute to school within 25 min walk"
+    "3+ room apartment",
+    "Proximity to parks",
+    "Family-friendly amenities",
+    "Strong tram access",
+    "Good school options within walk",
+    "Cafes and brunch spots nearby",
+    "Cultural attractions nearby"
   ],
   "nice_to_have": [
-    "Cafes and brunch spots nearby",
-    "Good public transport access",
-    "Community-oriented neighborhoods",
-    "Family-friendly amenities available"
+    "Mixed vibe district",
+    "Community events",
+    "Quiet surroundings",
+    "Access to public libraries",
+    "Local markets",
+    "Family-friendly restaurants",
+    "Safe walking paths"
   ],
   "red_flags": [
-    "High noise levels in busy areas",
-    "Limited parking in some neighborhoods",
-    "Potential for budget overruns in premium districts",
-    "Commute challenges in specific locations"
+    "Commercial noise from busy streets",
+    "Long commutes could impact family time",
+    "House pricing variance in sought areas",
+    "Limited parking options",
+    "Potentially high property taxes",
+    "Quickly booked popular school spots",
+    "Higher costs during peak buying seasons"
   ],
   "contradictions": [
-    "Premium feel often means higher rents",
-    "Parks may not always have nearby schools",
-    "Cafes might attract more foot traffic",
-    "Childcare access can vary by neighborhood"
+    "Urban districts may have noise but better amenities",
+    "Suburb-focused areas offer space yet longer commutes",
+    "Mix of lifestyles could vary tranquility levels"
   ],
   "top_districts": [
     {
@@ -33,55 +41,55 @@
         "Parc de Woluwe edge"
       ],
       "budget_reality": [
-        "Rule of thumb: Expect average prices starting at 500000 EUR for a family apartment.",
-        "How to validate: Compare listings on local real estate websites."
+        "Rule of thumb: Expect higher prices near Parc de Woluwe.",
+        "How to validate: Use local listings for fair market value."
       ],
       "microhoods": [
         {
           "name": "Saint - Paul",
           "anchors": [
             "Parc de Woluwe",
-            "Montgomery metro"
+            "School gate"
           ],
           "portal_keywords": [
-            "family apartments",
-            "green parks",
-            "childcare access"
+            "family apartment",
+            "green spaces",
+            "quiet living"
           ],
           "street_hints": [
-            "Check Rue de l'Eglise",
-            "Look for nearby schools"
+            "Avoid main roads",
+            "Look for cul-de-sacs"
           ],
-          "avoid_verify": "traffic",
-          "why": "Proximity to Parc de Woluwe provides expansive green space for families.",
-          "watch_out": "Some streets experience heavier traffic during peak hours."
+          "avoid_verify": "commute",
+          "why": "Family-friendly with spacious parks like Parc de Woluwe for recreation.",
+          "watch_out": "Pricing spikes can occur due to high demand in family areas."
         },
         {
           "name": "Chant D’oiseau",
           "anchors": [
-            "Montgomery station",
-            "Parc de Woluwe"
+            "Nearby kindergarten",
+            "Park access"
           ],
           "portal_keywords": [
-            "family friendly",
-            "quiet neighborhoods",
-            "expensive rent"
+            "spacious living",
+            "child-friendly",
+            "walkable zones"
           ],
           "street_hints": [
-            "Explore Avenue de la Reine",
-            "Street level near schools"
+            "Search for tree-lined streets",
+            "Check proximity to schools"
           ],
-          "avoid_verify": "renovation",
-          "why": "Access to the Montgomery metro enhances connectivity to Brussels.",
-          "watch_out": "Expect higher rental prices in sought-after locations."
+          "avoid_verify": "traffic",
+          "why": "Safe and quiet locale offering easy park access for kids.",
+          "watch_out": "Potential traffic congestion during school drop-off times."
         }
       ],
       "why": [
-        "Home to multiple parks such as Parc de Woluwe ideal for outdoor activities.",
-        "Excellent childcare services available nearby with access to schools."
+        "Highly regarded for its family-friendly parks and green areas.",
+        "Proximity to strong tram lines enhances commuting options."
       ],
       "watch_out": [
-        "Charming areas may attract higher budgets, stretching your limits."
+        "Pricey pockets exist, so budget wisely to avoid overspending."
       ],
       "scores": {
         "Safety": 4,
@@ -93,79 +101,78 @@
       }
     },
     {
-      "name": "Etterbeek",
+      "name": "Koekelberg",
       "micro_anchors": [
-        "Jourdan",
-        "La Chasse",
-        "Cinquantenaire edge"
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
       ],
       "budget_reality": [
-        "Rule of thumb: Properties here start around 600000 EUR for quality housing.",
-        "How to validate: Research recent sales to assess market trends."
+        "Rule of thumb: Prices are moderate, good for city proximity.",
+        "How to validate: Research recent sales data for trends."
       ],
       "microhoods": [
         {
-          "name": "Chaussee de Wavre - Saint - Julien",
+          "name": "Koekelberg",
           "anchors": [
-            "Cinquantenaire park",
-            "Public transport access"
+            "Parc Elisabeth",
+            "Basilica entrance"
           ],
           "portal_keywords": [
-            "modern apartments",
-            "child-friendly",
-            "cafes nearby"
+            "affordable living",
+            "green parks",
+            "family space"
           ],
           "street_hints": [
-            "Near Avenue des Nerviens",
-            "Close to parks"
+            "Choose streets adjacent to parks",
+            "Focus on quieter areas"
           ],
           "avoid_verify": "noise",
-          "why": "Proximity to Cinquantenaire park offers excellent outdoor space.",
-          "watch_out": "Busy streets can lead to noise disturbances."
-        },
-        {
-          "name": "Chasse",
-          "anchors": [
-            "Public transport options",
-            "Nearby parks"
-          ],
-          "portal_keywords": [
-            "school proximity",
-            "childcare services",
-            "cafes within walking distance"
-          ],
-          "street_hints": [
-            "Explore Rue de la Chasse",
-            "Check nearby playgrounds"
-          ],
-          "avoid_verify": "traffic",
-          "why": "Access to a variety of cafes and parks suits family lifestyles.",
-          "watch_out": "Traffic can be congested during rush hours."
+          "why": "Attractive green spaces and cultural sites make it vibrant.",
+          "watch_out": "Busy nodes can attract noise; seek calmer blocks."
         }
       ],
       "why": [
-        "Well-connected with excellent metro access for easy commuting.",
-        "Various parks and playgrounds make it great for families."
+        "Offers a mixed vibe with ample family facilities and parks.",
+        "Easy access to metro and tram services simplifies city travel."
       ],
       "watch_out": [
-        "Premium properties can lead to budget challenges."
+        "Public places may become crowded during events, affecting peace."
       ],
       "scores": {
-        "Safety": 4,
-        "Family": 5,
-        "Commute": 4,
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
         "Lifestyle": 4,
-        "BudgetFit": 3,
+        "BudgetFit": 4,
         "Overall": 4
       }
     },
     {
-      "name": "City of Brussels",
+      "name": "Uccle",
       "micro_anchors": [
-        "Sablon",
-        "Sainte-Catherine / Dansaert",
-        "Royal Palace / Park area"
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
       ],
       "budget_reality": [
-        "Rule of thumb: Expect listings starting around 700000 EUR for quality homes.",
-        "How to validate:
+        "Rule of thumb: Budget stretch in beloved areas like Fort Jaco.",
+        "How to validate: Research price trends in preferred streets."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Nearby school",
+            "Park edge"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "spacious living",
+            "quiet streets"
+          ],
+          "street_hints": [
+            "Explore streets with playgrounds",
+            "Look for low-traffic areas"
+          ],
+          "

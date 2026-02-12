@@ -1,0 +1,168 @@
+{
+  "client_profile": "Family of four looking to buy an apartment in Brussels. Budget is 705,000–1,295,000 EUR. Priorities include parks, family-friendliness, and a premium feel.",
+  "must_have": [
+    "3 or more bedrooms",
+    "Access to parks",
+    "Family-friendly amenities",
+    "Strong tram connections",
+    "Cafes and brunch spots"
+  ],
+  "nice_to_have": [
+    "Mixed vibe community",
+    "Good schools within walking distance",
+    "Quiet residential areas"
+  ],
+  "red_flags": [
+    "High traffic during rush hours",
+    "Noise from nightlife hotspots",
+    "Limited parking options"
+  ],
+  "contradictions": [
+    "Quiet areas may be further from amenities",
+    "Premium feel could stretch budget limits"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices can be high near parks.",
+        "How to validate: Check listings near Parc de Woluwe."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Montgomery metro"
+          ],
+          "portal_keywords": [
+            "Woluwe park",
+            "family homes",
+            "premium apartments"
+          ],
+          "street_hints": [
+            "Rue du Cerf",
+            "Avenue de la Roseraie"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to Parc de Woluwe and excellent tram access.",
+          "watch_out": "Pockets near metro stations can be noisy."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Chant d'Oiseau park",
+            "Bonnier metro"
+          ],
+          "portal_keywords": [
+            "green living",
+            "family apartments",
+            "tranquil homes"
+          ],
+          "street_hints": [
+            "Avenue des Cormorans",
+            "Avenue des Pêchers"
+          ],
+          "avoid_verify": "noise",
+          "why": "Notable green spaces attract families seeking tranquility.",
+          "watch_out": "Busy weekends can lead to crowding in parks."
+        }
+      ],
+      "why": [
+        "Great proximity to Parc de Woluwe's green spaces and playgrounds.",
+        "Well-connected tram system provides easy transport options."
+      ],
+      "watch_out": [
+        "House-focused pockets are pricey; fewer nightlife options exist."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are manageable with family amenities nearby.",
+        "How to validate: Check local listings around Parc Elisabeth."
+      ],
+      "microhoods": [
+        {
+          "name": "Koekelberg",
+          "anchors": [
+            "Parc Elisabeth",
+            "Simonis metro"
+          ],
+          "portal_keywords": [
+            "affordable apartments",
+            "family living",
+            "green spaces"
+          ],
+          "street_hints": [
+            "Avenue du Jubilé",
+            "Boulevard Leopold"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Family-friendly area with good access to amenities.",
+          "watch_out": "Residential pockets near busy roads can be loud."
+        },
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "Access to parks and cultural sites, affordable options."
+      ],
+      "watch_out": [
+        "Increasing popularity may drive up prices."
+      ],
+      "scores": {
+        "Safety": 3,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 3
+      }
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

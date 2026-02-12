@@ -1,0 +1,157 @@
+{
+  "client_profile": "Family based in Brussels looking to buy a home. Budget is EUR 625000–1180000. Priorities include parks, cafes, premium feel, and access to childcare.",
+  "must_have": [
+    "Minimum 2 bedrooms",
+    "Proximity to parks",
+    "Access to childcare facilities",
+    "Family-friendly environment",
+    "Quality schools within walking distance"
+  ],
+  "nice_to_have": [
+    "Cafes and brunch spots nearby",
+    "Modern amenities",
+    "Quiet residential area",
+    "Good public transport access"
+  ],
+  "red_flags": [
+    "High noise levels in busy areas",
+    "Limited parking options in popular districts",
+    "Long commute times from outer districts",
+    "Potential for budget overruns in sought-after areas"
+  ],
+  "contradictions": [
+    "Desire for quiet yet vibrant areas",
+    "Access to nature but preference for urban amenities",
+    "Family-friendly spaces near nightlife options"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices vary near EU quarter, especially for larger apartments.",
+        "How to validate: Compare listings on local portals for consistent figures."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Cinquantenaire Park",
+            "Jourdan Square"
+          ],
+          "portal_keywords": [
+            "Etterbeek apartments",
+            "childcare access Etterbeek",
+            "Etterbeek green areas"
+          ],
+          "street_hints": [
+            "Close to public transport",
+            "Name streets after parks"
+          ],
+          "avoid_verify": "noise",
+          "why": "Local attractions like Cinquantenaire Park promote outdoor lifestyle and play areas.",
+          "watch_out": "Busy traffic may affect residential tranquility."
+        },
+        {
+          "name": "Saint - Michel",
+          "anchors": [
+            "Parc du Cinquantenaire",
+            "local cafes"
+          ],
+          "portal_keywords": [
+            "family homes Etterbeek",
+            "Etterbeek childcare",
+            "cafe listings Etterbeek"
+          ],
+          "street_hints": [
+            "Residential streets are quieter",
+            "Variety of local shops"
+          ],
+          "avoid_verify": "parking",
+          "why": "Close proximity to parks makes this area ideal for families needing green space.",
+          "watch_out": "Street parking can be challenging, especially on weekends."
+        }
+      ],
+      "why": [
+        "Etterbeek offers excellent parks like Cinquantenaire for families with children.",
+        "Strong public transport links enhance accessibility to the city center."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Housing in Woluwe can be pricey due to family-friendly vibe.",
+        "How to validate: Research recent transactions for real market insights."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "local markets"
+          ],
+          "portal_keywords": [
+            "family homes Woluwe",
+            "childcare access Woluwe",
+            "parks in Woluwe"
+          ],
+          "street_hints": [
+            "Near local amenities",
+            "Good access to schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to parks and shops makes it versatile for families.",
+          "watch_out": "Potential for heavy traffic during peak hours."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "client_profile": "Family of three looking to buy a property in Brussels. Budget between 625000–1180000 EUR. Prioritizing parks, cafes, premium feel, and childcare access.",
+  "must_have": [
+    "Access to parks and green areas",
+    "Childcare facilities within walking distance",
+    "Family-friendly neighborhoods",
+    "2+ rooms space"
+  ],
+  "nice_to_have": [
+    "Proximity to cafes and brunch spots",
+    "Good public transport access",
+    "Modern amenities",
+    "Low traffic areas"
+  ],
+  "red_flags": [
+    "High traffic can disrupt family life",
+    "Limited availability of spacious homes",
+    "Higher prices may stretch budget",
+    "Potential noise in busy districts"
+  ],
+  "contradictions": [
+    "Budget can limit access to premium areas",
+    "Proximity to public transport may conflict with quiet areas",
+    "Desire for modern homes may exceed budget",
+    "Family-friendly must compete with premium feel"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices range widely, expect higher near major landmarks.",
+        "How to validate: Check listings on local real estate portals."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Parc du Cinquantenaire",
+            "Metro station"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "parks",
+            "cafes",
+            "childcare"
+          ],
+          "street_hints": [
+            "Check close to green spaces",
+            "Explore around local schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to Cinquantenaire park, ideal for family outings and activities.",
+          "watch_out": "Traffic congestion can increase during peak hours."
+        },
+        {
+          "name": "Chasse",
+          "anchors": [
+            "La Chasse tram station",
+            "Local shops"
+          ],
+          "portal_keywords": [
+            "spacious",
+            "quiet",
+            "childcare",
+            "cafes"
+          ],
+          "street_hints": [
+            "Look for tree-lined streets",
+            "Focus on quieter corners"
+          ],
+          "avoid_verify": "parking",
+          "why": "Offers a mix of residential spots with easy access to amenities.",
+          "watch_out": "Limited parking can make visits challenging."
+        }
+      ],
+      "why": [
+        "Access to the large Cinquantenaire park enhances outdoor activities.",
+        "Diverse cafes around Jourdan cater well to families."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": null,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Family homes in this area tend to command premium prices.",
+        "How to validate: Monitor online listings regularly for new opportunities."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Woluwe park",
+            "Transportation links"
+          ],
+          "portal_keywords": [
+            "childcare",
+            "parks",
+            "family-friendly",
+            "cafes"
+          ],
+          "street_hints": [
+            "Look near community centers",
+            "Check around transport hubs"
+          ],
+          "avoid_verify": "noise",
+          "why": "Offers great access to green spaces and amenities.",
+          "watch_out": "May experience noise from nearby roads."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

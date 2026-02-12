@@ -1,0 +1,148 @@
+{
+  "client_profile": "Family looking to buy in Brussels, budget 625,000–1,140,000 EUR. Priorities include family-friendly areas, parks, premium feel, and access to schools.",
+  "must_have": [
+    "Minimum 2 rooms",
+    "Family-friendly environment",
+    "Nearby parks and green areas"
+  ],
+  "nice_to_have": [
+    "Access to childcare",
+    "Quality local schools",
+    "Cafes and brunch options nearby",
+    "Quiet residential streets"
+  ],
+  "red_flags": [
+    "High property prices in desired areas",
+    "Potential noise from busy streets",
+    "Limited public transport options"
+  ],
+  "contradictions": [
+    "Family-friendly areas may stretch budget",
+    "Premium feel homes can compromise space",
+    "Green areas may lack urban amenities"
+  ],
+  "questions_for_agent_landlord": [
+    "What amenities are nearby?",
+    "How long has the property been on the market?",
+    "Are there any upcoming developments in the area?",
+    "What's the average time properties stay on the market?",
+    "Can you provide details about property taxes?"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect higher prices near parks and good schools.",
+        "How to validate: Check listings to compare property prices."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Montgomery Metro"
+          ],
+          "portal_keywords": [
+            "family homes",
+            "access to parks",
+            "premium living"
+          ],
+          "street_hints": [
+            "Quiet residential lanes",
+            "Close-knit community vibe"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Features large parks like Parc de Woluwe, ideal for families.",
+          "watch_out": "Prices can be steep near the attractive areas."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Woluwe Shopping area",
+            "Public transport links"
+          ],
+          "portal_keywords": [
+            "walking distance schools",
+            "family-friendly",
+            "premium feel"
+          ],
+          "street_hints": [
+            "Tree-lined streets",
+            "Local shops around the corner"
+          ],
+          "avoid_verify": "noise",
+          "why": "Offers good schools and parks, perfect for young families.",
+          "watch_out": "Some streets can experience heavy traffic."
+        }
+      ],
+      "why": [
+        "Access to quality schools like St. Paul School enhances family life.",
+        "Green spaces allow for outdoor activities and family gatherings."
+      ],
+      "watch_out": [
+        "House-focused pockets are pricey and fewer nightlife options exist."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Koekelberg",
+      "micro_anchors": [
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are generally below average for Brussels.",
+        "How to validate: Compare prices with adjacent communes."
+      ],
+      "microhoods": [
+        {
+          "name": "Koekelberg",
+          "anchors": [
+            "Basilica of Koekelberg"
+          ]
+        },
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Saint - Job Kauwberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

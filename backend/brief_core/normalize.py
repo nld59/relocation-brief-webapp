@@ -18,6 +18,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from .city_packs import load_city_pack
 from .quality_gate import run_quality_gate
 from .microhood_ranker import rank_microhoods_for_commune
+from .tag_registry import TAG_REGISTRY
+from .commune_ranker import build_commune_rank_weights, rank_communes
 
 # --- Scoring model (used for Trust & method copy + debug output) ---
 SCORE_MODEL: Dict[str, Any] = {
@@ -245,17 +247,71 @@ def _postprocess_brief(out: dict) -> dict:
             elif isinstance(br, list):
                 d["budget_reality"] = [_normalize_dashes(x) for x in br if (x or "").strip()]
 
-    # Sort top districts by Overall desc, then Family desc, then Safety desc
-    def _sort_key(d):
-        s = (d.get("scores") or {})
-        return (
-            _safe_int(s.get("Overall"), 0),
-            _safe_int(s.get("Family"), 0),
-            _safe_int(s.get("Safety"), 0),
-        )
+    # Keep the order from the deterministic ranking stage.
+    # If older briefs come in without rank metadata, fall back to an
+    # Overall-based sort.
+    if any(isinstance(d, dict) and ("rank" in d or "profile_score" in d) for d in districts):
+        out["top_districts"] = districts
+    else:
+        def _sort_key(d):
+            s = (d.get("scores") or {})
+            return (
+                _safe_int(s.get("Overall"), 0),
+                _safe_int(s.get("Family"), 0),
+                _safe_int(s.get("Safety"), 0),
+            )
 
-    out["top_districts"] = sorted(districts, key=_sort_key, reverse=True)
+        out["top_districts"] = sorted(districts, key=_sort_key, reverse=True)
     return out
+
+
+def _derive_tag_dim_map_from_registry() -> Dict[str, Dict[str, float]]:
+    """Infer tag→dimension affinity from TagRegistry signals.
+
+    This ensures *every* tag influences commune ranking (even with proxies),
+    and keeps the system scalable as new tags are added.
+    """
+    dim_map: Dict[str, Dict[str, float]] = {}
+    for tag_id, tdef in TAG_REGISTRY.items():
+        affinity: Dict[str, float] = {}
+        for sig in (tdef.signals or []):
+            m = (sig.metric or "").lower()
+            w = float(sig.weight or 1.0)
+            direction = getattr(sig, "direction", "high")
+
+            # Lifestyle signals
+            if any(k in m for k in ["cafes", "restaurant", "bars"]):
+                # Quiet tags use bars_density in "low" direction → safety/quiet
+                if "bars" in m and direction == "low":
+                    affinity["Safety"] = affinity.get("Safety", 0.0) + 0.7 * w
+                    affinity["Lifestyle"] = affinity.get("Lifestyle", 0.0) + 0.3 * w
+                else:
+                    affinity["Lifestyle"] = affinity.get("Lifestyle", 0.0) + 1.0 * w
+
+            # Family signals
+            elif any(k in m for k in ["parks", "school", "childcare"]):
+                affinity["Family"] = affinity.get("Family", 0.0) + 1.0 * w
+
+            # Commute signals
+            elif any(k in m for k in ["metro", "tram", "train"]):
+                affinity["Commute"] = affinity.get("Commute", 0.0) + 1.0 * w
+
+        # BudgetFit tags: treat explicitly
+        if tag_id in {"premium_feel", "value_for_money"}:
+            affinity["BudgetFit"] = affinity.get("BudgetFit", 0.0) + 1.0
+            affinity["Lifestyle"] = affinity.get("Lifestyle", 0.0) + 0.3
+
+        # Default fallback if nothing matched (should be rare)
+        if not affinity:
+            affinity = {"Lifestyle": 1.0}
+
+        # Normalize within tag to prevent runaway weights
+        s = sum(affinity.values())
+        if s > 0:
+            affinity = {k: v / s for k, v in affinity.items()}
+        dim_map[tag_id] = affinity
+
+    return dim_map
 
 
 def _parse_money(value: Any) -> Optional[int]:
@@ -1409,10 +1465,10 @@ def _enforce_communes_and_microhoods(
             }
         )
 
-    # pad to 3 communes if needed
+    # Add remaining communes as candidates for deterministic ranking.
+    # This removes dependency on the LLM-proposed shortlist and prevents
+    # ordering artifacts from the raw city-pack JSON.
     for n in allowed:
-        if len(fixed) >= 3:
-            break
         if n in used:
             continue
 
@@ -1429,8 +1485,8 @@ def _enforce_communes_and_microhoods(
         hint = _as_str(commune.get("watch_out_hint"))
         watch = [hint or "Verify street-level noise/parking before shortlisting."]
 
-        mh_candidates: List[str] = []
-        for mh in (commune.get("microhoods") or []):
+        filtered_all: List[Dict[str, Any]] = []
+        for mh in (commune.get("microhoods_all") or []):
             if not isinstance(mh, dict) or not mh.get("name"):
                 continue
             if _is_landmark_like_microhood(mh):
@@ -1443,10 +1499,42 @@ def _enforce_communes_and_microhoods(
                 continue
             if _belongs_to_other_commune(nm, n):
                 continue
-            if nm not in mh_candidates:
-                mh_candidates.append(nm)
-            if len(mh_candidates) >= 2:
-                break
+            filtered_all.append(mh)
+
+        if not filtered_all:
+            for mh in (commune.get("microhoods") or []):
+                if not isinstance(mh, dict) or not mh.get("name"):
+                    continue
+                if _is_landmark_like_microhood(mh):
+                    continue
+                nm = _as_str(mh.get("name")).strip()
+                if not nm:
+                    continue
+                mapped = microhood_commune.get(_norm_label(nm))
+                if mapped and mapped != n:
+                    continue
+                if _belongs_to_other_commune(nm, n):
+                    continue
+                filtered_all.append(mh)
+
+        commune_for_rank = dict(commune)
+        commune_for_rank["microhoods_all"] = filtered_all
+        ranked_names, microhood_debug = rank_microhoods_for_commune(
+            commune_for_rank,
+            priority_tag_ids=priority_ids,
+            priority_top3_ids=top3_ids,
+            limit=2,
+            diversity=True,
+        )
+
+        mh_candidates: List[str] = [x for x in ranked_names if isinstance(x, str) and x]
+        if len(mh_candidates) < 2:
+            for mh in filtered_all:
+                nm = _as_str(mh.get("name")).strip()
+                if nm and nm not in mh_candidates:
+                    mh_candidates.append(nm)
+                if len(mh_candidates) >= 2:
+                    break
 
         city_label = _as_str(pack.get("city_name") or pack.get("city") or answers.get("city") or "Brussels").strip()
 
@@ -1475,6 +1563,7 @@ def _enforce_communes_and_microhoods(
                 "name": n,
                 "scores": scores,
                 "score_debug": score_debug,
+                "microhood_score_debug": microhood_debug,
                 "why": why,
                 "watch_out": watch,
                 "strengths": strengths,
@@ -1488,17 +1577,16 @@ def _enforce_communes_and_microhoods(
         )
 
 
-    fixed_sorted = sorted(
-        fixed,
-        key=lambda d: (
-            int(d.get("scores", {}).get("Overall", 0)),
-            int(d.get("scores", {}).get("Family", 0)),
-            int(d.get("scores", {}).get("BudgetFit", 0)),
-        ),
-        reverse=True,
+    # Deterministic ranking: primary = profile-weighted match to the user's
+    # selected priorities (top-3 stronger), secondary = Overall consistency.
+    tag_dim_map = _derive_tag_dim_map_from_registry()
+    weights = build_commune_rank_weights(
+        priority_tag_ids=priority_ids,
+        priority_top3_ids=top3_ids,
+        tag_dim_map=tag_dim_map,
     )
-    # Guarantee top-3 sorted by Overall (tie-break Family, BudgetFit)
-    brief["top_districts"] = fixed_sorted[:3]
+    ranked = rank_communes(fixed, weights=weights)
+    brief["top_districts"] = ranked[:3]
     return brief
 
 

@@ -1,0 +1,147 @@
+{
+  "client_profile": "Couple looking to rent an apartment in Brussels. Budget is 2050–3600 EUR/month. Priorities are cafes & brunch, restaurants, and local market feel.",
+  "must_have": [
+    "Minimum 2 rooms in the apartment.",
+    "Proximity to cafes and restaurants.",
+    "Access to local markets."
+  ],
+  "nice_to_have": [
+    "Nearby parks or green spaces.",
+    "Art and cultural venues in the area.",
+    "Good public transport links."
+  ],
+  "red_flags": [
+    "Higher rental prices near popular cafe areas.",
+    "Loud traffic from main streets.",
+    "Limited parking availability in urban zones."
+  ],
+  "contradictions": [
+    "High demand in central areas plus limited parking.",
+    "Expensive rentals with local market vibe.",
+    "Quiet neighborhoods vs. vibrant cafes."
+  ],
+  "top_districts": [
+    {
+      "name": "Schaerbeek",
+      "micro_anchors": [
+        "Plasky",
+        "Parc Josaphat",
+        "Helmet"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Rental prices are competitive due to local markets.",
+        "How to validate: Compare listings near Parc Josaphat."
+      ],
+      "microhoods": [
+        {
+          "name": "Georges Henri",
+          "anchors": [
+            "metro station",
+            "local cafes"
+          ],
+          "portal_keywords": [
+            "Georges Henri apartments",
+            "Schaerbeek rentals",
+            "2 bedroom"
+          ],
+          "street_hints": [
+            "Rue Georges Henri",
+            "Avenue Louis Bertrand"
+          ],
+          "avoid_verify": "noise",
+          "why": "Proximity to local cafes and a strong community vibe.",
+          "watch_out": "Check noise levels from nearby busy streets."
+        },
+        {
+          "name": "Dailly",
+          "anchors": [
+            "Dailly market",
+            "local parks"
+          ],
+          "portal_keywords": [
+            "Dailly apartments",
+            "Schaerbeek rentals",
+            "local feel"
+          ],
+          "street_hints": [
+            "Avenue de la Dailly",
+            "Boulevard de la Ségur"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Local market creates a vibrant, community-focused atmosphere.",
+          "watch_out": "High traffic on main roads can be intense."
+        }
+      ],
+      "why": [
+        "Offers a mix of local markets and vibrant cafes like Plasky.",
+        "Green spaces like Parc Josaphat enhance the living experience."
+      ],
+      "watch_out": [
+        "Very street-by-street; check safety/quietness around your exact block."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 3,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Central rentals can be pricier due to amenities.",
+        "How to validate: Explore listings near the Royal Palace."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "cultural venues",
+            "shopping streets"
+          ],
+          "portal_keywords": [
+            "Industrie Nord apartments",
+            "City rentals",
+            "urban living"
+          ],
+          "street_hints": []
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Universite",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

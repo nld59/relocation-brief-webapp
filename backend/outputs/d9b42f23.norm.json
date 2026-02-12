@@ -1,0 +1,1466 @@
+{
+  "client_profile": "A couple looking to rent an apartment in Brussels, budget 2050–3600 EUR/month. Priorities include cafes, restaurants, and local markets.",
+  "must_have": [
+    "2+ rooms",
+    "Apartment rental",
+    "Proximity to cafes",
+    "Access to markets",
+    "Good public transport"
+  ],
+  "nice_to_have": [
+    "Art galleries nearby",
+    "Green parks",
+    "Cultural attractions",
+    "Vibrant nightlife",
+    "Restaurants within walking distance"
+  ],
+  "red_flags": [
+    "High traffic areas",
+    "Noisy streets",
+    "Lack of local amenities",
+    "Long commute times"
+  ],
+  "contradictions": [
+    "Noise vs. local vibe",
+    "Budget vs. apartment size",
+    "Proximity vs. tranquility",
+    "Cafes vs. quiet streets"
+  ],
+  "questions_for_agent_landlord": [],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total monthly cost: rent + charges + utilities (and what's included).",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking rules/permits and bike/storage options.",
+    "Prepare a rental document pack: ID, proof of income, employer letter, bank statements.",
+    "For the top 2 options, do an evening walk-through to assess noise and safety.",
+    "Clarify contract length, notice period, indexation, and deposit rules.",
+    "Book a second visit with measurements and photos to compare objectively.",
+    "Pre-validate a rental guarantee to move fast on good listings.",
+    "Confirm handover checklist and inventory (appliances/fixtures) in writing."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Appliances/fixtures: inventory list and condition (rental check-in).",
+    "Total budget: rent + charges + utilities + insurance."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "scores": {
+        "Safety": 3,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Etterbeek",
+        "percentiles": {
+          "Safety": 0.5,
+          "Family": 0.9736842105263158,
+          "Commute": 0.8157894736842105,
+          "Lifestyle": 0.8157894736842105
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": 3600,
+          "buy_hi": null,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.8157894736842105,
+          "pressure_penalty": 2,
+          "mode": "rent",
+          "base": 4,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 3,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe",
+          "art_design",
+          "culture_museums"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe"
+        ],
+        "candidates": 5,
+        "selected": [
+          {
+            "name": "Jourdan",
+            "score": 4.0840000000000005,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.9,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.9,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.9,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Saint - Pierre",
+            "score": 2.987,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.721,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 0.756,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 21.22060055396247,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.54,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.06950499277603843,
+                    "percentile": 0.3
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.7,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 21.22060055396247,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.7,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 21.22060055396247,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 6.241353104106609,
+                    "percentile": 0.7
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "strengths": [
+        "Strong international / expat ecosystem and services.",
+        "Very convenient access to the EU Quarter and central corridors.",
+        "Stronger green pockets around Jourdan (parks and calmer streets).",
+        "Plenty of day-to-day amenities (cafés, restaurants) within walking distance."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full monthly cost (rent + charges + utilities)."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center, EU quarter",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for €2,050–€3,600/mo rent in this commune: 2–3BR apartments become realistic in many pockets. Budget fit here is likely tight with tighter supply; always confirm charges and indexation.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Pierre"
+      ],
+      "microhoods": [
+        {
+          "name": "Jourdan",
+          "portal_keywords": [
+            "Jourdan",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; transit access varies street-to-street."
+        },
+        {
+          "name": "Saint-Pierre",
+          "portal_keywords": [
+            "Saint-Pierre",
+            "Saint Pierre",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.999999999999999,
+      "rank": 1,
+      "rank_debug": {
+        "profile_score": 4.999999999999999,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe",
+            "art_design",
+            "culture_museums"
+          ],
+          "top3_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.4,
+            "Commute": 0.0,
+            "Lifestyle": 3.7,
+            "BudgetFit": 0.0
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.09756097560975609,
+            "Commute": 0.0,
+            "Lifestyle": 0.9024390243902438,
+            "BudgetFit": 0.0
+          },
+          "per_tag_contrib": {
+            "cafes_brunch": {
+              "Lifestyle": 1.0
+            },
+            "restaurants": {
+              "Lifestyle": 1.0
+            },
+            "local_market_vibe": {
+              "Lifestyle": 0.6,
+              "Family": 0.4
+            },
+            "art_design": {
+              "Lifestyle": 0.55
+            },
+            "culture_museums": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "Schaerbeek",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Schaerbeek",
+        "percentiles": {
+          "Safety": 0.23684210526315788,
+          "Family": 0.7105263157894737,
+          "Commute": 0.6052631578947368,
+          "Lifestyle": 0.7105263157894737
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": 3600,
+          "buy_hi": null,
+          "premium": false,
+          "central": false,
+          "pressure_percentile": 0.6578947368421053,
+          "pressure_penalty": 1,
+          "mode": "rent",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe",
+          "art_design",
+          "culture_museums"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe"
+        ],
+        "candidates": 11,
+        "selected": [
+          {
+            "name": "Collignon",
+            "score": 3.7286363636363635,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 0.6818,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.6818
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.8818,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.8455,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.6818
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.8182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.6818
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Dailly",
+            "score": 3.514090909090909,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.7727,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 0.9327,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 23.784278933478987,
+                    "percentile": 0.8636
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.6636,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.059733903752833335,
+                    "percentile": 0.5
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.8091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 23.784278933478987,
+                    "percentile": 0.8636
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.8182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 23.784278933478987,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 6.795508266708282,
+                    "percentile": 0.7727
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Schaerbeek has vibrant markets like Dailly and great access to parks.",
+        "The area features excellent transport options, ensuring easy commutes."
+      ],
+      "watch_out": [
+        "Investigate street-by-street, as safety may vary significantly."
+      ],
+      "strengths": [
+        "Balanced option around Schaerbeek with a clear trade-off between space, commute and amenities.",
+        "Reliable public transport coverage for everyday commuting.",
+        "Above-average connectivity for commuting across Brussels.",
+        "Stronger lifestyle density (cafés/amenities) compared with quieter communes."
+      ],
+      "tradeoffs": [
+        "Busier evenings in hotspots; confirm noise levels during a late walk-through."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "local_market_vibe",
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Better value vs central premium areas; more space for the budget.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for €2,050–€3,600/mo rent in this commune: 2–3BR apartments become realistic in many pockets. Budget fit here is workable with trade-offs with moderate competition; always confirm charges and indexation.",
+      "top_microhoods": [
+        "Collignon",
+        "Dailly"
+      ],
+      "microhoods": [
+        {
+          "name": "Collignon",
+          "portal_keywords": [
+            "Collignon",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Dailly",
+          "portal_keywords": [
+            "Dailly",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.999999999999999,
+      "rank": 2,
+      "rank_debug": {
+        "profile_score": 4.999999999999999,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe",
+            "art_design",
+            "culture_museums"
+          ],
+          "top3_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.4,
+            "Commute": 0.0,
+            "Lifestyle": 3.7,
+            "BudgetFit": 0.0
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.09756097560975609,
+            "Commute": 0.0,
+            "Lifestyle": 0.9024390243902438,
+            "BudgetFit": 0.0
+          },
+          "per_tag_contrib": {
+            "cafes_brunch": {
+              "Lifestyle": 1.0
+            },
+            "restaurants": {
+              "Lifestyle": 1.0
+            },
+            "local_market_vibe": {
+              "Lifestyle": 0.6,
+              "Family": 0.4
+            },
+            "art_design": {
+              "Lifestyle": 0.55
+            },
+            "culture_museums": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "City of Brussels",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "City of Brussels",
+        "percentiles": {
+          "Safety": 0.3684210526315789,
+          "Family": 0.5526315789473685,
+          "Commute": 0.7105263157894737,
+          "Lifestyle": 0.7631578947368421
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.3,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": 3600,
+          "buy_hi": null,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.7631578947368421,
+          "pressure_penalty": 1,
+          "mode": "rent",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 4,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe",
+          "art_design",
+          "culture_museums"
+        ],
+        "priority_top3": [
+          "cafes_brunch",
+          "restaurants",
+          "local_market_vibe"
+        ],
+        "candidates": 33,
+        "selected": [
+          {
+            "name": "Grand Place",
+            "score": 3.9787878787878794,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.6455,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.023378643898766156,
+                    "percentile": 0.1364
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.9848,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.9848,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 364.90512021638597,
+                    "percentile": 0.9848
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 98.34322388810402,
+                    "percentile": 0.9848
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Notre - Dame aux Neiges",
+            "score": 3.866969696969697,
+            "coverage_hits": 5,
+            "contributions": [
+              {
+                "tag": "cafes_brunch",
+                "weight": 1.0,
+                "affinity": 0.9327,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 44.531134518621755,
+                    "percentile": 0.8636
+                  }
+                ]
+              },
+              {
+                "tag": "restaurants",
+                "weight": 1.0,
+                "affinity": 0.9982,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 181.55000996053485,
+                    "percentile": 0.9242
+                  }
+                ]
+              },
+              {
+                "tag": "local_market_vibe",
+                "weight": 1.0,
+                "affinity": 0.7061,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 44.531134518621755,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 0.17131868565549904,
+                    "percentile": 0.4697
+                  }
+                ]
+              },
+              {
+                "tag": "art_design",
+                "weight": 0.55,
+                "affinity": 0.8879,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.6,
+                    "raw": 44.531134518621755,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 181.55000996053485,
+                    "percentile": 0.9242
+                  }
+                ]
+              },
+              {
+                "tag": "culture_museums",
+                "weight": 0.55,
+                "affinity": 0.8939,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 181.55000996053485,
+                    "percentile": 0.9242
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 44.531134518621755,
+                    "percentile": 0.8636
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "The City of Brussels boasts rich history and diverse cultural hotspots.",
+        "Great accessibility via public transport connects residents to key areas."
+      ],
+      "watch_out": [
+        "Tourist areas can be crowded; consider the time of year for rental availability."
+      ],
+      "strengths": [
+        "Stronger green pockets around Grand Place (parks and calmer streets).",
+        "Family-oriented pockets around Grand Place with parks/schools within reach."
+      ],
+      "tradeoffs": [
+        "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+        "Check building charges (syndic), EPC, and noise insulation — these vary street-by-street."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "cafes_brunch",
+          "restaurants"
+        ],
+        "medium": [
+          "culture_museums"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Mid-range pricing; specific streets vary a lot.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for €2,050–€3,600/mo rent in this commune: 2–3BR apartments become realistic in many pockets. Budget fit here is workable with trade-offs with moderate competition; always confirm charges and indexation.",
+      "top_microhoods": [
+        "Grand Place",
+        "Notre - Dame aux Neiges"
+      ],
+      "microhoods": [
+        {
+          "name": "Grand Place",
+          "portal_keywords": [
+            "Grand Place",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with strong metro connectivity, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Notre-Dame aux Neiges",
+          "portal_keywords": [
+            "Notre-Dame aux Neiges",
+            "Notre Dame aux Neiges",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.999999999999999,
+      "rank": 3,
+      "rank_debug": {
+        "profile_score": 4.999999999999999,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe",
+            "art_design",
+            "culture_museums"
+          ],
+          "top3_tags": [
+            "cafes_brunch",
+            "restaurants",
+            "local_market_vibe"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.4,
+            "Commute": 0.0,
+            "Lifestyle": 3.7,
+            "BudgetFit": 0.0
+          },
+          "dim_weights": {
+            "Safety": 0.0,
+            "Family": 0.09756097560975609,
+            "Commute": 0.0,
+            "Lifestyle": 0.9024390243902438,
+            "BudgetFit": 0.0
+          },
+          "per_tag_contrib": {
+            "cafes_brunch": {
+              "Lifestyle": 1.0
+            },
+            "restaurants": {
+              "Lifestyle": 1.0
+            },
+            "local_market_vibe": {
+              "Lifestyle": 0.6,
+              "Family": 0.4
+            },
+            "art_design": {
+              "Lifestyle": 0.55
+            },
+            "culture_museums": {
+              "Lifestyle": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Apartment; mode: rent",
+      "Budget (rent): 2050–3600 EUR/month"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: cafes_brunch, restaurants, local_market_vibe.",
+      "Shortlist produced: Etterbeek, Schaerbeek, City of Brussels."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "Etterbeek",
+      "best_for": "Strong international / expat ecosystem and services.",
+      "watch_out": "Prime pockets can be pricey; validate the full monthly cost.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Pierre"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "restaurants"
+      ]
+    },
+    {
+      "name": "Schaerbeek",
+      "best_for": "Balanced option around Schaerbeek with a clear trade-off between space, commute and amenities.",
+      "watch_out": "Busier evenings in hotspots; confirm noise levels during a late walk-through.",
+      "top_microhoods": [
+        "Collignon",
+        "Dailly"
+      ],
+      "keywords": [
+        "local_market_vibe",
+        "cafes_brunch",
+        "restaurants"
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "best_for": "Stronger green pockets around Grand Place.",
+      "watch_out": "Traffic/noise can be noticeable on main arteries; shortlist street-by-street.",
+      "top_microhoods": [
+        "Grand Place",
+        "Notre - Dame aux Neiges"
+      ],
+      "keywords": [
+        "cafes_brunch",
+        "restaurants",
+        "culture_museums"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

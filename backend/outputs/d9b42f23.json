@@ -1,0 +1,160 @@
+{
+  "client_profile": "A couple looking to rent an apartment in Brussels, budget 2050–3600 EUR/month. Priorities include cafes, restaurants, and local markets.",
+  "must_have": [
+    "2+ rooms",
+    "Apartment rental",
+    "Proximity to cafes",
+    "Access to markets",
+    "Good public transport"
+  ],
+  "nice_to_have": [
+    "Art galleries nearby",
+    "Green parks",
+    "Cultural attractions",
+    "Vibrant nightlife",
+    "Restaurants within walking distance"
+  ],
+  "red_flags": [
+    "High traffic areas",
+    "Noisy streets",
+    "Lack of local amenities",
+    "Long commute times"
+  ],
+  "contradictions": [
+    "Noise vs. local vibe",
+    "Budget vs. apartment size",
+    "Proximity vs. tranquility",
+    "Cafes vs. quiet streets"
+  ],
+  "top_districts": [
+    {
+      "name": "Schaerbeek",
+      "micro_anchors": [
+        "Plasky",
+        "Parc Josaphat",
+        "Helmet"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect rents between 1200-2000 EUR near Parc Josaphat.",
+        "How to validate: Check local listings for current prices and unit availability."
+      ],
+      "microhoods": [
+        {
+          "name": "Georges Henri",
+          "anchors": [
+            "Georges Henri metro",
+            "Parc Josaphat"
+          ],
+          "portal_keywords": [
+            "2 bedrooms",
+            "local markets",
+            "cafes nearby"
+          ],
+          "street_hints": [
+            "Near leafy streets",
+            "Close to schools"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Georges Henri features parks and schools, ideal for families or couples.",
+          "watch_out": "Select streets can have more noise due to local traffic."
+        },
+        {
+          "name": "Dailly",
+          "anchors": [
+            "Dailly local market",
+            "Dailly square"
+          ],
+          "portal_keywords": [
+            "apartment rentals",
+            "near transport",
+            "family friendly"
+          ],
+          "street_hints": [
+            "Residential areas",
+            "Good transport links"
+          ],
+          "avoid_verify": "noise",
+          "why": "Dailly offers a market-friendly atmosphere and vibrant local life.",
+          "watch_out": "Busy market days might cause higher foot traffic."
+        }
+      ],
+      "why": [
+        "Schaerbeek has vibrant markets like Dailly and great access to parks.",
+        "The area features excellent transport options, ensuring easy commutes."
+      ],
+      "watch_out": [
+        "Investigate street-by-street, as safety may vary significantly."
+      ],
+      "scores": {}
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect rents between 1600-2500 EUR near Sablon.",
+        "How to validate: Look at listings near major tourist areas for availability."
+      ],
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "anchors": [
+            "Brussels North station",
+            "Royal Palace"
+          ],
+          "portal_keywords": [
+            "high ceilings",
+            "historical buildings",
+            "restaurants nearby"
+          ],
+          "street_hints": [
+            "Central location",
+            "Cultural vibe"
+          ],
+          "avoid_verify": "noise",
+          "why": "Industrie Nord blends modern amenities with historical charm.",
+          "watch_out": "Be mindful of noise from nearby traffic and nightlife."
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ],
+      "why": [
+        "The City of Brussels boasts rich history and diverse cultural hotspots.",
+        "Great accessibility via public transport connects residents to key areas."
+      ],
+      "watch_out": [
+        "Tourist areas can be crowded; consider the time of year for rental availability."
+      ],
+      "scores": {}
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Universite",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}
