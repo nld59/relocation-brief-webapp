@@ -1,119 +1,73 @@
 ```json
 {
-  "client_profile": "Family of three looking to buy an apartment in Barcelona. Budget is 1–700 EUR. Priorities include family-friendly areas and access to cafes.",
-  "must_have": [
-    "2+ rooms",
-    "Family-friendly environment",
-    "Close to schools"
-  ],
-  "nice_to_have": [
-    "Access to parks",
-    "Cafes nearby",
-    "Community of expats"
-  ],
-  "red_flags": [
-    "High property taxes",
-    "Safety concerns in some areas",
-    "Limited public transport options"
-  ],
-  "contradictions": [
-    "Budget may limit school options",
-    "Desire for cafes vs. safety concerns",
-    "Proximity to schools vs. affordability"
+  "client_profile": "Family of 3 seeking to buy a 2+ room apartment in Brussels. Budget 800k–1.2m EUR, prioritizing schools, quietness, and green spaces.",
+  "must_have": ["2+ rooms apartment", "Proximity to schools", "Green spaces nearby", "Quiet residential area"],
+  "nice_to_have": ["Premium finishes", "Family-friendly amenities", "Easy access to parks"],
+  "red_flags": ["Higher prices in popular family areas", "Limited nearby nightlife options", "Potential noise in urban areas"],
+  "contradictions": ["Seeking tranquility yet wants school proximity", "Budget stretches for prime areas with parks", "Family-friendly yet prefers premium quality"],
+  "questions_for_agent_landlord": [
+    "What is the average price per square meter in the area?",
+    "How close are the nearest schools?",
+    "What are the local green spaces like?",
+    "How noisy is the neighborhood?",
+    "What is the public transport situation?"
   ],
   "top_districts": [
     {
-      "name": "Gracia",
-      "micro_anchors": [
-        "Plaza Diamant",
-        "Vila de Gracia",
-        "Joanic Metro"
-      ],
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": ["Stockel", "Montgomery area", "Parc de Woluwe edge"],
       "budget_reality": [
-        "Rule of thumb: Expect prices around 1,000 EUR/sqm.",
-        "How to validate: Check listings on local real estate platforms."
+        "Rule of thumb: Homes here can reach 1.5m EUR for larger apartments.",
+        "How to validate: Check market rates using local property listings."
       ],
       "microhoods": [
         {
-          "name": "Vila de Gracia",
-          "anchors": [
-            "Plaza del Sol",
-            "Casa Ramos"
-          ],
-          "portal_keywords": [
-            "cafes",
-            "expat community",
-            "family parks"
-          ],
-          "street_hints": [
-            "Look for quieter stretches",
-            "Check near local schools"
-          ],
+          "name": "Saint - Paul",
+          "anchors": ["Parc de Woluwe", "Square de l'Altitude750"],
+          "portal_keywords": ["school proximity", "quiet apartments", "green neighborhoods"],
+          "street_hints": ["Look for streets off main roads.", "Focus on areas near playgrounds."],
           "avoid_verify": "noise",
-          "why": "Vila de Gracia offers a vibrant atmosphere and community parks.",
-          "watch_out": "Expect some areas to be noisy during weekends and holidays."
+          "why": "Offers excellent schools with nearby parks like Parc de Woluwe.",
+          "watch_out": "House-focused pockets are pricey; fewer nightlife options available."
         },
         {
-          "name": "Ronda de Dalt",
-          "anchors": [
-            "Carrer Gran de Gracia",
-            "Gracia Metro"
-          ],
-          "portal_keywords": [
-            "family apartments",
-            "expat friendly",
-            "central location"
-          ],
-          "street_hints": [
-            "Explore side streets for hidden gems",
-            "Check public transport routes"
-          ],
+          "name": "Chant D’oiseau",
+          "anchors": ["Parc de Woluwe", "Stockel Square"],
+          "portal_keywords": ["family-friendly", "quiet living", "green surroundings"],
+          "street_hints": ["Check residential streets for space.", "Focus on proximity to schools."],
           "avoid_verify": "traffic",
-          "why": "Ronda de Dalt is well-connected and rich in cafes and restaurants.",
-          "watch_out": "Heavy traffic during rush hours."
+          "why": "Features serene environment with good access to schools.",
+          "watch_out": "House styles dominate; apartments can be sparse."
         }
       ],
       "why": [
-        "Easy access to parks like Parque de la Creueta del Coll.",
-        "Vibrant expat community and numerous cafes along Gran de Gracia."
+        "Family-oriented area near schools and green spaces.",
+        "Safe environment well-connected by public transport."
       ],
       "watch_out": [
-        "Property prices can be above budget in popular pockets."
+        "Real estate prices can be above average."
       ],
       "scores": {
         "Safety": 4,
-        "Family": 5,
-        "Commute": 5,
-        "Lifestyle": 5,
+        "Family": 4,
+        "Commute": 3,
+        "Lifestyle": 4,
         "BudgetFit": 2,
         "Overall": 4
       }
     },
     {
-      "name": "Eixample",
-      "micro_anchors": [
-        "Plaza Catalunya",
-        "Passeig de Gracia",
-        "Diagonal Metro"
-      ],
+      "name": "Auderghem",
+      "micro_anchors": ["Herrmann-Debroux", "Rouge-Cloitre", "Val Duchesse edge"],
       "budget_reality": [
-        "Rule of thumb: Expect higher prices at 1,200 EUR/sqm.",
-        "How to validate: Use recent sales data for comparison."
+        "Rule of thumb: Prices are competitive, especially for family homes.",
+        "How to validate: Research listings on trusted real estate websites."
       ],
       "microhoods": [
         {
-          "name": "Dreta de l'Eixample",
-          "anchors": [
-            "Casa Batlló",
-            "Passeig de Gracia"
-          ],
-          "portal_keywords": [
-            "luxury apartments",
-            "metro access",
-            "family homes"
-          ],
-          "street_hints": [
-            "Focus on streets away from main avenues",
-            "Look for corner apartments"
-          ],
-          "avoid_verify":
+          "name": "Foret de Soignes",
+          "anchors": ["Sonian Forest", "Parc de la Woluwe"],
+          "portal_keywords": ["quiet neighborhoods", "family apartments", "park access"],
+          "street_hints": ["Seek streets adjacent to parks.", "Explore routes to schools on foot."],
+          "avoid_verify": "commute",
+          "why": "Adjacent to extensive green spaces

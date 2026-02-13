@@ -1,0 +1,148 @@
+{
+  "client_profile": "Couple in Brussels looking to buy 3+ room apartment. Budget is 800k–1.2m EUR. Priorities include schools, quiet areas, and parks.",
+  "must_have": [
+    "3+ rooms in an apartment",
+    "Access to strong schools",
+    "Quiet and calm environment"
+  ],
+  "nice_to_have": [
+    "Green parks nearby",
+    "Central access to amenities",
+    "Family-friendly community"
+  ],
+  "red_flags": [
+    "High noise levels in urban areas",
+    "Limited available properties within budget",
+    "Long commute times to schools"
+  ],
+  "contradictions": [
+    "Desire for quiet vs. central access",
+    "Preference for apartments vs. family homes",
+    "Budget constraints vs. desired features"
+  ],
+  "questions_for_agent_landlord": [
+    "What is the average cost of living in this area?",
+    "Are there noise restrictions in place?",
+    "How is the school performance in this district?",
+    "What are the traffic patterns during school hours?",
+    "How are property values expected to change in the coming years?"
+  ],
+  "top_districts": [
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Properties tend to be above average due to demand.",
+        "How to validate: Analyze recent sales to gauge price trends."
+      ],
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "anchors": [
+            "Parc de Woluwe",
+            "Montgomery metro"
+          ],
+          "portal_keywords": [
+            "quiet residential",
+            "family apartments",
+            "green space"
+          ],
+          "street_hints": [
+            "Choose streets away from main roads",
+            "Look for apartment buildings with gardens"
+          ],
+          "avoid_verify": "noise",
+          "why": "Offers proximity to Parc de Woluwe for outdoor activities.",
+          "watch_out": "House-focused pockets are pricey; fewer nightlife options."
+        },
+        {
+          "name": "Chant D’oiseau",
+          "anchors": [
+            "Green parks",
+            "Local schools"
+          ],
+          "portal_keywords": [
+            "school access",
+            "calm neighborhoods",
+            "family-friendly"
+          ],
+          "street_hints": [
+            "Seek out cul-de-sacs",
+            "Choose quieter side streets"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Adjacent to multiple green spaces ideal for families.",
+          "watch_out": "Check traffic patterns during school drop-off hours."
+        }
+      ],
+      "why": [
+        "Quiet streets provide a calm atmosphere ideal for families.",
+        "Excellent school access enhances educational opportunities."
+      ],
+      "watch_out": [
+        "House-focused pockets can stretch budgets significantly."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Auderghem",
+      "micro_anchors": [
+        "Herrmann-Debroux",
+        "Rouge-Cloitre",
+        "Val Duchesse edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices are reasonable for spacious homes.",
+        "How to validate: Compare listings on various property portals."
+      ],
+      "microhoods": [
+        {
+          "name": "Foret de Soignes",
+          "anchors": [
+            "Soignes Forest",
+            "Public parks"
+          ]
+        },
+        {
+          "name": "Watermael Centre",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chasse",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

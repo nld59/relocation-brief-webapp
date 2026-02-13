@@ -21,6 +21,13 @@
     "Budget stretches for prime areas with parks",
     "Family-friendly yet prefers premium quality"
   ],
+  "questions_for_agent_landlord": [
+    "What is the average price per square meter in the area?",
+    "How close are the nearest schools?",
+    "What are the local green spaces like?",
+    "How noisy is the neighborhood?",
+    "What is the public transport situation?"
+  ],
   "top_districts": [
     {
       "name": "Woluwe-Saint-Pierre",
@@ -81,12 +88,12 @@
         "Real estate prices can be above average."
       ],
       "scores": {
-        "Safety": 5,
-        "Family": 5,
-        "Commute": 4,
+        "Safety": 4,
+        "Family": 4,
+        "Commute": 3,
         "Lifestyle": 4,
-        "BudgetFit": 3,
-        "Overall": 5
+        "BudgetFit": 2,
+        "Overall": 4
       }
     },
     {
@@ -117,62 +124,37 @@
             "Explore routes to schools on foot."
           ],
           "avoid_verify": "commute",
-          "why": "Adjacent to extensive green spaces like Sonian Forest.",
-          "watch_out": "Some areas feel suburban; check commute to city center."
+          "why": "Adjacent to extensive green spaces."
         },
         {
           "name": "Watermael Centre",
-          "anchors": [
-            "Parc de la Woluwe",
-            "Auderghem metro station"
-          ],
-          "portal_keywords": [
-            "family-friendly",
-            "green living",
-            "school access"
-          ],
-          "street_hints": [
-            "Opt for streets close to public transport.",
-            "Focus on local schools and amenities."
-          ],
-          "avoid_verify": "traffic",
-          "why": "Strong family presence with access to good schools.",
-          "watch_out": "Commute times vary depending on the street chosen."
+          "why": "",
+          "watch_out": ""
         }
-      ],
-      "why": [
-        "Enjoys family-friendly atmosphere with ample parks nearby.",
-        "Quiet residential streets ideal for families."
-      ],
-      "watch_out": [
-        "Suburban areas may limit access to nightlife."
-      ],
-      "scores": {
-        "Safety": 5,
-        "Family": 5,
-        "Commute": 4,
-        "Lifestyle": 3,
-        "BudgetFit": 4,
-        "Overall": 5
-      }
+      ]
     },
     {
-      "name": "Woluwe-Saint-Lambert",
+      "name": "Koekelberg",
       "micro_anchors": [
-        "Roodebeek",
-        "Tomberg",
-        "Woluwe Shopping area"
+        "Basilica area",
+        "Simonis edge",
+        "Parc Elisabeth edge"
       ],
-      "budget_reality": [
-        "Rule of thumb: Prices can be steep in popular family zones.",
-        "How to validate: Check multiple listings to gauge market average."
-      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
       "microhoods": [
         {
-          "name": "Val D’or",
-          "anchors": [
-            "Woluwe Shopping Centre",
-            "Roodebeek metro station"
-          ],
-          "portal_keywords": [
-            "
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Koekelberg",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

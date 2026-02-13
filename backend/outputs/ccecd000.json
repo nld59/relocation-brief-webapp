@@ -1,0 +1,155 @@
+{
+  "client_profile": "Couple in Brussels looking to buy a 2+ room home. Budget is 3500–4500 EUR. Priorities include cafes, quiet areas, and family-friendly spaces.",
+  "must_have": [
+    "Minimum 2 rooms for comfort and space.",
+    "Access to cafes and brunch spots local to community.",
+    "Residential areas that offer a quiet environment."
+  ],
+  "nice_to_have": [
+    "Proximity to family-friendly parks and recreation.",
+    "Nightlife options for social engagement.",
+    "Mixed vibes with a blend of cultural offerings."
+  ],
+  "red_flags": [
+    "High noise levels in central locations may disrupt peace.",
+    "Potential budget overruns in premium residential areas.",
+    "Commute times could increase significantly without a car."
+  ],
+  "contradictions": [
+    "Desiring quiet living yet interested in nightlife options.",
+    "Seeking residential areas may limit proximity to cafes.",
+    "Wanting a family-friendly neighborhood may restrict budget."
+  ],
+  "top_districts": [
+    {
+      "name": "Uccle",
+      "micro_anchors": [
+        "Fort Jaco",
+        "Prince d'Orange",
+        "Vivier d'Oie"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect pricing to be higher near parks.",
+        "How to validate: Check listings around Fort Jaco for budget fit."
+      ],
+      "microhoods": [
+        {
+          "name": "Vivier D’oie",
+          "anchors": [
+            "Foret de Soignes",
+            "Local cafes"
+          ],
+          "portal_keywords": [
+            "quiet residential",
+            "café access",
+            "family-friendly",
+            "green spaces"
+          ],
+          "street_hints": [
+            "Near local schools.",
+            "Access via main roads."
+          ],
+          "avoid_verify": "traffic",
+          "why": "Vivier D’oie offers close access to green parks and quiet neighborhoods.",
+          "watch_out": "Traffic can increase commute times during peak hours."
+        },
+        {
+          "name": "Kalevoet - Moensberg",
+          "anchors": [
+            "Bus stations",
+            "Parks"
+          ],
+          "portal_keywords": [
+            "spacious homes",
+            "quiet streets",
+            "local cafes",
+            "family activities"
+          ],
+          "street_hints": [
+            "Well-connected bus routes.",
+            "Quiet cul-de-sacs available."
+          ],
+          "avoid_verify": "parking",
+          "why": "Kalevoet focus is on family-friendly amenities and access to local parks.",
+          "watch_out": "Parking availability can be difficult on weekends."
+        }
+      ],
+      "why": [
+        "Uccle is renowned for its quiet streets and family-friendly parks.",
+        "The area features a mix of residential and green spaces around Fort Jaco."
+      ],
+      "watch_out": [
+        "Commute can be slower without a car; some pockets stretch budgets."
+      ],
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 3,
+        "Lifestyle": 4,
+        "BudgetFit": 3,
+        "Overall": 4
+      }
+    },
+    {
+      "name": "Woluwe-Saint-Lambert",
+      "micro_anchors": [
+        "Roodebeek",
+        "Tomberg",
+        "Woluwe Shopping area"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Average prices near Woluwe Shopping can be high.",
+        "How to validate: Browse listings around Roodebeek for budget compliance."
+      ],
+      "microhoods": [
+        {
+          "name": "Kapelleveld",
+          "anchors": [
+            "Metro station",
+            "Local parks"
+          ],
+          "portal_keywords": [
+            "family-friendly",
+            "green areas",
+            "public transport access"
+          ],
+          "street_hints": [
+            "Close to local amenities.",
+            "Walking distance to shops."
+          ],
+          "avoid_verify": "crowds",
+          "why": "Kapelleveld is ideal for families, with a good balance of amenities.",
+          "watch_out": "Crowded areas near shopping centers can be busy."
+        },
+        {
+          "name": "Val D’or",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "Woluwe-Saint-Pierre",
+      "micro_anchors": [
+        "Stockel",
+        "Montgomery area",
+        "Parc de Woluwe edge"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Saint - Paul",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Chant D’oiseau",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

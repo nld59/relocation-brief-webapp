@@ -1,0 +1,1832 @@
+{
+  "client_profile": "Family of 3 seeking to buy a 2+ room apartment in Brussels. Budget 800k–1.2m EUR, prioritizing schools, quietness, and green spaces.",
+  "must_have": [
+    "2+ rooms apartment",
+    "Proximity to schools",
+    "Green spaces nearby",
+    "Quiet residential area"
+  ],
+  "nice_to_have": [
+    "Premium finishes",
+    "Family-friendly amenities",
+    "Easy access to parks"
+  ],
+  "red_flags": [
+    "Higher prices in popular family areas",
+    "Limited nearby nightlife options",
+    "Potential noise in urban areas"
+  ],
+  "contradictions": [
+    "Seeking tranquility yet wants school proximity",
+    "Budget stretches for prime areas with parks",
+    "Family-friendly yet prefers premium quality"
+  ],
+  "questions_for_agent_landlord": [
+    "What is the average price per square meter in the area?",
+    "How close are the nearest schools?",
+    "What are the local green spaces like?",
+    "How noisy is the neighborhood?",
+    "What is the public transport situation?"
+  ],
+  "next_steps": [
+    "Shortlist 8–12 listings across the 3 communes and set up viewings.",
+    "Confirm total purchase cost: price + notary/registration fees + recurring charges.",
+    "Validate commute: run one test route at peak hours (public transport and by car if relevant).",
+    "Ask about parking (permit vs private spot), storage, and building rules.",
+    "Prepare a document pack for offers: ID, proof of funds/pre-approval, and key questions for the seller.",
+    "Request EPC, urbanism/permit docs, and recent syndic/HOA minutes before committing.",
+    "Do an evening walk-through for your top 2 choices to assess noise and street feel.",
+    "Plan your notary steps and financing timeline; align deed date with your move plan.",
+    "Book a second visit with measurements/photos to compare objectively.",
+    "If needed, line up a survey/technical inspection for building issues."
+  ],
+  "clarifying_questions": [],
+  "viewing_checklist": [
+    "Noise: check windows closed/open, street vs courtyard orientation.",
+    "Heating & insulation: type, EPC score, drafts, humidity/mold signs.",
+    "Charges: what's included (common areas, heating, water) and past statements.",
+    "Building works: planned renovations, roof/façade, lift, syndic notes.",
+    "Internet/cell coverage: quick speed test on site.",
+    "Storage: cellar, bike room, stroller access, elevator size.",
+    "Parking: permit eligibility, private spot, guest parking, EV charging.",
+    "Safety basics: entrance, lighting, intercom, visibility at night.",
+    "Documents: EPC, urbanism/permit info, recent syndic/HOA minutes.",
+    "Total budget: mortgage + recurring charges + utilities + insurance + taxes."
+  ],
+  "offer_strategy": [
+    "Move quickly on strong listings: good units can disappear within days.",
+    "Clarify conditions (financing, sale of current property) early; keep them realistic.",
+    "Ask for EPC, urbanism info, and syndic documents before committing (buying).",
+    "Confirm timelines: offer validity, deed date (buying) or move-in date (renting).",
+    "Negotiate on total package: included furniture, repairs, parking spot, charges."
+  ],
+  "relocation_essentials": {
+    "first_72h": [
+      "Set up a local SIM / data plan and enable 2FA for banking.",
+      "Confirm temporary address and keep copies of the lease / purchase agreement.",
+      "Book commune appointment for registration (as soon as address is confirmed)."
+    ],
+    "first_2_weeks": [
+      "Register at the commune (address registration); follow up on police check if required.",
+      "Choose a GP (médecin généraliste) and register with a mutualité (health fund).",
+      "Arrange energy + internet contracts if not included (electricity/gas/internet).",
+      "If you have a child: shortlist daycare/schools and start the application process."
+    ],
+    "first_2_months": [
+      "Set up a Belgian bank account if needed and update payroll details.",
+      "Review insurance (home contents, liability); confirm coverage start date.",
+      "If driving: confirm parking permit process, resident rules, and any LEZ requirements."
+    ]
+  },
+  "registration_checklist": [
+    "Valid passport/ID + visa/residence documents (if applicable).",
+    "Proof of address: signed lease / deed / housing attestation.",
+    "Civil status docs if relevant (marriage/birth certificates) — bring originals and copies.",
+    "Work proof: contract or employer letter (useful for some registrations).",
+    "Keep digital scans of all documents and a folder for commune appointments.",
+    "Confirm appointment booking channel (commune website/IRISbox when applicable) and required forms."
+  ],
+  "top_districts": [
+    {
+      "name": "Jette",
+      "scores": {
+        "Safety": 4,
+        "Family": 5,
+        "Commute": 4,
+        "Lifestyle": 4,
+        "BudgetFit": 4,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Jette",
+        "percentiles": {
+          "Safety": 0.7894736842105263,
+          "Family": 0.868421052631579,
+          "Commute": 0.5,
+          "Lifestyle": 0.6578947368421053
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.4,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.0,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 800000,
+          "premium": false,
+          "central": false,
+          "pressure_percentile": 0.5,
+          "pressure_penalty": 0,
+          "mode": "buy",
+          "base": 4,
+          "final": 4
+        },
+        "scores": {
+          "Safety": 4,
+          "Family": 5,
+          "Commute": 4,
+          "Lifestyle": 4,
+          "BudgetFit": 4,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks",
+          "residential_quiet",
+          "premium_feel",
+          "families"
+        ],
+        "priority_top3": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks"
+        ],
+        "candidates": 3,
+        "selected": [
+          {
+            "name": "Parc Baudouin - Dielegembos",
+            "score": 2.8775000000000004,
+            "coverage_hits": 3,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 0.1667,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 6.227180463177768,
+                    "percentile": 0.1667
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.8333,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 0.0,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 2.688521588114632,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.9,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 2.688521588114632,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 1.2952193712767381,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.8333,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 0.0,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 2.688521588114632,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.3,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 0.0,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 2.075726821059256,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.3333
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.4167,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 6.227180463177768,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.3333
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 2.688521588114632,
+                    "percentile": 0.8333
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Woeste",
+            "score": 2.256666666666667,
+            "coverage_hits": 3,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 0.9,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 15.111442303968325,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.1667,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 6.611256007986142,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 10.389116583978224,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.03492668963228419,
+                    "percentile": 0.1667
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.1667,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.03492668963228419,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0369803902814622,
+                    "percentile": 0.1667
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.1667,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 6.611256007986142,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 10.389116583978224,
+                    "percentile": 0.1667
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.03492668963228419,
+                    "percentile": 0.1667
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.8333,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 10.389116583978224,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 3.777860575992081,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.9444651439980203,
+                    "percentile": 0.8333
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.6333,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 15.111442303968325,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.9444651439980203,
+                    "percentile": 0.8333
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.03492668963228419,
+                    "percentile": 0.1667
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Transit is good but depends on pocket; check last-mile walkability."
+      ],
+      "strengths": [
+        "Calmer, more residential pockets around Parc Baudouin - Dielegembos compared with busier hubs.",
+        "Family-oriented pockets around Parc Baudouin - Dielegembos with parks/schools within reach.",
+        "Reliable public transport coverage for everyday commuting.",
+        "Above-average connectivity for commuting across Brussels."
+      ],
+      "tradeoffs": [
+        "Verify street-level noise/parking and building condition during viewings."
+      ],
+      "matched_priorities": {
+        "strong": [],
+        "medium": [
+          "families",
+          "residential_quiet"
+        ]
+      },
+      "priority_snapshot": {
+        "housing_cost": "Better value vs central premium areas; more space for the budget.",
+        "transit": "tram coverage, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €12–€800,000 purchase in this commune: target 2–3BR, depending on condition/building age. Budget fit here is generally workable with more options; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Parc Baudouin - Dielegembos",
+        "Woeste"
+      ],
+      "microhoods": [
+        {
+          "name": "Parc Baudouin-Dielegembos",
+          "portal_keywords": [
+            "Parc Baudouin-Dielegembos",
+            "Parc Baudouin Dielegembos",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density. Watch for street-to-street variation-validate exact address."
+        },
+        {
+          "name": "Woeste",
+          "portal_keywords": [
+            "Woeste",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.61505376344086,
+      "rank": 1,
+      "rank_debug": {
+        "profile_score": 4.61505376344086,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks",
+            "residential_quiet",
+            "premium_feel",
+            "families"
+          ],
+          "top3_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.651,
+            "Family": 2.8600000000000003,
+            "Commute": 0.04782608695652174,
+            "Lifestyle": 0.8520434782608695,
+            "BudgetFit": 0.23913043478260868
+          },
+          "dim_weights": {
+            "Safety": 0.13999999999999999,
+            "Family": 0.6150537634408603,
+            "Commute": 0.010285179990649837,
+            "Lifestyle": 0.18323515661524073,
+            "BudgetFit": 0.05142589995324917
+          },
+          "per_tag_contrib": {
+            "schools_strong": {
+              "Family": 1.0
+            },
+            "older_quiet": {
+              "Safety": 0.42,
+              "Lifestyle": 0.38,
+              "Family": 0.2
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "residential_quiet": {
+              "Safety": 0.231,
+              "Lifestyle": 0.20900000000000002,
+              "Family": 0.11000000000000001
+            },
+            "premium_feel": {
+              "Lifestyle": 0.26304347826086955,
+              "Commute": 0.04782608695652174,
+              "BudgetFit": 0.23913043478260868
+            },
+            "families": {
+              "Family": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "Etterbeek",
+      "scores": {
+        "Safety": 3,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 2,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Etterbeek",
+        "percentiles": {
+          "Safety": 0.5,
+          "Family": 0.9736842105263158,
+          "Commute": 0.8157894736842105,
+          "Lifestyle": 0.8157894736842105
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.0,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 800000,
+          "premium": false,
+          "central": true,
+          "pressure_percentile": 0.8157894736842105,
+          "pressure_penalty": 2,
+          "mode": "buy",
+          "base": 3,
+          "final": 2
+        },
+        "scores": {
+          "Safety": 3,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 2,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks",
+          "residential_quiet",
+          "premium_feel",
+          "families"
+        ],
+        "priority_top3": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks"
+        ],
+        "candidates": 5,
+        "selected": [
+          {
+            "name": "Jourdan",
+            "score": 3.426666666666667,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.26,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.1
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.1
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.972,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.2607211174168198,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.26,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.1
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.1
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.76,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 66.3978868286156,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 10.767224891126855,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.9,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 17.945374818544757,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 5.383612445563427,
+                    "percentile": 0.9
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.4678738175154649,
+                    "percentile": 0.9
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Saint - Michel",
+            "score": 2.5857,
+            "coverage_hits": 3,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 0.3,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 9.668263693051854,
+                    "percentile": 0.3
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.66,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 5.524722110315345,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 19.336527386103707,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.10097618794137392,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.6592,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.10097618794137392,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.07310860957356663,
+                    "percentile": 0.5
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.66,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 5.524722110315345,
+                    "percentile": 0.7
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 19.336527386103707,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.10097618794137392,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.48,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 19.336527386103707,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 1.3811805275788362,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 1.3811805275788362,
+                    "percentile": 0.7
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.39,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 9.668263693051854,
+                    "percentile": 0.3
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.2
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.10097618794137392,
+                    "percentile": 0.7
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; traffic around main axes."
+      ],
+      "strengths": [
+        "Strong international / expat ecosystem and services.",
+        "Very convenient access to the EU Quarter and central corridors.",
+        "Stronger green pockets around Jourdan (parks and calmer streets).",
+        "Plenty of day-to-day amenities (cafés, restaurants) within walking distance."
+      ],
+      "tradeoffs": [
+        "Prime pockets can be pricey; validate the full purchase cost (price + fees + recurring charges)."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "green_parks",
+          "schools_strong"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Higher cost; budget may feel tight in prime streets.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "city center, EU quarter",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €12–€800,000 purchase in this commune: target 2–3BR, depending on condition/building age. Budget fit here is likely tight with tighter supply; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Michel"
+      ],
+      "microhoods": [
+        {
+          "name": "Jourdan",
+          "portal_keywords": [
+            "Jourdan",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets; transit access varies street-to-street."
+        },
+        {
+          "name": "Saint-Michel",
+          "portal_keywords": [
+            "Saint-Michel",
+            "Saint Michel",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, strong metro connectivity, solid schools/childcare density. Watch for busier evenings in lively pockets."
+        }
+      ],
+      "profile_score": 4.565722300140253,
+      "rank": 2,
+      "rank_debug": {
+        "profile_score": 4.565722300140253,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks",
+            "residential_quiet",
+            "premium_feel",
+            "families"
+          ],
+          "top3_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.651,
+            "Family": 2.8600000000000003,
+            "Commute": 0.04782608695652174,
+            "Lifestyle": 0.8520434782608695,
+            "BudgetFit": 0.23913043478260868
+          },
+          "dim_weights": {
+            "Safety": 0.13999999999999999,
+            "Family": 0.6150537634408603,
+            "Commute": 0.010285179990649837,
+            "Lifestyle": 0.18323515661524073,
+            "BudgetFit": 0.05142589995324917
+          },
+          "per_tag_contrib": {
+            "schools_strong": {
+              "Family": 1.0
+            },
+            "older_quiet": {
+              "Safety": 0.42,
+              "Lifestyle": 0.38,
+              "Family": 0.2
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "residential_quiet": {
+              "Safety": 0.231,
+              "Lifestyle": 0.20900000000000002,
+              "Family": 0.11000000000000001
+            },
+            "premium_feel": {
+              "Lifestyle": 0.26304347826086955,
+              "Commute": 0.04782608695652174,
+              "BudgetFit": 0.23913043478260868
+            },
+            "families": {
+              "Family": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    },
+    {
+      "name": "Schaerbeek",
+      "scores": {
+        "Safety": 2,
+        "Family": 5,
+        "Commute": 5,
+        "Lifestyle": 5,
+        "BudgetFit": 3,
+        "Overall": 4
+      },
+      "score_debug": {
+        "name": "Schaerbeek",
+        "percentiles": {
+          "Safety": 0.23684210526315788,
+          "Family": 0.7105263157894737,
+          "Commute": 0.6052631578947368,
+          "Lifestyle": 0.7105263157894737
+        },
+        "tag_adjustments": {
+          "safety_bonus": 0.0,
+          "safety_pen": 0.5,
+          "commute_bonus": 0.3,
+          "commute_pen": 0.0,
+          "lifestyle_bonus": 0.2,
+          "family_bonus": 0.3
+        },
+        "budget": {
+          "rent_hi": null,
+          "buy_hi": 800000,
+          "premium": false,
+          "central": false,
+          "pressure_percentile": 0.6578947368421053,
+          "pressure_penalty": 1,
+          "mode": "buy",
+          "base": 4,
+          "final": 3
+        },
+        "scores": {
+          "Safety": 2,
+          "Family": 5,
+          "Commute": 5,
+          "Lifestyle": 5,
+          "BudgetFit": 3,
+          "Overall": 4
+        },
+        "model": {
+          "dimensions": {
+            "Safety": {
+              "signals": [
+                "safety_index (city-pack)",
+                "quiet/residential tags",
+                "nightlife/traffic penalties"
+              ]
+            },
+            "Family": {
+              "signals": [
+                "family_index (city-pack)",
+                "parks/schools/childcare tags",
+                "household with kids boost"
+              ]
+            },
+            "Commute": {
+              "signals": [
+                "commute_index (city-pack)",
+                "metro/tram/train tags",
+                "traffic penalty when not car-friendly"
+              ]
+            },
+            "Lifestyle": {
+              "signals": [
+                "lifestyle_index (city-pack)",
+                "cafes/restaurants/culture tags"
+              ]
+            },
+            "BudgetFit": {
+              "signals": [
+                "your stated rent/buy budget",
+                "premium/central preference tags",
+                "commune cost-pressure proxy (lifestyle + 0.8*commute percentile)"
+              ]
+            }
+          },
+          "overall": "Overall = round( (Safety + Family + Commute + Lifestyle + BudgetFit) / 5 )",
+          "scale": {
+            "5": "consistently strong across most pockets",
+            "3": "mixed; street-by-street variation",
+            "2": "often requires trade-offs"
+          }
+        }
+      },
+      "microhood_score_debug": {
+        "weights": {
+          "top3": 1.0,
+          "other": 0.55,
+          "coverage_bonus_max": 0.25
+        },
+        "priority_tags": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks",
+          "residential_quiet",
+          "premium_feel",
+          "families"
+        ],
+        "priority_top3": [
+          "schools_strong",
+          "older_quiet",
+          "green_parks"
+        ],
+        "candidates": 11,
+        "selected": [
+          {
+            "name": "Collignon",
+            "score": 3.381666666666667,
+            "coverage_hits": 4,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 1.0,
+                "confidence": "high",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.9545
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.4091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 9.08896790799315,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.7959,
+                "confidence": "medium",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.069907807091678,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.4091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 9.08896790799315,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.7182,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.6818
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 15.581087842273968,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.4545
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.7091,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 16.879511829130134,
+                    "percentile": 0.9545
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.09076997359634817,
+                    "percentile": 0.7727
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Terdelt",
+            "score": 3.0647727272727274,
+            "coverage_hits": 3,
+            "contributions": [
+              {
+                "tag": "schools_strong",
+                "weight": 1.0,
+                "affinity": 0.5909,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 1.0,
+                    "raw": 5.908356693097595,
+                    "percentile": 0.5909
+                  }
+                ]
+              },
+              {
+                "tag": "older_quiet",
+                "weight": 1.0,
+                "affinity": 0.7545,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 0.0,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 10.339624212920791,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.09063236118895864,
+                    "percentile": 0.6818
+                  }
+                ]
+              },
+              {
+                "tag": "green_parks",
+                "weight": 1.0,
+                "affinity": 0.6818,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.7,
+                    "raw": 0.09063236118895864,
+                    "percentile": 0.6818
+                  },
+                  {
+                    "metric": "parks_km2",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.06135876074972887,
+                    "percentile": 0.6818
+                  }
+                ]
+              },
+              {
+                "tag": "residential_quiet",
+                "weight": 0.55,
+                "affinity": 0.7545,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "bars_density",
+                    "direction": "low",
+                    "weight": 0.6,
+                    "raw": 0.0,
+                    "percentile": 0.8636
+                  },
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "low",
+                    "weight": 0.2,
+                    "raw": 10.339624212920791,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.09063236118895864,
+                    "percentile": 0.6818
+                  }
+                ]
+              },
+              {
+                "tag": "premium_feel",
+                "weight": 0.55,
+                "affinity": 0.3682,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "restaurants_density",
+                    "direction": "high",
+                    "weight": 0.5,
+                    "raw": 10.339624212920791,
+                    "percentile": 0.5
+                  },
+                  {
+                    "metric": "cafes_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.0909
+                  },
+                  {
+                    "metric": "metro_density",
+                    "direction": "high",
+                    "weight": 0.2,
+                    "raw": 0.0,
+                    "percentile": 0.4545
+                  }
+                ]
+              },
+              {
+                "tag": "families",
+                "weight": 0.55,
+                "affinity": 0.5364,
+                "confidence": "n/a",
+                "signals": [
+                  {
+                    "metric": "schools_density",
+                    "direction": "high",
+                    "weight": 0.4,
+                    "raw": 5.908356693097595,
+                    "percentile": 0.5909
+                  },
+                  {
+                    "metric": "childcare_density",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.0,
+                    "percentile": 0.3182
+                  },
+                  {
+                    "metric": "parks_share",
+                    "direction": "high",
+                    "weight": 0.3,
+                    "raw": 0.09063236118895864,
+                    "percentile": 0.6818
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "why": [
+        "Strong fit for your stated priorities.",
+        "Balanced trade-off between lifestyle and commute."
+      ],
+      "watch_out": [
+        "Very street-by-street; check safety/quietness around your exact block."
+      ],
+      "strengths": [
+        "Balanced option around Schaerbeek with a clear trade-off between space, commute and amenities.",
+        "Stronger lifestyle density (cafés/amenities) compared with quieter communes."
+      ],
+      "tradeoffs": [
+        "Busier evenings in hotspots; confirm noise levels during a late walk-through."
+      ],
+      "matched_priorities": {
+        "strong": [
+          "schools_strong"
+        ],
+        "medium": []
+      },
+      "priority_snapshot": {
+        "housing_cost": "Better value vs central premium areas; more space for the budget.",
+        "transit": "metro access, tram coverage, near train links",
+        "commute_access": "depends on address; check travel times",
+        "schools_family": "generally family-friendly; parks/schools are a key advantage"
+      },
+      "budget_reality": "Rule of thumb for a €12–€800,000 purchase in this commune: target 2–3BR, depending on condition/building age. Budget fit here is workable with trade-offs with moderate competition; verify listing density and condition during viewings.",
+      "top_microhoods": [
+        "Collignon",
+        "Terdelt"
+      ],
+      "microhoods": [
+        {
+          "name": "Collignon",
+          "portal_keywords": [
+            "Collignon",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, good tram coverage, solid schools/childcare density, good café and brunch scene. Watch for busier evenings in lively pockets."
+        },
+        {
+          "name": "Terdelt",
+          "portal_keywords": [
+            "Terdelt",
+            "Brussels"
+          ],
+          "highlights": "Good starting point with more green space and park access, solid schools/childcare density. Watch for transit access varies street-to-street."
+        }
+      ],
+      "profile_score": 4.4771482000935015,
+      "rank": 3,
+      "rank_debug": {
+        "profile_score": 4.4771482000935015,
+        "overall": 4,
+        "weights": {
+          "selected_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks",
+            "residential_quiet",
+            "premium_feel",
+            "families"
+          ],
+          "top3_tags": [
+            "schools_strong",
+            "older_quiet",
+            "green_parks"
+          ],
+          "raw_dim_weights": {
+            "Safety": 0.651,
+            "Family": 2.8600000000000003,
+            "Commute": 0.04782608695652174,
+            "Lifestyle": 0.8520434782608695,
+            "BudgetFit": 0.23913043478260868
+          },
+          "dim_weights": {
+            "Safety": 0.13999999999999999,
+            "Family": 0.6150537634408603,
+            "Commute": 0.010285179990649837,
+            "Lifestyle": 0.18323515661524073,
+            "BudgetFit": 0.05142589995324917
+          },
+          "per_tag_contrib": {
+            "schools_strong": {
+              "Family": 1.0
+            },
+            "older_quiet": {
+              "Safety": 0.42,
+              "Lifestyle": 0.38,
+              "Family": 0.2
+            },
+            "green_parks": {
+              "Family": 1.0
+            },
+            "residential_quiet": {
+              "Safety": 0.231,
+              "Lifestyle": 0.20900000000000002,
+              "Family": 0.11000000000000001
+            },
+            "premium_feel": {
+              "Lifestyle": 0.26304347826086955,
+              "Commute": 0.04782608695652174,
+              "BudgetFit": 0.23913043478260868
+            },
+            "families": {
+              "Family": 0.55
+            }
+          }
+        }
+      },
+      "commune": ""
+    }
+  ],
+  "real_estate_sites": [
+    {
+      "name": "Immoweb",
+      "url": "https://www.immoweb.be",
+      "note": "Largest Belgian property portal."
+    },
+    {
+      "name": "Zimmo",
+      "url": "https://www.zimmo.be",
+      "note": "Very popular portal; broad coverage."
+    },
+    {
+      "name": "Immoscoop",
+      "url": "https://www.immoscoop.be",
+      "note": "Strong listings; many agent exclusives."
+    }
+  ],
+  "agencies": [
+    {
+      "name": "ERA Belgium",
+      "url": "https://www.era.be",
+      "note": "National network (100+ offices)."
+    },
+    {
+      "name": "CENTURY 21 Belgium",
+      "url": "https://www.century21.be",
+      "note": "National network (130+ branches)."
+    },
+    {
+      "name": "TREVI",
+      "url": "https://www.trevi.be",
+      "note": "Large Belgian network (35+ agencies)."
+    },
+    {
+      "name": "Dewaele",
+      "url": "https://www.dewaele.com",
+      "note": "Large network in Flanders & Brussels."
+    },
+    {
+      "name": "Immo Francois",
+      "url": "https://www.immofrancois.be",
+      "note": "Large network (24+ offices)."
+    }
+  ],
+  "methodology": {
+    "inputs": [
+      "Housing type: 2+ rooms; type: Apartment; mode: buy",
+      "Budget (buy): 800k–1.2m EUR purchase",
+      "School commute: walk, max 15 min"
+    ],
+    "matching": [
+      "We only recommend communes and microhoods from the city pack (no invented areas).",
+      "Scores are computed from city-pack signals (amenities, transport, parks) + your budget.",
+      "Priority tags matched: schools_strong, older_quiet, green_parks.",
+      "Shortlist produced: Jette, Etterbeek, Schaerbeek."
+    ]
+  },
+  "executive_summary": [
+    {
+      "name": "Jette",
+      "best_for": "Calmer, more residential pockets around Parc Baudouin - Dielegembos compared with busier hubs.",
+      "watch_out": "Verify street-level noise/parking and building condition during viewings.",
+      "top_microhoods": [
+        "Parc Baudouin - Dielegembos",
+        "Woeste"
+      ],
+      "keywords": [
+        "families",
+        "residential_quiet"
+      ]
+    },
+    {
+      "name": "Etterbeek",
+      "best_for": "Strong international / expat ecosystem and services.",
+      "watch_out": "Prime pockets can be pricey; validate the full purchase cost.",
+      "top_microhoods": [
+        "Jourdan",
+        "Saint - Michel"
+      ],
+      "keywords": [
+        "green_parks",
+        "schools_strong"
+      ]
+    },
+    {
+      "name": "Schaerbeek",
+      "best_for": "Balanced option around Schaerbeek with a clear trade-off between space, commute and amenities.",
+      "watch_out": "Busier evenings in hotspots; confirm noise levels during a late walk-through.",
+      "top_microhoods": [
+        "Collignon",
+        "Terdelt"
+      ],
+      "keywords": [
+        "schools_strong"
+      ]
+    }
+  ],
+  "quality_warnings": []
+}

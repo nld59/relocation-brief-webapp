@@ -1,0 +1,146 @@
+{
+  "client_profile": "Family living in Brussels, seeking to buy a 2+ room home. Budget is max 700000 EUR. Priorities include EU quarter access, culture, and expat-friendly areas.",
+  "must_have": [
+    "Proximity to EU quarter",
+    "Good access to schools",
+    "Cultural amenities nearby",
+    "Safe environment for children",
+    "Strong public transport connections"
+  ],
+  "nice_to_have": [
+    "Art and design spaces nearby",
+    "Diverse dining options",
+    "Parks and playgrounds within walking distance",
+    "Community activities for families"
+  ],
+  "red_flags": [
+    "High traffic areas may impact air quality",
+    "Limited parking availability in some districts",
+    "Noise levels during weekends in tourist spots",
+    "Potential for higher property prices near EU quarter"
+  ],
+  "contradictions": [
+    "Urban density may conflict with quiet residential need",
+    "Cultural hubs often attract crowds; choose wisely",
+    "Expats may drive up prices in popular areas"
+  ],
+  "top_districts": [
+    {
+      "name": "Etterbeek",
+      "micro_anchors": [
+        "Jourdan",
+        "La Chasse",
+        "Cinquantenaire edge"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Expect prices around 4500-5000 EUR per square meter.",
+        "How to validate: Check recent listings and sales on real estate sites."
+      ],
+      "microhoods": [
+        {
+          "name": "Chaussee de Wavre - Saint - Julien",
+          "anchors": [
+            "Cinquantenaire park",
+            "Metro station"
+          ],
+          "portal_keywords": [
+            "schools access",
+            "parks nearby",
+            "expat area"
+          ],
+          "street_hints": [
+            "Quiet side streets",
+            "Proximity to eateries"
+          ],
+          "avoid_verify": "traffic",
+          "why": "Close to enjoy the expansive Cinquantenaire park and cultural activities.",
+          "watch_out": "Traffic can become heavy around main arteries during peak hours."
+        },
+        {
+          "name": "Jourdan",
+          "anchors": [
+            "Le jardin botanique",
+            "Public transport stop"
+          ],
+          "portal_keywords": [
+            "community vibe",
+            "schools nearby",
+            "friendly area"
+          ],
+          "street_hints": [
+            "Family-friendly streets",
+            "Cafe culture"
+          ],
+          "avoid_verify": "noise",
+          "why": "Characterized by local markets and a vibrant expat community.",
+          "watch_out": "Some homes may be located near busy terraces attracting crowds."
+        }
+      ],
+      "why": [
+        "Offers excellent metro access and proximity to parks.",
+        "Welcoming atmosphere for expats and families."
+      ],
+      "watch_out": [
+        "Rents near EU quarter can be higher; consider budget accordingly."
+      ],
+      "scores": {
+        "Safety": null,
+        "Family": null,
+        "Commute": null,
+        "Lifestyle": null,
+        "BudgetFit": null,
+        "Overall": null
+      }
+    },
+    {
+      "name": "Ixelles",
+      "micro_anchors": [
+        "Châtelain",
+        "Flagey",
+        "Cimetiere d'Ixelles"
+      ],
+      "budget_reality": [
+        "Rule of thumb: Prices can soar to about 5500 EUR per square meter.",
+        "How to validate: Explore listings on multiple real estate platforms."
+      ],
+      "microhoods": [
+        {
+          "name": "Universite",
+          "anchors": [
+            "Flagey square",
+            "Transport access"
+          ],
+          "portal_keywords": []
+        },
+        {
+          "name": "Etangs D’ixelles",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    },
+    {
+      "name": "City of Brussels",
+      "micro_anchors": [
+        "Sablon",
+        "Sainte-Catherine / Dansaert",
+        "Royal Palace / Park area"
+      ],
+      "why": [],
+      "watch_out": [],
+      "scores": {},
+      "microhoods": [
+        {
+          "name": "Industrie Nord",
+          "why": "",
+          "watch_out": ""
+        },
+        {
+          "name": "Domaine Royal Laeken",
+          "why": "",
+          "watch_out": ""
+        }
+      ]
+    }
+  ]
+}

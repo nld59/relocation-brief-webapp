@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { ALL_TAGS } from "../components/tags";
+import { extractTagsFromText } from "../components/tag_extractor";
 
 const API = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 
@@ -48,31 +49,76 @@ function tagLabel(id) {
 }
 
 function parseRange(text) {
-  // supports: "2500-3600", "2500 to 3600", "2.5k-3.6k", "2 500 - 3 600"
-  const t = String(text || "").toLowerCase().replace(/€/g, "").replace(/eur/g, "");
-  const norm = t.replace(/,/g, ".").replace(/\s+/g, " ").trim();
+  // Robust budget parsing.
+  // Supports:
+  //  - "2500-3600", "2500 to 3600", "2 500 - 3 600"
+  //  - "2.5k-3.6k", "700k - 1.2m", "700k-1.2mln", "€700k to €1,2 mln"
+  const raw = String(text || "")
+    .toLowerCase()
+    .replace(/€/g, "")
+    .replace(/eur/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
-  const kMul = (s) => {
-    if (!s) return null;
-    let x = s.trim();
+  // Normalize separators: "1,2" -> "1.2" (decimals) and "1 200 000" -> "1200000"
+  const norm = raw
+    .replace(/(\d),(\d)/g, "$1.$2")
+    .replace(/(?<=\d)\s+(?=\d{3}\b)/g, "") // remove thousand spaces
+    .trim();
+
+  const parseToken = (tok) => {
+    if (!tok) return null;
+    let t = tok.trim();
+    // token pattern: number + optional suffix
+    const m = t.match(/^(\d+(?:\.\d+)?)(k|m|mln|million)?$/);
+    if (!m) return null;
+    const num = parseFloat(m[1]);
+    if (Number.isNaN(num)) return null;
+    const suf = m[2] || "";
     let mul = 1;
-    if (x.endsWith("k")) {
-      mul = 1000;
-      x = x.slice(0, -1);
-    }
-    const n = parseFloat(x);
-    if (Number.isNaN(n)) return null;
-    return Math.round(n * mul);
+    if (suf === "k") mul = 1000;
+    if (suf === "m" || suf === "mln" || suf === "million") mul = 1000000;
+    return Math.round(num * mul);
   };
 
-  // find tokens like 2500, 3.6k
-  const tokens = norm.match(/(\d+(?:\.\d+)?k?)/g) || [];
+  // Extract tokens like: 2500, 3.6k, 1.2m, 1.2mln
+  const tokens = norm.match(/\d+(?:\.\d+)?(?:mln|million|k|m)?/g) || [];
   if (tokens.length < 2) return { min: null, max: null };
-  let a = kMul(tokens[0]);
-  let b = kMul(tokens[1]);
-  if (a == null || b == null) return { min: null, max: null };
+
+  // Heuristic: take the first 2 "value" tokens that successfully parse.
+  // (This avoids the classic "1.2mln" -> ["1", "2", "mln"] bug.)
+  const vals = [];
+  for (const tok of tokens) {
+    const v = parseToken(tok);
+    if (v != null) vals.push(v);
+    if (vals.length >= 2) break;
+  }
+  if (vals.length < 2) return { min: null, max: null };
+
+  let [a, b] = vals;
   if (b < a) [a, b] = [b, a];
   return { min: a, max: b };
+}
+
+function budgetExamples(mode) {
+  if (mode === "rent") {
+    return "Examples:\n- 2000-3000\n- 2.5k to 3.6k\n(monthly rent)";
+  }
+  return "Examples:\n- 500k-800k\n- 700k to 1.2m\n(purchase budget)";
+}
+
+function formatBudget(min, max, mode) {
+  if (min == null || max == null) return "—";
+  const fmt = (v) => {
+    if (mode === "buy" && v >= 1000000) {
+      return `${(v / 1000000).toFixed(v % 1000000 === 0 ? 0 : 1)}m`;
+    }
+    if (mode === "buy" && v >= 1000) {
+      return `${Math.round(v / 1000)}k`;
+    }
+    return String(v);
+  };
+  return `${fmt(min)}–${fmt(max)}`;
 }
 
 export default function ChatPage() {
@@ -85,13 +131,18 @@ export default function ChatPage() {
   const [busy, setBusy] = useState(false);
 
   const [state, setState] = useState(INITIAL_STATE);
-  const [step, setStep] = useState("city"); // city -> household -> kids? -> housing -> bedrooms -> propertyType -> budget -> top3 -> extras -> work -> workDetails? -> school -> schoolDetails? -> generate -> clarify -> qa
+  const [step, setStep] = useState("city"); // city -> household -> kids? -> housing -> bedrooms -> propertyType -> budget -> priorities_freeform -> priorities_confirm -> priorities_edit -> work -> workDetails? -> school -> schoolDetails? -> generate -> clarify -> qa
   const [mode, setMode] = useState("onboarding"); // onboarding | clarify | qa
   const [tagTop, setTagTop] = useState([]); // top3 storage
+  const [priorityDraft, setPriorityDraft] = useState({ top3: [], also: [], selected: [] });
+  const [editSelected, setEditSelected] = useState([]);
 
   const [briefId, setBriefId] = useState("");
   const [clarifying, setClarifying] = useState([]);
   const [clarAnswers, setClarAnswers] = useState({});
+
+  // QA controls
+  const [qaMode, setQaMode] = useState("report_only"); // report_only | verified
 
   // history snapshots for Back
   const [history, setHistory] = useState([]);
@@ -153,7 +204,58 @@ export default function ChatPage() {
     setInput("");
   }
 
-  async function callDraft(payload) {
+  
+  function applyPrioritiesFromSelection(selected, top3) {
+    const sel = (selected || []).slice(0, 7);
+    const top = (top3 || []).slice(0, 3);
+
+    const finalTop = top.length ? top : sel.slice(0, 3);
+    const rest = sel.filter((id) => !finalTop.includes(id));
+    return [...finalTop, ...rest].slice(0, 7);
+  }
+
+  function confirmPriorityProposal() {
+    snapshot();
+    const priorities = applyPrioritiesFromSelection(priorityDraft.selected, priorityDraft.top3);
+    setState((s) => ({ ...s, priorities }));
+    askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+  }
+
+  function openPriorityEditor() {
+    snapshot();
+    setEditSelected(priorityDraft.selected || []);
+    setTagTop(priorityDraft.top3 || []);
+    setStep("priorities_edit");
+    push("assistant", "Sure — adjust your priorities below, then press “Confirm priorities”.");
+  }
+
+  function toggleEditSelected(id) {
+    setEditSelected((prev) => {
+      const exists = prev.includes(id);
+      let next = exists ? prev.filter((x) => x !== id) : [...prev, id];
+      if (next.length > 7) next = next.slice(0, 7);
+      // keep top3 consistent
+      setTagTop((tprev) => tprev.filter((x) => next.includes(x)).slice(0, 3));
+      return next;
+    });
+  }
+
+  function toggleTop3(id) {
+    setTagTop((prev) => {
+      const exists = prev.includes(id);
+      if (exists) return prev.filter((x) => x !== id);
+      if (prev.length >= 3) return prev; // limit
+      return [...prev, id];
+    });
+  }
+
+  function confirmEditedPriorities() {
+    snapshot();
+    const priorities = applyPrioritiesFromSelection(editSelected, tagTop);
+    setState((s) => ({ ...s, priorities }));
+    askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+  }
+async function callDraft(payload) {
     const res = await fetch(`${API}/brief/draft`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -181,11 +283,11 @@ export default function ChatPage() {
     return data;
   }
 
-  async function callQA(brief_id, question) {
+  async function callQA(brief_id, question, modeOverride) {
     const res = await fetch(`${API}/brief/qa`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ brief_id, question, mode: "report_only" }),
+      body: JSON.stringify({ brief_id, question, mode: modeOverride || qaMode }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
@@ -284,7 +386,16 @@ export default function ChatPage() {
           const data = await callQA(briefId, text);
           push("assistant", data.answer || "Sorry, I couldn't answer that.");
         } catch (e) {
-          push("assistant", `Q&A failed: ${e.message}`);
+          // If verified fails (missing key / blocked domains), suggest fallback.
+          const msg = String(e.message || "");
+          if (qaMode === "verified") {
+            push(
+              "assistant",
+              `Verified lookup failed: ${msg}. You can switch Verified off to answer strictly from the report.`
+            );
+          } else {
+            push("assistant", `Q&A failed: ${msg}`);
+          }
         } finally {
           setBusy(false);
         }
@@ -398,7 +509,7 @@ export default function ChatPage() {
       setState((s) => ({ ...s, propertyType: val }));
       askNext(
         "budget",
-        "What is your budget range?\n\nExamples:\n- 2000-3000\n- 2.5k to 3.6k\n(We interpret based on rent/buy.)"
+        `What is your budget range?\n\n${budgetExamples(state.mode)}\n\nTip: You can type formats like “700k-1.2m” or “2.5k-3.6k”.`
       );
       return;
     }
@@ -406,60 +517,128 @@ export default function ChatPage() {
     if (step === "budget") {
       const { min, max } = parseRange(text);
       if (min == null || max == null) {
-        push("assistant", 'Please give a range with two numbers, e.g., "2000-3000" or "2.5k-3.6k".');
+        push(
+          "assistant",
+          'Please give a range with two values, e.g., "2000-3000", "2.5k-3.6k" (rent) or "700k-1.2m" (buy).'
+        );
         return;
       }
       snapshot();
       setState((s) => ({ ...s, budgetMin: min, budgetMax: max }));
       setTagTop([]);
-      const intro = `Now pick your TOP 3 priorities (reply with 3 numbers):\n`;
-      const list = ALL_TAGS.slice(0, 12).map((t, i) => `${i + 1}. ${t.title}`).join("\n");
-      askNext("top3", `${intro}${list}\n\n(We will add more options right after.)`);
-      return;
-    }
-
-    if (step === "top3") {
-      const nums = (text.match(/\d+/g) || [])
-        .map((n) => parseInt(n, 10))
-        .filter((n) => n >= 1 && n <= ALL_TAGS.length);
-      const uniq = [...new Set(nums)].slice(0, 3);
-      if (uniq.length < 3) {
-        push("assistant", 'Please reply with 3 numbers (e.g., "1 5 9").');
-        return;
-      }
-      snapshot();
-      const picked = uniq.map((n) => ALL_TAGS[n - 1].id);
-      setTagTop(picked);
-      setState((s) => ({ ...s, priorities: picked }));
-      const allList = ALL_TAGS.map((t, i) => `${i + 1}. ${t.title}`).join("\n");
+      setPriorityDraft({ top3: [], also: [], selected: [] });
+      setEditSelected([]);
       askNext(
-        "extras",
-        `Great. Add up to 4 more priorities (optional). Reply with numbers, or type "skip".\n\n${allList}`
+        "priorities_freeform",
+        `Now describe in your own words what matters most.
+
+Examples:
+- “Green and quiet, family-friendly, good schools, but still close to the center.”
+- “Vibrant cafés and culture, international vibe, easy commute to EU Quarter.”`
       );
       return;
     }
 
-    if (step === "extras") {
-      const low = text.toLowerCase().trim();
-      if (low === "skip" || low === "no" || low === "none") {
-        askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+    if (step === "priorities_freeform") {
+      // Convert user freeform text into tags
+      snapshot();
+      const res = extractTagsFromText(text, ALL_TAGS);
+      const selected = [...res.top3, ...res.also].slice(0, 7);
+
+      if (!selected.length) {
+        push(
+          "assistant",
+          "I couldn't confidently map that to our priorities. No worries — please pick from the list below."
+        );
+        setPriorityDraft({ top3: [], also: [], selected: [] });
+        setEditSelected([]);
+        setTagTop([]);
+        setStep("priorities_edit");
         return;
       }
-      const nums = (text.match(/\d+/g) || [])
-        .map((n) => parseInt(n, 10))
-        .filter((n) => n >= 1 && n <= ALL_TAGS.length);
-      const uniq = [...new Set(nums)].slice(0, 4);
-      snapshot();
-      const extra = uniq
-        .map((n) => ALL_TAGS[n - 1].id)
-        .filter((id) => !tagTop.includes(id));
-      const combined = [...tagTop, ...extra].slice(0, 7);
-      setState((s) => ({ ...s, priorities: combined }));
-      askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+
+      setPriorityDraft({ top3: res.top3, also: res.also, selected });
+      setEditSelected(selected);
+      setTagTop(res.top3);
+
+      const topLabels = res.top3.map((id) => ALL_TAGS.find((t) => t.id === id)?.title || id);
+      const alsoLabels = res.also.map((id) => ALL_TAGS.find((t) => t.id === id)?.title || id);
+
+      let msg = `I understood your priorities like this:\n\nTop priorities: ${topLabels.join(
+        ", "
+      )}`;
+      if (alsoLabels.length) msg += `\nAlso: ${alsoLabels.join(", ")}`;
+      msg += `\n\nConfirm? (Yes / Edit)`;
+
+      askNext("priorities_confirm", msg);
       return;
     }
 
-    if (step === "work") {
+    if (step === "priorities_confirm") {
+      const low = text.toLowerCase().trim();
+      if (low.startsWith("y")) {
+        snapshot();
+        const selected = (priorityDraft.selected || []).slice(0, 7);
+        const top3 = (priorityDraft.top3 || []).slice(0, 3);
+        const finalTop = top3.length ? top3 : selected.slice(0, 3);
+        const rest = selected.filter((id) => !finalTop.includes(id));
+        const priorities = [...finalTop, ...rest].slice(0, 7);
+
+        setState((s) => ({ ...s, priorities }));
+        askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+        return;
+      }
+      if (low.startsWith("e")) {
+        snapshot();
+        setEditSelected(priorityDraft.selected || []);
+        setTagTop(priorityDraft.top3 || []);
+        setStep("priorities_edit");
+        push(
+          "assistant",
+          "Sure — adjust your priorities below, then press “Confirm priorities”."
+        );
+        return;
+      }
+      push('assistant', 'Please reply "Yes" to confirm or "Edit" to adjust.');
+      return;
+    }
+
+    if (step === "priorities_edit") {
+      // In edit step we rely on UI controls. As a fallback, user can type:
+      // - "confirm" to apply current selection
+      // - "skip" to proceed with current selection (or empty)
+      const low = text.toLowerCase().trim();
+      if (low.includes("confirm") || low.includes("done") || low.startsWith("ok")) {
+        // apply selection
+        snapshot();
+        const selected = (editSelected || []).slice(0, 7);
+        const top3 = (tagTop || []).slice(0, 3);
+        const finalTop = top3.length ? top3 : selected.slice(0, 3);
+        const rest = selected.filter((id) => !finalTop.includes(id));
+        const priorities = [...finalTop, ...rest].slice(0, 7);
+        setState((s) => ({ ...s, priorities }));
+        askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+        return;
+      }
+      if (low === "skip") {
+        snapshot();
+        const selected = (editSelected || []).slice(0, 7);
+        const top3 = (tagTop || []).slice(0, 3);
+        const finalTop = top3.length ? top3 : selected.slice(0, 3);
+        const rest = selected.filter((id) => !finalTop.includes(id));
+        const priorities = [...finalTop, ...rest].slice(0, 7);
+        setState((s) => ({ ...s, priorities }));
+        askNext("work", "Do you want to optimize for commute to work? (yes/no)");
+        return;
+      }
+      push(
+        "assistant",
+        'Use the checklist to edit priorities, then click “Confirm priorities”. (Or type "confirm".)'
+      );
+      return;
+    }
+
+if (step === "work") {
       const low = text.toLowerCase();
       if (!low.startsWith("y") && !low.startsWith("n")) {
         push("assistant", "Please reply: yes or no");
@@ -701,6 +880,139 @@ export default function ChatPage() {
             <div ref={bottomRef} />
           </div>
 
+          {step === "priorities_confirm" && (
+            <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <button className="btn" type="button" disabled={busy} onClick={confirmPriorityProposal}>
+                Yes, looks right
+              </button>
+              <button className="btn" type="button" disabled={busy} onClick={openPriorityEditor}>
+                Edit priorities
+              </button>
+            </div>
+          )}
+
+          {step === "priorities_edit" && (
+            <div
+              style={{
+                marginTop: 12,
+                padding: 12,
+                borderRadius: 16,
+                border: "1px solid var(--stroke)",
+                background: "rgba(255,255,255,0.04)",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+                <div style={{ fontWeight: 700 }}>
+                  Edit priorities (selected {editSelected.length}/7 · top {tagTop.length}/3)
+                </div>
+                <button
+                  className="btn"
+                  type="button"
+                  disabled={busy || editSelected.length === 0}
+                  onClick={confirmEditedPriorities}
+                >
+                  Confirm priorities
+                </button>
+              </div>
+
+              <div style={{ marginTop: 10, maxHeight: 220, overflowY: "auto", paddingRight: 6 }}>
+                {ALL_TAGS.map((t) => {
+                  const checked = editSelected.includes(t.id);
+                  const isTop = tagTop.includes(t.id);
+                  return (
+                    <div
+                      key={t.id}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 12,
+                        padding: "6px 4px",
+                        borderBottom: "1px solid rgba(255,255,255,0.06)",
+                      }}
+                    >
+                      <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleEditSelected(t.id)}
+                          disabled={busy}
+                        />
+                        <span>{t.title}</span>
+                      </label>
+
+                      <button
+                        type="button"
+                        className="btn"
+                        style={{
+                          padding: "6px 10px",
+                          opacity: checked ? 1 : 0.4,
+                          pointerEvents: checked ? "auto" : "none",
+                        }}
+                        onClick={() => toggleTop3(t.id)}
+                        disabled={busy || !checked}
+                        title="Mark/unmark as Top-3"
+                      >
+                        {isTop ? "Top ✓" : "Make Top"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div style={{ marginTop: 10, color: "var(--muted)", fontSize: 12 }}>
+                Tip: Select up to 7 priorities. Mark up to 3 as “Top”. If you don’t mark Top, we’ll use the first selected.
+              </div>
+            </div>
+          )}
+
+          {mode === "qa" && briefId && (
+            <div style={{ marginTop: 10 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+                {[
+                  "Why is the #1 commune first?",
+                  "Compare #1 vs #2 communes",
+                  "Why not Uccle for my case?",
+                  "Summarize my top communes in 3 bullets",
+                  "What should I watch out for when viewing apartments?",
+                ].map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    className="btn"
+                    style={{ padding: "6px 10px", fontSize: 12, opacity: busy ? 0.6 : 1 }}
+                    disabled={busy}
+                    onClick={() => {
+                      setInput(q);
+                      setTimeout(() => onSend(), 0);
+                    }}
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 8, display: "flex", alignItems: "center", gap: 10 }}>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
+                  <input
+                    type="checkbox"
+                    checked={qaMode === "verified"}
+                    onChange={(e) => setQaMode(e.target.checked ? "verified" : "report_only")}
+                    disabled={busy}
+                  />
+                  <span>
+                    <b>Verified</b> (official sources)
+                  </span>
+                </label>
+                <span style={{ color: "var(--muted)", fontSize: 12 }}>
+                  {qaMode === "verified"
+                    ? "Uses an allowlist of official domains and returns citations."
+                    : "Answers strictly from your report."}
+                </span>
+              </div>
+            </div>
+          )}
+
           <div className="row" style={{ marginTop: 12 }}>
             <input
               className="input"
@@ -719,7 +1031,7 @@ export default function ChatPage() {
 
           <div style={{ marginTop: 10, color: "var(--muted)", fontSize: 13 }}>
             <div>
-              <b>Current inputs:</b> {state.city || "—"} · {state.mode} · budget {state.budgetMin ?? "—"}–{state.budgetMax ?? "—"} ·
+              <b>Current inputs:</b> {state.city || "—"} · {state.mode} · budget {formatBudget(state.budgetMin, state.budgetMax, state.mode)}{state.mode === "rent" ? " €/mo" : ""} ·
               priorities: {selectedTags || "—"}
             </div>
           </div>

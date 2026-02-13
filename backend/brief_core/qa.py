@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import requests
-from openai import OpenAI
 
 
 # ---------- Markdown chunking / anchors ----------
@@ -195,10 +194,14 @@ def _pick_verified_excerpts(question: str, results: List[Dict[str, Any]], max_ex
 
 # ---------- LLM call ----------
 
-def _openai_client() -> OpenAI:
+def _openai_client():
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY is not set.")
+    # Lazy import to keep the module importable even if openai isn't installed
+    # in environments where QA is not used.
+    from openai import OpenAI  # type: ignore
+
     return OpenAI(api_key=api_key)
 
 
@@ -217,6 +220,263 @@ def _extract_resp_text(resp: Any) -> str:
         return "\n".join([x for x in out if x])
     except Exception:
         return ""
+
+
+def _safe_json_from_text(text: str) -> Optional[Dict[str, Any]]:
+    """Best-effort JSON extraction.
+
+    Models occasionally wrap JSON in markdown fences, add prose before/after,
+    or return slightly-invalid JSON. For MVP robustness, we try:
+    1) direct json.loads
+    2) extract the first {...} block and json.loads
+
+    We intentionally keep this conservative: if we can't parse, return None.
+    """
+    raw = (text or "").strip()
+    if not raw:
+        return None
+
+    # common markdown fences
+    raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.IGNORECASE).strip()
+    raw = re.sub(r"\s*```$", "", raw).strip()
+
+    try:
+        obj = json.loads(raw)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        pass
+
+    # Extract first JSON object by brace matching
+    start = raw.find("{")
+    if start < 0:
+        return None
+    depth = 0
+    end = -1
+    for i in range(start, len(raw)):
+        ch = raw[i]
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = i
+                break
+    if end < 0:
+        return None
+    snippet = raw[start : end + 1]
+    try:
+        obj = json.loads(snippet)
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def _norm_top_districts(norm: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Return top districts/communes list from norm.json across versions."""
+    td = norm.get("top_districts")
+    if isinstance(td, list) and td:
+        return td
+    # older/alternate keys
+    for k in ("top_communes", "top_communes_ranked", "districts"):
+        v = norm.get(k)
+        if isinstance(v, list) and v:
+            return v
+    return []
+
+
+def _find_district_mention(question: str, districts: List[Dict[str, Any]]) -> Optional[str]:
+    q = (question or "").lower()
+    names: List[str] = []
+    for d in districts:
+        n = (d.get("name") or d.get("commune") or "").strip()
+        if n:
+            names.append(n)
+    # longest match first
+    names.sort(key=len, reverse=True)
+    for n in names:
+        if n.lower() in q:
+            return n
+    return None
+
+
+def _slug_to_anchor_from_md(md_text: str, contains: str) -> Tuple[str, str]:
+    """Pick a reasonable anchor/snippet by scanning chunk titles."""
+    contains_l = (contains or "").lower()
+    for c in split_md_by_headings(md_text or ""):
+        if contains_l in (c.title or "").lower():
+            snip = (c.text or "").strip().splitlines()
+            sn = "\n".join(snip[:3]).strip()
+            if len(sn) > 220:
+                sn = sn[:220].rsplit(" ", 1)[0] + "…"
+            return c.anchor, sn
+    return "", ""
+
+
+def _deterministic_why_rank_answer(
+    *,
+    question: str,
+    md_text: str,
+    norm: Dict[str, Any],
+) -> Optional[Dict[str, Any]]:
+    """Answer ranking/"why" questions directly from norm.json.
+
+    This avoids brittle retrieval and does not depend on LLM formatting.
+    """
+    q = (question or "").strip()
+    ql = q.lower()
+    districts = _norm_top_districts(norm)
+    if not districts:
+        return None
+
+    is_rank_q = any(x in ql for x in ("why", "rank", "first", "#1", "top", "higher", "lower", "compare"))
+    if not is_rank_q:
+        return None
+
+    mentioned = _find_district_mention(q, districts)
+
+    # Simple compare pattern: "X vs Y" or "X higher than Y"
+    compare = None
+    m_vs = re.search(r"(.+?)\s+(?:vs\.?|versus)\s+(.+)", q, flags=re.IGNORECASE)
+    if m_vs:
+        compare = (m_vs.group(1).strip(), m_vs.group(2).strip())
+    m_higher = re.search(r"(.+?)\s+(?:higher than|above)\s+(.+)", q, flags=re.IGNORECASE)
+    if m_higher:
+        compare = (m_higher.group(1).strip(), m_higher.group(2).strip())
+
+    # Build a lookup by normalized name
+    def norm_name(s: str) -> str:
+        return re.sub(r"\s+", " ", (s or "").strip().lower())
+
+    by_name = {norm_name(d.get("name") or d.get("commune") or ""): d for d in districts if (d.get("name") or d.get("commune"))}
+
+    def get_d(name: str) -> Optional[Dict[str, Any]]:
+        if not name:
+            return None
+        key = norm_name(name)
+        if key in by_name:
+            return by_name[key]
+        # partial/contains match
+        for k, v in by_name.items():
+            if key in k or k in key:
+                return v
+        return None
+
+    # If compare, answer comparison
+    if compare:
+        d1 = get_d(compare[0])
+        d2 = get_d(compare[1])
+        if d1 and d2:
+            n1 = d1.get("name") or d1.get("commune")
+            n2 = d2.get("name") or d2.get("commune")
+            s1 = d1.get("scores") or {}
+            s2 = d2.get("scores") or {}
+            # pick top differing dimensions
+            dims = [k for k in ("Family", "Safety", "Commute", "Lifestyle", "BudgetFit", "Overall") if k in s1 and k in s2]
+            diffs = []
+            for k in dims:
+                try:
+                    diffs.append((k, float(s1.get(k, 0)) - float(s2.get(k, 0))))
+                except Exception:
+                    continue
+            diffs.sort(key=lambda x: abs(x[1]), reverse=True)
+            bullets = []
+            for k, dv in diffs[:3]:
+                if dv == 0:
+                    continue
+                sign = "+" if dv > 0 else ""
+                bullets.append(f"{k}: {n1} {sign}{int(dv)} vs {n2}")
+
+            why1 = (d1.get("score_debug") or d1.get("why") or [])
+            why2 = (d2.get("score_debug") or d2.get("why") or [])
+            # score_debug may be dict; normalize to list of short reasons
+            def reasons(x):
+                if isinstance(x, list):
+                    return [str(i) for i in x if str(i).strip()][:2]
+                if isinstance(x, dict):
+                    out=[]
+                    for kk,vv in x.items():
+                        if isinstance(vv, list) and vv:
+                            out.append(f"{kk}: {vv[0]}")
+                        elif isinstance(vv, str) and vv.strip():
+                            out.append(f"{kk}: {vv}")
+                    return out[:2]
+                return []
+            r1 = reasons(why1)
+            r2 = reasons(why2)
+
+            anchor, snip = _slug_to_anchor_from_md(md_text, "Executive summary")
+            if not anchor:
+                anchor, snip = _slug_to_anchor_from_md(md_text, "Top")
+            answer = (
+                f"{n1} ranks higher than {n2} in this brief because it matches your priorities better across key scoring dimensions.\n"
+                + "\n".join([f"- {b}" for b in bullets[:3]])
+            )
+            if r1:
+                answer += "\n- Key factors for " + str(n1) + ": " + "; ".join(r1)
+            if r2:
+                answer += "\n- Trade-offs for " + str(n2) + ": " + "; ".join(r2)
+
+            return {
+                "answer": answer.strip(),
+                "citations": [
+                    {"label": "Executive summary", "anchor": anchor, "snippet": snip} if anchor else {"label": "Ranking logic", "anchor": "", "snippet": "Based on top_districts scores and score_debug in norm.json"}
+                ],
+                "confidence": 0.85,
+            }
+
+    # Otherwise, "why first" for a mentioned district
+    if ("first" in ql or "#1" in ql or "top" in ql) and ("why" in ql or "rank" in ql or "first" in ql):
+        target_name = mentioned or (districts[0].get("name") or districts[0].get("commune"))
+        d = get_d(target_name)
+        if not d:
+            return None
+
+        name = d.get("name") or d.get("commune")
+        s = d.get("scores") or {}
+        reasons = d.get("score_debug") or d.get("matched_priorities") or d.get("why") or []
+        # Normalize reasons to a few readable bullets
+        bullets: List[str] = []
+        if isinstance(reasons, dict):
+            for k, v in reasons.items():
+                if isinstance(v, list) and v:
+                    bullets.append(f"{k}: {v[0]}")
+                elif isinstance(v, str) and v.strip():
+                    bullets.append(f"{k}: {v}")
+        elif isinstance(reasons, list):
+            bullets.extend([str(x) for x in reasons if str(x).strip()])
+
+        # fallback bullets: highlight strongest dimensions
+        if not bullets:
+            dims = ["Family", "Safety", "Lifestyle", "Commute", "BudgetFit", "Overall"]
+            dim_scores = [(k, s.get(k)) for k in dims if k in s]
+            for k, v in dim_scores[:3]:
+                bullets.append(f"{k}: {v}/5")
+
+        anchor, snip = _slug_to_anchor_from_md(md_text, "Executive summary")
+        if not anchor:
+            anchor, snip = _slug_to_anchor_from_md(md_text, "Top")
+
+        # If question is about a non-#1 district, explain its position
+        pos = None
+        for i, dd in enumerate(districts, start=1):
+            if norm_name(dd.get("name") or dd.get("commune") or "") == norm_name(name):
+                pos = i
+                break
+
+        conclusion = f"{name} is ranked #1 for your brief because it best matches your selected priorities and scores strongly on the most relevant dimensions."
+        if pos and pos != 1:
+            conclusion = f"{name} is ranked #{pos} in your brief because it matches your priorities well, but another commune scores slightly better on your top drivers."
+
+        out = conclusion + "\n" + "\n".join([f"- {b}" for b in bullets[:4]])
+        return {
+            "answer": out.strip(),
+            "citations": [
+                {"label": "Executive summary", "anchor": anchor, "snippet": snip} if anchor else {"label": "Ranking logic", "anchor": "", "snippet": "Based on top_districts scores and score_debug in norm.json"}
+            ],
+            "confidence": 0.9,
+        }
+
+    return None
 
 
 REPORT_ONLY_SYSTEM = """You are a real-estate broker style consultant for relocation.
@@ -257,6 +517,107 @@ def answer_question(
     if mode not in ("report_only", "verified"):
         mode = "report_only"
 
+    # --- Deterministic router for common "why / compare / ranking" questions ---
+    districts = _norm_top_districts(norm or {})
+    ql = (question or "").lower()
+    is_why = bool(re.search(r"\bwhy\b", ql)) or "explain" in ql
+    is_rank = any(k in ql for k in ["first", "#1", "top", "rank", "higher", "lower", "ahead", "above", "below", "compare"])
+    mentioned = _find_district_mention(question, districts)
+    if districts and (is_why or "compare" in ql or "higher" in ql) and (mentioned or is_rank):
+        # Build a deterministic explanation from norm.json (source of truth).
+        top_names = [
+            (d.get("name") or d.get("commune") or "").strip()
+            for d in districts
+            if (d.get("name") or d.get("commune"))
+        ]
+        # identify target district (default to #1 if asking about "first")
+        target = mentioned
+        if ("first" in ql or "#1" in ql) and top_names:
+            target = target or top_names[0]
+
+        def get_d(name: str) -> Optional[Dict[str, Any]]:
+            for d in districts:
+                dn = (d.get("name") or d.get("commune") or "").strip()
+                if dn.lower() == (name or "").strip().lower():
+                    return d
+            return None
+
+        d0 = get_d(target) if target else None
+        if d0:
+            # pick 2-3 reasons: prefer score_debug, then matched_priorities/why
+            reasons: List[str] = []
+            sd = d0.get("score_debug")
+            if isinstance(sd, dict):
+                # Take top 3 debug strings by key order preference
+                for k in ["Family", "Lifestyle", "BudgetFit", "Safety", "Commute", "Overall"]:
+                    v = sd.get(k)
+                    if isinstance(v, list):
+                        for item in v:
+                            if isinstance(item, str) and item.strip():
+                                reasons.append(item.strip())
+                            if len(reasons) >= 3:
+                                break
+                    elif isinstance(v, str) and v.strip():
+                        reasons.append(v.strip())
+                    if len(reasons) >= 3:
+                        break
+                # Newer score_debug schema: use matched priorities + strongest dimensions
+                if not reasons:
+                    mp = d0.get("matched_priorities")
+                    if isinstance(mp, list) and mp:
+                        reasons.append("Matched priorities: " + ", ".join([str(x) for x in mp[:5]]))
+                if not reasons:
+                    sc = (sd.get("scores") if isinstance(sd.get("scores"), dict) else d0.get("scores")) or {}
+                    if isinstance(sc, dict) and sc:
+                        dims = [(k, v) for k, v in sc.items() if k and k != "Overall" and isinstance(v, (int, float))]
+                        dims.sort(key=lambda kv: kv[1], reverse=True)
+                        for k, v in dims[:2]:
+                            reasons.append(f"Strong {k} ({int(v)}/5) for your case")
+                if not reasons:
+                    b = sd.get("budget") if isinstance(sd.get("budget"), dict) else None
+                    if b and b.get("mode"):
+                        reasons.append(f"Budget fit is {b.get('final', b.get('base'))}/5 given your {b.get('mode')} budget")
+            if not reasons:
+                wp = d0.get("why")
+                if isinstance(wp, list):
+                    reasons.extend([str(x).strip() for x in wp if str(x).strip()][:3])
+            if not reasons:
+                mp = d0.get("matched_priorities")
+                if isinstance(mp, list):
+                    reasons.append("Matched priorities: " + ", ".join([str(x) for x in mp[:5]]))
+
+            scores = d0.get("scores") or {}
+            overall = None
+            if isinstance(scores, dict):
+                overall = scores.get("Overall")
+
+            # citation anchor/snippet from MD
+            anchor, snippet = _slug_to_anchor_from_md(md_text, "Executive summary")
+            if not anchor:
+                anchor, snippet = _slug_to_anchor_from_md(md_text, "Top")
+
+            bullets = []
+            if overall is not None:
+                bullets.append(f"Overall score: {overall}/5")
+            for r in reasons[:3]:
+                bullets.append(r)
+
+            answer = f"{target} ranks #{top_names.index(target)+1 if target in top_names else 1} for your inputs."
+            # keep concise
+            if len(bullets) > 0:
+                answer += "\n" + "\n".join([f"- {b}" for b in bullets[:4]])
+
+            return {
+                "answer": answer,
+                "citations": [
+                    {"label": "Executive summary", "anchor": anchor, "snippet": snippet}
+                ]
+                if anchor
+                else [],
+                "confidence": 0.85,
+                "mode": mode,
+            }
+
     chunks = split_md_by_headings(md_text or "")
     ranked = rank_chunks(question, chunks, top_k=6)
 
@@ -271,13 +632,35 @@ def answer_question(
         top_chunks.append({"title": c.title, "anchor": c.anchor, "text": txt})
 
     # Compact norm.json for QA (avoid huge prompt)
+    # Note: current norm schema uses top_districts[] entries (commune + microhoods) instead of top_communes.
+    top_districts = _norm_top_districts(norm or {})
+    top_districts_compact: List[Dict[str, Any]] = []
+    for d in (top_districts or [])[:5]:
+        if not isinstance(d, dict):
+            continue
+        top_districts_compact.append(
+            {
+                "name": d.get("name") or d.get("commune"),
+                "scores": d.get("scores"),
+                "score_debug": d.get("score_debug"),
+                "why": d.get("why"),
+                "watch_out": d.get("watch_out"),
+                "strengths": d.get("strengths"),
+                "tradeoffs": d.get("tradeoffs"),
+                "matched_priorities": d.get("matched_priorities"),
+                "top_microhoods": d.get("top_microhoods"),
+                "microhoods": d.get("microhoods"),
+            }
+        )
+
     norm_compact = {
-        "city": norm.get("city"),
-        "top_communes": norm.get("top_communes"),
-        "top_microhoods": norm.get("top_microhoods"),
-        "scores": norm.get("scores"),
-        "score_debug": norm.get("score_debug"),
-        "method": norm.get("method") or norm.get("trust_method") or norm.get("trust_and_method"),
+        "client_profile": norm.get("client_profile"),
+        "must_have": norm.get("must_have"),
+        "nice_to_have": norm.get("nice_to_have"),
+        "executive_summary": norm.get("executive_summary"),
+        "top_districts": top_districts_compact,
+        "methodology": norm.get("methodology") or norm.get("method") or norm.get("trust_method") or norm.get("trust_and_method"),
+        "quality_warnings": norm.get("quality_warnings"),
     }
 
     official_excerpts: List[Dict[str, Any]] = []
@@ -314,15 +697,16 @@ def answer_question(
     _ = time.perf_counter() - t0
 
     raw = _extract_resp_text(resp).strip()
-    try:
-        data = json.loads(raw)
-    except Exception:
-        # Safe fallback
+    parsed = _safe_json_from_text(raw)
+    if not parsed:
+        # Safe fallback (keep UX consistent)
         data = {
             "answer": "I could not generate a reliable answer from the sources provided.",
             "citations": [],
             "confidence": 0.0,
         }
+    else:
+        data = parsed
 
     # Normalize citations to expected shape
     citations = data.get("citations") or []

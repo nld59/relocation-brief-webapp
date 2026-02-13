@@ -1,19 +1,22 @@
 {
-  "city": "Barcelona",
+  "city": "Brussels",
   "householdType": "family",
   "childrenCount": 1,
   "childrenAges": [
-    1
+    2
   ],
   "mode": "buy",
   "bedrooms": "2",
   "propertyType": "apartment",
-  "budgetMin": 1,
-  "budgetMax": 700,
+  "budgetMin": 800000,
+  "budgetMax": 1200000,
   "priorities": [
-    "families",
-    "cafes_brunch",
-    "expats_international"
+    "schools_strong",
+    "older_quiet",
+    "green_parks",
+    "residential_quiet",
+    "premium_feel",
+    "families"
   ],
   "includeWorkCommute": false,
   "workTransport": "public_transport",
@@ -21,6 +24,6 @@
   "workAddress": "",
   "includeSchoolCommute": true,
   "schoolTransport": "walk",
-  "schoolMinutes": 10,
+  "schoolMinutes": 15,
   "qualityMode": "fast"
 }

@@ -158,11 +158,33 @@ def ui_to_answers(payload: Dict[str, Any]) -> Dict[str, str]:
     bmin = payload.get("budgetMin")
     bmax = payload.get("budgetMax")
 
+    def _fmt_money(v: Any, *, mode: str) -> str:
+        try:
+            x = int(round(float(v)))
+        except Exception:
+            return ""
+        if mode == "buy":
+            if x >= 1_000_000:
+                # 1.2m style
+                m = x / 1_000_000.0
+                return f"{m:.0f}m" if abs(m - round(m)) < 1e-9 else f"{m:.1f}m"
+            if x >= 1000:
+                return f"{round(x/1000)}k"
+        return f"{x}"
+
     if mode == "rent":
-        budget_rent = f"{bmin}–{bmax} EUR/month" if bmin is not None and bmax is not None else ""
+        budget_rent = (
+            f"{_fmt_money(bmin, mode='rent')}–{_fmt_money(bmax, mode='rent')} EUR/month"
+            if bmin is not None and bmax is not None
+            else ""
+        )
         budget_buy = ""
     else:
-        budget_buy = f"{bmin}–{bmax} EUR purchase" if bmin is not None and bmax is not None else ""
+        budget_buy = (
+            f"{_fmt_money(bmin, mode='buy')}–{_fmt_money(bmax, mode='buy')} EUR purchase"
+            if bmin is not None and bmax is not None
+            else ""
+        )
         budget_rent = ""
 
     bed_txt = {"studio": "Studio", "1": "1+ room", "2": "2+ rooms", "3": "3+ rooms"}.get(
